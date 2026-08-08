@@ -4,8 +4,9 @@ Reference documentation for console commands and old-school presentation
 settings in classic PC games.
 
 The project collects practical command references for game consoles and
-developer modes, together with notes on removing the HUD/crosshair and
-disabling texture filtering for a sharp, pixelated look.
+developer modes, together with notes on removing the HUD/crosshair,
+disabling texture filtering for a sharp, pixelated look, and configuring
+widescreen resolutions and field of view.
 
 The focus is on the original games and their original engines whenever
 possible. Remaster-only commands and settings are intentionally avoided.
@@ -119,6 +120,46 @@ tex_filter_mode 0
 Where an original game does not expose a true point-sampling option, the
 reference clearly labels alternative renderer or wrapper methods instead of
 presenting them as native console commands.
+
+## Widescreen / FOV
+
+[widescreen.txt](widescreen.txt) documents 4:3 and 16:9 resolution setup and
+field-of-view configuration for the same 17 games as the console reference.
+The 16:9 examples cover 1920x1080, 2560x1440, and 3840x2160.
+
+The reference uses this project baseline:
+
+```text
+4:3  (800x600)   fov: 90
+16:9 (1920x1080) fov: 106.270273206
+16:9 (2560x1440) fov: 106.270273206
+16:9 (3840x2160) fov: 106.270273206
+```
+
+It covers:
+
+- Duke Nukem 3D / EDuke32
+- Quake
+- Quake II / Yamagi Quake II
+- Unreal
+- Unreal Tournament 1999
+- Half-Life / WON retail version
+- Deus Ex
+- Gothic
+- Gothic II
+- Gothic 3
+- Morrowind
+- Oblivion
+- Skyrim 2011
+- Vietcong 2003
+- Red Faction 2001
+- Thief: The Dark Project / NewDark
+- System Shock 2 / NewDark
+
+The guide distinguishes direct horizontal FOV settings from engines that use
+automatic Hor+ scaling, vertical FOV, or engine-specific units. Where an exact
+numeric FOV cannot be entered, the limitation is documented instead of
+inventing an unsupported command.
 
 ## Project principles
 
