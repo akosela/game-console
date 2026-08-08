@@ -1,0 +1,1172 @@
+DARKSIM - SYSTEM SHOCK 2 — DOS (DARK OS) CONSOLE COMMAND REFERENCE
+===================================================================
+
+IMPORTANT
+---------
+The exact console command registry belongs to the game executable (ss2.exe /
+NewDark build), not to shock2.gam.
+
+For an EXACT list for your own executable/build, run this in the console if
+supported:
+
+  dump_cmds ss2_commands.txt
+
+The engine writes its registered command list to a text file. This is the best
+way to catch build-specific, undocumented, editor-only, or mod-added commands.
+
+Some of the commands listed in this reference are not directly relevant to
+DarkSim. They are included for completeness, however, as they help document
+the broader command set and internal functionality of the Dark Engine/NewDark
+environment on which System Shock 2 is built.
+
+CONSOLE BASICS
+--------------
+Classic/NewDark:
+  Open the in-game command line with the console key configured by the
+  game/build.
+  DarkSim uses ~.
+
+Commands are generally case-insensitive.
+
+Arguments in this file:
+  #  numeric argument
+  <0|1>  off/on switch
+  <name>  object/archetype/resource name
+  <id>  numeric object ID
+  <slot>  quickslot number
+
+A leading "+" on a bindable command usually means "active while key is held",
+for
+example +fire_weapon in a .bnd file.
+
+==============================================================================
+1. NORMAL GAMEPLAY / INPUT COMMANDS
+==============================================================================
+
+show_version
+  Displays the Dark Engine / SS2 version while in game mode.
+
+psi_power <1..5>
+  Switches the active Psi tier.
+
+select_psipower
+select_psi_power
+  Opens/selects the Psi power interface. The exact spelling exposed by a build
+  can
+  vary; select_psipower is the classic documented gameplay form.
+
+cycle_weapon <1|-1>
+  Cycles to the next or previous equippable weapon.
+  Example:
+  cycle_weapon 1
+  cycle_weapon -1
+
+fire_weapon <0|1>
+  Starts/stops firing the current weapon.
+  Normally bound as:
+  +fire_weapon
+
+reload_gun
+  Reloads the currently equipped firearm from compatible inventory ammunition.
+
+swap_guns
+  Swaps the primary and secondary/current weapon selection where supported.
+
+wpn_setting_toggle
+  Toggles the alternate setting/fire mode of the current weapon.
+
+cycle_ammo
+  Cycles compatible ammunition types for the current weapon.
+
+equip_weapon <object-name>
+  Searches inventory for the named weapon/archetype and equips it.
+  Example:
+  equip_weapon assault rifle
+
+select_gun <name-or-id>
+  Developer-level weapon selection command. Selects/readies a gun by object
+  name
+  or object number where the current build exposes it.
+
+use_obj <object-name>
+  Uses an inventory object by archetype/name.
+  Example:
+  use_obj med patch
+
+interface_use
+  Performs the inventory/interface "use" action on the selected item.
+
+quickbind <slot>
+  Assigns the currently selected item/action to a quickslot.
+
+quickuse <slot>
+  Activates the specified quickslot.
+
+shock_jump_player
+  Makes the player jump.
+
+toggle_mouse
+  Switches between mouselook/game mode and cursor/interface mode.
+
+look_cursor
+  Puts the cursor into look/query mode.
+
+query <0|1>
+  Turns query cursor mode off/on.
+
+split <0|1>
+  Turns split cursor mode off/on.
+
+frob_toggle
+  Toggles the current frob/interface interaction mode.
+
+frob_object
+  Frobs/uses the currently selected world object.
+
+frob_object_inv
+  Frobs/uses the selected object, including an inventory object where
+  applicable.
+
+drag_and_drop <0|1>
+  Controls basic drag-and-drop state. Mostly an internal UI/input command.
+
+drag_and_drop_frob <0|1>
+  Internal drag-and-drop/frob interaction command.
+
+drag_and_drop_mode <0|1>
+  Internal drag-and-drop mode switch.
+
+toggle_inv
+  Opens/closes the inventory panel.
+
+toggle_compass
+  Toggles the compass display.
+
+msg_history
+  Opens/toggles message history.
+
+play_unread_log
+  Plays an unread audio log/message.
+
+stop_email
+  Stops the currently playing e-mail/audio log.
+
+clear_teleport
+  Clears the existing Psi teleport marker.
+
+quicksave
+  Quick-saves to the current quicksave location.
+
+quickload
+  Quick-loads the current quicksave.
+
+save_game
+  Opens/executes the normal save-game path depending on build/UI state.
+
+load_game
+  Opens/executes the normal load-game path depending on build/UI state.
+
+main_menu
+  Returns/opens the main menu.
+
+sim_menu
+  Opens the simulation/game menu.
+
+open_mfd <overlay-number>
+  Opens an MFD/overlay by internal overlay number.
+
+Useful SS2 upgrade overlays:
+  open_mfd 35  Stats upgrade interface
+  open_mfd 36  Tech upgrade interface
+  open_mfd 37  Weapon upgrade interface
+  open_mfd 38  Psi upgrade interface
+  open_mfd 20  O/S upgrade interface
+
+overlay_toggle <overlay-number>
+  Toggles an overlay/MFD by its internal number. Developer-oriented.
+
+==============================================================================
+2. CHEAT / PLAYER-STATE COMMANDS
+==============================================================================
+
+add_pool <number>
+  Adds Cyber Modules to the player's module pool.
+  Example:
+  add_pool 50
+
+psi_full
+  Refills/maxes the player's current Psi points.
+
+ubermensch
+  Sets the player to very high/maximal normal stats, weapon skills and tech
+  skills.
+  It does not necessarily grant every Psi tier/power.
+
+add_hp <number>
+  Adds health where this command is available in the current build.
+
+set_psi_points <number>
+  Sets current Psi points. Present in developer/editor command sets;
+  availability in
+  the normal retail executable varies by build.
+
+set_max_psi <number>
+  Sets maximum Psi points. Developer/editor oriented and build-dependent.
+
+enable_cheats
+  Enables engine cheat facilities in builds that expose the command.
+
+unfly
+  Toggles/disables a flying state in builds that expose player flight/debug
+  movement.
+
+unstick_player
+  Attempts to move the player out of obstructing/colliding geometry.
+  Primarily associated with newer NewDark builds.
+
+teleport_player <x,y,z>
+  Teleports the player to world coordinates.
+  Example:
+  teleport_player -34,-23,3
+
+log_player_pos
+  Prints/logs the player's current world coordinates.
+
+log_obj_pos <object>
+  Logs position information for an object where supported.
+
+halt_player
+  Stops/freezes player movement/control state. Developer/debug command.
+
+scale_player_speed <factor>
+  Scales player movement speed in builds where enabled.
+  Example:
+  scale_player_speed 1.5
+
+time_passes <0|1>
+  Controls whether simulation time advances. Mostly developer/editor
+  functionality.
+
+scale_sim_time <factor>
+  Scales simulation speed.
+  Example:
+  scale_sim_time 0.5
+  Known to be useful in editor/debug contexts; normal-game behavior is
+  build-dependent.
+
+show_sim_time
+  Displays/logs simulation timing information.
+
+==============================================================================
+3. OBJECT CREATION / DESTRUCTION
+==============================================================================
+
+summon_obj <archetype-name-or-object-code>
+  Creates an instance of an object/archetype near the player.
+
+Examples:
+  summon_obj pistol
+  summon_obj shotgun
+  summon_obj assault rifle
+  summon_obj psi amp
+  summon_obj wrench
+  summon_obj big nanite pile
+  summon_obj nav marker
+
+Important:
+  - Names with spaces are entered as ordinary command arguments; quoting is
+  normally
+  unnecessary in the classic console.
+  - summon_obj operates on object/archetype names from the loaded GameSys.
+  - A valid-looking display name is not always the actual archetype name.
+  - Spawning mission-critical objects, AI, trainers, keys, markers, or
+  scripted devices
+  can interfere with scripts/quest state. Save first.
+  - Some archetypes spawn partially initialized, unresearched, unloaded,
+  inert, or with
+  odd/default properties.
+
+summon_obj_at <name> [...]
+  Developer variant that creates an object at an explicitly supplied location
+  or
+  editor/object position. Exact parameter format varies by engine build.
+
+destroy_obj <name-or-id>
+  Destroys an object by object ID/name in builds exposing the command.
+  Use with care: deleting mission-critical objects can break scripts.
+
+==============================================================================
+4. USEFUL summon_obj OBJECT CODES
+==============================================================================
+
+The following are documented working/commonly working archetype names for
+standard SS2.
+Your shock2.gam may contain additional archetypes.
+
+--- Currency / resources
+-------------------------------------------------------
+
+nanites
+fakenanites
+1 nanite
+5 nanites
+10 nanites
+small nanite pile
+20 nanites
+medium nanite pile
+big nanite pile
+
+exp cookies
+fakecookie
+1 exp
+small bp pile
+encrypted exp cookie
+10 exp
+medium bp pile
+big bp pile
+
+Notes:
+  EXP Cookies are Cyber Modules.
+  Different pile archetypes represent different quantities.
+
+--- Weapons
+--------------------------------------------------------------------
+
+psi amp
+psisword
+wrench
+pistol
+shotgun
+assault rifle
+laser pistol
+electro shock
+emp rifle
+gren launcher
+stasis field generator
+fusion cannon
+crystal shard
+viral prolif
+worm launcher
+
+Notes:
+  electro shock = Laser Rapier archetype.
+  psisword is a separate Psi Sword archetype and is not the same object as the
+  Laser Rapier.
+
+--- Ammunition
+-----------------------------------------------------------------
+
+small standard clip
+standard clip
+small he clip
+he clip
+small ap clip
+ap clip
+rifled slug box
+pellet shot box
+timed grenade
+prox. grenade
+incend. grenade
+emp grenade
+toxin grenade
+small prism
+large prism
+small worm beaker
+large worm beaker
+
+--- Armor
+----------------------------------------------------------------------
+
+light armor
+medium armor
+heavy armor
+reflec armor
+vacc suit
+worm skin
+
+--- Medical / boosters
+---------------------------------------------------------
+
+med patch
+psi booster
+speed boost
+strength boost
+rad patch
+detox patch
+int boost
+psi patch
+medical kit
+med bed key
+cheeseborger
+annelid_medpatch
+annelid_psipatch
+
+Notes:
+  cheeseborger is the internal name associated with the Diagnostic/Repair
+  Module.
+
+--- Tools
+----------------------------------------------------------------------
+
+maintenance tool
+portable battery
+french-epstein device
+ice pick
+molec. analyzer
+small beaker
+large beaker
+recycler
+
+--- Software
+-------------------------------------------------------------------
+
+research soft v1
+research soft v2
+research soft v3
+
+hack soft v1
+hack soft v2
+hack soft v3
+
+repair soft v1
+repair soft v2
+repair soft v3
+
+modify soft v1
+modify soft v2
+modify soft v3
+
+--- Implants
+-------------------------------------------------------------------
+
+brawnboost
+swiftboost
+smartboost
+labassistant
+endurboost
+wormmind
+expertech
+wormblood
+wormheart
+runfast
+wormblend
+
+--- Research organs
+------------------------------------------------------------
+
+og organ
+monkey_brain
+midwife organ
+grub organ
+arach. organ
+swarm organ
+rumbler organ
+mn. over. organ
+gr. over. organ
+
+--- Chemicals
+------------------------------------------------------------------
+
+chem #1  Fermium
+chem #2  Vanadium
+chem #3  Gallium
+chem #4  Antimony
+chem #5  Yttrium
+chem #6  Copper
+chem #7  Californium
+chem #8  Sodium
+chem #9  Osmium
+chem #10  Iridium
+chem #11  Arsenic
+chem #12  Cesium
+chem #13  Hassium
+chem #14  Tellurium
+chem #15  Molybdenum
+chem #16  Technetium
+chem #17  Radium
+chem #18  Barium
+chem #19  Selenium
+
+Example:
+  summon_obj chem #6
+
+--- Plot / key objects
+----------------------------------------------------------
+
+dead power cell
+power cell
+circuitboard
+radkey card
+anti-annelid toxin
+chip a
+chip b
+chip c
+big bomb
+
+bridge card
+cargo bay 2a/2b
+cryo card
+crew card
+rec crew key
+rick room key
+hydro card a
+hydro card b
+hydro card d
+ops override key
+r and d card
+science card
+security card
+shuttle access key
+
+nikki_card
+candy_card
+lance_card
+sven_card
+
+Unused/odd key archetypes that may exist:
+  crew 2 card
+  cargo bay 1a/1b
+  eng override key
+  med card
+  med annex key
+
+WARNING:
+  Key and plot objects are especially risky to summon because mission logic
+  can depend
+  on unique object IDs, scripts, containment, quest variables, or original
+  placement.
+
+--- GamePig / cartridges
+--------------------------------------------------------
+
+gameboy
+golf cart
+overworld cart
+hogger cart
+swinehunter cart
+swine hunter cart
+swinekeeper
+ttt cart
+burro hog cart
+abyss cart
+kabacon cart
+pig stacker cart
+ping cart
+
+--- Magazines / misc
+------------------------------------------------------------
+
+this month in ping pong
+dj news
+kangaroo quarterly
+rolling monthly
+cigar lover
+vita men's monthly
+
+chips
+soda can
+juice bottle
+champagne bottle
+liquor bottle
+vodka bottle
+
+mug
+plant #2
+cigarettes
+pool cue
+ring buoy
+basketball
+book_1
+heart pillow
+
+--- Enemies / AI
+---------------------------------------------------------------
+
+og-pipe
+og-shotgun
+og-grenade
+blue monkey
+red monkey
+grub
+swarm
+baby arachnid
+arachnightmare
+invisibile arachnid
+overlord
+greater over.
+overlord brain
+rumbler
+security camera
+slug turret
+laser turret
+blast turret
+rick turret
+protocol droid
+training droid
+maintenance
+security
+assault
+midwife
+assassin
+red assassin
+shodan
+shodan head
+floor pod
+wall pod
+grub floor pod
+grub wall pod
+swarmer floor pod
+swarmer wall pod
+golden egg
+wormgoo
+talon droid
+
+WARNING:
+  Spawning AI can create unexpected AIWatch, spawn, patrol, alarm, script, and
+  quest
+  behavior. Some summoned AI archetypes lack the exact links or initialization
+  normally
+  placed in a mission.
+
+--- Crew archetype patterns
+-----------------------------------------------------
+
+femaleeng
+female medsci / femalemedsci  (build/GameSys spelling may vary)
+femalehydro
+femaleops
+femalerec
+femaleflight
+femalerick
+
+maleeng
+malemedsci
+malehydro
+maleops
+malerec
+maleflight
+malerick
+
+crewwoman
+crewman
+
+Because crew archetype spelling is inconsistent in historical lists, use
+console
+autocomplete or dump the actual GameSys/archetype name before relying on a
+pattern.
+
+--- Upgrade / medical / security devices
+---------------------------------------
+
+stats trainer
+tech trainer
+weapon trainer
+psi trainer
+trait machine
+
+med bed
+partial med bed
+bloody_medbed
+
+security comp
+usable comp
+keypad
+hackable crate
+supercrate
+
+--- Interactive / scenery
+-------------------------------------------------------
+
+cryo barrel
+explode barrel
+rad barrel
+body bag
+recharging station
+repbase
+bench
+computer console
+faucet
+gurney
+wide machinery
+microscope
+
+--- Projectiles / markers
+-------------------------------------------------------
+
+fusion shot
+nav marker
+teleport marker
+turret rocket
+
+==============================================================================
+5. DEBUG / SCRIPT COMMANDS
+==============================================================================
+
+script_test
+  Runs/initiates a script test facility. Developer/debug use.
+
+script_load <file>
+  Loads a script module/file in builds that expose dynamic script loading.
+
+script_drop <file>
+  Drops/unloads one script file/module from the current mission.
+
+script_drop_all
+  Drops/unloads all dynamically loaded script files/modules from the mission.
+
+script_dump_files
+  Dumps information about loaded script files/modules.
+
+trace_add
+trace_remove
+  Adds/removes script/debug trace targets or categories. Exact syntax is
+  build-specific.
+
+trace_dump
+trace_dump_active
+trace_line_dump
+trace_line
+  Script/engine tracing diagnostics. Intended for debugging rather than
+  gameplay.
+
+show_sfx
+  Displays/logs sound-effect diagnostic information.
+
+show_image <resource>
+  Displays/loads an image resource for debugging/UI testing.
+
+movie <resource>
+  Plays a movie/cutscene resource where supported.
+
+test_begin
+  Starts an internal test mode/path.
+
+bebrief
+  Internal briefing/debriefing transition command.
+
+chat
+chatsent
+  Multiplayer/chat commands.
+
+mp_hilight_obj
+  Multiplayer/debug object highlight facility.
+
+==============================================================================
+6. GAME SAVE / LOAD / SYSTEM SHOCK-SPECIFIC INTERNAL COMMANDS
+==============================================================================
+
+shk_save_game
+  Internal System Shock 2 save-game command.
+
+shk_load_game
+  Internal System Shock 2 load-game command. Historically more
+  developer-facing than
+  the ordinary quickload/load UI.
+
+shk_load_full
+  Loads a GameSys plus mission in editor/developer contexts.
+
+unlock_elevator
+  Developer/cheat command associated with elevator/deck access state.
+
+train_mfd
+  Opens a training/upgrades MFD in editor/developer command sets.
+
+==============================================================================
+7. CAMERA / VISUAL / ENGINE DEBUG COMMANDS
+==============================================================================
+
+player_cam_control
+  Enables/disables direct player-camera control in debug contexts.
+
+cam_attach <object>
+  Attaches the camera to an object.
+
+player_cam_save
+player_cam_load
+  Saves/restores debug player-camera state.
+
+move_game_camera
+  Moves/manipulates the game camera; developer/debug command.
+
+ghost_show
+  Debug display related to ghost/position state.
+
+flip_highpoly
+  Toggles a high-polygon rendering/debug path where present.
+
+anim_light_reset
+  Resets animated-light state.
+
+show_stats
+stats_full
+time_stats
+tmgr_stats
+  Runtime/performance/statistics diagnostics.
+
+screen_dump
+  Writes a screenshot/screen dump.
+
+flash
+  Screen flash/debug visual effect.
+
+gamma_up
+gamma_down
+gamma_delta
+gamma
+contrast
+contrast_time_scale
+  Gamma/contrast controls or diagnostics. Argument semantics differ by build.
+
+set_fov
+  Sets field of view where the engine build exposes it.
+
+set_postprocess
+set_bloomscale
+set_bloomprescale
+set_bloom_threshold
+set_bloom_range
+set_bloom_saturation
+set_overlay_alpha
+  Newer rendering/post-processing controls. Build-dependent.
+
+toggle_stereo_view
+set_stereo_mirror
+  Stereo/VR-style view controls in builds that support them.
+
+mesh_segs_display
+mesh_joints_display
+show_creature_joints
+  Displays mesh/creature segment or joint debug information.
+
+render_clear
+max_polys
+show_lightmap
+render_info
+detail_level
+dot_clamp
+surf_256
+show_span_lengths
+show_render_times
+info_volume
+portal_clip_poly
+portal_clip_fast
+poly_clip_fast
+cache_feedback
+light_scale
+player_light
+max_dist_2
+keep_all_lit
+show_cells
+span_clip
+portal_model
+full_obj_test
+show_split
+show_bbox
+show_bbox_2d
+disable_topsort
+pick_shade_dist
+puntd3d
+zbuffer
+znup
+zndown
+zfup
+zfdown
+zlinear
+agglight
+nullrast
+palette_light
+skip_clip
+project_space
+linear_map
+surface_cache
+  Low-level Dark Engine renderer/portal/lightmap/rasterizer diagnostic
+  commands.
+  Most are intended for engine development or ShockEd and should not be
+  treated as
+  normal gameplay cheats. Some may be inert or unavailable in a retail/NewDark
+  build.
+
+==============================================================================
+8. QUEST VARIABLE / GENERIC ENGINE COMMANDS
+==============================================================================
+
+quest_create
+quest-create_mis
+  Creates a quest variable, with the latter associated with mission-local
+  state.
+
+quest_get
+  Reads a quest variable.
+
+quest_delete
+  Deletes a quest variable.
+
+quest_sub
+quest_unsub
+quest_spew_sub
+  Quest-variable subscription/debug commands.
+
+set <variable> <value>
+  Sets an engine/config variable where exposed.
+
+get <variable>
+  Gets/displays a variable.
+
+unset <variable>
+  Removes/unsets a variable.
+
+eval <expression>
+  Evaluates an engine command/config expression.
+
+ifdef <variable>
+ifndef <variable>
+  Conditional configuration/command processing.
+
+run <file>
+exec <file>
+  Executes commands/configuration from a file where supported.
+
+lg_help
+  Looking Glass engine command help.
+
+dump_cmds <filename>
+  Dumps the current executable's registered commands and short built-in
+  descriptions
+  to a text file.
+
+THIS IS THE MOST IMPORTANT COMMAND FOR BUILD-SPECIFIC COMPLETENESS.
+
+Example:
+  dump_cmds my_ss2_commands.txt
+
+history_cmd
+  Console command-history facility.
+
+edit_command
+  Console command-line editing facility.
+
+==============================================================================
+9. SOUND / MUSIC
+==============================================================================
+
+stop_cd
+play_cd
+  Legacy CD-audio controls.
+
+song_dumpmono
+  Dumps information about the current song/music state to debug/mono output.
+
+song_event <event>
+  Sends an event to the current music/song system.
+
+stop_song
+  Stops current music in builds that expose the command.
+
+==============================================================================
+10. NETWORK / MULTIPLAYER
+==============================================================================
+
+net_host
+  Starts/hosts a network session in engine builds that expose the legacy
+  command.
+
+net_client
+  Connects/starts a client session.
+
+net_leave
+  Leaves the current network session.
+
+Multiplayer commands can differ between NewDark builds.
+
+==============================================================================
+11. MOD / NEWDARK COMMANDS
+==============================================================================
+
+mod_fm_list
+mod_fm_set
+mod_fm_reset
+  Fan-mission/mod selection commands in builds exposing them.
+
+mod_config_load
+mod_config_save
+  Loads/saves mod configuration.
+
+mod_list
+  Lists active/available mods in newer builds.
+
+mod_add <mod>
+  Adds a mod to the active mod set.
+
+mod_remove <mod>
+  Removes a mod from the active mod set.
+
+mod_position
+mod_sort_up
+mod_sort_down
+  Adjusts mod load order.
+
+mod_apply
+  Applies the selected mod loadout.
+
+toggle_new_font
+  Toggles newer font/rendering behavior where present.
+
+rmlui_textures
+rml_dumpEvents
+rml_dumpDocument
+  RmlUi diagnostics used by newer UI implementations.
+
+dump_cmdctrls
+dump_cmddefaults
+  Dumps command-control/default binding information.
+
+listRuntimeClasses
+  Dumps/lists runtime class registrations.
+
+
+==============================================================================
+12. COMMANDS COMMONLY SEEN IN BIND FILES
+==============================================================================
+
+A .bnd line uses the form:
+
+  bind <key> "<command>"
+
+Examples:
+
+  bind r reload_gun
+  bind k toggle_compass
+  bind l msg_history
+  bind u play_unread_log
+  bind o wpn_setting_toggle
+  bind ins "summon_obj big nanite pile"
+  bind mouse_wheel_up "cycle_weapon 1"
+  bind mouse_wheel_down "cycle_weapon -1"
+
+Movement commands often appear with "+" because they are active while held,
+for example:
+
+  +walkfast
+  +backfast
+  +turnleftfast
+  +turnrightfast
+  +leanleft
+  +leanright
+  +creepon
+  +jump
+  +fire_weapon
+
+These are bindable input commands rather than one-shot cheat commands.
+
+==============================================================================
+12. CONFIG-VARIABLE CHEATS (NOT ONE-SHOT CONSOLE COMMANDS)
+==============================================================================
+
+Historical SS2 builds also recognize configuration variables such as:
+
+undead
+  God/invulnerability-style cheat in builds where enabled.
+
+gun_degrade_rate 0
+  Disables weapon degradation by setting degradation rate to zero.
+
+no_spawn
+  Suppresses normal monster respawning in builds where the variable is
+  honored.
+
+These are often placed in user.cfg rather than typed as normal gameplay
+commands.
+
+==============================================================================
+12. TROUBLESHOOTING summon_obj
+==============================================================================
+
+If:
+  summon_obj <name>
+
+does not work:
+
+1. Try the exact internal archetype spelling, not the localized display name.
+2. Try console autocomplete if your build provides it.
+3. Inspect object-name strings/resources or the GameSys object hierarchy.
+4. Remember that underscores, spaces, punctuation and abbreviations matter.
+5. Some objects have a human-readable display name that differs from the
+archetype.
+6. Some archetypes are abstract parents and may not instantiate usefully.
+7. Some unique mission objects cannot be recreated correctly from their
+archetype alone.
+8. If you need the object ID of an already placed instance, use
+editor/object-inspection
+  tools rather than guessing from the display name.
+
+For your supplied shock2.gam, strings directly confirm names including:
+  Pistol
+  Shotgun
+  Assault Rifle
+  Laser Pistol
+  Psi Amp
+  PsiSword
+  Wrench
+  Nav Marker
+  EXP Cookies
+  Nanites
+
+==============================================================================
+12. EXACT "ALL COMMANDS" WORKFLOW FOR YOUR OWN SS2.EXE
+==============================================================================
+
+Because NewDark, editor builds and patched executables register different
+commands,
+the authoritative procedure is:
+
+  1. Start your exact ss2.exe.
+  2. Open the console.
+  3. Run:
+  dump_cmds ss2_commands.txt
+  4. Exit the game.
+  5. Open ss2_commands.txt from the game directory.
+
+That generated file is more authoritative than any internet list because it is
+created
+from the exact executable you are running.
+
+If dump_cmds is unavailable, console autocomplete can still expose many
+registered
+commands, but it is less convenient for creating a complete reference.
+
+==============================================================================
+12. SOURCES / VERIFICATION NOTES
+==============================================================================
+
+This reference was compiled from:
+  - System Shock community documentation of SS2 console commands and object
+  codes.
+  - Systemshock.org ShockEd/community command references.
+  - Historical SS2 cheat/bind documentation.
+  - Direct string inspection of the supplied shock2.gam for representative
+  archetypes.
+
+Useful public references:
+  https://shodan.fandom.com/wiki/Commands_(System_Shock_2)
+  https://www.systemshock.org/index.php?topic=2307.0
+  https://www.systemshock.org/index.php?topic=5798.0
+  https://www.systemshock.org/index.php?topic=4533.0
+
+NOTE ON COMPLETENESS
+--------------------
+"All console commands" can mean three different things in SS2:
+
+  A. Commands useful in the normal game.
+  B. Every command registered by the Dark/NewDark engine, including
+  renderer/debug,
+  script, network and editor internals.
+  C. Build-specific console variables and editor/debug commands.
+
+This file includes A comprehensively and includes known B command families,
+but
+the exact executable-generated result from dump_cmds is the final authority
+for B.
+Console variables (CVars) are a separate namespace and are not exhaustively
+enumerated
+here because they are build-specific and are not all executable commands.

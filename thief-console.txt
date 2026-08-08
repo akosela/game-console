@@ -1,0 +1,1486 @@
+DARKSIM - THIEF: THE DARK PROJECT — DOS (DARK OS) CONSOLE COMMAND REFERENCE
+============================================================================
+
+IMPORTANT
+---------
+The exact console command registry belongs to the executable being run:
+THIEF.EXE, DROMED.EXE, or a NewDark-patched equivalent.
+
+For an EXACT list from the executable/build you are using, run:
+
+  dump_cmds thief_commands.txt
+
+This writes the registered command list, with Looking Glass descriptions where
+available. DromEd exposes a much larger registry than the normal game.
+
+Some commands listed here are not directly relevant to DarkSim. They are
+included for completeness because they document the broader command set and internal functionality of the Dark Engine/NewDark environment on which
+Thief: The Dark Project is built.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Classic retail game
+-------------------
+The original game does not expose the large DromEd command prompt as openly as
+System Shock 2. A reliable method is to bind edit_command in user.bnd:
+
+  bind p edit_command
+
+DarkSim uses ~.
+
+Pressing the bound key opens the command editor. Historical Thief command
+documentation notes that the command editor supports Emacs-style history and
+editing keys such as Ctrl-P, Ctrl-N, and Ctrl-K.
+
+DromEd game mode
+----------------
+When testing a mission in DromEd, Shift+; is commonly used to open the command
+prompt. Many commands in sections 5 onward are primarily DromEd/debug commands
+and may not exist or do anything useful in THIEF.EXE.
+
+NewDark
+-------
+NewDark retains much of the original Dark Engine command architecture but can
+add, remove, or alter commands depending on executable version. Use dump_cmds
+on the exact executable if command availability matters.
+
+Commands and arguments
+----------------------
+Arguments used in this reference:
+
+  #            numeric argument
+  <0|1>        off/on switch
+  <name>       object, archetype, resource, or variable name
+  <id>         numeric object ID
+  <file>       filename
+  <factor>     floating-point scale
+  <x,y,z>      world coordinates
+
+A leading "+" or "-" on an input command normally means press/release state.
+For example:
+
+  +crouch
+  -crouch
+
+This is mainly relevant to .bnd key bindings.
+
+==============================================================================
+2. VERSION, GAME FLOW, SAVE, AND UI COMMANDS
+==============================================================================
+
+dark_version
+  Displays the Dark Engine / Thief version while in game mode. This is the
+  classic Thief version command and should not be confused with System Shock
+  2's show_version command.
+
+win_mission
+  Completes the current mission. Primarily useful during mission testing.
+
+debrief
+  Enters the debriefing interface.
+
+objectives
+  Opens the current mission objectives screen.
+
+automap
+  Displays the automap.
+
+loadout
+  Opens the loadout interface.
+
+main_menu
+  Goes to the main menu. In normal play this ends/leaves the current game
+  context.
+
+sim_menu
+  Opens the in-game simulation/menu interface.
+
+save_game
+  Opens the save-game interface.
+
+load_game
+  Opens the load-game interface.
+
+quicksave
+  Saves to the quicksave/current save slot where supported by the build.
+
+quickload
+  Loads the quicksave/current save slot where supported by the build.
+
+end_mode
+  Ends the current major engine mode. This is an internal command; behavior
+  depends on the active mode.
+
+endgame
+  Enters the endgame/mission-end path. This is an internal/testing command and
+  should not be treated as a normal way to finish a mission.
+
+metagame
+  Enters the mission-selection/metagame interface in builds that expose it.
+
+quit_game
+  Exits Thief to the operating system.
+
+screen_dump
+  Writes a screenshot.
+
+game_message <text>
+  Displays a text message on the game screen.
+
+show_image <resource>
+  Displays an image resource by resource name.
+
+test_book
+  Opens/tests a book resource. Intended for editor/UI testing; malformed
+  arguments can produce invalid UI state.
+
+==============================================================================
+3. INVENTORY, WEAPON, AND PLAYER INPUT COMMANDS
+==============================================================================
+
+cycle_item <1|-1>
+  Cycles the selected inventory item.
+  1 selects forward; -1 selects backward.
+
+cycle_weapon <1|-1>
+  Cycles the selected weapon.
+  1 selects forward; -1 selects backward.
+
+inv_select <name-or-id>
+  Selects an inventory object by archetype name or object number where
+  supported.
+
+drop_item
+  Drops the currently selected inventory item. Some special inventory objects
+  cannot be dropped.
+
+clear_item
+  Clears the player's current inventory-item selection.
+
+clear_weapon
+  Clears/sheathes the player's current weapon selection.
+
+clear_weapon_and_item
+  Clears both the current weapon and the current inventory-item selection.
+
+use_item <0|1>
+  Controls the use-item button state.
+  1 means pressed/held; 0 means released.
+
+use_weapon <0|1>
+  Controls the attack/use-weapon button state.
+  1 means pressed/held; 0 means released.
+
+block
+  Toggles weapon blocking.
+
++block
+  Starts blocking.
+
+-block
+  Stops blocking.
+
+select_gun <archetype>
+  Developer-oriented weapon command. In the Dark Engine command set this can
+  select/fire a projectile or weapon archetype depending on build/context.
+
+player_weap_abort
+  Aborts the player's current weapon-ready/attack action.
+
+cret_weap_abort
+  Aborts a creature weapon action. Mainly an AI/debug command.
+
+player_detach_arm
+  Toggles the first-person weapon arm attachment in builds exposing the
+  command. Weapon use is normally unavailable while detached.
+
+==============================================================================
+4. MOVEMENT AND VIEW COMMANDS
+==============================================================================
+
+forward <value>
+  Moves forward for positive values and backward for negative values.
+  Historical command documentation describes approximately -2 through 2, with
+  larger absolute values corresponding to faster movement.
+
++forward
+  Starts forward movement.
+
+-forward
+  Stops forward movement.
+
+back
+  Moves backward.
+
+backfast
+  Runs/moves backward using the fast backward binding.
+
+sidestep <value>
+  Strafes left for negative values and right for positive values.
+
++sidestep
+  Starts sidestepping.
+
+-sidestep
+  Stops sidestepping.
+
+turnleft
+  Turns left.
+
+turnright
+  Turns right.
+
+leanleft
+  Leans left.
+
+leanright
+  Leans right.
+
+leanforward
+  Leans forward.
+
+crouch
+  Toggles crouching.
+
++crouch
+  Starts crouching.
+
+-crouch
+  Stops crouching.
+
+crouchhold
+  Alternate crouch command used by some original bindings.
+
+creepon
+  Toggles creep/sneak movement.
+
++creepon
+  Starts creep movement.
+
+-creepon
+  Stops creep movement.
+
+jump
+  Jumps. Historical command references distinguish this from older
+  jump_block-style input handling.
+
+lookcenter
+  Centers the vertical view.
+
+lookup
+  Looks upward.
+
+lookdown
+  Looks downward.
+
+freelook
+  Toggles free look.
+
+freelookon
+  Alternate free-look toggle used by the original control system.
+
+slideon
+  Toggles slide/strafe-oriented control behavior.
+
+halt_player
+  Stops/freezes player movement state. Mainly useful during editor/debug work.
+
+scale_player_speed <factor>
+  Scales player movement speed while testing in DromEd.
+
+Example:
+
+  scale_player_speed 2
+
+Running into geometry at extreme speed can damage or kill the player.
+
+==============================================================================
+5. GAMEPLAY TESTING / CHEAT-LIKE COMMANDS
+==============================================================================
+
+add_hp <number>
+  Adds the specified amount of hit points to the player.
+  Negative values can remove hit points.
+
+ai_aware_of_player
+  Toggles whether AI is aware of the player during editor game-mode testing.
+  Commonly used to make AI ignore Garrett while testing a mission.
+
+ai_forget_player
+  Forces/toggles AI forgetting of the player, depending on engine version.
+
+ai_sleep_all
+  Puts all AI into a sleeping/paused state.
+
+ai_wake_all
+  Wakes all AI placed into the sleeping/paused state.
+
+ai_wake <object-id>
+  Wakes a specific AI by object ID.
+
+scale_sim_time <factor>
+  Scales simulation time.
+
+Examples:
+
+  scale_sim_time 0.5
+  scale_sim_time 2
+
+show_stats
+  Displays runtime statistics in the upper-left area while in game mode.
+
+stats_full
+  Toggles or expands the amount of runtime statistics shown.
+
+time_stats
+  Displays timing/performance statistics.
+
+no_endgame
+  Editor configuration option that prevents automatic transition to debrief
+  when testing a mission.
+
+persistant_player_pos
+  Historical DromEd spelling. Starts game mode at the editor camera position
+  rather than forcing the normal mission starting point.
+
+game_mode_backup <0|1>
+  Controls game-mode backup behavior in editor configurations where exposed.
+
+==============================================================================
+6. OBJECT CREATION, LOOKUP, EDITING, AND DESTRUCTION
+==============================================================================
+
+summon_obj <archetype-name-or-id>
+  Creates an instance of an object/archetype in builds that expose this Dark
+  Engine debug command.
+
+Important:
+  - summon_obj is strongly associated with ShockEd/System Shock 2 and with
+    developer/editor Dark Engine command sets.
+  - Do not assume that stock retail THIEF.EXE exposes it merely because the
+    archetype exists in DARK.GAM.
+  - If it is present in your NewDark/DromEd build, use the internal archetype
+    name from the loaded GameSys.
+  - A display string is not necessarily the archetype name.
+  - Unique plot objects may require mission links, scripts, quest variables,
+    or original placement and therefore may not function when simply spawned.
+
+Examples, if summon_obj is registered by your executable:
+
+  summon_obj Sword
+  summon_obj Blackjack
+  summon_obj broadhead
+  summon_obj HealingPotion
+  summon_obj Burrick
+  summon_obj Zombie
+
+create_obj <archetype>
+  Creates an object from an archetype in DromEd/editor command sets. Depending
+  on editor version, this is the more relevant Thief object-creation command.
+
+destroy_obj <name-or-id>
+  Destroys an object by object name or object ID.
+
+find_obj <name-or-id>
+  Looks up an object by name or number.
+
+edit_obj <name-or-id>
+  Opens the object editor for an object.
+
+copy_props_to <object>
+  Copies properties from the selected object to another object. Use only when
+  you understand the archetype/property relationship.
+
+fixup_creature_phys
+  Rebuilds/fixes creature physics dimensions and state from expected values.
+
+find_lost_objs
+  Finds lost/orphaned objects and attempts to assign/fix their archetypes.
+
+deref_containees
+  Removes references from contained objects. Low-level object-system command;
+  use only for debugging/editor repair.
+
+obj_histogram_popup
+  Opens an object-usage histogram/list.
+
+obj_alpha_popup
+  Opens an alphabetically sorted object list.
+
+==============================================================================
+7. USEFUL OBJECT / ARCHETYPE NAMES FROM THE SUPPLIED DARK.GAM
+==============================================================================
+
+The names below were taken from strings present in the supplied DARK.GAM. This
+confirms that the names exist somewhere in the GameSys data; it does not prove
+that every name is a concrete spawnable archetype in every mission.
+
+--- Player weapons
+------------------------------------------------------------
+
+Sword
+PlayerSword
+Blackjack
+
+Notes:
+  Sword is the general sword archetype name.
+  PlayerSword is associated with Garrett's player weapon implementation.
+
+--- Arrows and projectile-related objects
+-------------------------------------
+
+broadhead
+water
+firearr
+EarthArrow
+GasArrow
+RopeArrow
+noisemaker
+HolyH2OArrow
+
+Related confirmed strings include:
+
+  ArrowType Broadhead
+  ArrowType Water
+  ArrowType Fire
+  ArrowType Earth
+  ArrowType Gas
+  ArrowType Rope
+  ArrowType Noisemaker
+  ArrowType HolyWater
+
+Notes:
+  EarthArrow is present in DARK.GAM even though it is not part of the normal
+  TDP player loadout in the same way as the standard arrow types.
+  Internal names do not always match the human-readable inventory name.
+
+--- Potions and utility inventory
+---------------------------------------------
+
+HealingPotion
+BeltHealingPotion
+AirPotion
+SpeedPotion
+HolyH2O
+Flashbomb
+GasMine
+Mine
+Compass
+Compass2
+LockPick
+LockPickSM
+LockPickLG
+BothLockPicks
+
+--- Main creature / AI archetype strings
+--------------------------------------
+
+Burrick
+Defective Burrick
+Spider
+HugeSpider
+SewerSpider
+Crayman
+Zombie
+HammerZombie
+Haunt
+Apparition
+Frog
+FrogBeast
+Elemental
+Trickster
+
+--- Guard and human AI strings
+-------------------------------------------------
+
+BaseGuard
+guard
+guard1
+guard2
+guard3
+RamirezGuard
+MageGuard
+OperaGuard
+ThiefGuard
+BaffGuard
+Con Guard
+sword guard
+ham guard
+hammerite
+
+These include both generic archetypes and mission/specialized variants.
+
+--- Hammerite / weapon / decorative strings
+-----------------------------------
+
+HolyHammer
+Warhammer
+AncientHammer
+CeremonialHammer
+StoneHammer
+GoldHammer
+HammerStatue
+HammerCorpse
+HammerZombie
+JewelledSword
+ConstantineSword
+Detailed Sword
+
+--- Major plot / talisman strings
+---------------------------------------------
+
+TheEye
+the_eye
+AllTheTalismans
+AirTalisman
+EarthTalisman
+FireTalisman
+H2OTalisman
+FakeTalisman
+EarthTalismanFake
+
+WARNING:
+  Plot objects should not be casually created or destroyed in a real mission.
+  Mission progression can depend on unique object IDs, links, scripts, and
+  quest variables.
+
+--- Key-related strings
+--------------------------------------------------------
+
+StdKey
+Key1
+Key2
+Key3
+Key4
+Key5
+KeeperKey
+TreasureKey
+AirKey
+EarthKey
+FireKey
+WaterKey
+MageKeys
+KeyMageA
+KeyMageE
+KeyMageF
+KeyMageW
+
+--- Treasure-related strings
+---------------------------------------------------
+
+Treasure
+GoldCoinStack
+SilverCoinStack
+CopperCoinStack
+GoldNugget
+GoldGoblet
+GoldPlate
+GoldRing
+GoldSkull
+GemRing
+Gemstone
+LC_Gem
+
+The exact Treasure type and value are controlled by properties rather than the
+English archetype name alone.
+
+==============================================================================
+8. SCRIPT MODULE COMMANDS
+==============================================================================
+
+script_load <module>
+  Adds a script module to the mission.
+
+For original Thief 1/TDP, the standard script module is normally:
+
+  script_load convict
+
+Thief 1 historically combines functionality that later games split between
+convict and gen modules.
+
+script_drop <module>
+  Removes a script module from the mission.
+
+script_drop_all
+  Removes all dynamically associated script modules from the mission.
+
+script_dump_files
+  Lists script modules associated with the mission. Output is normally sent to
+  mono/monolog diagnostics.
+
+script_test
+  Sends a Test message to an object in editor/debug contexts.
+
+trace_add
+  Adds script/engine tracing where exposed.
+
+trace_remove
+  Removes a trace target/category.
+
+trace_dump
+  Dumps trace information.
+
+trace_dump_active
+  Dumps active trace information.
+
+trace_line
+  Script/debug tracing command.
+
+trace_line_dump
+  Dumps line-oriented trace information.
+
+==============================================================================
+9. QUEST VARIABLE / CONFIGURATION COMMANDS
+==============================================================================
+
+quest_create
+  Creates a quest variable.
+
+quest_create_mis
+  Creates a mission-local quest variable in command sets that expose this
+  spelling.
+
+quest_get
+  Reads a quest variable.
+
+quest_delete
+  Deletes a quest variable.
+
+quest_sub
+  Subscribes to quest-variable changes for debugging.
+
+quest_unsub
+  Removes a quest-variable subscription.
+
+quest_spew_sub
+  Enables verbose quest-subscription debugging.
+
+set <variable> <value>
+  Sets a configuration variable.
+
+Example:
+
+  set game_mode_backup 0
+
+get <variable>
+  Reads a configuration variable.
+
+unset <variable>
+  Removes/unsets a configuration variable where supported.
+
+ifdef <variable> <command>
+  Executes a command when a config variable is defined.
+
+ifndef <variable> <command>
+  Executes a command when a config variable is not defined.
+
+eval <expression>
+  Evaluates a command after configuration substitution.
+
+run <file>
+  Runs commands from a file in builds that expose the command.
+
+exec <file>
+  Executes commands from a file where supported.
+
+alias <name> <command>
+  Defines a command alias in builds exposing the original alias facility.
+
+==============================================================================
+10. COMMAND DISCOVERY, CONSOLE, AND BINDING COMMANDS
+==============================================================================
+
+dump_cmds <filename>
+  Dumps the executable's registered commands and built-in descriptions to a
+  text file.
+
+Example:
+
+  dump_cmds thief_commands.txt
+
+This is the authoritative method for determining what your exact THIEF.EXE or
+DROMED.EXE actually supports.
+
+help
+  Displays command help where available.
+
+lg_help
+  Looking Glass command-help facility in builds that expose it.
+
+edit_command
+  Opens the console command editor.
+
+Typical binding:
+
+  bind p edit_command
+
+history_cmd
+  Opens/uses command history.
+
+last_command
+  Stores or references the last console command in the original config system.
+
+bind <key> "<command>"
+  Binds a key to a command.
+
+Examples:
+
+  bind p edit_command
+  bind f10 screen_dump
+  bind v dark_version
+
+Because press/release commands can be bound directly, a binding such as:
+
+  bind c +crouch
+
+activates +crouch on press and -crouch on release.
+
+==============================================================================
+11. COMMON THIEF INPUT / CONFIGURATION VARIABLES
+==============================================================================
+
+bow_zoom <0|1>
+  Enables or disables bow-view zoom.
+
+mouse_sensitivity <value>
+  Sets mouse sensitivity where exposed by the active control system.
+
+head_speed <value>
+  Controls view/head turning speed.
+
+head_zone <value>
+  Alters head/look response zone behavior.
+
+friction <value>
+  Controls player movement acceleration behavior. Historical documentation
+  describes 0.0 as low/no acceleration and 1.0 as maximum.
+
+gamma <value>
+  Sets gamma correction.
+
+gamma_delta <value>
+  Adds a delta to the current gamma setting.
+
+contrast
+  Sets/toggles contrast where supported.
+
+contrast_time_scale
+  Controls contrast transition timing.
+
+game_full_screen <0|1>
+  Selects full-screen or windowed game mode in original config systems.
+
+game_screen_size <width,height>
+  Sets game-screen dimensions in builds supporting the original setting.
+
+game_screen_depth <bits>
+  Sets game color depth in original config systems.
+
+character_detail <0|1>
+  Controls character detail.
+
+inv_enabled <0|1>
+  Enables or disables inventory.
+
+inv_item_timeout <milliseconds>
+  Controls how long a selected item remains readied before being put away.
+
+inv_model_zoom <value>
+  Controls inventory-model rotation/zoom behavior in original builds.
+
+reverse_stereo
+  Swaps left and right audio channels.
+
+sfx_channels <count>
+  Selects the number of sound-effect channels in original builds.
+
+skip_intro
+  Skips the startup intro.
+
+always_play_intro
+  Prevents the normal skip-intro state from becoming persistent.
+
+cash_bonus <number>
+  Adds/controls mission starting cash in builds/configurations that honor it.
+
+starting_mission <number>
+  Sets the mission number used when starting a new game.
+
+==============================================================================
+12. CAMERA COMMANDS
+==============================================================================
+
+player_cam_control <mode>
+  Controls the debug player camera.
+
+Historical DromEd documentation describes modes for moving to another object,
+detaching, reattaching, saving, and restoring the camera.
+
+cam_attach <object>
+  Attaches the camera to an object.
+
+player_cam_save
+  Saves the current player/debug camera state.
+
+player_cam_load
+  Restores a saved player/debug camera state.
+
+move_game_camera
+  Moves the game camera in debug contexts.
+
+cam_to_brush
+  Moves the editor camera to the current brush.
+
+vm_teleport <x,y,z>
+  Teleports the editor camera to explicit coordinates.
+
+Example:
+
+  vm_teleport 50,25,-300
+
+==============================================================================
+13. AI DEBUGGING COMMANDS
+==============================================================================
+
+ai_alert_watch
+  Watches an AI's alert/sense state.
+
+ai_combat_watch
+  Watches AI combat behavior.
+
+ai_death_watch
+  Watches AI death events and causes.
+
+ai_flow_watch
+  Watches AI decision flow.
+
+ai_hear_watch
+  Displays/logs what an AI is hearing.
+
+ai_draw
+  Draws AI debug information.
+
+ai_draw_in_game
+  Draws AI debug information in the 3D game view.
+
+ai_draw_cells
+  Draws AI path cells.
+
+ai_draw_cellids
+  Displays AI path-cell IDs.
+
+ai_draw_cell_centers
+  Draws path-cell centers.
+
+ai_draw_links
+  Draws AI path-cell links.
+
+ai_draw_paths
+  Draws AI path information.
+
+ai_draw_room
+  Draws AI path cells associated with a room.
+
+ai_draw_zone
+  Draws an AI path zone.
+
+ai_draw_zone_type <type>
+  Selects the AI path-zone type to visualize.
+
+ai_draw_move_goal
+  Draws the AI movement goal.
+
+ai_dump_all <object>
+  Dumps detailed information for an AI.
+
+ai_dump_components
+  Dumps the components making up an AI.
+
+ai_dump_cell_connection
+  Dumps path-cell connection information.
+
+ai_dump_cell_vertex_data
+  Dumps path-cell vertex data.
+
+ai_conv_start <object-id>
+  Starts an AI conversation by object ID.
+
+ai_build_path_database
+  Rebuilds the AI path database.
+
+ai_cam_to_cell <cell>
+  Moves the camera to an AI path cell.
+
+ai_check_lighting <object>
+  Checks AI raw-lighting information for an object.
+
+ai_break
+  Developer command for breaking/debugging AI execution.
+
+ai_aware_of_player
+  Toggles AI awareness of the player during game-mode testing.
+
+ai_forget_player
+  Makes/toggles AI forgetting the player.
+
+ai_sleep_all
+  Sleeps/pauses all AI.
+
+ai_wake_all
+  Wakes all AI.
+
+ai_wake <object-id>
+  Wakes one AI.
+
+==============================================================================
+14. SOUND COMMANDS
+==============================================================================
+
+make_sound
+  Generates a test sound at/near the player depending on build and arguments.
+
+make_sound_z
+  Generates a sound at a fixed/test world position.
+
+draw_sound_path
+  Draws the sound-propagation path.
+
+clear_sound_path
+  Clears the drawn sound path.
+
+destroy_sound
+  Destroys/reset sound schemas and speech state.
+
+destroy_schemas
+  Destroys sound schemas.
+
+destroy_speech
+  Destroys/reset speech state.
+
+dump_schemas
+  Dumps the schema tag database.
+
+show_sfx
+  Displays sound-effect diagnostics.
+
+==============================================================================
+15. DROMED MISSION / WORLD COMMANDS
+==============================================================================
+
+load_file <mission>
+  Loads a mission/world file.
+
+game_mode
+  Enters game mode from DromEd.
+
+edit_mode
+  Returns to editor mode or changes editor mode depending on arguments/build.
+
+file_menu
+  Opens the DromEd file menu.
+
+clear_world
+  Resets to an empty world.
+
+portalize
+  Builds/portalizes the world representation.
+
+room_build
+  Rebuilds the room database where exposed.
+
+ai_build_path_database
+  Rebuilds the AI pathfinding database.
+
+fix_rooms
+  Attempts to repair dangling/corrupted room pointers.
+
+check_rooms
+  Checks room-brush problems/intersections.
+
+brush_to_room
+  Creates/places a room brush around the selected brush.
+
+ambient <value>
+  Sets ambient lighting in Thief 1 editor contexts.
+
+Example:
+
+  ambient 20
+
+light_bright
+  Toggles a bright/full-light view useful while editing an unlit mission.
+
+lit_obj_toggle
+  Toggles bright object rendering for editor visibility.
+
+clear_surface_cache
+  Forces surface rebuilding. Historically useful after loading multiple
+  missions in one DromEd session.
+
+==============================================================================
+16. DROMED BRUSH / GEOMETRY COMMANDS
+==============================================================================
+
+delete_brush
+  Deletes the current brush.
+
+add_brush_num
+  Adds/sets brush-number information.
+
+compress_br_ids
+  Compacts terrain-brush IDs.
+
+cycle_brush
+  Cycles brush selection.
+
+cycle_context
+  Cycles to the next similar brush/context.
+
+cycle_edge
+  Cycles selected brush edge.
+
+cycle_face
+  Cycles selected brush face.
+
+cycle_group
+  Cycles brush groups.
+
+cycle_highlight
+  Cycles highlighted brushes.
+
+cycle_media
+  Cycles media type.
+
+cycle_mode
+  Changes rendering/editor view mode.
+
+cycle_near
+  Cycles brushes near the current brush.
+
+cycle_point
+  Cycles brush points/vertices.
+
+cycle_tex
+  Cycles texture selection.
+
+cycle_view
+  Changes current camera/view.
+
+fit_cameras
+  Fits editor cameras to the current world/hot region.
+
+floor_object
+  Moves an object to the floor where supported.
+
+wall_object
+  Moves an object to a nearby wall. Orientation can be altered.
+
+ceil_object
+  Moves an object to the ceiling. Orientation can be altered.
+
+==============================================================================
+17. DROMED HIGHLIGHT / INSPECTION COMMANDS
+==============================================================================
+
+hilight_by_prop <property>
+  Highlights objects with a specified property.
+
+hilight_nonaxial
+  Highlights terrain with non-axial/non-90-degree geometry.
+
+hilight_media <type>
+  Highlights terrain by medium type.
+
+Typical media values include solid, air, water, and flood-style media,
+depending on editor version.
+
+hilight_texture <texture>
+  Highlights terrain using a specified texture.
+
+hilight_clear
+  Clears the current highlight set.
+
+show_cells
+  Displays world/portal cells.
+
+show_bbox
+  Displays object/world bounding boxes.
+
+show_bbox_2d
+  Displays 2D bounding boxes.
+
+show_split
+  Displays polygon/world splitting information.
+
+find_obj <name-or-id>
+  Finds an object.
+
+edit_obj <name-or-id>
+  Opens object properties.
+
+obj_histogram_popup
+  Displays object usage.
+
+obj_alpha_popup
+  Displays objects alphabetically.
+
+==============================================================================
+18. TEXTURE FAMILY / RESOURCE COMMANDS
+==============================================================================
+
+add_family <family>
+  Loads/adds a texture family.
+
+remove_family <family>
+  Removes a texture family.
+
+remove_family all
+  Removes loaded families down to the editor's base/Jorge resources.
+
+compress_family <family>
+  Removes unused textures from a family.
+
+compress_family all
+  Compresses all loaded families.
+
+family_dump
+  Dumps loaded texture-family information.
+
+load_family
+  Legacy single-family load command.
+
+load_a_texture
+  Loads a single texture by family/resource name in builds exposing it.
+
+synch_brush_tx
+  Synchronizes selected brush textures to the current face.
+
+synch_brush_scale
+  Synchronizes brush texture scales to the current face.
+
+synch_brush_full
+  Synchronizes both texture and texture scale.
+
+==============================================================================
+19. RENDERER / LIGHTING / ENGINE DEBUG COMMANDS
+==============================================================================
+
+show_stats
+  Shows engine runtime statistics.
+
+stats_full
+  Expands/toggles the statistics display.
+
+time_stats
+  Displays engine timing statistics.
+
+render_info
+  Displays renderer information.
+
+show_render_times
+  Displays renderer timing information.
+
+detail_level
+  Controls mipmap/detail level.
+
+dot_clamp
+  Controls mipmap orientation limiting.
+
+disable_topsort
+  Disables normal object topological sorting.
+
+show_lightmap
+  Displays lightmap diagnostics.
+
+light_scale
+  Adjusts/debugs light scaling.
+
+player_light
+  Controls/debugs player lighting.
+
+keep_all_lit
+  Debug lighting option.
+
+agglight
+  Aggregate-lighting debug toggle.
+
+render_clear
+  Renderer clear/debug command.
+
+max_polys
+  Controls/displays polygon limits in debug contexts.
+
+surface_cache
+  Surface-cache debug control.
+
+cache_feedback
+  Displays surface/cache feedback.
+
+portal_clip_poly
+  Portal polygon-clipping debug control.
+
+portal_clip_fast
+  Fast portal-clipping debug control.
+
+poly_clip_fast
+  Fast polygon-clipping debug control.
+
+portal_model
+  Portal/model debug setting.
+
+full_obj_test
+  Full object-test debug setting.
+
+span_clip
+  Span-clipping debug setting.
+
+zbuffer
+  Z-buffer debug toggle.
+
+zlinear
+  Z-buffer linearization/debug option.
+
+nullrast
+  Null-rasterizer debug option.
+
+palette_light
+  Palette-lighting debug option.
+
+skip_clip
+  Clipping debug option.
+
+project_space
+  Projection-space debug option.
+
+linear_map
+  Linear mapping debug option.
+
+These low-level renderer commands are useful primarily for documenting the
+Dark Engine and for editor/engine diagnostics. They are generally irrelevant
+to ordinary DarkSim gameplay.
+
+==============================================================================
+20. PHYSICS / CREATURE DEBUG COMMANDS
+==============================================================================
+
+physics
+  Common DromEd debug toggle used to alter/disable normal collision behavior.
+  It is useful for moving through geometry while editing, but can produce
+  invalid physics state.
+
+fixup_creature_phys
+  Repairs/reinitializes creature physics values.
+
+create_obb
+  Creates an OBB physics model for testing.
+
+create_sphere
+  Creates a sphere physics model for testing.
+
+clear_phys_timers
+  Clears physics profiling timers.
+
+cret_saveload_test
+  Tests creature save/load behavior.
+
+cret_set_debug_obj
+  Selects the creature debug object.
+
+cret_set_focus_loc
+  Sets creature debug focus to a location.
+
+cret_set_focus_obj
+  Sets creature debug focus to an object.
+
+cret_weap_abort
+  Stops/aborts a creature weapon action.
+
+==============================================================================
+21. NETWORK / INTERNAL DIAGNOSTIC COMMANDS
+==============================================================================
+
+clear_net_stats
+  Clears network statistics.
+
+dump_net_stats
+  Dumps network messaging statistics.
+
+dump_net_histogram
+  Dumps a network histogram.
+
+dump_net_msg_histogram
+  Dumps message/frame network histograms.
+
+dispatch_noise
+  Debugs message-dispatch noise by mask.
+
+ctimer_init
+  Clears C-function profiling data.
+
+ctimer_dump
+  Dumps C-function profiling results.
+
+do_report
+  Runs an engine/editor report.
+
+do_cur_reprt
+  Runs a report on the current selection/context in builds exposing it.
+
+mlog <filename>
+  Redirects diagnostic output to a mono-log file in DromEd workflows.
+  Running mlog again typically closes/stops the log.
+
+==============================================================================
+22. EXAMPLE USER.BND ENTRIES
+==============================================================================
+
+Open command editor:
+
+  bind p edit_command
+
+Display engine version:
+
+  bind v dark_version
+
+Cycle inventory:
+
+  bind tab "cycle_item 1"
+  bind shift+tab "cycle_item -1"
+
+Cycle weapons:
+
+  bind mouse_wheel_up "cycle_weapon 1"
+  bind mouse_wheel_down "cycle_weapon -1"
+
+Clear current item:
+
+  bind backspace clear_item
+
+Clear weapon and item:
+
+  bind ` clear_weapon_and_item
+
+Take a screenshot:
+
+  bind f10 screen_dump
+
+The exact key-name syntax depends on the original/NewDark input system and the
+existing .bnd file. Preserve working syntax from your installed binding file.
+
+==============================================================================
+23. summon_obj / OBJECT-CREATION TROUBLESHOOTING
+==============================================================================
+
+If:
+
+  summon_obj <name>
+
+is not recognized:
+
+1. Run dump_cmds on the executable you are actually using.
+2. Check whether summon_obj appears in that dump.
+3. Remember that DromEd and THIEF.EXE expose different command sets.
+4. Do not infer availability from System Shock 2; it uses the same engine
+   family but has a different game executable and command registry.
+5. If DromEd exposes create_obj instead, use the editor's object-creation
+   path.
+6. Verify the internal archetype name in the Object Hierarchy.
+7. A string found inside DARK.GAM is not automatically a concrete archetype.
+8. An abstract archetype may create an unusable object.
+9. Plot objects may rely on links, scripts, quest variables, and original IDs.
+10. Save the mission before experimenting with destruction or creation.
+
+If the command exists but an object name fails:
+
+1. Use the exact Object Hierarchy spelling.
+2. Try the numeric archetype/object ID.
+3. Check whether you selected an abstract category rather than a concrete
+   descendant.
+4. Check the current GameSys; a custom DARK.GAM may rename or remove objects.
+5. Remember that localized display names are separate from internal names.
+
+==============================================================================
+24. EXACT "ALL COMMANDS" WORKFLOW
+==============================================================================
+
+There is no single static internet list that is guaranteed to match every
+Thief: The Dark Project executable, DromEd version, NewDark build, or patched
+DarkSim executable.
+
+For THIEF.EXE:
+
+  1. Bind edit_command if necessary.
+  2. Start the exact executable used by DarkSim.
+  3. Open the command editor.
+  4. Run:
+
+       dump_cmds thief_commands.txt
+
+  5. Inspect thief_commands.txt.
+
+For DROMED.EXE:
+
+  1. Start the exact DromEd build.
+  2. Open the DromEd command prompt.
+  3. Run:
+
+       dump_cmds dromed_commands.txt
+
+  4. Inspect dromed_commands.txt.
+
+Expect the DromEd dump to be substantially larger than the retail game dump.
+
+If you are patching or replacing THIEF.EXE, repeat the dump after executable
+changes. That is the safest way to document commands added, removed, renamed,
+or stripped by a specific build.
+
+==============================================================================
+25. SOURCES / VERIFICATION NOTES
+==============================================================================
+
+This reference was compiled from:
+
+  - Direct string inspection of the supplied DARK.GAM.
+  - Historical TTLG "Thief console commands" documentation.
+  - TTLG DROMED Command Prompts / Editors' Guild documentation.
+  - Thief Wiki DromEd command documentation.
+  - General Dark Engine/NewDark command behavior.
+
+Public references:
+
+  https://www.ttlg.com/forums/showthread.php?t=47423
+  https://www.ttlg.com/forums/showthread.php?t=108684
+  https://thief.fandom.com/wiki/DromEd/Commands
+  https://thief.fandom.com/wiki/Dark_Engine
+
+Important distinction:
+
+  DARK.GAM
+    Defines the GameSys object hierarchy and game-data archetypes.
+
+  THIEF.EXE
+    Defines the retail/game executable's registered command set.
+
+  DROMED.EXE
+    Defines the editor command set, including many commands absent from the
+    normal game.
+
+  NEWDARK
+    Can alter the available registry and behavior depending on version.
+
+NOTE ON COMPLETENESS
+--------------------
+"All console commands" can mean several different things in Thief:
+
+  A. Commands useful in ordinary Thief gameplay.
+  B. Commands registered by THIEF.EXE but normally accessed only by binding
+     edit_command.
+  C. The much larger DromEd/editor/debug command registry.
+  D. Dark Engine configuration variables usable in .cfg/.bnd files.
+  E. NewDark-specific additions for a particular executable version.
+
+This reference documents the useful game commands plus major Dark Engine and
+DromEd command families. For literal executable-level completeness, the output
+of dump_cmds from your exact binary is the final authority.
