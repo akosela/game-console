@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Classic PC game console commands, HUD removal and texture filtering documentation.">
+  <meta name="description" content="Classic PC game console commands, HUD removal, texture filtering, widescreen and FOV documentation.">
   <title>Welcome | Game Console</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script>
@@ -11,7 +11,6 @@
   </script>
 </head>
 <body>
-
 <header class="navbar">
   <div class="navbar-inner">
     <button class="icon-button mobile-menu" id="mobile-menu"
@@ -34,7 +33,6 @@
             aria-label="Toggle color mode">◐</button>
   </div>
 </header>
-
 <div class="docs-shell">
   <aside id="sidebar" class="sidebar"></aside>
   <main class="docs-main">
@@ -44,13 +42,12 @@
         Reference documentation for console commands and old-school presentation
         settings in classic PC games.
       </p>
-
       <section class="content-section" id="about">
         <h2>About</h2>
         <p>
           This project collects practical command references for game consoles and
-          developer modes, together with methods for removing HUD/crosshair elements
-          and disabling texture filtering for a sharp, pixelated look.
+          developer modes, together with methods for removing HUD/crosshair elements,
+          disabling texture filtering, and configuring widescreen resolutions and FOV.
         </p>
         <p>
           The focus is on original games and original engines whenever possible.
@@ -58,7 +55,6 @@
           documented where they are explicitly part of the target runtime.
         </p>
       </section>
-
       <section class="content-section" id="console-references">
         <h2>Console references</h2>
         <p>
@@ -72,7 +68,6 @@
         <h2>Presentation guides</h2>
         <ul id="guide-list"></ul>
       </section>
-
       <section class="content-section" id="scope">
         <h2>Scope</h2>
         <ul>
@@ -83,7 +78,6 @@
           <li>Document limitations rather than invent unsupported commands.</li>
         </ul>
       </section>
-
       <div class="edit-row">
         <a href="https://github.com/akosela/game-console/edit/master/README.md"
            target="_blank" rel="noopener">Edit this page ↗</a>
@@ -106,7 +100,6 @@
     <a href="#scope">Scope</a>
   </aside>
 </div>
-
 <footer class="footer">
   <div class="footer-inner">
     <div>
@@ -115,6 +108,7 @@
       <a href="doc.html?file=thief-console.txt">Console references</a>
       <a href="doc.html?file=nohud.txt">No HUD</a>
       <a href="doc.html?file=notexturefiltering.txt">No texture filtering</a>
+      <a href="doc.html?file=widescreen.txt">Widescreen / FOV</a>
     </div>
     <div>
       <div class="footer-title">Project</div>
@@ -133,7 +127,6 @@
   </div>
 </footer>
 
-
 <div class="search-modal" id="search-modal" aria-hidden="true">
   <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search documentation">
     <div class="search-input-row">
@@ -144,7 +137,6 @@
     <div id="search-results" class="search-results"></div>
   </div>
 </div>
-
 <script src="assets/config.js"></script>
 <script src="assets/app.js"></script>
 <script>
@@ -153,18 +145,22 @@
   const api=window.GameConsoleDocs;
   const consoleDocs=docs.filter(d=>d.group==="Console References");
   const guides=docs.filter(d=>d.group==="Presentation Guides");
+  const guideDescriptions={
+    "nohud.txt": "Ways to remove or hide HUD and crosshair elements.",
+    "notexturefiltering.txt":
+      "Nearest-neighbor and point-sampling methods for sharp, pixelated textures.",
+    "widescreen.txt":
+      "Widescreen resolution and FOV configuration for the documented games."
+  };
   document.querySelector("#console-list").innerHTML=consoleDocs.map(
     d=>`<li><a href="${api.docUrl(d.file)}">${api.escapeHtml(d.title)}</a></li>`
   ).join("");
   document.querySelector("#guide-list").innerHTML=guides.map(d=>{
-    const desc=d.file==="nohud.txt"
-      ? "Ways to remove or hide HUD and crosshair elements."
-      : "Nearest-neighbor and point-sampling methods for sharp, pixelated textures.";
+    const desc=guideDescriptions[d.file] || "Presentation configuration reference.";
     return `<li><a href="${api.docUrl(d.file)}"><strong>${api.escapeHtml(d.title)}</strong></a> — ${desc}</li>`;
   }).join("");
 })();
 </script>
-
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ddf84d8627ce4d67b2b83c2fdfb0695c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

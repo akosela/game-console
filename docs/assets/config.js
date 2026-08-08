@@ -205,6 +205,20 @@ window.GAME_CONSOLE_DOCS = {
         "newdark",
         "mechwarrior 3"
       ]
+    },
+    {
+      "file": "widescreen.txt",
+      "title": "Widescreen / FOV",
+      "group": "Presentation Guides",
+      "tags": [
+        "widescreen",
+        "fov",
+        "field of view",
+        "16:9",
+        "1920x1080",
+        "2560x1440",
+        "3840x2160"
+      ]
     }
   ]
 };
