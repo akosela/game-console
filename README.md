@@ -101,6 +101,19 @@ The guide distinguishes nearest-neighbor or point sampling from merely
 disabling anisotropic filtering. Disabling anisotropic filtering alone does
 not make textures unfiltered if bilinear filtering remains active.
 
+For Quake, the guide uses the normal Windows Mark V DirectX 9 build.
+Mark V retains its GLQuake-style hardware-renderer cvars through MH's
+Direct3D wrapper, so `gl_texturemode` works in the DX9 executable despite
+the `gl_` prefix. The strict point-sampled setup is:
+
+```text
+gl_texturemode GL_NEAREST
+gl_smoothmodels 0
+```
+
+`GL_NEAREST_MIPMAP_LINEAR` is also documented as an alternative that keeps
+point-sampled texels while blending smoothly between mip levels.
+
 For Unreal Engine 1 games, the preferred targeted method is:
 
 ```text

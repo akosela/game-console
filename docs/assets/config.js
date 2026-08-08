@@ -202,6 +202,11 @@ window.GAME_CONSOLE_DOCS = {
         "texture filtering",
         "nearest neighbor",
         "pixelated",
+        "quake",
+        "mark v",
+        "directx 9",
+        "dx9",
+        "gl_texturemode",
         "newdark",
         "mechwarrior 3"
       ]
