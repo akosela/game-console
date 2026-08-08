@@ -17,7 +17,7 @@ Each file documents console access, useful commands, cheats, debugging
 facilities, engine-specific behavior, and important version/build caveats.
 
 - [Duke Nukem 3D / EDuke32](duke-nukem-3d-eduke32-console.txt)
-- [Quake](quake-console.txt)
+- [Quake / Mark V](quake-console.txt)
 - [Quake II / Yamagi Quake II](quake-2-console.txt)
 - [Unreal](unreal-console.txt)
 - [Unreal Tournament 1999](unreal-tournament-1999-console.txt)
@@ -50,7 +50,7 @@ should be treated as the final authority.
 It covers:
 
 - Duke Nukem 3D / EDuke32
-- Quake
+- Quake / Mark V
 - Quake II / Yamagi Quake II
 - Unreal
 - Unreal Tournament
@@ -79,7 +79,7 @@ texture smoothing and obtain sharp, visibly pixelated textures.
 It covers:
 
 - Duke Nukem 3D / EDuke32
-- Quake
+- Quake / Mark V
 - Quake II / Yamagi Quake II
 - Unreal
 - Unreal Tournament
