@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Game Console documentation reference.">
+  <title>Game Console</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (()=>{const t=localStorage.getItem("gcd-theme");if(t)document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <button class="icon-button mobile-menu" id="mobile-menu"
+            type="button" aria-label="Toggle navigation">☰</button>
+    <a class="navbar-brand" href="index.html">
+      <span class="brand-icon">&gt;_</span>
+      <span>Game Console</span>
+    </a>
+    <nav class="navbar-items" aria-label="Primary navigation">
+      <a class="navbar-link active" href="index.html">Docs</a>
+      <a class="navbar-link" data-repo-link target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+    <div class="navbar-spacer"></div>
+    <button class="search-button" id="search-button" type="button">
+      <span>⌕</span>
+      <span class="label">Search</span>
+      <span class="key">Ctrl K</span>
+    </button>
+    <button class="icon-button" id="theme-toggle" type="button"
+            aria-label="Toggle color mode">◐</button>
+  </div>
+</header>
+
+<div class="docs-shell">
+  <aside id="sidebar" class="sidebar"></aside>
+  <main class="docs-main">
+    <div class="docs-content">
+      <h1 id="doc-title" class="doc-title">Loading…</h1>
+      <div id="doc-meta" class="doc-meta"></div>
+      <div id="doc-actions" class="doc-actions"></div>
+      <article id="article" class="article">
+        <div class="loading">Loading source document…</div>
+      </article>
+      <div id="doc-bottom"></div>
+    </div>
+  </main>
+  <aside class="toc">
+    <div class="toc-label">On this page</div>
+    <div id="toc-links"></div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-title">Docs</div>
+      <a href="index.html">Welcome</a>
+      <a href="doc.html?file=thief-console.txt">Console references</a>
+      <a href="doc.html?file=nohud.txt">No HUD</a>
+      <a href="doc.html?file=notexturefiltering.txt">No texture filtering</a>
+    </div>
+    <div>
+      <div class="footer-title">Project</div>
+      <a data-repo-link target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/akosela/game-console/issues" target="_blank" rel="noopener">Issues</a>
+      <a href="https://github.com/akosela/game-console/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>
+    </div>
+    <div>
+      <div class="footer-title">More</div>
+      <a href="https://github.com/akosela" target="_blank" rel="noopener">akosela</a>
+      <a href="https://github.com/akosela/game-console" target="_blank" rel="noopener">Source files</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Classic PC game console and presentation reference documentation.
+  </div>
+</footer>
+
+
+<div class="search-modal" id="search-modal" aria-hidden="true">
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="search-input-row">
+      <span>⌕</span>
+      <input id="search-input" class="search-input" type="search"
+             placeholder="Search documentation..." autocomplete="off">
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/doc.js"></script>
+</body>
+</html>

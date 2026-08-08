@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Classic PC game console commands, HUD removal and texture filtering documentation.">
+  <title>Welcome | Game Console</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (()=>{const t=localStorage.getItem("gcd-theme");if(t)document.documentElement.dataset.theme=t;})();
+  </script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <button class="icon-button mobile-menu" id="mobile-menu"
+            type="button" aria-label="Toggle navigation">☰</button>
+    <a class="navbar-brand" href="index.html">
+      <span class="brand-icon">&gt;_</span>
+      <span>Game Console</span>
+    </a>
+    <nav class="navbar-items" aria-label="Primary navigation">
+      <a class="navbar-link active" href="index.html">Docs</a>
+      <a class="navbar-link" data-repo-link target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+    <div class="navbar-spacer"></div>
+    <button class="search-button" id="search-button" type="button">
+      <span>⌕</span>
+      <span class="label">Search</span>
+      <span class="key">Ctrl K</span>
+    </button>
+    <button class="icon-button" id="theme-toggle" type="button"
+            aria-label="Toggle color mode">◐</button>
+  </div>
+</header>
+
+<div class="docs-shell">
+  <aside id="sidebar" class="sidebar"></aside>
+  <main class="docs-main">
+    <div class="docs-content">
+      <h1 class="home-title">Welcome to Game Console</h1>
+      <p class="home-lead">
+        Reference documentation for console commands and old-school presentation
+        settings in classic PC games.
+      </p>
+
+      <section class="content-section" id="about">
+        <h2>About</h2>
+        <p>
+          This project collects practical command references for game consoles and
+          developer modes, together with methods for removing HUD/crosshair elements
+          and disabling texture filtering for a sharp, pixelated look.
+        </p>
+        <p>
+          The focus is on original games and original engines whenever possible.
+          Remaster-only commands are intentionally avoided. EDuke32 and NewDark are
+          documented where they are explicitly part of the target runtime.
+        </p>
+      </section>
+
+      <section class="content-section" id="console-references">
+        <h2>Console references</h2>
+        <p>
+          Each reference covers console access, commands, cheats, debugging
+          facilities and important build-specific notes.
+        </p>
+        <ul class="game-columns" id="console-list"></ul>
+      </section>
+
+      <section class="content-section" id="presentation-guides">
+        <h2>Presentation guides</h2>
+        <ul id="guide-list"></ul>
+      </section>
+
+      <section class="content-section" id="scope">
+        <h2>Scope</h2>
+        <ul>
+          <li>Prefer original-game commands and behavior.</li>
+          <li>Do not use remaster-only commands as references.</li>
+          <li>Keep source-port or engine additions clearly identified.</li>
+          <li>Distinguish native commands from config edits and wrappers.</li>
+          <li>Document limitations rather than invent unsupported commands.</li>
+        </ul>
+      </section>
+
+      <div class="edit-row">
+        <a href="https://github.com/akosela/game-console/edit/master/README.md"
+           target="_blank" rel="noopener">Edit this page ↗</a>
+      </div>
+      <nav class="pagination-nav">
+        <div></div>
+        <a class="pagination-link next"
+           href="doc.html?file=duke-nukem-3d-eduke32-console.txt">
+          <span class="pagination-sublabel">Next →</span>
+          <span class="pagination-title">Duke Nukem 3D / EDuke32</span>
+        </a>
+      </nav>
+    </div>
+  </main>
+  <aside class="toc">
+    <div class="toc-label">On this page</div>
+    <a href="#about">About</a>
+    <a href="#console-references">Console references</a>
+    <a href="#presentation-guides">Presentation guides</a>
+    <a href="#scope">Scope</a>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-title">Docs</div>
+      <a href="index.html">Welcome</a>
+      <a href="doc.html?file=thief-console.txt">Console references</a>
+      <a href="doc.html?file=nohud.txt">No HUD</a>
+      <a href="doc.html?file=notexturefiltering.txt">No texture filtering</a>
+    </div>
+    <div>
+      <div class="footer-title">Project</div>
+      <a data-repo-link target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/akosela/game-console/issues" target="_blank" rel="noopener">Issues</a>
+      <a href="https://github.com/akosela/game-console/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>
+    </div>
+    <div>
+      <div class="footer-title">More</div>
+      <a href="https://github.com/akosela" target="_blank" rel="noopener">akosela</a>
+      <a href="https://github.com/akosela/game-console" target="_blank" rel="noopener">Source files</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Classic PC game console and presentation reference documentation.
+  </div>
+</footer>
+
+
+<div class="search-modal" id="search-modal" aria-hidden="true">
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search documentation">
+    <div class="search-input-row">
+      <span>⌕</span>
+      <input id="search-input" class="search-input" type="search"
+             placeholder="Search documentation..." autocomplete="off">
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(() => {
+  const docs=window.GAME_CONSOLE_DOCS.documents;
+  const api=window.GameConsoleDocs;
+  const consoleDocs=docs.filter(d=>d.group==="Console References");
+  const guides=docs.filter(d=>d.group==="Presentation Guides");
+  document.querySelector("#console-list").innerHTML=consoleDocs.map(
+    d=>`<li><a href="${api.docUrl(d.file)}">${api.escapeHtml(d.title)}</a></li>`
+  ).join("");
+  document.querySelector("#guide-list").innerHTML=guides.map(d=>{
+    const desc=d.file==="nohud.txt"
+      ? "Ways to remove or hide HUD and crosshair elements."
+      : "Nearest-neighbor and point-sampling methods for sharp, pixelated textures.";
+    return `<li><a href="${api.docUrl(d.file)}"><strong>${api.escapeHtml(d.title)}</strong></a> — ${desc}</li>`;
+  }).join("");
+})();
+</script>
+</body>
+</html>
