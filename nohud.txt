@@ -1,0 +1,433 @@
+NOHUD — HUD / CROSSHAIR REMOVAL REFERENCE
+==============================================================================
+
+SCOPE
+------------------------------------------------------------------------------
+Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal, Unreal
+Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3, Morrowind,
+Oblivion, Skyrim, Vietcong, and Red Faction.
+The reference deliberately avoids remaster-only commands. Community source
+ports are also not used as substitutes for original-engine behavior, except
+for EDuke32 because it provides the requested runtime environment.
+Where the original game has no complete HUD switch, this file says so and
+documents the nearest original-engine solution: an existing menu setting,
+developer mode, configuration edit, resource override, or source-level change.
+
+==============================================================================
+1. DUKE NUKEM 3D — EDUKE32
+==============================================================================
+
+EDuke32 has separate controls for the status HUD and the crosshair. Its
+screen_size variable controls HUD/view size, not display resolution.
+screen_size 0
+  Uses EDuke32's no-HUD screen-size state.
+
+crosshair 0
+  Disables the aiming crosshair.
+
+The menu equivalents are maximum Screen Size and Crosshair Off.
+
+Recommended:
+
+  screen_size 0
+  crosshair 0
+
+==============================================================================
+2. QUAKE (1996)
+==============================================================================
+
+Original Quake supports viewsize values through 120. At 120 the original
+screen code allocates zero status-bar lines, producing a full-screen view
+without the normal status bar.
+viewsize 120
+  Removes the normal Quake status bar/HUD.
+
+crosshair 0
+  Disables the original Quake crosshair.
+
+Recommended:
+
+  viewsize 120
+  crosshair 0
+
+==============================================================================
+3. QUAKE II (1997) — ORIGINAL v3.20
+==============================================================================
+
+Stock Quake II does not have the cl_drawhud-style full-HUD switch found in
+some later source ports.
+crosshair 0
+  Disables the original Quake II crosshair.
+
+Changing viewsize does not provide a true full-HUD-off mode. In the released
+original client source, SCR_UpdateScreen() calls SCR_DrawStats() during normal
+gameplay.
+For a completely HUD-free build based on the original source, remove or bypass
+SCR_DrawStats() in client/cl_scrn.c. If absolutely no layout overlays are
+wanted, also bypass SCR_DrawLayout() and CL_DrawInventory().
+
+Relevant original source path:
+
+  client/cl_scrn.c
+
+Normal drawing path includes:
+
+  SCR_DrawStats();
+  SCR_DrawLayout();
+  CL_DrawInventory();
+This is an original Quake II source-code modification, not a remaster command.
+The stock retail executable has no verified full-HUD console toggle.
+
+==============================================================================
+4. UNREAL (1998)
+==============================================================================
+
+Unreal Engine 1 exposes HUD cycling through the player console functions. F5
+is commonly bound to changing the HUD.
+changehud
+  Cycles Unreal HUD layouts. Continue until the no-HUD layout is active.
+
+Classic Unreal installations can store the no-HUD state as HudMode=5 in
+User.ini.
+
+Persistent User.ini setting:
+
+  [Engine.HUD]
+  HudMode=5
+
+set HUD Crosshair 6
+  Selects an unused crosshair entry in classic Unreal, resulting in no visible
+  crosshair.
+
+Another persistent classic workaround is an invalid crosshair index such as
+Crosshair=8 in [Engine.HUD]. Opening HUD options may overwrite that value.
+
+Example persistent setup:
+
+  [Engine.HUD]
+  HudMode=5
+  Crosshair=8
+
+==============================================================================
+5. UNREAL TOURNAMENT (1999)
+==============================================================================
+
+UT99 inherits Unreal Engine 1 HUD cycling. The stock bindings include
+ShrinkHUD and ChangeHud.
+changehud
+  Cycles the active UT99 HUD configuration.
+
+Repeatedly shrinking/cycling the HUD can reach the hidden HUD state. For a
+persistent configuration, ChallengeHUD contains a bHideHUD flag.
+
+User.ini:
+
+  [Botpack.ChallengeHUD]
+  bHideHUD=True
+When the complete HUD is hidden, the normal HUD crosshair is hidden with it.
+For crosshair-only removal while keeping the HUD, use the classic HUD
+preferences/crosshair selection rather than a later Unreal-engine cvar.
+
+==============================================================================
+6. HALF-LIFE (1998) — GOLDSRC
+==============================================================================
+
+hud_draw 0
+  Disables drawing of the Half-Life HUD.
+
+crosshair 0
+  Disables the aiming crosshair.
+
+Restore:
+
+  hud_draw 1
+  crosshair 1
+These can also be placed in a GoldSrc configuration file or bound to keys.
+
+==============================================================================
+7. DEUS EX (2000)
+==============================================================================
+
+showhud false
+  Hides the Deus Ex HUD.
+
+showhud true
+  Restores the Deus Ex HUD.
+
+ToggleCrosshair
+  Toggles only the crosshair.
+
+Deus Ex also exposes individual interface toggles such as ToggleObjectBelt,
+ToggleHitDisplay, ToggleAmmoDisplay, ToggleAugDisplay, and ToggleCompass.
+
+Simplest complete no-HUD command:
+
+  showhud false
+
+==============================================================================
+8. GOTHIC (2001)
+==============================================================================
+
+Enable Marvin mode first: open the character/status screen, type marvin, close
+the screen, and press F2 for the developer console.
+toggle desktop
+  Hides the Gothic gameplay interface/HUD.
+
+This is more aggressive than merely hiding health and mana. Focus labels, item
+names, informational windows, and dialogue presentation also disappear.
+The console itself can become invisible while the desktop is hidden. To
+restore it, press F2 and type toggle desktop again even if the console text
+cannot be seen.
+
+Restore:
+
+  toggle desktop
+
+==============================================================================
+9. GOTHIC II (2002)
+==============================================================================
+
+Enable Marvin mode: open the character screen, type marvin, close it, then
+press F2.
+toggle desktop
+  Hides the complete Gothic II gameplay interface/HUD.
+
+As in Gothic 1, this also removes focus information and dialogue/UI
+presentation. If the console becomes invisible, open F2 and type the same
+command blindly to restore the desktop.
+
+==============================================================================
+10. GOTHIC 3 (2006)
+==============================================================================
+
+Enable the original developer/test mode in Gothic3\Ini\ge3.ini:
+
+  [Game]
+  TestMode=true
+With TestMode enabled, Gothic 3 provides a developer hotkey for the HUD.
+Ctrl+F1
+  Toggles the Gothic 3 HUD off and on.
+
+The same mode also provides Ctrl+Insert for free camera and Ctrl+F4 for pause.
+No separate original-game crosshair-only command was verified; use Ctrl+F1
+when a completely clean gameplay view is wanted.
+
+==============================================================================
+11. THE ELDER SCROLLS III: MORROWIND (2002)
+==============================================================================
+
+ToggleMenus
+  Toggles the complete menu/HUD interface.
+
+TM
+  Short form of ToggleMenus.
+
+TM hides the normal HUD and menus. Depending on the exact classic build, the
+console can also become invisible. If so, open it and type TM again blindly to
+restore the interface.
+For crosshair-only removal while keeping the HUD, use the original game menu:
+
+  Escape -> Options -> Preferences -> Crosshairs: Off
+
+==============================================================================
+12. THE ELDER SCROLLS IV: OBLIVION (2006)
+==============================================================================
+
+TM
+  ToggleMenus. Hides the original Oblivion HUD/menu overlay.
+
+Use TM again to restore the interface.
+For crosshair-only removal, use the original Gameplay options:
+
+  Escape -> Options -> Gameplay -> Crosshair: Off
+This refers to the original 2006 PC game, not Oblivion Remastered.
+
+==============================================================================
+13. THE ELDER SCROLLS V: SKYRIM (2011)
+==============================================================================
+
+TM
+  ToggleMenus. Hides the original Skyrim HUD and menu interface.
+
+After TM, the console is also invisible. To restore the HUD, press ~ to open
+the unseen console, type TM, press Enter, then close it.
+For crosshair-only removal, use the original display settings:
+
+  Journal -> System -> Settings -> Display -> Crosshair: Off
+This section refers to the original 2011 32-bit PC release, not Special
+Edition, Anniversary Edition, or VR.
+
+==============================================================================
+14. VIETCONG (2003)
+==============================================================================
+
+Vietcong has an unusual stock solution: the highest Vietnam difficulty
+deliberately removes the gameplay HUD.
+
+Original-game method:
+
+  Play on Vietnam difficulty.
+On Vietnam difficulty the normal HUD is removed, including the crosshair,
+radar, health display, and ammunition count. The player is expected to use
+iron sights and gameplay cues instead.
+This is a difficulty mode, not a purely cosmetic toggle. No well-verified
+stock console command was found that independently hides the entire campaign
+HUD while preserving another difficulty setting.
+Patch-era spectator mode has a separate Enter-key HUD toggle for spectator
+information, but that applies to spectating/replays rather than ordinary
+campaign play.
+
+==============================================================================
+15. RED FACTION (2001) — ORIGINAL PC v1.20
+==============================================================================
+
+The official v1.20 client exposes a reticle-scale control, but it does not
+expose the later community-port hud command.
+ui_reticlescale 0
+  Sets the stock reticle scale to zero, which is the practical original-client
+  method for suppressing the crosshair.
+
+For the COMPLETE HUD, the stock executable has no verified console switch. An
+original-executable solution is to override the HUD resources with a VPP
+no-HUD package.
+
+Typical classic resource-override location:
+
+  Red Faction\user_maps\single\nohud.vpp
+
+A classic mod package can also be launched with:
+
+  rf.exe -mod nohud
+A VPP override changes original game resources and does not require a
+remaster. Some no-HUD resource packs leave the crosshair visible, so combine
+the resource override with ui_reticlescale 0 when a completely clean view is
+wanted.
+Do not substitute the community-port command hud when documenting the official
+v1.20 game; that command was added later.
+
+==============================================================================
+16. THIEF: THE DARK PROJECT (1998)
+==============================================================================
+
+The original Dark Engine does not provide a simple stock toggle_hud command.
+The practical classic-engine method is to change the status area height.
+inv_status_height 0
+  Hides the normal status strip containing the health shields and light gem.
+  Put the setting in cam.cfg, or set it from the command system where the
+  build accepts the variable.
+
+This method is associated with the classic Dark Engine configuration system
+and is not a remaster command. It removes the persistent health/visibility
+display, but temporary weapon/item selection graphics can still appear when
+cycling inventory.
+Older Thief documentation also exposes separate size controls for the health
+display and visibility gem:
+
+  hpbar_zoom <value>
+  vismeter_zoom <value>
+Changing those values can shrink the two elements, but inv_status_height 0 is
+the cleaner way to suppress the persistent status area.
+No separate original Thief: The Dark Project console/config switch was
+verified for disabling only the centered aiming crosshair. If the crosshair
+must also be completely invisible while retaining the stock executable, use a
+transparent replacement for the corresponding interface/reticle resource.
+NewDark has additional overlay controls, but they are deliberately not used
+here because this file documents the original game rather than
+source-port-only HUD commands.
+
+Recommended original-engine HUD setting:
+
+  inv_status_height 0
+
+==============================================================================
+17. SYSTEM SHOCK 2 (1999)
+==============================================================================
+
+The original System Shock 2 command set has controls for individual interface
+components, but no verified stock command that hides the entire shoot-mode HUD
+and crosshair at once.
+toggle_inv
+  Toggles the inventory panel. This is useful for the large use-mode MFD area,
+  but it is not a complete HUD-off command.
+
+toggle_compass
+  Toggles the compass display.
+
+The original command registry also contains MFD/interface commands such as
+select_psipower, msg_history, query, split, and toggle_mouse. None of these is
+a general hide-HUD command.
+For CROSSHAIR removal in the original game, the established method is a
+transparent replacement for the crosshair interface texture. The System Shock
+2 community has long used an invisible-crosshair resource replacement for
+exactly this purpose.
+For the COMPLETE shoot-mode HUD, use the same original Dark Engine
+resource-override mechanism and replace the relevant INTRFACE artwork with
+transparent/minimal versions. This can remove or blank the health/psi frame,
+weapon-info frame, targeting brackets, object-description background, and
+crosshair without relying on a remaster command.
+A later NewDark Minimal HUD package demonstrates this resource approach, but
+the important point here is the mechanism: the stock executable does not
+expose a verified full-HUD toggle, so interface-resource replacement is
+required for a truly clean screen.
+
+Useful stock commands:
+
+  toggle_inv
+  toggle_compass
+
+For a completely clean view:
+
+  use transparent replacements for the crosshair and HUD resources
+
+==============================================================================
+18. QUICK REFERENCE
+==============================================================================
+
+  - Duke Nukem 3D / EDuke32: screen_size 0 + crosshair 0
+  - Quake: viewsize 120 + crosshair 0
+  - Quake II: crosshair 0; full HUD requires source modification
+  - Unreal: changehud / HudMode=5; set HUD Crosshair 6
+  - Unreal Tournament: changehud / bHideHUD=True
+  - Half-Life: hud_draw 0 + crosshair 0
+  - Deus Ex: showhud false; ToggleCrosshair
+  - Gothic: toggle desktop
+  - Gothic II: toggle desktop
+  - Gothic 3: Ctrl+F1 with TestMode enabled
+  - Morrowind: TM; Crosshairs Off in Preferences
+  - Oblivion: TM; Crosshair Off in Gameplay options
+  - Skyrim: TM; Crosshair Off in Display settings
+  - Vietcong: Vietnam difficulty removes HUD/crosshair
+  - Red Faction: ui_reticlescale 0; VPP override for full HUD removal
+  - Thief: The Dark Project: inv_status_height 0; transparent reticle
+    resource if the centered crosshair must also disappear
+  - System Shock 2: toggle_inv / toggle_compass; transparent INTRFACE
+    resource override for a complete HUD/crosshair-free view
+
+==============================================================================
+19. SOURCE / VERIFICATION NOTES
+==============================================================================
+
+The methods above were checked against original-engine documentation, released
+source code where available, original manuals, and established game-specific
+references. Remaster-only commands were intentionally excluded.
+  - EDukeWiki: Game Setup, Screen Size, and Console Commands
+  - id Software released Quake source code, especially WinQuake/screen.c
+  - id Software released Quake II source, especially client/cl_scrn.c and
+    client/cl_view.c
+  - OldUnreal classic Unreal Engine 1 HUD/crosshair documentation
+  - Unreal Archive and classic UT99 configuration references
+  - GoldSrc/Half-Life command and source-derived documentation
+  - Deus Ex Wiki: Deus Ex console commands
+  - Gothic classic Marvin documentation for toggle desktop
+  - Gothic 3 classic TestMode developer-hotkey documentation
+  - Bethesda Support: Morrowind crosshair setting
+  - UESP classic Morrowind, Oblivion, and Skyrim console references
+  - Original Oblivion PC manual: Gameplay Crosshair toggle
+  - Contemporary Vietcong documentation/reviews for Vietnam difficulty
+  - Red Faction Wiki: Base Game console command matrix
+  - Classic Red Faction VPP resource-override documentation
+  - TTLG classic Dark Engine HUD discussion: inv_status_height 0
+  - Contemporary Thief documentation: hpbar_zoom and vismeter_zoom
+  - System Shock 2 original command documentation: toggle_inv and
+    toggle_compass
+  - SystemShock.org: invisible crosshair and Minimal HUD resource methods

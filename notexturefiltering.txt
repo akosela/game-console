@@ -1,0 +1,530 @@
+NOTEXTUREFILTERING — SHARP / PIXELATED TEXTURE REFERENCE
+==============================================================================
+
+SCOPE
+------------------------------------------------------------------------------
+Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal, Unreal
+Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3, Morrowind,
+Oblivion, Skyrim, Vietcong, Red Faction, Thief: The Dark Project using
+NewDark, and System Shock 2 using NewDark.
+Goal: disable bilinear/trilinear/anisotropic texture filtering so texels stay
+visibly sharp and pixelated instead of being smoothed together.
+Remaster-only settings are intentionally excluded. EDuke32 is used for Duke
+Nukem 3D because it provides the requested runtime environment. NewDark is
+used for Thief and System Shock 2 because it explicitly exposes the required
+texture-filter mode.
+
+==============================================================================
+0. WHAT 'NO TEXTURE FILTERING' MEANS
+==============================================================================
+
+Nearest-neighbor, point-sampled, or 'nearest' filtering selects one texel
+instead of blending neighboring texels. This gives enlarged low-resolution
+textures hard pixel edges.
+Disabling anisotropic filtering is NOT the same thing. A game can have AF
+disabled while still using bilinear filtering and therefore still look
+blurred.
+Mipmapping is also separate. Nearest filtering can still be combined with
+nearest-selected mip levels. Disabling mipmaps entirely gives the harshest
+pixelated look, but usually causes strong shimmering and aliasing at a
+distance.
+
+==============================================================================
+0.1. DGVoodoo2 METHOD FOR GAMES WITHOUT A NATIVE SWITCH
+==============================================================================
+
+Several Direct3D games in this list do not expose a verified native
+nearest-neighbor option. For those games the cleanest general method is
+dgVoodoo2, while still running the original game executable.
+In dgVoodoo2 Control Panel, select the game's configuration and open the
+DirectX tab. Set:
+
+  Filtering: Force point sampled
+
+This forces nearest-neighbor texture sampling. Do not confuse this with the
+General-tab Resampling setting; Resampling controls final image scaling, not
+the filtering used on 3D world textures.
+For the most aggressively pixelated result, dgVoodoo2 can also disable
+mipmapping. This is optional and normally not recommended because distant
+surfaces will shimmer heavily.
+
+Optional:
+
+  Mipmapping: Disabled
+
+Use the wrapper DLL appropriate to the game's DirectX version. Direct3D 1-7
+games normally use the DirectDraw/D3DImm wrapper files; Direct3D 8 games use
+D3D8.dll; Direct3D 9 games use D3D9.dll.
+Forced point sampling can reveal seams, blocky lightmaps, halos around masked
+textures, and pixelated HUD elements. Those are expected side effects of
+overriding filtering globally.
+
+==============================================================================
+1. DUKE NUKEM 3D — EDUKE32
+==============================================================================
+
+r_texfilter 0
+  Sets EDuke32's texture filter to Nearest, giving point-sampled pixels.
+
+r_anisotropy 0
+  Disables anisotropic filtering. This is not strictly required for the
+  nearest look, but keeps the filtering configuration unambiguous.
+
+The menu equivalent is Video Setup -> OpenGL -> Texture Filter -> Nearest.
+EDuke32 exposes six filter modes. Nearest is the basic unfiltered mode.
+Nearest-MM-Nearest and Nearest-MM-Linear keep nearest texel sampling but still
+use mipmapping.
+
+Recommended sharpest setup:
+
+  r_texfilter 0
+  r_anisotropy 0
+
+==============================================================================
+2. QUAKE (1996) — GLQUAKE
+==============================================================================
+
+gl_texturemode GL_NEAREST
+  Uses point-sampled textures with no mipmaps in original GLQuake.
+
+The texture-mode name should be typed exactly as a GL mode on historical
+GLQuake builds. GL_NEAREST is the sharpest and most pixelated hardware
+renderer mode.
+If some mipmapping is desired while keeping individual texels sharp, use:
+
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+
+WinQuake's software renderer already has the classic unfiltered pixel look and
+does not need an OpenGL texture-mode command.
+
+==============================================================================
+3. QUAKE II (1997) — ORIGINAL OPENGL
+==============================================================================
+
+gl_texturemode GL_NEAREST
+  Uses nearest-neighbor interpolation with no mipmapping.
+
+Original Quake II documents GL_NEAREST specifically as the mode that looks
+similar to software Quake II while retaining OpenGL colored lighting.
+For point-sampled texels with classic nearest mip-level selection instead:
+
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+
+The software renderer is naturally unfiltered and is another original-game
+option if hardware OpenGL is not required.
+
+==============================================================================
+4. UNREAL (1998)
+==============================================================================
+
+For the original Unreal Engine 1 texture system, the preferred way to remove
+smoothing without globally destroying lightmap filtering is to set the native
+bNoSmooth properties on loaded textures and actors.
+
+Texture.bNoSmooth disables smoothing for texture surfaces. Actor.bNoSmooth
+disables smoothing for textures drawn on actors, including meshes and sprites.
+
+set texture bNoSmooth true | set actor bNoSmooth true
+  Applies the no-smoothing flags to currently loaded Texture and Actor
+  objects. This is the preferred hardware-renderer method for the
+  sharp/pixelated look.
+
+Because new Texture and Actor objects are loaded with each map, the
+command may need to be executed again after every level transition.
+
+Useful key binding:
+
+  set input p set texture bNoSmooth true | set actor bNoSmooth true
+
+Then press P after loading a new level.
+
+The original Software Rendering device is another valid option and
+already has the classic point-sampled appearance.
+
+IMPORTANT:
+
+  NoFiltering=True is NOT the preferred method here.
+
+Enhanced UTGLR/OldUnreal renderers do expose NoFiltering=True, and
+it really does disable filtering globally. However, it is a broad
+renderer debug option. It also changes filtering of lightmaps and
+other rendering paths, which can make lighting look very blocky.
+
+bNoSmooth is the more targeted UE1 mechanism when the goal is sharp
+base textures and actor skins while retaining smooth lightmaps.
+==============================================================================
+5. UNREAL TOURNAMENT (1999)
+==============================================================================
+
+UT99 uses the same Unreal Engine 1 Texture.bNoSmooth and Actor.bNoSmooth
+properties. For hardware rendering, use the console command rather than
+relying on the renderer-wide NoFiltering option.
+
+set texture bNoSmooth true | set actor bNoSmooth true
+  Disables smoothing on currently loaded world textures and actor textures.
+
+A convenient persistent binding in User.ini is:
+
+  P=set texture bNoSmooth true | set actor bNoSmooth true
+
+Press the bound key after entering a new map if newly loaded
+textures or actors are smooth again.
+
+The original Software Rendering device is also naturally
+point-sampled.
+
+NoFiltering=True in enhanced UTGLR/OldUnreal renderers is broader.
+It disables filtering globally, including lightmap/shading paths,
+so it is not equivalent to simply setting bNoSmooth on game
+textures and actors.
+==============================================================================
+6. HALF-LIFE (1998) — GOLDSRC
+==============================================================================
+
+gl_texturemode GL_NEAREST
+  Uses nearest-neighbor texture sampling in the GoldSrc OpenGL renderer.
+
+GL_NEAREST is the strongest setting: sharp texels and no mipmaps. For nearest
+texels while retaining mip levels, try:
+
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+
+If the installed GoldSrc build resets the value, put the command in
+autoexec.cfg. The classic software renderer also has an inherently pixelated
+appearance.
+
+==============================================================================
+7. DEUS EX (2000)
+==============================================================================
+
+Deus Ex is based on Unreal Engine 1 and uses the same native Texture.bNoSmooth
+and Actor.bNoSmooth properties. The targeted console method is therefore
+preferable to renderer-wide filtering overrides.
+
+set texture bNoSmooth true | set actor bNoSmooth true
+  Sets the no-smoothing flags on the currently loaded Texture and Actor
+  objects.
+
+If the command is rejected by the current Deus Ex configuration,
+enable the normal Deus Ex cheat/developer console path first.
+
+Reapply the command after a map transition if new textures or
+actors appear filtered.
+
+The built-in Software Rendering device is the original-engine
+alternative, although it can be inconvenient on current Windows
+systems.
+
+Enhanced Unreal Engine 1 renderers may expose NoFiltering=True.
+That option is valid as a global renderer switch, but it is much
+broader than bNoSmooth and can make lightmaps/shadows blocky.
+==============================================================================
+8. GOTHIC (2001)
+==============================================================================
+
+Gothic.ini contains zTexAnisotropicFiltering, but setting it to 0 only
+disables anisotropic filtering. It does NOT disable the engine's ordinary
+bilinear texture sampling.
+
+Keep AF disabled:
+
+  zTexAnisotropicFiltering=0
+
+No verified stock ZenGin console/INI option switches all textures to
+nearest-neighbor sampling.
+For a true pixelated look while keeping the original Gothic executable, use
+dgVoodoo2 and set DirectX -> Filtering to Force point sampled.
+Gothic uses an old Direct3D path, so use the dgVoodoo DirectDraw/D3D wrapper
+files appropriate to the installation.
+
+==============================================================================
+9. GOTHIC II (2002)
+==============================================================================
+
+As in Gothic 1, this original Gothic.ini setting disables only AF:
+
+  zTexAnisotropicFiltering=0
+
+It does not turn bilinear filtering into nearest-neighbor filtering.
+For actual point-sampled textures with the original Gothic II executable, use
+dgVoodoo2:
+
+  DirectX -> Filtering -> Force point sampled
+
+Use the DirectDraw/D3D wrapper files for the original ZenGin Direct3D
+renderer. If the HUD or alpha-tested foliage develops hard borders, that is a
+normal side effect of forcing point sampling.
+
+==============================================================================
+10. GOTHIC 3 (2006)
+==============================================================================
+
+Gothic 3 exposes texture-quality and anisotropic-filtering controls, but no
+verified original console/INI switch was found for global nearest-neighbor
+texture sampling.
+Use the original Gothic3.exe with dgVoodoo2's Direct3D 9 wrapper and set:
+
+  DirectX -> Filtering -> Force point sampled
+
+For Gothic 3 this means using the dgVoodoo D3D9.dll wrapper. Leave mipmapping
+App driven first; disable mipmapping only if maximum pixel harshness is more
+important than distant-texture stability.
+
+==============================================================================
+11. THE ELDER SCROLLS III: MORROWIND (2002)
+==============================================================================
+
+The original Morrowind engine uses filtered textures and has no verified
+vanilla INI switch equivalent to OpenMW's nearest min/mag filter settings.
+For the ORIGINAL Morrowind.exe, use dgVoodoo2 with the Direct3D 8 wrapper:
+
+  copy the appropriate x86 D3D8.dll wrapper
+  DirectX -> Filtering -> Force point sampled
+
+This preserves the original game engine while overriding its sampler behavior.
+Do not use OpenMW settings in this section. OpenMW is a different engine. Its
+nearest-filter options are intentionally excluded because this file is
+documenting the original Morrowind executable.
+A texture-replacement workaround such as Morrowind Pixellized can imitate an
+unfiltered look, but a sampler override is cleaner when it works.
+
+==============================================================================
+12. THE ELDER SCROLLS IV: OBLIVION (2006)
+==============================================================================
+
+The original Oblivion INI exposes many rendering settings but no verified
+global nearest-neighbor texture-filter switch.
+Use the original Oblivion.exe through dgVoodoo2's Direct3D 9 wrapper:
+
+  DirectX -> Filtering -> Force point sampled
+
+Use D3D9.dll from the dgVoodoo x86 DirectX wrapper set.
+This can make landscape textures, normal maps, light-related textures, foliage
+masks, and UI elements harsher. If artifacts are objectionable, the original
+engine does not provide a clean per-material nearest switch.
+
+==============================================================================
+13. THE ELDER SCROLLS V: SKYRIM (2011) — ORIGINAL 32-BIT
+==============================================================================
+
+This section is only for the original 2011 32-bit Direct3D 9 Skyrim, not
+Special Edition, Anniversary Edition, or VR.
+Original Skyrim does not expose a verified INI or console command that
+globally changes bilinear sampling to nearest-neighbor.
+Use dgVoodoo2 with the original TESV.exe:
+
+  use the x86 D3D9.dll wrapper
+  DirectX -> Filtering -> Force point sampled
+
+Keep mipmapping App driven initially. Turning mipmapping off as well will make
+textures even harsher but can produce severe crawling/shimmering.
+
+==============================================================================
+14. VIETCONG (2003)
+==============================================================================
+
+Vietcong uses Direct3D 8.1. Its normal graphics options can improve texture
+filtering, and tools such as VCStarter can increase filtering quality, but no
+verified original-game nearest-neighbor switch was found.
+For sharp point-sampled textures while keeping the original Vietcong
+executable, use dgVoodoo2:
+
+  use the x86 D3D8.dll wrapper
+  DirectX -> Filtering -> Force point sampled
+
+If VCStarter is also being used, avoid enabling its Improve texture filtering
+option because that works in the opposite direction.
+
+==============================================================================
+15. RED FACTION (2001)
+==============================================================================
+
+r_nearest
+  Toggles nearest-neighbor texture filtering in the original Red Faction
+  client.
+
+This is a genuine base-game console command, not a Dash/Pure/Alpine Faction
+addition.
+Because r_nearest is a toggle, enter it once to switch nearest filtering on
+and enter it again to return to the normal filtering state.
+r_trilinearfiltering
+  Toggles trilinear filtering. If trilinear filtering was explicitly enabled,
+  leave it off when using the nearest look.
+
+The important command for the pixelated look is r_nearest.
+
+==============================================================================
+16. THIEF: THE DARK PROJECT — NEWDARK
+==============================================================================
+
+NewDark exposes the texture-filter mode directly in cam_ext.cfg. This is the
+preferred method for a sharp, pixelated Thief installation.
+
+Open cam_ext.cfg and set:
+
+  tex_filter_mode 0
+
+NewDark defines the values as:
+  - 0 — no filtering
+  - 1 — linear filtering
+  - 2, 4, 8, 16 — anisotropic filtering using that sample count
+
+If the line is commented with a semicolon, remove the semicolon so the setting
+is active.
+Example:
+
+  ;tex_filter_mode 16
+
+becomes:
+
+  tex_filter_mode 0
+NewDark applies this broadly, so lightmaps can also become blocky. This is
+expected and is one reason NewDark with filtering disabled does not look
+identical to the original 1998 software renderer.
+Do not merely disable trilinear filtering while leaving tex_filter_mode at 16.
+That still leaves anisotropic/linear texture filtering active.
+
+==============================================================================
+17. SYSTEM SHOCK 2 — NEWDARK
+==============================================================================
+
+System Shock 2 NewDark uses the same explicit filtering control.
+
+Open cam_ext.cfg and set:
+
+  tex_filter_mode 0
+
+The NewDark comment normally describes the modes directly:
+  - 0 — none
+  - 1 — linear
+  - 2, 4, 8, 16 — anisotropic sample count
+
+A common NewDark default is tex_filter_mode 16. Change 16 to 0 and remove the
+leading semicolon if the setting is commented out.
+Example:
+
+  ;tex_filter_mode 16
+
+becomes:
+
+  tex_filter_mode 0
+This produces the crisp, visibly pixelated world-texture look. As with Thief,
+some lightmaps and 2D assets can also look more blocky because the filter
+setting is broad.
+
+==============================================================================
+18. MECHWARRIOR 3 (1999)
+==============================================================================
+
+MechWarrior 3 has a native Software Render video device. This is the preferred
+original-game route for a sharp, point-sampled appearance because no verified
+stock Direct3D option was found that globally forces nearest-neighbor
+filtering.
+MicroProse's own patch documentation describes the Software Render device as a
+normal selectable graphics option.
+
+Original-game method:
+
+  Main Menu -> Options -> Graphics
+  Video Device -> Software Render
+  Accept
+
+Changing the Video Device causes MechWarrior 3 to exit; restart the game for
+the new renderer to take effect.
+The software renderer is the game's GameZ renderer. Its software textured span
+path samples individual source texels rather than relying on the hardware
+bilinear filtering path, which gives the desired hard-edged pixelated
+presentation.
+The Software Render component must have been installed. If it was omitted
+during a custom installation, reinstall/add that component before trying to
+select the renderer.
+The original game also has a Direct3D 6 hardware renderer, but no native
+MechWarrior 3 setting was verified for changing its sampler from bilinear to
+nearest-neighbor.
+dgVoodoo2 can theoretically force point sampling for old Direct3D games, but
+it is NOT the preferred recommendation for MechWarrior 3. Modern testing has
+found compatibility problems between dgVoodoo and MW3's software-composited
+cockpit/HUD path, including mission-load crashes.
+Therefore, if the goal is specifically the unfiltered, pixelated look, use the
+original Software Render device first.
+
+Recommended:
+
+  Video Device -> Software Render
+
+==============================================================================
+19. QUICK REFERENCE
+==============================================================================
+
+  - Duke Nukem 3D / EDuke32: r_texfilter 0; r_anisotropy 0
+  - Quake / GLQuake: gl_texturemode GL_NEAREST
+  - Quake II: gl_texturemode GL_NEAREST
+  - Unreal: set texture bNoSmooth true | set actor bNoSmooth true
+  - Unreal Tournament: set texture bNoSmooth true | set actor bNoSmooth true
+  - Half-Life: gl_texturemode GL_NEAREST
+  - Deus Ex: set texture bNoSmooth true | set actor bNoSmooth true
+  - Gothic: dgVoodoo2 -> Force point sampled
+  - Gothic II: dgVoodoo2 -> Force point sampled
+  - Gothic 3: dgVoodoo2 -> Force point sampled
+  - Morrowind original: dgVoodoo2 -> Force point sampled
+  - Oblivion original: dgVoodoo2 -> Force point sampled
+  - Skyrim 2011 32-bit: dgVoodoo2 -> Force point sampled
+  - Vietcong: dgVoodoo2 -> Force point sampled
+  - Red Faction: r_nearest
+  - MechWarrior 3: Video Device -> Software Render
+  - Thief: The Dark Project / NewDark: tex_filter_mode 0
+  - System Shock 2 / NewDark: tex_filter_mode 0
+
+==============================================================================
+20. FILTERING VS MIPMAPPING
+==============================================================================
+
+If the main goal is sharp pixels up close but stable distant surfaces, keep
+mipmaps and use nearest filtering. The useful Quake-style equivalent is
+GL_NEAREST_MIPMAP_NEAREST.
+If the goal is the most aggressively raw texture presentation possible, use
+nearest filtering with no mipmaps. This maximizes hard pixel edges but causes
+moire patterns, crawling, and shimmer on distant floors and walls.
+For NewDark, tex_filter_mode 0 is the documented no-filtering mode. There is
+no separate requirement to set an anisotropic value to zero.
+
+==============================================================================
+21. SOURCE / VERIFICATION NOTES
+==============================================================================
+
+The native commands and configuration settings in this file were checked
+against engine documentation, released source code, or established
+game-specific references. Wrapper methods are explicitly labeled so they are
+not confused with commands built into the original executable.
+  - EDukeWiki — Console commands and Video setup
+  - https://wiki.eduke32.com/wiki/Console_commands
+  - https://wiki.eduke32.com/wiki/Video_setup
+  - Original GLQuake source / SGI Quake GL texture-mode documentation
+  - https://android.googlesource.com/platform/external/quake/
+  - Original Quake II console command documentation
+  - https://www.eecis.udel.edu/~portnoi/quake/quakeiicom.html
+  - OldUnreal: bNoSmooth method preserves smooth lightmaps better than
+    renderer-wide NoFiltering in Direct3D renderers
+  - Unreal Engine 1 Actor/Texture definitions: bNoSmooth disables smoothing
+  - OldUnreal / UTGLR — NoFiltering renderer option
+  - https://www.oldunreal.com/wiki/
+  - https://unrealarchive.org/unreal-tournament/patches-updates/renderers/
+  - Deus Ex Network — renderer setting documentation
+  - https://www.deusexnetwork.com/knowledge-base/
+  - Gothic II Gothic.ini documentation for zTexAnisotropicFiltering
+  - https://www.pcgamingwiki.com/wiki/Gothic_II
+  - dgVoodoo2 documentation — Force point sampled texture filtering
+  - https://www.pcgamingwiki.com/wiki/DgVoodoo2
+  - Morrowind Pixellized — original engine filtering discussion
+  - https://www.nexusmods.com/morrowind/mods/45924
+  - Vietcong PCGamingWiki — Direct3D 8.1 renderer information
+  - https://www.pcgamingwiki.com/wiki/Vietcong
+  - Red Faction Wiki — original r_nearest command
+  - https://www.redfactionwiki.com/wiki/Red_Faction_Console_Commands
+  - NewDark Thief documentation/examples — tex_filter_mode 0
+  - https://www.thiefguild.com/fanmissions/34348/
+  - System Shock 2 NewDark texture-filter configuration guide
+  - https://steamcommunity.com/sharedfiles/filedetails/?id=2331853548
+  - MicroProse MechWarrior 3 v1.1 patch notes: Software Render device
+  - PCGamingWiki: MechWarrior 3 uses Direct3D 6 and a software renderer
+  - Modern MW3 compatibility analysis: dgVoodoo cockpit-render issue
