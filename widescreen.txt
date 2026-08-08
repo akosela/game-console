@@ -756,23 +756,23 @@ explicit fov line only when you want the exact project values shown here.
 18. QUICK REFERENCE
 ==============================================================================
 
-01  Duke Nukem 3D / EDuke32       menu FOV; Polymer legacy uses BUILD units
-02  Quake / GLQuake               -width/-height + fov
-03  Quake II / Yamagi             custom mode + horplus 0 + fov
-04  Unreal                        Unreal.ini + User.ini
-05  Unreal Tournament 1999        UnrealTournament.ini + User.ini
-06  Half-Life WON                 WON patch + autoexec.cfg default_fov
-07  Deus Ex                       DeusEx.ini + User.ini
-08  Gothic                        Gothic.ini + SystemPack Hor+ calculation
-09  Gothic II                     Gothic.ini + SystemPack Hor+ calculation
-10  Gothic 3                      ge3.ini Camera.FOV
-11  Morrowind                     registry + Morrowind FPS Optimizer
-12  Oblivion                      Oblivion.ini
-13  Skyrim 2011                   SkyrimPrefs.ini + Skyrim.ini
-14  Vietcong 2003                 VCStarter Aspect ratio-fix; no numeric FOV
-15  Red Faction 2001              Alpine Faction launcher + r_fov
-16  Thief TDP / Gold / NewDark    cam.cfg + cam_ext.cfg
-17  System Shock 2 / NewDark      cam.cfg + cam_ext.cfg
+  - Duke Nukem 3D / EDuke32: menu FOV; Polymer legacy uses BUILD units
+  - Quake / GLQuake: -width/-height + fov
+  - Quake II / Yamagi: custom mode + horplus 0 + fov
+  - Unreal: Unreal.ini + User.ini
+  - Unreal Tournament 1999: UnrealTournament.ini + User.ini
+  - Half-Life WON: WON patch + autoexec.cfg default_fov
+  - Deus Ex: DeusEx.ini + User.ini
+  - Gothic: Gothic.ini + SystemPack Hor+ calculation
+  - Gothic II: Gothic.ini + SystemPack Hor+ calculation
+  - Gothic 3: ge3.ini Camera.FOV
+  - Morrowind: registry + Morrowind FPS Optimizer
+  - Oblivion: Oblivion.ini
+  - Skyrim 2011: SkyrimPrefs.ini + Skyrim.ini
+  - Vietcong 2003: VCStarter Aspect ratio-fix; no numeric FOV
+  - Red Faction 2001: Alpine Faction launcher + r_fov
+  - Thief TDP / Gold / NewDark: cam.cfg + cam_ext.cfg
+  - System Shock 2 / NewDark: cam.cfg + cam_ext.cfg
 
 Canonical project mapping:
 
