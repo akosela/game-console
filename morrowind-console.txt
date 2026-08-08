@@ -1,0 +1,231 @@
+THE ELDER SCROLLS III: MORROWIND (2002) — ORIGINAL PC CONSOLE COMMAND
+REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: Bethesda's original Morrowind PC executable and its expansions-era
+console model. OpenMW-only commands and later remaster/reimplementation
+extensions are excluded.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Press ~ to open the console. Many commands can operate on a target. Either
+click the target while the console is open or prefix a command with the
+object's quoted ID when the syntax permits it.
+
+==============================================================================
+2. PLAYER / CHEAT TOGGLES
+==============================================================================
+
+TGM
+  Toggles god mode.
+
+TCL
+  Toggles collision for the player.
+
+TWF
+  Toggles wireframe display.
+
+TA
+  Toggles actor processing/AI.
+
+TCA
+  Toggles combat AI.
+
+TFH
+  Toggles full help, exposing extra object/script information.
+
+TDT
+  Toggles debug text display.
+
+TM
+  Toggles menus/HUD display.
+
+ShowVars
+  Shows script/local variables for the selected object.
+
+==============================================================================
+3. INVENTORY / SPELLS / STATS
+==============================================================================
+
+Player->AddItem "<id>" <count>
+  Adds an item to player inventory.
+
+Player->RemoveItem "<id>" <count>
+  Removes an item from player inventory.
+
+Player->AddSpell "<id>"
+  Adds a spell/ability.
+
+Player->RemoveSpell "<id>"
+  Removes a spell/ability.
+
+Player->SetHealth <value>
+  Sets current health.
+
+Player->SetMagicka <value>
+  Sets current magicka.
+
+Player->SetFatigue <value>
+  Sets current fatigue.
+
+Player->SetStrength <value>
+  Sets Strength.
+
+Player->SetIntelligence <value>
+  Sets Intelligence.
+
+Player->SetWillpower <value>
+  Sets Willpower.
+
+Player->SetAgility <value>
+  Sets Agility.
+
+Player->SetSpeed <value>
+  Sets Speed.
+
+Player->SetEndurance <value>
+  Sets Endurance.
+
+Player->SetPersonality <value>
+  Sets Personality.
+
+Player->SetLuck <value>
+  Sets Luck.
+
+==============================================================================
+4. POSITION / MOVEMENT / PLACEMENT
+==============================================================================
+
+COC "<cell>"
+  Centers the player in the named interior/exterior cell.
+
+COE <X> <Y>
+  Centers the player in exterior cell coordinates.
+
+PositionCell X Y Z R "<cell>"
+  Moves the selected object/player to a position in a named cell.
+
+Position X Y Z R
+  Moves the selected object to explicit coordinates.
+
+PlaceAtPC <id> <count> <distance> <direction>
+  Places one or more objects/NPCs near the player.
+
+PlaceAtMe <id> <count> <distance> <direction>
+  Places objects near the selected reference.
+
+FixMe
+  Attempts to move the player out of invalid/stuck geometry.
+
+SetPos <axis> <value>
+  Sets selected object's X, Y, or Z position.
+
+GetPos <axis>
+  Displays selected object's coordinate on an axis.
+
+SetAngle <axis> <value>
+  Sets selected object's rotation angle.
+
+==============================================================================
+5. QUEST / FACTION / DIALOGUE
+==============================================================================
+
+Journal "<quest-id>" <stage>
+  Sets/adds a journal stage for the named quest.
+
+GetJournalIndex "<quest-id>"
+  Displays the current journal index for a quest.
+
+SetJournalIndex "<quest-id>" <stage>
+  Sets a quest journal index directly in supported versions.
+
+PCClearExpelled <faction>
+  Clears player expulsion from a faction.
+
+PCRaiseRank <faction>
+  Raises player rank in a faction.
+
+PCLowerRank <faction>
+  Lowers player rank in a faction.
+
+ModDisposition <value>
+  Changes selected NPC disposition.
+
+SetDisposition <value>
+  Sets selected NPC disposition.
+
+SetReputation <value>
+  Sets reputation for the selected actor.
+
+==============================================================================
+6. OBJECT / ACTOR CONTROL
+==============================================================================
+
+Enable
+  Enables the selected disabled reference.
+
+Disable
+  Disables the selected reference.
+
+Delete
+  Marks/deletes the selected dynamic reference; use cautiously.
+
+SetDelete <0|1>
+  Controls deletion flag on a reference.
+
+Lock <level>
+  Locks the selected door/container.
+
+Unlock
+  Unlocks the selected door/container.
+
+Resurrect
+  Resurrects the selected actor.
+
+SetHealth <value>
+  Sets selected actor health.
+
+StopCombat
+  Stops selected actor's current combat state.
+
+AIWander ...
+  Assigns a wander AI package to the selected actor.
+
+AIFollow ...
+  Assigns a follow AI package.
+
+AITravel X Y Z
+  Assigns travel to coordinates.
+
+==============================================================================
+7. TIME / WEATHER / WORLD
+==============================================================================
+
+Set GameHour To <hour>
+  Sets in-game hour.
+
+Set Timescale To <value>
+  Sets ratio of game time to real time.
+
+ChangeWeather <region> <weather>
+  Changes weather for the specified region.
+
+ResetActors
+  Resets actor positions/state in the current area.
+
+FillMap
+  Reveals/fills the world map.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - UESP: Morrowind Console
+    https://en.uesp.net/wiki/Morrowind:Console

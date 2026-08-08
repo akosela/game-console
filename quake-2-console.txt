@@ -1,0 +1,265 @@
+QUAKE II (1997) — ORIGINAL v3.20 CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: classic id Software Quake II through the official 3.20 PC codebase.
+Nightdive/KEX remaster commands and modern source-port extensions are not
+used. Quake II has a large command/cvar registry; cmdlist and cvarlist on the
+actual executable are the best completeness check.
+
+==============================================================================
+1. DISCOVERY / CONSOLE / SCRIPTING
+==============================================================================
+
+cmdlist [filter]
+  Lists registered console commands.
+
+cvarlist [filter]
+  Lists registered console variables.
+
+condump <name>
+  Dumps current console text to a .txt file.
+
+clear
+  Clears console text.
+
+echo <text>
+  Prints text to the console.
+
+exec <file.cfg>
+  Executes a configuration file.
+
+alias <name> <commands>
+  Defines a command alias.
+
+bind <key> <command>
+  Binds a key.
+
+unbind <key>
+  Removes one key binding.
+
+unbindall
+  Removes all key bindings.
+
+set <cvar> <value>
+  Sets or creates a console variable.
+
+seta <cvar> <value>
+  Sets a cvar and archives it to configuration.
+
+toggle <cvar>
+  Toggles a boolean cvar where supported.
+
+==============================================================================
+2. GAMEPLAY / CHEATS
+==============================================================================
+
+god
+  Toggles god mode.
+
+noclip
+  Toggles collision-free flying movement.
+
+notarget
+  Toggles monster target acquisition against the player.
+
+give all
+  Gives the normal weapon/item set and ammunition.
+
+give health
+  Restores/gives health.
+
+give weapons
+  Gives all standard weapons.
+
+give ammo
+  Gives standard ammunition.
+
+give armor
+  Gives armor.
+
+give <item>
+  Gives the named item using its game item name.
+
+kill
+  Kills the player.
+
+Useful original item names accepted by give include:
+  - blaster, shotgun, super shotgun, machinegun, chaingun
+  - grenade launcher, rocket launcher, hyperblaster, railgun, bfg10k
+  - shells, bullets, cells, grenades, rockets, slugs
+  - quad damage, invulnerability, silencer, rebreather, environment suit
+  - adrenaline, bandolier, ammo pack, power shield
+  - data cd, power cube, pyramid key, data spinner, red key, blue key
+
+==============================================================================
+3. MAP / SAVE / DEMO / GAME FLOW
+==============================================================================
+
+map <mapname>
+  Starts a local game on the named BSP map.
+
+gamemap <mapname>
+  Changes map using Quake II's game transition/save-state path.
+
+demomap <demo>
+  Plays a demo through the map/demo command path.
+
+record <name>
+  Starts demo recording.
+
+stop
+  Stops demo recording.
+
+save <name>
+  Saves the current game.
+
+load <name>
+  Loads a saved game.
+
+quit
+  Exits the game.
+
+==============================================================================
+4. PLAYER / INVENTORY
+==============================================================================
+
+use <item>
+  Selects/uses a named inventory item or weapon.
+
+drop <item>
+  Drops a named inventory item where allowed.
+
+inven
+  Opens the inventory screen.
+
+invnext
+  Selects the next inventory item.
+
+invprev
+  Selects the previous inventory item.
+
+invuse
+  Uses the selected inventory item.
+
+invdrop
+  Drops the selected inventory item.
+
+weapnext
+  Selects the next weapon.
+
+weapprev
+  Selects the previous weapon.
+
+weaplast
+  Returns to the previously used weapon.
+
+wave <0..4>
+  Plays a multiplayer hand gesture.
+
+viewpos
+  Prints current player coordinates and heading.
+
+hand <0|1|2>
+  Sets right-hand, left-hand, or centered weapon view.
+
+fov <degrees>
+  Sets field of view.
+
+==============================================================================
+5. NETWORK / SERVER
+==============================================================================
+
+connect <address>
+  Connects to a server.
+
+reconnect
+  Reconnects to the current/last server.
+
+disconnect
+  Disconnects from a server.
+
+status
+  Displays server status.
+
+serverinfo
+  Displays server information cvars.
+
+userinfo
+  Displays local user information cvars.
+
+pingservers
+  Queries configured server sources.
+
+kick <user>
+  Kicks a client from a local/administered server.
+
+say <message>
+  Sends chat to all players.
+
+say_team <message>
+  Sends team chat.
+
+sv_gravity <value>
+  Sets server gravity.
+
+deathmatch <0|1>
+  Controls deathmatch mode.
+
+coop <0|1>
+  Controls cooperative mode.
+
+skill <0..3>
+  Sets skill for the next game/map load.
+
+==============================================================================
+6. RENDERING / SOUND / DIAGNOSTICS
+==============================================================================
+
+r_speeds <0|1>
+  Displays renderer timing/poly statistics.
+
+timerefresh
+  Benchmarks rendering by rotating through a view.
+
+screenshot
+  Writes a screenshot.
+
+imagelist
+  Lists loaded images/textures.
+
+modellist
+  Lists loaded models.
+
+soundlist
+  Lists loaded sounds.
+
+gl_ztrick <0|1>
+  Controls the classic OpenGL z-buffer optimization.
+
+gl_triplebuffer <0|1>
+  Controls OpenGL triple buffering.
+
+cl_shownet <value>
+  Displays network-message diagnostics.
+
+cl_showmiss <0|1>
+  Displays prediction-miss diagnostics.
+
+netgraph <0|1>
+  Toggles the network performance graph.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - JakFrost complete Quake II v3.20 console reference
+    https://www.alienarena.org/qcc/
+  - Archived Quake II command reference
+    https://www.eecis.udel.edu/~portnoi/quake/quakeiicom.html
+  - id Software Quake II source code
+    https://github.com/id-Software/Quake-2

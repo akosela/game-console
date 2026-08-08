@@ -1,0 +1,205 @@
+DUKE NUKEM 3D / EDUKE32 — CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: EDuke32 running classic Duke Nukem 3D data. EDuke32 is a source port,
+so this file documents its console as requested, but it does not use the World
+Tour/KEX or any other remaster as a command reference. Commands marked
+engine/debug are EDuke32 facilities rather than commands present in the 1996
+DOS executable.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Open the EDuke32 on-screen display (OSD) with the grave/tilde key by default.
+The binding is configurable as Show_Console. Commands and cvars are
+case-insensitive in normal use.
+help <symbol>
+  Displays help for a command or console variable.
+
+listsymbols
+  Lists registered commands, cvars, aliases, and other OSD symbols.
+  NOTE: Use this on the exact EDuke32 build you are running for the
+  authoritative registry.
+
+history
+  Displays console command history.
+
+clear
+  Clears the OSD text buffer.
+
+echo <text>
+  Prints text to the console.
+
+alias <name> <commands>
+  Creates an alias that can execute one or more console commands.
+
+unalias <name>
+  Removes a previously defined alias.
+
+exec <scriptfile>
+  Executes console commands from a script file.
+
+toggle <cvar>
+  Toggles a boolean console variable.
+
+bind <key> <string>
+  Binds a key to console input.
+
+  Examples:
+    bind f10 "god"
+    bind showkeys
+
+==============================================================================
+2. GAMEPLAY / CHEAT COMMANDS
+==============================================================================
+
+god
+  Toggles god mode.
+
+give all
+  Gives all supported player equipment.
+
+give health
+  Restores/gives health.
+
+give weapons
+  Gives the weapon set.
+
+give ammo
+  Gives ammunition.
+
+give armor
+  Gives armor.
+
+give keys
+  Gives level keys.
+
+give inventory
+  Gives inventory items.
+
+changelevel <volume> <level>
+  Loads the specified Duke episode/level by numeric volume and level.
+
+map <mapfile>
+  Loads a user map file.
+
+demo <file-or-number>
+  Starts demo playback.
+
+==============================================================================
+3. PLAYER / GAME CVARS
+==============================================================================
+
+cl_autoaim <0..3>
+  Controls weapon auto-aim behavior.
+
+cl_autorun <0|1>
+  Enables or disables autorun.
+
+cl_showcoords <0..2>
+  Displays player world coordinates.
+
+cl_viewbob <0|1>
+  Enables or disables player head bobbing.
+
+cl_weaponsway <0|1>
+  Enables or disables first-person weapon sway.
+
+cl_weaponswitch <value>
+  Controls automatic weapon switching policy.
+
+crosshair <0|1>
+  Enables or disables the crosshair.
+
+color <palette>
+  Changes the multiplayer player palette/color.
+
+team <0..3>
+  Changes multiplayer team where the game mode permits it.
+
+wchoice <string>
+  Sets weapon auto-selection priority order.
+
+==============================================================================
+4. VIDEO / OSD
+==============================================================================
+
+vidmode [width height] [bpp] [fullscreen]
+  Changes video mode immediately.
+
+restartvid
+  Reinitializes the current video mode.
+
+vid_gamma <value>
+  Adjusts display gamma.
+
+vid_contrast <value>
+  Adjusts display contrast.
+
+vid_brightness <value>
+  Adjusts display brightness.
+
+osdrows <1..400>
+  Sets the number of visible OSD rows.
+
+osdhistorydepth <value>
+  Sets console history depth.
+
+osdtextmode <0|1>
+  Selects graphical or fast OSD text mode.
+
+==============================================================================
+5. FILESYSTEM / SCRIPT / DEBUG
+==============================================================================
+
+addpath <path>
+  Adds a path to the game filesystem search path.
+
+initgroupfile <path>
+  Adds a GRP archive to the game filesystem.
+
+fileinfo <file>
+  Displays information about a file.
+
+include <files...>
+  Compiles one or more Mapster32 M32 script files.
+
+do (<M32 statements>)
+  Executes M32 script statements.
+
+script_info
+  Shows information about compiled M32 script state.
+
+enableevent <event>
+  Enables an M32 event handler.
+
+disableevent <event>
+  Disables an M32 event handler.
+
+==============================================================================
+6. MULTIPLAYER
+==============================================================================
+
+connect <address>
+  Connects to a multiplayer game.
+
+disconnect
+  Disconnects from the current multiplayer game.
+
+cmenu <number>
+  Jumps to a menu by numeric identifier.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - EDukeWiki: Console commands
+    https://wiki.eduke32.com/wiki/Console_commands
+  - Duke Nukem 3D Informational Suite: Console Commands
+    https://infosuite.duke4.net/index.php?page=references_console_commands

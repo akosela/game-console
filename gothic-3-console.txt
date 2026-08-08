@@ -1,0 +1,138 @@
+GOTHIC 3 (2006) — ORIGINAL MARVIN / TESTMODE CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: original Gothic 3 PC console/test mode. Forsaken Gods and its Enhanced
+Edition are not used as references. Community Patch builds may change console
+activation and some command behavior, so this file identifies the classic
+retail method.
+
+==============================================================================
+1. ENABLING THE ORIGINAL CONSOLE
+==============================================================================
+
+In Gothic3\Ini\ge3.ini, change TestMode=false to TestMode=true under the Game
+section. Start the game and use the tilde/grave key to open the test console.
+Typing marvin rapidly in-game is another activation path seen in patched
+builds, but ge3.ini TestMode is the classic reference.
+
+==============================================================================
+2. CORE CHEATS
+==============================================================================
+
+God
+  Toggles god mode.
+
+Invisibility
+  Toggles invisibility.
+
+fullhealth
+  Restores player health.
+
+Kill
+  Kills the selected/focused target.
+
+Give <item>
+  Adds the specified item to inventory.
+
+Spawn <item-or-creature>
+  Spawns the specified entity.
+
+give all
+  Gives a broad/all-item set.
+
+idkfa
+  Gives a large/all collection of items/skills depending on build.
+
+==============================================================================
+3. CATEGORY GIVE COMMANDS
+==============================================================================
+
+Give Cat_Armor
+  Gives armor-category items.
+
+Give Cat_Weapon
+  Gives weapon-category items.
+
+Give Cat_Artefact
+  Gives artifact-category items.
+
+Give Cat_Alchemy
+  Gives alchemy/food/herb/potion-category items.
+
+Give Cat_Misc
+  Gives miscellaneous-category items.
+
+==============================================================================
+4. TEACH / PLAYER STAT COMMANDS
+==============================================================================
+
+Teach LP <number>
+  Sets/adds learning-point value used by the cheat path.
+
+Teach STR <number>
+  Sets strength.
+
+Teach DEX <number>
+  Sets hunting skill/dexterity.
+
+Teach INT <number>
+  Sets ancient knowledge/intelligence.
+
+Teach ALC <number>
+  Sets alchemy.
+
+Teach SMT <number>
+  Sets smithing.
+
+Teach THF <number>
+  Sets thieving.
+
+Teach HP <number>
+  Sets health-related value.
+
+Teach MP <number>
+  Sets mana-related value.
+
+Teach SP <number>
+  Sets stamina/energy-related value.
+
+Teach all
+  Learns all skills; can have undesirable stat side effects.
+
+==============================================================================
+5. CONTROL / CAMERA / HELPERS
+==============================================================================
+
+Control
+  Takes control of the selected character.
+
+Watch
+  Enters/controls a debug camera mode.
+
+spawn sh
+  Spawns the Story Helper NPC used for test/story operations.
+
+Help
+  Shows console command help/listing in supported builds.
+
+==============================================================================
+6. CAUTIONS
+==============================================================================
+
+Gothic 3's quest and reputation state is highly script-driven. Spawning or
+killing quest actors can leave inconsistent quest state. Save before using
+Give, Spawn, Kill, Control, Teach all, or Story Helper functions.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - GameFAQs: original Gothic 3 PC cheats
+    https://gamefaqs.gamespot.com/pc/920920-gothic-3/cheats
+  - World of Gothic Gothic 3 item/insert references
+    https://www.worldofgothic.com/gothic3/

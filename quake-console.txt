@@ -1,0 +1,254 @@
+QUAKE (1996) — ORIGINAL ENGINE CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: original id Software Quake/WinQuake/GLQuake-era command language and
+gameplay behavior. QuakeSpasm, vkQuake, DarkPlaces, KEX/remaster, QuakeWorld
+extensions, and other source-port-only commands are intentionally excluded
+unless explicitly identified as later additions.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Press the grave/tilde key to open the classic Quake console. Quake's console
+is both a command interface and a small scripting language used by config.cfg
+and autoexec.cfg.
+bind <key> <command>
+  Binds a key to a command or command string.
+
+unbind <key>
+  Removes a key binding.
+
+unbindall
+  Removes all key bindings.
+
+alias <name> <command-string>
+  Defines a console alias.
+
+exec <file.cfg>
+  Executes a configuration script.
+
+echo <text>
+  Prints text in the console.
+
+wait
+  Delays the remainder of an alias/script by one game frame.
+
+clear
+  Clears visible console text.
+
+toggleconsole
+  Opens or closes the console when bound to a key.
+
+==============================================================================
+2. GAME FLOW / SAVE / DEMOS
+==============================================================================
+
+map <mapname>
+  Loads a map directly and starts a local game.
+
+changelevel <mapname>
+  Changes to another map while preserving server/game state where applicable.
+
+restart
+  Restarts the current level.
+
+save <name>
+  Saves the current single-player game.
+
+load <name>
+  Loads a saved game.
+
+record <name> [map] [cdtrack]
+  Starts recording a demo.
+
+stop
+  Stops demo recording.
+
+playdemo <name>
+  Plays a recorded demo.
+
+timedemo <name>
+  Runs a demo as a timed performance benchmark.
+
+demos
+  Starts/continues the attract-mode demo sequence.
+
+quit
+  Exits Quake.
+
+==============================================================================
+3. CHEATS / PLAYER TESTING
+==============================================================================
+
+god
+  Toggles god mode in a local game.
+
+noclip
+  Toggles no-clipping movement.
+
+fly
+  Toggles flying movement while retaining collision.
+
+notarget
+  Prevents monsters from targeting the player normally.
+
+kill
+  Kills the local player.
+
+impulse 9
+  Gives all normal weapons, ammunition, and keys.
+
+impulse 255
+  Gives Quad Damage in the original game code.
+
+give <code> <amount>
+  Sets/gives an inventory quantity such as health or ammunition.
+
+Common original give codes:
+  - give h <amount> — health
+  - give s <amount> — shells
+  - give n <amount> — nails
+  - give r <amount> — rockets
+  - give c <amount> — cells
+  - give 2 through give 8 — corresponding weapon slot
+
+==============================================================================
+4. MULTIPLAYER / SERVER
+==============================================================================
+
+connect <address>
+  Connects to a Quake server.
+
+disconnect
+  Disconnects from the current server.
+
+listen <0|1>
+  Controls listen-server operation.
+
+maxplayers <number>
+  Sets maximum players before starting a local server.
+
+deathmatch <0|1>
+  Controls deathmatch mode.
+
+coop <0|1>
+  Controls cooperative mode.
+
+teamplay <value>
+  Controls teamplay rules.
+
+fraglimit <number>
+  Sets the frag limit; zero disables it.
+
+timelimit <minutes>
+  Sets the time limit; zero disables it.
+
+status
+  Displays server/client status information.
+
+name <name>
+  Sets the player's network name.
+
+color <top> <bottom>
+  Sets shirt and pants colors.
+
+say <message>
+  Sends chat to all players.
+
+say_team <message>
+  Sends chat to teammates.
+
+==============================================================================
+5. MOVEMENT / VIEW / GAMEPLAY CVARS
+==============================================================================
+
+fov <degrees>
+  Sets field of view.
+
+crosshair <0|1>
+  Toggles the original crosshair.
+
+sensitivity <value>
+  Sets mouse sensitivity.
+
+m_pitch <value>
+  Controls vertical mouse scaling/direction.
+
+m_yaw <value>
+  Controls horizontal mouse scaling.
+
+cl_backspeed <value>
+  Sets backward movement command speed.
+
+cl_forwardspeed <value>
+  Sets forward movement command speed.
+
+cl_sidespeed <value>
+  Sets strafe movement command speed.
+
+cl_movespeedkey <value>
+  Sets the speed multiplier used by the run key.
+
+sv_gravity <value>
+  Sets server gravity; classic default is 800.
+
+sv_maxspeed <value>
+  Sets maximum player movement speed.
+
+sv_accelerate <value>
+  Sets ground acceleration.
+
+sv_friction <value>
+  Sets ground friction.
+
+==============================================================================
+6. RENDERING / AUDIO / INFORMATION
+==============================================================================
+
+gamma <value>
+  Sets display gamma in supported original renderers.
+
+r_fullbright <0|1>
+  Forces full-bright world rendering when allowed.
+
+r_drawentities <0|1>
+  Toggles entity model rendering.
+
+r_drawviewmodel <0|1>
+  Toggles the first-person weapon model.
+
+r_norefresh <0|1>
+  Disables normal scene refresh for engine testing.
+
+r_speeds <0|1>
+  Displays renderer performance statistics.
+
+scr_viewsize <value>
+  Controls size of the 3D view area.
+
+volume <0..1>
+  Sets sound-effect volume.
+
+bgmvolume <0..1>
+  Sets CD/music volume.
+
+screenshot
+  Writes a screenshot in the original renderer format.
+
+version
+  Prints engine/version information.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - Contemporary Quake C.A.Q. command summary
+    https://groups.google.com/g/rec.games.computer.quake.announce/
+  - id Software Quake source code
+    https://github.com/id-Software/Quake

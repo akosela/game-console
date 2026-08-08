@@ -1,0 +1,253 @@
+THE ELDER SCROLLS IV: OBLIVION (2006) — ORIGINAL PC CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: Bethesda's original 2006 Oblivion PC executable and classic expansion
+era. Oblivion Remastered (2025+) is explicitly excluded.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Press ~ to open the console. Click an actor/object to make it the console
+target. Targeted commands act on that reference; player-prefixed commands act
+explicitly on the player.
+
+==============================================================================
+2. PLAYER / CHEAT TOGGLES
+==============================================================================
+
+tgm
+  Toggles god mode.
+
+tcl
+  Toggles collision for the selected target or player context.
+
+tai
+  Toggles AI processing.
+
+tcai
+  Toggles combat AI.
+
+tdetect
+  Toggles AI detection.
+
+tm
+  Toggles menus/HUD.
+
+tfc
+  Toggles free camera.
+
+tfow
+  Toggles local-map fog of war.
+
+tws
+  Toggles water rendering.
+
+twf
+  Toggles wireframe display.
+
+==============================================================================
+3. INVENTORY / SPELLS
+==============================================================================
+
+player.additem <FormID> <count>
+  Adds an item to player inventory.
+
+player.removeitem <FormID> <count>
+  Removes an item.
+
+player.equipitem <FormID>
+  Equips an item.
+
+player.unequipitem <FormID>
+  Unequips an item.
+
+player.addspell <FormID>
+  Adds a spell/ability.
+
+player.removespell <FormID>
+  Removes a spell/ability.
+
+player.additem 0000000F <count>
+  Adds gold.
+
+player.additem 0000000A <count>
+  Adds lockpicks.
+
+==============================================================================
+4. ATTRIBUTES / SKILLS / LEVEL
+==============================================================================
+
+player.setav <actor-value> <value>
+  Sets a player actor value.
+
+player.modav <actor-value> <delta>
+  Modifies a player actor value.
+
+player.getav <actor-value>
+  Displays a player actor value.
+
+player.setlevel <level>
+  Sets player level.
+
+player.setscale <scale>
+  Sets player scale.
+
+advlevel
+  Forces a level-up without normal skill bookkeeping.
+
+advskill <skill> <amount>
+  Adds skill-use progress.
+
+modpcs <skill> <amount>
+  Adds skill levels/progress using Oblivion logic.
+
+setpcfame <value>
+  Sets player fame.
+
+setpcinfamy <value>
+  Sets player infamy.
+
+==============================================================================
+5. QUESTS / FACTIONS / CRIME
+==============================================================================
+
+setstage <QuestID> <stage>
+  Sets a quest to a specified stage.
+
+getstage <QuestID>
+  Displays current quest stage.
+
+completequest <QuestID>
+  Marks a quest complete; can skip script effects.
+
+showquesttargets
+  Shows active quest targets.
+
+sqt
+  Displays current quest targets.
+
+addtofaction <FactionID> <rank>
+  Adds target to a faction.
+
+removefromfaction <FactionID>
+  Removes target from a faction.
+
+player.setcrimegold <value>
+  Sets player bounty/crime gold.
+
+payfine
+  Pays the player's current fine.
+
+==============================================================================
+6. ACTORS / OBJECTS / POSITION
+==============================================================================
+
+disable
+  Disables the selected reference.
+
+enable
+  Enables the selected reference.
+
+delete
+  Deletes the selected reference; unsafe on placed quest objects.
+
+kill
+  Kills the selected actor.
+
+resurrect [1]
+  Resurrects the selected actor.
+
+unlock
+  Unlocks the selected door/container.
+
+lock <level>
+  Locks the selected door/container.
+
+moveto <RefID>
+  Moves selected reference to another reference.
+
+player.moveto <RefID>
+  Moves player to a reference.
+
+placeatme <BaseID> [count]
+  Spawns an object/NPC at the selected reference.
+
+player.placeatme <BaseID> [count]
+  Spawns an object/NPC at the player.
+
+setpos <axis> <value>
+  Sets selected reference position coordinate.
+
+getpos <axis>
+  Displays selected reference position coordinate.
+
+setangle <axis> <value>
+  Sets selected reference rotation.
+
+setscale <value>
+  Sets selected reference scale.
+
+==============================================================================
+7. TIME / WORLD / CAMERA
+==============================================================================
+
+set timescale to <value>
+  Sets game-time multiplier.
+
+set gamehour to <hour>
+  Sets time of day.
+
+fw <WeatherID>
+  Forces a weather type.
+
+sw <WeatherID>
+  Sets weather through normal transition.
+
+coc <CellID>
+  Teleports player to a named interior cell.
+
+cow <WorldspaceID> <X> <Y>
+  Centers player in an exterior worldspace cell.
+
+sucsm <speed>
+  Sets free-camera movement speed.
+
+==============================================================================
+8. DEBUG / INFORMATION
+==============================================================================
+
+help
+  Displays console help in builds that expose it.
+
+getav <actor-value>
+  Displays an actor value for selected target.
+
+getlevel
+  Displays selected actor level.
+
+getdistance <RefID>
+  Displays distance to another reference.
+
+getstage <QuestID>
+  Displays a quest stage.
+
+save <name>
+  Creates a save from the console.
+
+qqq
+  Immediately quits the game.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - UESP: Oblivion Console
+    https://en.uesp.net/wiki/Oblivion:Console
+  - UESP: Oblivion Console Command Tutorial
+    https://en.uesp.net/wiki/Oblivion:Console_Command_Tutorial

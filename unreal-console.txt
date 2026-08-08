@@ -1,0 +1,172 @@
+UNREAL (1998) — ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: Unreal 1 / Unreal Engine 1-era PC console, using Epic's original
+console documentation as the principal reference. Unreal Tournament-specific
+commands and later Unreal Engine generations are excluded unless shared by the
+original engine.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Open the console with the grave/tilde key. Some cheat commands require cheat
+mode in retail builds; historical releases commonly use IAMTHEONE before
+gameplay cheats.
+IAMTHEONE
+  Enables cheat commands in builds that require cheat mode.
+
+SAY <message>
+  Broadcasts a chat message.
+
+SETNAME <name>
+  Changes the player's name.
+
+SETTEAM <name>
+  Changes team where the game type permits it.
+
+SUICIDE
+  Kills the local player.
+
+==============================================================================
+2. CHEATS / MOVEMENT / TESTING
+==============================================================================
+
+GOD
+  Toggles player invulnerability.
+
+ALLAMMO
+  Fills ammunition for currently owned weapons.
+
+FLY
+  Enables flying movement with collision.
+
+GHOST
+  Enables flying/no-clip movement through geometry.
+
+WALK
+  Returns movement to normal walking physics.
+
+INVISIBLE
+  Toggles player invisibility to AI.
+
+PLAYERSONLY
+  Freezes non-player actors; useful for debugging/screenshots.
+
+SLOMO <factor>
+  Sets global game-speed multiplier; 1.0 is normal.
+
+==============================================================================
+3. ACTOR / OBJECT COMMANDS
+==============================================================================
+
+SUMMON <package.class>
+  Spawns an actor of the specified UnrealScript class in front of the player.
+
+KILLALL <class>
+  Destroys/kills all actors of the specified class.
+
+KILLPAWNS
+  Kills pawn actors/monsters.
+
+EDITACTOR CLASS=<class>
+  Opens actor properties in editor/debug contexts.
+
+EDITDEFAULT CLASS=<class>
+  Opens default properties for an UnrealScript class in editor contexts.
+
+==============================================================================
+4. LEVEL / SERVER TRAVEL
+==============================================================================
+
+OPEN <level-url>
+  Opens a local map or network URL.
+
+START <level-url>
+  Starts a local server/game on a URL.
+
+SWITCHLEVEL <level-url>
+  Switches the server to another level URL.
+
+SWITCHCOOPLEVEL <level-url>
+  Changes level while preserving cooperative inventory behavior.
+
+DISCONNECT
+  Disconnects from the current network game.
+
+RECONNECT
+  Reconnects to the current/last server.
+
+EXIT
+  Exits Unreal.
+
+QUIT
+  Exits Unreal.
+
+==============================================================================
+5. VIEW / RENDERER / DIAGNOSTICS
+==============================================================================
+
+BEHINDVIEW <0|1>
+  Switches between first- and third-person camera.
+
+FOV <degrees>
+  Sets field of view.
+
+STAT FPS
+  Displays frame-rate statistics in supported builds.
+
+STAT GLOBAL
+  Displays global engine statistics.
+
+STAT RENDER
+  Displays renderer statistics.
+
+STAT ACTOR
+  Displays actor statistics.
+
+STAT NET
+  Displays network statistics.
+
+FLUSH
+  Flushes engine caches/resources.
+
+GETRES
+  Lists supported display resolutions.
+
+MEMSTAT
+  Displays memory statistics.
+
+OBJ LIST
+  Lists loaded Unreal objects.
+
+OBJ GARBAGE
+  Forces garbage collection.
+
+==============================================================================
+6. ADMIN / MULTIPLAYER
+==============================================================================
+
+ADMIN <command>
+  Runs a server command with administrator authority.
+
+ADMINLOGIN <password>
+  Logs in as server administrator.
+
+ADMINLOGOUT
+  Logs out of administrator mode.
+
+KICK <player>
+  Kicks a player from the server.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - Epic MegaGames / Tim Sweeney original Unreal console reference
+    https://www.oldunreal.com/UnrealReference/Console.htm

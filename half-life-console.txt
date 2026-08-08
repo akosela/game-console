@@ -1,0 +1,211 @@
+HALF-LIFE (1998) — ORIGINAL GOLDSRC CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: Half-Life 1 / GoldSrc-era PC commands. Source-engine Half-Life 2
+commands, Black Mesa, Sven Co-op additions, and remaster-style ports are
+excluded. Steam-era GoldSrc builds can add or remove some cvars versus the
+1998 retail executable.
+
+==============================================================================
+1. CONSOLE BASICS / DISCOVERY
+==============================================================================
+
+On classic installations the console may require the -console launch
+parameter. Press ~ to open it. Later GoldSrc builds can expose command and
+cvar listing helpers not present in every 1998 retail build, so use the exact
+executable when strict registry completeness matters.
+bind <key> <command>
+  Binds a key to a command.
+
+unbind <key>
+  Removes a key binding.
+
+unbindall
+  Removes all key bindings.
+
+alias <name> <commands>
+  Defines a command alias.
+
+exec <file.cfg>
+  Executes a config script.
+
+echo <text>
+  Prints text in the console.
+
+clear
+  Clears console text.
+
+==============================================================================
+2. CHEAT ENABLING / PLAYER CHEATS
+==============================================================================
+
+sv_cheats 1
+  Enables server-side cheat commands in builds that gate them.
+  NOTE: A map reload/restart may be required by some old GoldSrc builds.
+
+god
+  Toggles god mode.
+
+noclip
+  Toggles no-clipping movement.
+
+notarget
+  Prevents normal AI targeting of the player.
+
+impulse 101
+  Gives the standard Half-Life weapon/ammo loadout.
+
+give <entity-class>
+  Gives/spawns a named weapon or item entity.
+
+kill
+  Kills the local player.
+
+==============================================================================
+3. HALF-LIFE WEAPON / ITEM ENTITY NAMES
+==============================================================================
+
+Common base-game names for use with give:
+  - weapon_crowbar
+  - weapon_9mmhandgun / weapon_glock
+  - weapon_357
+  - weapon_9mmAR / weapon_mp5
+  - weapon_shotgun
+  - weapon_crossbow
+  - weapon_rpg
+  - weapon_gauss
+  - weapon_egon
+  - weapon_hornetgun
+  - weapon_handgrenade
+  - weapon_tripmine
+  - weapon_satchel
+  - weapon_snark
+  - item_suit
+  - item_battery
+  - item_healthkit
+  - item_longjump
+
+==============================================================================
+4. MAP / SAVE / DEMO / GAME FLOW
+==============================================================================
+
+map <mapname>
+  Starts a map directly.
+
+changelevel <mapname>
+  Changes level using the normal GoldSrc transition path.
+
+restart
+  Restarts the current map/server where supported.
+
+save <name>
+  Saves the current game.
+
+load <name>
+  Loads a saved game.
+
+record <name>
+  Starts demo recording.
+
+stop
+  Stops demo recording.
+
+playdemo <name>
+  Plays a demo.
+
+timedemo <name>
+  Runs a timed demo benchmark.
+
+quit
+  Exits Half-Life.
+
+==============================================================================
+5. PLAYER / VIEW / INPUT
+==============================================================================
+
+name <name>
+  Sets player name.
+
+fov <degrees>
+  Sets field of view where accepted by the build/server.
+
+default_fov <degrees>
+  Sets default field of view.
+
+sensitivity <value>
+  Sets mouse sensitivity.
+
+m_pitch <value>
+  Sets vertical mouse scale/direction.
+
+m_yaw <value>
+  Sets horizontal mouse scale.
+
+cl_forwardspeed <value>
+  Sets forward movement command speed.
+
+cl_backspeed <value>
+  Sets backward movement command speed.
+
+cl_sidespeed <value>
+  Sets strafe movement command speed.
+
+cl_bob <value>
+  Controls view bob amount.
+
+cl_bobcycle <value>
+  Controls view bob cycle.
+
+cl_bobup <value>
+  Controls upward phase of view bob.
+
+==============================================================================
+6. SERVER / NETWORK / DEBUG
+==============================================================================
+
+connect <address>
+  Connects to a server.
+
+disconnect
+  Disconnects from the current server.
+
+reconnect
+  Reconnects to the last server.
+
+status
+  Displays server/player status.
+
+ping
+  Displays network latency information.
+
+say <message>
+  Sends public chat.
+
+say_team <message>
+  Sends team chat.
+
+developer <0|1>
+  Controls developer/debug message output.
+
+sv_gravity <value>
+  Sets server gravity.
+
+sv_maxspeed <value>
+  Sets server maximum player speed.
+
+mp_friendlyfire <0|1>
+  Controls friendly fire in multiplayer rules.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - Valve GoldSrc / Half-Life command documentation
+    https://developer.valvesoftware.com/wiki/GoldSrc
+  - Half-Life SDK / GoldSrc source-derived references
+    https://github.com/ValveSoftware/halflife

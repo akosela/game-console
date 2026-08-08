@@ -1,0 +1,155 @@
+GOTHIC (2001) — ORIGINAL MARVIN MODE / CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: original Piranha Bytes Gothic 1 and its ZenGin/Marvin developer mode.
+The 2026 remake is explicitly excluded.
+
+==============================================================================
+1. ACTIVATING MARVIN MODE
+==============================================================================
+
+Open the character/status screen (B in the usual layout), type marvin quickly,
+and close the screen. 'testmode on' confirms activation. Press F2 to open the
+developer console. To deactivate, open the status screen, type 42, and close
+it.
+
+==============================================================================
+2. CORE CONSOLE COMMANDS
+==============================================================================
+
+cheat god
+  Toggles player god mode.
+
+cheat full
+  Restores player health and mana.
+
+insert <instance>
+  Spawns an item, NPC, or creature instance.
+
+kill
+  Damages/kills the focused NPC or creature.
+
+goto waypoint <name>
+  Teleports the player to a waypoint.
+
+goto pos <X Y Z>
+  Teleports the player to explicit world coordinates.
+
+goto camera
+  Teleports the player to the current free-camera position.
+
+aigoto <waypoint>
+  Orders the player character AI to run to a waypoint.
+
+edit abilities
+  Opens the player ability/stat editor.
+
+edit focus
+  Opens the editor for the currently focused object/NPC.
+
+edit ai
+  Opens AI-related editing for the relevant character/object.
+
+set time <HH MM>
+  Changes in-game time.
+
+hero export <name>
+  Exports the hero character to a file.
+
+hero import <name>
+  Imports a previously exported hero character.
+
+==============================================================================
+3. DISPLAY / DEBUG
+==============================================================================
+
+toggle frame
+  Toggles frame-rate display.
+
+toggle clock
+  Toggles the visible in-game clock.
+
+toggle waynet
+  Toggles the waypoint network display.
+
+toggle wayboxes
+  Toggles waypoint/path boxes.
+
+version
+  Displays game/engine version information.
+
+save infofile
+  Writes README_CONSOLE in Gothic\System with console command information.
+
+==============================================================================
+4. USEFUL MARVIN HOTKEYS
+==============================================================================
+
+  - F2 — open/close console
+  - F3 — toggle window/fullscreen display mode
+  - F4 — return camera to the player
+  - F5 — freeze/lock camera
+  - F6 — free-camera mode
+  - F7 — stationary/orbit camera mode
+  - F8 — heal/revive and move/fly the hero forward
+  - F9 — pause simulation
+  - F10 — advance one frame while paused
+  - K — move/teleport the hero a short distance forward
+  - O — take control of the focused NPC
+  - Alt+P — display current player position
+  - Alt+U — display waypoints/path network
+
+==============================================================================
+5. STATUS-SCREEN EASTER-EGG / TEST CODES
+==============================================================================
+
+These are typed in the status screen like marvin. They are developer
+test/easter-egg inputs rather than normal F2 console commands.
+guardian
+  Enables invulnerability.
+
+taki
+  Restores health and mana.
+
+frate
+  Displays frame-rate information.
+
+clock
+  Displays the in-game clock.
+
+southpark
+  Speeds up the game.
+
+spy
+  Displays information about the focused NPC.
+
+garfield
+  Makes NPC models appear fatter.
+
+kingkong
+  Makes NPC models smaller.
+
+==============================================================================
+6. EXACT COMMAND-LIST WORKFLOW
+==============================================================================
+
+Classic Gothic contains a particularly useful self-documentation path. After
+enabling Marvin mode and opening F2, run:
+  save infofile
+
+Inspect Gothic\System\README_CONSOLE. This is preferable to relying on a list
+from a different ZenGin build or a modern mod installation.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - Gothic Wiki: Cheat codes in Gothic
+    https://gothic.wiki/w/Cheat_codes_in_Gothic
+  - RPGDot archived Gothic console command guide
+    https://rpgdot.rpgwatch.com/

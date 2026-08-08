@@ -1,0 +1,186 @@
+DEUS EX (2000) — ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: original Deus Ex PC / v1.112fm-era command behavior. Revision and other
+mods can change class names, while later Deus Ex games use different engines
+and are not reference material here.
+
+==============================================================================
+1. ACCESSING THE CONSOLE / ENABLING CHEATS
+==============================================================================
+
+In v1.112fm/GOTY-era builds, press the chat key (T by default), erase Say so
+only the prompt remains, then type a command. Older builds can bind Tilde=Type
+in User.ini. Most cheat commands require cheats.
+-hax0r
+  Launch parameter that enables cheats.
+
+set Human bCheatsEnabled True
+  Enables cheats for the player class for the current run.
+
+set DeusEx.JCDentonMale bCheatsEnabled True
+  Enables cheats directly on the standard male JC class.
+
+==============================================================================
+2. CORE CHEATS
+==============================================================================
+
+god
+  Toggles god mode.
+
+allhealth
+  Restores all body-part health.
+
+allenergy
+  Restores bioelectric energy.
+
+allammo
+  Fills ammunition for owned weapons.
+
+allweapons
+  Gives the standard weapon set.
+
+allaugs
+  Gives/installs the basic augmentation set.
+
+allskills
+  Sets skills to mastery.
+
+allskillpoints
+  Gives a very large pool of skill points.
+
+allcredits
+  Gives 10,000 credits.
+
+allimages
+  Adds all image/datacube image records.
+
+iamwarren
+  Activates the EMP-field cheat effect.
+
+amphibious
+  Allows breathing underwater.
+
+opensesame
+  Unlocks the targeted door or panel.
+
+tantalus
+  Destroys/kills the actor directly in front of the player.
+
+==============================================================================
+3. MOVEMENT / CAMERA / WORLD
+==============================================================================
+
+fly
+  Enables flying movement.
+
+ghost
+  Enables no-clip flying movement.
+
+walk
+  Returns to normal walking physics.
+
+invisible <0|1>
+  Controls player invisibility.
+
+behindview <0|1>
+  Switches first/third-person camera.
+
+playersonly
+  Freezes non-player actors.
+
+slomo <factor>
+  Sets global game speed; 1.0 is normal.
+
+setjumpz <height>
+  Sets jump velocity/ability.
+
+setfriction <number>
+  Sets surface/player friction behavior.
+
+showhud <true|false>
+  Shows or hides the HUD.
+
+==============================================================================
+4. SPAWNING / ACTORS / LEVELS
+==============================================================================
+
+summon <classname>
+  Spawns one actor of the specified Unreal class.
+
+spawnmass <classname> [count]
+  Spawns multiple actors; default count is commonly 10.
+
+killall <classname>
+  Kills/destroys all actors of the specified class.
+
+open <level>
+  Loads the named map/level.
+
+demorec <file>
+  Starts demo recording.
+
+demoplay <file>
+  Plays a recorded demo.
+
+==============================================================================
+5. PROPERTY / SKILL MANIPULATION
+==============================================================================
+
+get <object-or-class> <property>
+  Reads an Unreal object/class property.
+
+set <object-or-class> <property> <value>
+  Sets an Unreal object/class property.
+
+set <skill> CurrentLevel <0..3>
+  Sets a Deus Ex skill level using its skill object/class.
+
+augadd <augmentation>
+  Installs the specified augmentation.
+
+Example skill command:
+  set SkillTech CurrentLevel 3
+
+==============================================================================
+6. DEBUG / UI / CONFIGURATION
+==============================================================================
+
+legend
+  Opens the Deus Ex debug/legend menu.
+
+preferences
+  Opens Unreal Engine advanced preferences.
+
+showrgbdialog
+  Opens the custom HUD-color dialog.
+
+ToggleObjectBelt
+  Toggles the object belt HUD element.
+
+ToggleHitDisplay
+  Toggles body-health display.
+
+ToggleAmmoDisplay
+  Toggles ammo display.
+
+ToggleAugDisplay
+  Toggles augmentation display.
+
+ToggleCompass
+  Toggles compass display.
+
+ToggleCrosshair
+  Toggles the crosshair.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - Deus Ex Wiki: Deus Ex console commands
+    https://deusex.fandom.com/wiki/Deus_Ex_console_commands

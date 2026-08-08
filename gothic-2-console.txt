@@ -1,0 +1,157 @@
+GOTHIC II (2002) — ORIGINAL MARVIN MODE / CONSOLE COMMAND REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: original Gothic II classic engine behavior. Commands also shared with
+Night of the Raven are included when they already exist in the Gothic II
+engine, but addon-only content/instance codes are not used as the reference.
+
+==============================================================================
+1. ACTIVATING MARVIN MODE
+==============================================================================
+
+Open the character screen (B or C depending on controls), type marvin, and
+close it. 'Marvin-Mode' confirms activation. Press F2 for the console. Type 42
+in the character screen to deactivate Marvin mode.
+
+==============================================================================
+2. CORE COMMANDS
+==============================================================================
+
+cheat god
+  Toggles god mode.
+
+cheat full
+  Restores health and mana.
+
+insert <instance>
+  Spawns an item, NPC, or creature by script instance.
+
+kill
+  Kills/damages the focused living actor.
+
+goto waypoint <name>
+  Teleports to a waypoint.
+
+goto pos <X Y Z>
+  Teleports to explicit coordinates.
+
+goto vob <instance>
+  Teleports to the named world object/Vob.
+
+goto camera
+  Teleports the hero to the free-camera position.
+
+aigoto <waypoint>
+  Makes the controlled character run to a waypoint.
+
+edit abilities
+  Opens the player stat/ability editor.
+
+edit focus
+  Edits the focused actor/object.
+
+set time <HH:MM>
+  Changes game time.
+
+hero export <name>
+  Exports the current hero data.
+
+hero import <name>
+  Imports exported hero data.
+
+set guild <guild>
+  Changes the controlled character's guild/faction.
+
+set modelfatness <value>
+  Changes model body-width scaling.
+
+set permattitude <value>
+  Changes an NPC's permanent attitude value.
+
+==============================================================================
+3. HELPER / TEST INSTANCES
+==============================================================================
+
+insert ch
+  Spawns the Character Helper used to teach/edit abilities.
+
+insert sh
+  Spawns the Story Helper for chapter/story testing.
+
+insert pc_rockefeller
+  Spawns an NPC carrying a large weapon set.
+
+insert pc_itemfeller
+  Spawns an NPC carrying a large/all-item set.
+
+==============================================================================
+4. DISPLAY / ENGINE DEBUG
+==============================================================================
+
+toggle frame
+  Toggles FPS display.
+
+toggle time
+  Toggles the in-game clock.
+
+toggle waynet
+  Toggles NPC pathfinding/waypoint network display.
+
+toggle desktop
+  Toggles most HUD/menu desktop elements.
+
+toggle turns
+  Toggles NPC turning behavior in supported builds.
+
+version
+  Displays engine/game version.
+
+play video <name>
+  Plays a named video/cutscene resource.
+
+save infofile
+  Writes README_CONSOLE with engine console command documentation.
+
+==============================================================================
+5. USEFUL MARVIN HOTKEYS
+==============================================================================
+
+  - F2 — open/close console
+  - F3 — toggle window/fullscreen mode
+  - F4 — return camera to hero
+  - F5 — lock camera
+  - F6 — free-camera mode
+  - F7 — stationary/orbit camera
+  - F8 — heal/revive and move the controlled character
+  - F9 — pause
+  - F10 — single-frame advance while paused
+  - Home — cycle nearby NPC camera targets
+  - K — short forward teleport, including through geometry
+  - O — possess/control the focused NPC
+  - Alt+U — show waypoint/path network
+
+==============================================================================
+6. EXACT COMMAND-LIST WORKFLOW
+==============================================================================
+
+For the installed classic Gothic II engine, enable Marvin mode, open F2 and
+execute:
+  save infofile
+
+Then inspect Gothic II\System\README_CONSOLE. This is the best way to separate
+the executable's own console from commands added by SystemPack, Union, mods,
+or later community patches.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - Gothic Wiki: Gothic II cheat/Marvin documentation
+    https://gothic.wiki/
+  - Classic Gothic II command guide
+    https://colony-guide.com/gothic-2-notr/guides/cheats/
