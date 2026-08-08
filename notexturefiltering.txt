@@ -3,16 +3,15 @@ NOTEXTUREFILTERING — SHARP / PIXELATED TEXTURE REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal, Unreal
-Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3, Morrowind,
-Oblivion, Skyrim, Vietcong, Red Faction, Thief: The Dark Project using
-NewDark, and System Shock 2 using NewDark.
-Goal: disable bilinear/trilinear/anisotropic texture filtering so texels stay
-visibly sharp and pixelated instead of being smoothed together.
-Remaster-only settings are intentionally excluded. EDuke32 is used for Duke
-Nukem 3D because it provides the requested runtime environment. NewDark is
-used for Thief and System Shock 2 because it explicitly exposes the required
-texture-filter mode.
+Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II using Yamagi
+Quake II, Unreal, Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II,
+Gothic 3, Morrowind, Oblivion, Skyrim, Vietcong, Red Faction, Thief: The
+Dark Project using NewDark, and System Shock 2 using NewDark.  Goal: disable
+bilinear/trilinear/anisotropic texture filtering so texels stay visibly sharp
+and pixelated instead of being smoothed together.  Remaster-only settings
+are intentionally excluded. EDuke32 is used for Duke Nukem 3D because that
+runtime was explicitly requested. NewDark is used for Thief and System
+Shock 2 because it explicitly exposes the required texture-filter mode.
 
 ==============================================================================
 0. WHAT 'NO TEXTURE FILTERING' MEANS
@@ -98,20 +97,39 @@ WinQuake's software renderer already has the classic unfiltered pixel look and
 does not need an OpenGL texture-mode command.
 
 ==============================================================================
-3. QUAKE II (1997) — ORIGINAL OPENGL
+3. QUAKE II (1997) — YAMAGI QUAKE II / ORIGINAL OPENGL
 ==============================================================================
 
-gl_texturemode GL_NEAREST
-  Uses nearest-neighbor interpolation with no mipmapping.
+Yamagi Quake II retains the classic gl_texturemode control across its OpenGL
+renderers.
 
-Original Quake II documents GL_NEAREST specifically as the mode that looks
-similar to software Quake II while retaining OpenGL colored lighting.
-For point-sampled texels with classic nearest mip-level selection instead:
+gl_texturemode GL_NEAREST
+  Uses nearest-neighbor sampling with no mipmaps. Yamagi's official cvar
+  documentation explicitly defines GL_NEAREST as no filtering.
+
+For point-sampled texels while keeping nearest-selected mip levels:
 
   gl_texturemode GL_NEAREST_MIPMAP_NEAREST
 
-The software renderer is naturally unfiltered and is another original-game
-option if hardware OpenGL is not required.
+For a consistently pixelated Yamagi interface as well as world textures:
+
+  r_2D_unfiltered 1
+
+This disables bilinear filtering on 2D elements such as menus and the HUD.
+It is separate from gl_texturemode, which controls the 3D OpenGL textures.
+
+Optional for videos:
+
+  r_videos_unfiltered 1
+
+The original Quake II OpenGL renderer supports the same GL_NEAREST and
+GL_NEAREST_MIPMAP_NEAREST texture modes. The original software renderer is
+naturally unfiltered.
+
+Recommended Yamagi setup:
+
+  gl_texturemode GL_NEAREST
+  r_2D_unfiltered 1
 
 ==============================================================================
 4. UNREAL (1998)
@@ -458,7 +476,7 @@ Recommended:
 
   - Duke Nukem 3D / EDuke32: r_texfilter 0; r_anisotropy 0
   - Quake / GLQuake: gl_texturemode GL_NEAREST
-  - Quake II: gl_texturemode GL_NEAREST
+  - Quake II / Yamagi: gl_texturemode GL_NEAREST; r_2D_unfiltered 1
   - Unreal: set texture bNoSmooth true | set actor bNoSmooth true
   - Unreal Tournament: set texture bNoSmooth true | set actor bNoSmooth true
   - Half-Life: gl_texturemode GL_NEAREST
@@ -497,34 +515,37 @@ against engine documentation, released source code, or established
 game-specific references. Wrapper methods are explicitly labeled so they are
 not confused with commands built into the original executable.
   - EDukeWiki — Console commands and Video setup
-  - https://wiki.eduke32.com/wiki/Console_commands
-  - https://wiki.eduke32.com/wiki/Video_setup
+    https://wiki.eduke32.com/wiki/Console_commands
+    https://wiki.eduke32.com/wiki/Video_setup
   - Original GLQuake source / SGI Quake GL texture-mode documentation
-  - https://android.googlesource.com/platform/external/quake/
+    https://android.googlesource.com/platform/external/quake/
   - Original Quake II console command documentation
-  - https://www.eecis.udel.edu/~portnoi/quake/quakeiicom.html
+    https://www.eecis.udel.edu/~portnoi/quake/quakeiicom.html
+  - Yamagi Quake II official cvar documentation: gl_texturemode and
+    r_2D_unfiltered
+    https://github.com/yquake2/yquake2/blob/master/doc/040_cvarlist.md
   - OldUnreal: bNoSmooth method preserves smooth lightmaps better than
     renderer-wide NoFiltering in Direct3D renderers
   - Unreal Engine 1 Actor/Texture definitions: bNoSmooth disables smoothing
   - OldUnreal / UTGLR — NoFiltering renderer option
-  - https://www.oldunreal.com/wiki/
-  - https://unrealarchive.org/unreal-tournament/patches-updates/renderers/
+    https://www.oldunreal.com/wiki/
+    https://unrealarchive.org/unreal-tournament/patches-updates/renderers/
   - Deus Ex Network — renderer setting documentation
-  - https://www.deusexnetwork.com/knowledge-base/
+    https://www.deusexnetwork.com/knowledge-base/
   - Gothic II Gothic.ini documentation for zTexAnisotropicFiltering
-  - https://www.pcgamingwiki.com/wiki/Gothic_II
+    https://www.pcgamingwiki.com/wiki/Gothic_II
   - dgVoodoo2 documentation — Force point sampled texture filtering
-  - https://www.pcgamingwiki.com/wiki/DgVoodoo2
+    https://www.pcgamingwiki.com/wiki/DgVoodoo2
   - Morrowind Pixellized — original engine filtering discussion
-  - https://www.nexusmods.com/morrowind/mods/45924
+    https://www.nexusmods.com/morrowind/mods/45924
   - Vietcong PCGamingWiki — Direct3D 8.1 renderer information
-  - https://www.pcgamingwiki.com/wiki/Vietcong
+    https://www.pcgamingwiki.com/wiki/Vietcong
   - Red Faction Wiki — original r_nearest command
-  - https://www.redfactionwiki.com/wiki/Red_Faction_Console_Commands
+    https://www.redfactionwiki.com/wiki/Red_Faction_Console_Commands
   - NewDark Thief documentation/examples — tex_filter_mode 0
-  - https://www.thiefguild.com/fanmissions/34348/
+    https://www.thiefguild.com/fanmissions/34348/
   - System Shock 2 NewDark texture-filter configuration guide
-  - https://steamcommunity.com/sharedfiles/filedetails/?id=2331853548
+    https://steamcommunity.com/sharedfiles/filedetails/?id=2331853548
   - MicroProse MechWarrior 3 v1.1 patch notes: Software Render device
   - PCGamingWiki: MechWarrior 3 uses Direct3D 6 and a software renderer
   - Modern MW3 compatibility analysis: dgVoodoo cockpit-render issue

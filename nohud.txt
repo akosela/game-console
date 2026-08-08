@@ -3,15 +3,16 @@ NOHUD — HUD / CROSSHAIR REMOVAL REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal, Unreal
-Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3, Morrowind,
-Oblivion, Skyrim, Vietcong, and Red Faction.
-The reference deliberately avoids remaster-only commands. Community source
-ports are also not used as substitutes for original-engine behavior, except
-for EDuke32 because it provides the requested runtime environment.
-Where the original game has no complete HUD switch, this file says so and
-documents the nearest original-engine solution: an existing menu setting,
-developer mode, configuration edit, resource override, or source-level change.
+Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
+Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
+Morrowind, Oblivion, Skyrim, Vietcong, and Red Faction. The reference
+deliberately avoids remaster-only commands. Community source ports are
+used where they make practical sense, particularly when they preserve the
+original gameplay while providing better compatibility, console access, or
+configuration options. Where the original game or selected source port has
+no complete HUD switch, this file says so and documents the closest suitable
+solution: an existing menu setting, developer mode, configuration edit,
+resource override, or source-level change.
 
 ==============================================================================
 1. DUKE NUKEM 3D — EDUKE32
@@ -51,20 +52,29 @@ Recommended:
   crosshair 0
 
 ==============================================================================
-3. QUAKE II (1997) — ORIGINAL v3.20
+3. QUAKE II (1997) — YAMAGI QUAKE II / ORIGINAL v3.20
 ==============================================================================
 
-Stock Quake II does not have the cl_drawhud-style full-HUD switch found in
-some later source ports.
-crosshair 0
-  Disables the original Quake II crosshair.
+Yamagi Quake II is the selected modern runtime for Quake II. It keeps the
+original gameplay and HUD model while adding modern renderer and client
+features.
 
-Changing viewsize does not provide a true full-HUD-off mode. In the released
-original client source, SCR_UpdateScreen() calls SCR_DrawStats() during normal
+crosshair 0
+  Disables the Quake II crosshair. This works in Yamagi as well as the
+  original client.
+
+r_hudscale <value>
+  Yamagi scales the HUD with this cvar, but the official Yamagi documentation
+  does not define it as a complete HUD-off switch.
+
+Stock Quake II likewise has no cl_drawhud-style full-HUD switch. Changing
+viewsize does not provide a true full-HUD-off mode. In the released original
+client source, SCR_UpdateScreen() calls SCR_DrawStats() during normal
 gameplay.
-For a completely HUD-free build based on the original source, remove or bypass
-SCR_DrawStats() in client/cl_scrn.c. If absolutely no layout overlays are
-wanted, also bypass SCR_DrawLayout() and CL_DrawInventory().
+
+For a completely HUD-free build based on the original source lineage, remove
+or bypass SCR_DrawStats() in client/cl_scrn.c. If absolutely no layout
+overlays are wanted, also bypass SCR_DrawLayout() and CL_DrawInventory().
 
 Relevant original source path:
 
@@ -75,8 +85,13 @@ Normal drawing path includes:
   SCR_DrawStats();
   SCR_DrawLayout();
   CL_DrawInventory();
-This is an original Quake II source-code modification, not a remaster command.
-The stock retail executable has no verified full-HUD console toggle.
+
+Recommended Yamagi clean-view settings short of a source modification:
+
+  crosshair 0
+
+There is no verified, officially documented Yamagi cvar that disables the
+entire Quake II status HUD in one step.
 
 ==============================================================================
 4. UNREAL (1998)
@@ -385,7 +400,7 @@ For a completely clean view:
 
   - Duke Nukem 3D / EDuke32: screen_size 0 + crosshair 0
   - Quake: viewsize 120 + crosshair 0
-  - Quake II: crosshair 0; full HUD requires source modification
+  - Quake II / Yamagi: crosshair 0; full HUD needs source edit
   - Unreal: changehud / HudMode=5; set HUD Crosshair 6
   - Unreal Tournament: changehud / bHideHUD=True
   - Half-Life: hud_draw 0 + crosshair 0
@@ -414,6 +429,8 @@ references. Remaster-only commands were intentionally excluded.
   - id Software released Quake source code, especially WinQuake/screen.c
   - id Software released Quake II source, especially client/cl_scrn.c and
     client/cl_view.c
+  - Yamagi Quake II cvar documentation: r_hudscale, crosshair
+    https://github.com/yquake2/yquake2/blob/master/doc/040_cvarlist.md
   - OldUnreal classic Unreal Engine 1 HUD/crosshair documentation
   - Unreal Archive and classic UT99 configuration references
   - GoldSrc/Half-Life command and source-derived documentation

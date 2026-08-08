@@ -1,12 +1,13 @@
-QUAKE II (1997) — ORIGINAL v3.20 CONSOLE COMMAND REFERENCE
+QUAKE II (1997) / YAMAGI QUAKE II CONSOLE COMMAND REFERENCE
 ==============================================================================
 
 IMPORTANT
 ------------------------------------------------------------------------------
-Scope: classic id Software Quake II through the official 3.20 PC codebase.
-Nightdive/KEX remaster commands and modern source-port extensions are not
-used. Quake II has a large command/cvar registry; cmdlist and cvarlist on the
-actual executable are the best completeness check.
+Scope: classic id Software Quake II through the official 3.20 PC codebase,
+plus Yamagi Quake II as the explicitly selected modern runtime/source port.
+Nightdive/KEX remaster commands and Yamagi Quake II Remaster are excluded.
+Quake II has a large command/cvar registry; cmdlist and cvarlist on the actual
+executable remain the best completeness check.
 
 ==============================================================================
 1. DISCOVERY / CONSOLE / SCRIPTING
@@ -251,6 +252,107 @@ netgraph <0|1>
   Toggles the network performance graph.
 
 ==============================================================================
+7. YAMAGI QUAKE II — SOURCE PORT ADDITIONS
+==============================================================================
+
+Yamagi Quake II is a conservative source port built on the original Quake II
+code lineage. It preserves the original gameplay while adding bug fixes,
+modern platform support, renderers, audio, input, and convenience features.
+
+The original Quake II commands above remain relevant. The commands below are
+Yamagi additions documented by the project.
+
+cycleweap <weapon classnames>
+  Cycles through a supplied weapon-priority list.
+
+gamemode <sp|coop|dm|?>
+  Switches between single-player, cooperative, and deathmatch modes.
+  gamemode ? prints the current mode.
+
+listentities <class...>
+  Lists coordinates of entities. Classes include ammo, items, keys, monsters,
+  weapons, and all.
+
+listmaps
+  Lists available maps from loaded packages and the active maps directory.
+
+ogg <info|mute|play|skip|stop|toggle>
+  Controls Yamagi's OGG/Vorbis music playback.
+
+playermodels
+  Lists available multiplayer player models.
+
+prefweap <weapon classnames>
+  Selects the first usable weapon from the supplied priority list.
+
+spawnentity <classname> <x> <y> <z> [angle_x angle_y angle_z]
+  Spawns an entity at the given coordinates.
+
+spawnonstart <classname>
+  Spawns an entity at the player start point.
+
+teleport <x> <y> <z> [angle_x angle_y angle_z]
+  Teleports the player to the supplied position.
+
+viewpos
+  Prints the player's current position.
+
+vstr <cvar>
+  Inserts the current value of a cvar as command text.
+
+Useful Yamagi-specific or renamed cvars include:
+
+vid_renderer <gl3|gles3|gl1|soft>
+  Selects the renderer. gl3 is the default modern OpenGL 3.2 renderer; gl1 is
+  the OpenGL 1.4 renderer and soft is the software renderer.
+
+gl_texturemode <mode>
+  Controls texture filtering for the OpenGL renderers. GL_NEAREST disables
+  filtering and mipmaps; GL_NEAREST_MIPMAP_NEAREST keeps nearest texel and mip
+  selection.
+
+r_2D_unfiltered <0|1>
+  Set to 1 to disable bilinear filtering on 2D elements such as the menu and
+  HUD.
+
+r_videos_unfiltered <0|1>
+  Set to 1 to disable bilinear filtering on videos.
+
+r_anisotropic <value>
+  Controls anisotropic filtering for accelerated renderers.
+
+r_hudscale <value>
+  Scales the HUD. -1 selects the automatically calculated scale.
+
+crosshair_scale <value>
+  Scales the crosshair independently from the HUD.
+
+crosshair_color_r <0..1>
+crosshair_color_g <0..1>
+crosshair_color_b <0..1>
+  Set the red, green, and blue crosshair color components.
+
+cl_gun <0|1|2>
+  Controls the first-person weapon model. 0 hides it, 1 uses the original
+  FOV-dependent behavior, and 2 always draws it.
+
+cl_async <0|1>
+  Allows rendering to run independently from client/server simulation frames.
+
+vid_maxfps <value>
+  Sets Yamagi's rendering-frame-rate limit.
+
+ogg_enable <0|1>
+  Enables or disables OGG/Vorbis music playback.
+
+aimfix <0|1>
+  Enables Yamagi's optional aiming-accuracy fix.
+
+Yamagi's official cvar documentation notes that all cvars can be supplied with
++set on the command line or entered directly in the console. Left Shift + Esc
+is the documented console key combination.
+
+==============================================================================
 SOURCES. VERIFICATION NOTES
 ==============================================================================
 
@@ -263,3 +365,7 @@ installed executable or its own listing facility remains the final authority.
     https://www.eecis.udel.edu/~portnoi/quake/quakeiicom.html
   - id Software Quake II source code
     https://github.com/id-Software/Quake-2
+  - Yamagi Quake II official project and documentation
+    https://www.yamagi.org/quake2/
+    https://github.com/yquake2/yquake2/blob/master/doc/040_cvarlist.md
+    https://github.com/yquake2/yquake2/blob/master/doc/050_commands.md

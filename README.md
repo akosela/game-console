@@ -17,7 +17,7 @@ facilities, engine-specific behavior, and important version/build caveats.
 
 - [Duke Nukem 3D / EDuke32](duke-nukem-3d-eduke32-console.txt)
 - [Quake](quake-console.txt)
-- [Quake II](quake-2-console.txt)
+- [Quake II / Yamagi Quake II](quake-2-console.txt)
 - [Unreal](unreal-console.txt)
 - [Unreal Tournament 1999](unreal-tournament-1999-console.txt)
 - [Half-Life](half-life-console.txt)
@@ -33,9 +33,9 @@ facilities, engine-specific behavior, and important version/build caveats.
 - [Thief: The Dark Project](thief-console.txt)
 - [System Shock 2](ss2-console.txt)
 
-EDuke32 is used for Duke Nukem 3D because it provides the requested runtime
-environment. The other console references are intended to stay close to the
-original games rather than documenting later remasters.
+EDuke32 is used for Duke Nukem 3D and Yamagi Quake II is used for Quake II
+because they provide the requested runtime environments. These are source-port
+exceptions, not remaster references.
 
 Console command availability can depend on the exact executable, patch level,
 renderer, source port, editor, or developer build. Where a game provides its
@@ -50,7 +50,7 @@ It covers:
 
 - Duke Nukem 3D / EDuke32
 - Quake
-- Quake II
+- Quake II / Yamagi Quake II
 - Unreal
 - Unreal Tournament
 - Half-Life
@@ -79,7 +79,7 @@ It covers:
 
 - Duke Nukem 3D / EDuke32
 - Quake
-- Quake II
+- Quake II / Yamagi Quake II
 - Unreal
 - Unreal Tournament
 - Half-Life
