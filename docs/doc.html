@@ -7,7 +7,7 @@
   <title>Game Console</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script>
-    (()=>{const t=localStorage.getItem("gcd-theme");if(t)document.documentElement.dataset.theme=t;})();
+    (()=>{const t=localStorage.getItem("gcd-theme") || "dark";document.documentElement.dataset.theme=t;})();
   </script>
 </head>
 <body>

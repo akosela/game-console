@@ -23,7 +23,7 @@
   function getTheme() {
     const saved = localStorage.getItem("gcd-theme");
     if (saved === "light" || saved === "dark") return saved;
-    return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return "dark";
   }
   function setTheme(theme) {
     document.documentElement.dataset.theme = theme;
