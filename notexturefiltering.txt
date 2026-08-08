@@ -8,10 +8,8 @@ Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
 Morrowind, Oblivion, Skyrim, Vietcong, Red Faction, Thief: The Dark
 Project using NewDark, and System Shock 2 using NewDark.  Goal: disable
 bilinear/trilinear/anisotropic texture filtering so texels stay visibly sharp
-and pixelated instead of being smoothed together.  Remaster-only settings
-are intentionally excluded. EDuke32 is used for Duke Nukem 3D because that
-runtime was explicitly requested. NewDark is used for Thief and System
-Shock 2 because it explicitly exposes the required texture-filter mode.
+and pixelated instead of being smoothed together. Remaster-only settings
+are intentionally excluded.
 
 ==============================================================================
 0. WHAT 'NO TEXTURE FILTERING' MEANS
