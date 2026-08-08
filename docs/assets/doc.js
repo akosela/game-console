@@ -49,9 +49,33 @@
   function renderBlock(block){
     const lines=block.filter((x,i,a)=>!(i===0&&!x)&&!(i===a.length-1&&!x));
     if(!lines.length) return "";
-    if(lines.every(l=>/^\s*[-*]\s+/.test(l))){
-      return `<ul>${lines.map(l=>`<li>${linkify(l.replace(/^\s*[-*]\s+/,""))}</li>`).join("")}</ul>`;
+    if (/^\s*[-*]\s+/.test(lines[0])) {
+      const items = [];
+      let current = [];
+
+      for (const line of lines) {
+        if (/^\s*[-*]\s+/.test(line)) {
+          if (current.length) {
+            items.push(current.join(" "));
+          }
+
+          current = [
+            line.replace(/^\s*[-*]\s+/, "").trim()
+          ];
+        } else if (current.length) {
+          current.push(line.trim());
+        }
+      }
+
+      if (current.length) {
+        items.push(current.join(" "));
+      }
+
+      return `<ul>${items.map(item =>
+        `<li>${linkify(item)}</li>`
+      ).join("")}</ul>`;
     }
+ 
     if(lines.every(l=>/^\s{2,}\S/.test(l))){
       const code=lines.map(l=>l.replace(/^\s{2}/,"")).join("\n");
       return `<pre class="code-block"><code>${esc(code)}</code></pre>`;
