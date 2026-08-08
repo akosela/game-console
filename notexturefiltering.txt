@@ -3,10 +3,10 @@ NOTEXTUREFILTERING — SHARP / PIXELATED TEXTURE REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II using Yamagi
-Quake II, Unreal, Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II,
-Gothic 3, Morrowind, Oblivion, Skyrim, Vietcong, Red Faction, Thief: The
-Dark Project using NewDark, and System Shock 2 using NewDark.  Goal: disable
+Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
+Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
+Morrowind, Oblivion, Skyrim, Vietcong, Red Faction, Thief: The Dark
+Project using NewDark, and System Shock 2 using NewDark.  Goal: disable
 bilinear/trilinear/anisotropic texture filtering so texels stay visibly sharp
 and pixelated instead of being smoothed together.  Remaster-only settings
 are intentionally excluded. EDuke32 is used for Duke Nukem 3D because that
