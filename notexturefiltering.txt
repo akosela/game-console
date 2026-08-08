@@ -118,14 +118,10 @@ Additional classic-presentation settings:
 
 Recommended strict no-filtering setup:
 
-  gl_texturemode GL_NEAREST
+  gl_texturemode GL_NEAREST_MIPMAP_LINEAR
   gl_smoothmodels 0
   r_particles 2
   r_wateralpha 0.5
-
-Alternative with smoother mip transitions:
-
-  gl_texturemode GL_NEAREST_MIPMAP_LINEAR
 
 Mark V also includes a WinQuake-style software renderer. That renderer already
 has the classic point-sampled software look and does not need gl_texturemode.
