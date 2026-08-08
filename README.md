@@ -139,7 +139,7 @@ The reference uses this project baseline:
 It covers:
 
 - Duke Nukem 3D / EDuke32
-- Quake
+- Quake / Mark V
 - Quake II / Yamagi Quake II
 - Unreal
 - Unreal Tournament 1999
@@ -155,6 +155,9 @@ It covers:
 - Red Faction 2001
 - Thief: The Dark Project / NewDark
 - System Shock 2 / NewDark
+
+For Quake, the widescreen guide uses the Mark V source port and its native
+automatic Hor+ FOV adaptation.
 
 The guide distinguishes direct horizontal FOV settings from engines that use
 automatic Hor+ scaling, vertical FOV, or engine-specific units. Where an exact

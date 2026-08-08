@@ -34,23 +34,24 @@ Recommended:
   crosshair 0
 
 ==============================================================================
-2. QUAKE (1996)
+2. QUAKE (1996) — MARK V
 ==============================================================================
 
-Original Quake supports viewsize values through 120. At 120 the original
-screen code allocates zero status-bar lines, producing a full-screen view
-without the normal status bar.
+Mark V v1099 Revision 4 is the selected Quake source port. It preserves the
+classic viewsize and crosshair controls while providing modern compatibility.
+
 viewsize 120
-  Removes the normal Quake status bar/HUD.
+  Removes the normal Quake status bar/HUD. Mark V's own cvar description
+  explicitly defines 120 as "no status bar."
 
 crosshair 0
-  Disables the original Quake crosshair.
+  Disables the crosshair. Mark V retains the classic crosshair cvar and does
+  not draw a crosshair when its value is 0.
 
 Recommended:
 
   viewsize 120
   crosshair 0
-
 ==============================================================================
 3. QUAKE II (1997) — YAMAGI QUAKE II / ORIGINAL v3.20
 ==============================================================================
@@ -399,7 +400,7 @@ For a completely clean view:
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: screen_size 0 + crosshair 0
-  - Quake: viewsize 120 + crosshair 0
+  - Quake / Mark V: viewsize 120 + crosshair 0
   - Quake II / Yamagi: crosshair 0; full HUD needs source edit
   - Unreal: changehud / HudMode=5; set HUD Crosshair 6
   - Unreal Tournament: changehud / bHideHUD=True
@@ -426,6 +427,9 @@ The methods above were checked against original-engine documentation, released
 source code where available, original manuals, and established game-specific
 references. Remaster-only commands were intentionally excluded.
   - EDukeWiki: Game Setup, Screen Size, and Console Commands
+  - Mark V v1099 Revision 4 source: cvar_list_sheet.h and screen.c verify
+    viewsize 120, crosshair 0 behavior, and the no-status-bar draw path
+    https://github.com/QuakeEngines/Mark_V-clone
   - id Software released Quake source code, especially WinQuake/screen.c
   - id Software released Quake II source, especially client/cl_scrn.c and
     client/cl_view.c

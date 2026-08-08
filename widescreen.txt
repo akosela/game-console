@@ -58,31 +58,43 @@ angle units, not degrees: 512 is about 90 degrees.  The requested 16:9 value
 cannot be represented exactly by that integer-style scale; about 605 BUILD
 units is the nearest value.  Do not enter 106.270273206 into r_pr_fov.
 ==============================================================================
-02. QUAKE -- GLQuake
+02. QUAKE -- Mark V
 ==============================================================================
 
-GLQuake accepts custom width and height on the command line and the normal
-Quake fov cvar accepts a floating-point horizontal FOV.
+Use the Mark V source port.  Mark V v1099 Revision 4 supports modern
+widescreen resolutions while retaining classic Quake behavior.
+
+Mark V automatically applies Hor+ FOV adaptation.  Its "fov" cvar is the base
+value that the engine adapts to the current render aspect ratio, so do not put
+the already-widened project value 106.270273206 directly into the cvar.
 
 4:3:
 
-  glquake.exe -width 800 -height 600 +fov 90
+  mark_v.exe -width 800 -height 600 +fov 90
 
 16:9 (1920x1080):
 
-  glquake.exe -width 1920 -height 1080 +fov 106.270273206
+  mark_v.exe -width 1920 -height 1080 +fov 90
 
 16:9 (2560x1440):
 
-  glquake.exe -width 2560 -height 1440 +fov 106.270273206
+  mark_v.exe -width 2560 -height 1440 +fov 90
 
 16:9 (3840x2160):
 
-  glquake.exe -width 3840 -height 2160 +fov 106.270273206
+  mark_v.exe -width 3840 -height 2160 +fov 90
 
-The fov value can also be entered in the console and placed in config.cfg.
-Original GLQuake is an old renderer; a modern source port is preferable if a
-particular GPU/driver refuses a high-resolution mode.
+Keep the Mark V base FOV at 90.  The engine's AdaptFovx() function widens the
+horizontal view automatically for widescreen.  The same value can be entered
+in the console or placed in autoexec.cfg.
+
+Target convention for comparison:
+
+  4:3  (800x600)   horizontal target: 90
+  16:9             horizontal target: 106.270273206
+
+Mark V uses its own native Hor+ calculation, so the final numeric horizontal
+angle is engine-derived rather than set by entering 106.270273206 directly.
 ==============================================================================
 03. QUAKE II -- Yamagi Quake II
 ==============================================================================
@@ -757,7 +769,7 @@ explicit fov line only when you want the exact project values shown here.
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: menu FOV; Polymer legacy uses BUILD units
-  - Quake / GLQuake: -width/-height + fov
+  - Quake / Mark V: -width/-height + base fov 90; automatic Hor+
   - Quake II / Yamagi: custom mode + horplus 0 + fov
   - Unreal: Unreal.ini + User.ini
   - Unreal Tournament 1999: UnrealTournament.ini + User.ini
@@ -795,8 +807,10 @@ use the same project FOV value.
     behavior
     https://wiki.eduke32.com/wiki/Console_variable
     https://wiki.eduke32.com/wiki/Setaspect
-  - id Software Quake source and classic command-line/config documentation:
-    -width, -height, and fov
+  - Mark V v1099 Revision 4 source port and source mirror:
+    QuakeEngines/Mark_V-clone
+    Mark_V/screen.c: AdaptFovx() and SCR_CalcRefdef() verify automatic Hor+
+    FOV adaptation; Mark V also accepts -width and -height launch options
   - Yamagi Quake II documentation and source: widescreen support, custom
     video modes, and FOV handling
     https://github.com/yquake2/yquake2
