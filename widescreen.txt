@@ -780,3 +780,56 @@ Canonical project mapping:
   16:9 (1920x1080) fov: 106.270273206
   16:9 (2560x1440) fov: 106.270273206
   16:9 (3840x2160) fov: 106.270273206
+==============================================================================
+19. SOURCE / VERIFICATION NOTES
+==============================================================================
+The methods above were checked against engine/source-port documentation,
+released source code where available, configuration references, and
+established game-specific widescreen documentation.  The references verify
+the resolution controls, FOV controls, aspect-ratio behavior, and stated
+limitations.  The exact 90 / 106.270273206 mapping is this project's chosen
+baseline; the three listed widescreen resolutions all use 16:9 and therefore
+use the same project FOV value.
+
+  - EDukeWiki: r_usenewaspect, r_screenaspect, setaspect, and BUILD FOV
+    behavior
+    https://wiki.eduke32.com/wiki/Console_variable
+    https://wiki.eduke32.com/wiki/Setaspect
+  - id Software Quake source and classic command-line/config documentation:
+    -width, -height, and fov
+  - Yamagi Quake II documentation and source: widescreen support, custom
+    video modes, and FOV handling
+    https://github.com/yquake2/yquake2
+  - OldUnreal 227 documentation and classic Unreal Engine 1 configuration:
+    FullscreenViewportX/Y, DesiredFOV, DefaultFOV, and the fov command
+    https://www.oldunreal.com/downloads/unreal/
+  - Half-Life WON Resolution/FOV patch documentation for the original
+    retail/WON 1.1.1.0 executable
+    ModDB: Resolution patch for WON Half-Life
+  - PCGamingWiki Deus Ex documentation: widescreen, DesiredFOV,
+    DefaultFOV, and the fov console command
+    https://www.pcgamingwiki.com/wiki/Deus_Ex
+  - Gothic SystemPack configuration: VerticalFOV and NewFOVformula
+    GitHub: dosinabox/g1_steam_fix, SystemPack_int.ini
+  - Gothic 3 community configuration references: ge3.ini [Window] settings
+    and Camera.FOV
+  - Morrowind FPS Optimizer documentation and PCGamingWiki: registry
+    resolution settings and runtime FOV control
+    PCGamingWiki: The Elder Scrolls III: Morrowind
+  - PCGamingWiki classic Oblivion documentation: resolution and
+    fDefaultFOV behavior
+    PCGamingWiki: The Elder Scrolls IV: Oblivion
+  - PCGamingWiki original Skyrim documentation: SkyrimPrefs.ini resolution,
+    Skyrim.ini FOV settings, and the fov console command
+    PCGamingWiki: The Elder Scrolls V: Skyrim
+  - VCStarter 1.65.1 documentation: widescreen aspect-ratio/FOV correction
+    ModDB: Vietcong Starter 1.65.1
+  - PCGamingWiki Red Faction documentation: Alpine Faction widescreen
+    support, r_fov, r_fpgunfov, and automatic aspect-ratio scaling
+    https://www.pcgamingwiki.com/wiki/Red_Faction
+  - PCGamingWiki Thief: The Dark Project documentation: NewDark cam.cfg,
+    cam_ext.cfg, widescreen resolution, and fov override
+    PCGamingWiki: Thief: The Dark Project
+  - PCGamingWiki System Shock 2 documentation: SS2Tool/NewDark, cam.cfg,
+    and cam_ext.cfg
+    https://www.pcgamingwiki.com/wiki/System_Shock_2
