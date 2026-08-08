@@ -46,53 +46,118 @@
       /^[+~-]?[A-Za-z_][\w.+:-]*(\s+.+)?$/.test(s);
   }
 
-  function renderBlock(block){
-    const lines=block.filter((x,i,a)=>!(i===0&&!x)&&!(i===a.length-1&&!x));
-    if(!lines.length) return "";
-    if (/^\s*[-*]\s+/.test(lines[0])) {
+  function renderBlock(block) {
+    const lines = block.filter((x, i, a) =>
+      !(i === 0 && !x) &&
+      !(i === a.length - 1 && !x)
+    );
+
+    if (!lines.length) return "";
+
+    const bulletRe = /^\s*[-*]\s+/;
+    const firstBullet = lines.findIndex(line => bulletRe.test(line));
+
+    /*
+     * A block may contain:
+     *
+     *   introductory paragraph
+     *     - first item
+     *     - second item
+     *
+     * because the TXT files do not necessarily contain a blank line
+     * between the paragraph and the list.
+     */
+    if (firstBullet !== -1) {
+      let html = "";
+
+      if (firstBullet > 0) {
+        const intro = normalize(lines.slice(0, firstBullet));
+
+        if (intro) {
+          html += `<p>${linkify(intro)}</p>`;
+        }
+      }
+
       const items = [];
       let current = [];
+      let i = firstBullet;
 
-      for (const line of lines) {
-        if (/^\s*[-*]\s+/.test(line)) {
+      for (; i < lines.length; i++) {
+        const line = lines[i];
+
+        if (bulletRe.test(line)) {
           if (current.length) {
             items.push(current.join(" "));
           }
 
           current = [
-            line.replace(/^\s*[-*]\s+/, "").trim()
+            line.replace(bulletRe, "").trim()
           ];
-        } else if (current.length) {
-          current.push(line.trim());
+
+          continue;
         }
+
+        if (current.length && /^\s+/.test(line)) {
+          current.push(line.trim());
+          continue;
+        }
+
+        break;
       }
 
       if (current.length) {
         items.push(current.join(" "));
       }
 
-      return `<ul>${items.map(item =>
+      html += `<ul>${items.map(item =>
         `<li>${linkify(item)}</li>`
       ).join("")}</ul>`;
+
+      if (i < lines.length) {
+        html += renderBlock(lines.slice(i));
+      }
+
+      return html;
     }
- 
-    if(lines.every(l=>/^\s{2,}\S/.test(l))){
-      const code=lines.map(l=>l.replace(/^\s{2}/,"")).join("\n");
+
+    if (lines.every(line => /^\s{2,}\S/.test(line))) {
+      const code = lines
+        .map(line => line.replace(/^\s{2}/, ""))
+        .join("\n");
+
       return `<pre class="code-block"><code>${esc(code)}</code></pre>`;
     }
-    const first=lines[0], rest=lines.slice(1);
-    if(looksCommand(first) && rest.length && rest.every(l=>!l || /^\s{2,}/.test(l))){
-      const desc=normalize(rest);
+
+    const first = lines[0];
+    const rest = lines.slice(1);
+
+    if (
+      looksCommand(first) &&
+      rest.length &&
+      rest.every(line => !line || /^\s{2,}/.test(line))
+    ) {
+      const desc = normalize(rest);
+
       return `<div class="command-card">
         <div class="command-line">${esc(first.trim())}
-          <button class="copy-button" data-copy="${esc(first.trim())}">Copy</button>
+          <button class="copy-button"
+                  data-copy="${esc(first.trim())}">Copy</button>
         </div>
-        ${desc?`<div class="command-description">${linkify(desc)}</div>`:""}
+        ${desc
+          ? `<div class="command-description">${linkify(desc)}</div>`
+          : ""}
       </div>`;
     }
-    const p=normalize(lines);
-    if(!p) return "";
-    return `<p${/^(NOTE|IMPORTANT|WARNING):/i.test(p)?' class="note"':""}>${linkify(p)}</p>`;
+
+    const p = normalize(lines);
+
+    if (!p) return "";
+
+    return `<p${
+      /^(NOTE|IMPORTANT|WARNING):/i.test(p)
+        ? ' class="note"'
+        : ""
+    }>${linkify(p)}</p>`;
   }
 
   function renderBlocks(lines){
