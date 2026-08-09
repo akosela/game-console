@@ -156,8 +156,12 @@
         const code = commands.map(line => line.trim()).join("\n");
         const desc = normalize(description);
 
-        return `<pre class="code-block"><code>${esc(code)}</code></pre>` +
-          (desc ? `<div class="command-description">${linkify(desc)}</div>` : "");
+        return `<div class="command-card">
+          <pre class="code-block"><code>${esc(code)}</code></pre>
+          ${desc
+            ? `<div class="command-description">${linkify(desc)}</div>`
+            : ""}
+        </div>`;
       }
     }
 
