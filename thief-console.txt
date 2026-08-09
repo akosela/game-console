@@ -51,19 +51,19 @@ Commands and arguments
 ----------------------
 Arguments used in this reference:
 
-- #  numeric argument
-- <0|1>  off/on switch
-- <name>  object, archetype, resource, or variable name
-- <id>  numeric object ID
-- <file>  filename
-- <factor>  floating-point scale
-- <x,y,z>  world coordinates
+  #  numeric argument
+  <0|1>  off/on switch
+  <name>  object, archetype, resource, or variable name
+  <id>  numeric object ID
+  <file>  filename
+  <factor>  floating-point scale
+  <x,y,z>  world coordinates
 
 A leading "+" or "-" on an input command normally means press/release state.
 For example:
 
-- +crouch
-- -crouch
+  +crouch
+  -crouch
 
 This is mainly relevant to .bnd key bindings.
 
@@ -290,10 +290,8 @@ halt_player
 
 scale_player_speed <factor>
   Scales player movement speed while testing in DromEd.
-
-Example:
-
-  scale_player_speed 2
+  Example:
+    scale_player_speed 2
 
 Running into geometry at extreme speed can damage or kill the player.
 
@@ -323,11 +321,9 @@ ai_wake <object-id>
 
 scale_sim_time <factor>
   Scales simulation time.
-
-Examples:
-
-  scale_sim_time 0.5
-  scale_sim_time 2
+  Examples:
+    scale_sim_time 0.5
+    scale_sim_time 2
 
 show_stats
   Displays runtime statistics in the upper-left area while in game mode.
@@ -660,10 +656,8 @@ quest_spew_sub
 
 set <variable> <value>
   Sets a configuration variable.
-
-Example:
-
-  set game_mode_backup 0
+  Example:
+    set game_mode_backup 0
 
 get <variable>
   Reads a configuration variable.
@@ -696,10 +690,8 @@ alias <name> <command>
 dump_cmds <filename>
   Dumps the executable's registered commands and built-in descriptions to a
   text file.
-
-Example:
-
-  dump_cmds thief_commands.txt
+  Example:
+    dump_cmds thief_commands.txt
 
 This is the authoritative method for determining what your exact THIEF.EXE or
 DROMED.EXE actually supports.
@@ -725,12 +717,10 @@ last_command
 
 bind <key> "<command>"
   Binds a key to a command.
-
-Examples:
-
-  bind p edit_command
-  bind f10 screen_dump
-  bind v dark_version
+  Examples:
+    bind p edit_command
+    bind f10 screen_dump
+    bind v dark_version
 
 Because press/release commands can be bound directly, a binding such as:
 
@@ -836,10 +826,8 @@ cam_to_brush
 
 vm_teleport <x,y,z>
   Teleports the editor camera to explicit coordinates.
-
-Example:
-
-  vm_teleport 50,25,-300
+  Example:
+    vm_teleport 50,25,-300
 
 ==============================================================================
 13. AI DEBUGGING COMMANDS
@@ -1005,10 +993,8 @@ brush_to_room
 
 ambient <value>
   Sets ambient lighting in Thief 1 editor contexts.
-
-Example:
-
-  ambient 20
+  Example:
+    ambient 20
 
 light_bright
   Toggles a bright/full-light view useful while editing an unlit mission.

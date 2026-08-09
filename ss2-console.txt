@@ -55,8 +55,8 @@ select_psipower
 cycle_weapon <1|-1>
   Cycles to the next or previous equippable weapon.
   Example:
-  cycle_weapon 1
-  cycle_weapon -1
+    cycle_weapon 1
+    cycle_weapon -1
 
 fire_weapon <0|1>
   Starts/stops firing the current weapon.
@@ -78,7 +78,7 @@ cycle_ammo
 equip_weapon <object-name>
   Searches inventory for the named weapon/archetype and equips it.
   Example:
-  equip_weapon assault rifle
+    equip_weapon assault rifle
 
 select_gun <name-or-id>
   Developer-level weapon selection command. Selects/readies a gun by object
@@ -87,7 +87,7 @@ select_gun <name-or-id>
 use_obj <object-name>
   Uses an inventory object by archetype/name.
   Example:
-  use_obj med patch
+    use_obj med patch
 
 interface_use
   Performs the inventory/interface "use" action on the selected item.
@@ -189,7 +189,7 @@ overlay_toggle <overlay-number>
 add_pool <number>
   Adds Cyber Modules to the player's module pool.
   Example:
-  add_pool 50
+    add_pool 50
 
 psi_full
   Refills/maxes the player's current Psi points.
@@ -223,7 +223,7 @@ unstick_player
 teleport_player <x,y,z>
   Teleports the player to world coordinates.
   Example:
-  teleport_player -34,-23,3
+    teleport_player -34,-23,3
 
 log_player_pos
   Prints/logs the player's current world coordinates.
@@ -237,7 +237,7 @@ halt_player
 scale_player_speed <factor>
   Scales player movement speed in builds where enabled.
   Example:
-  scale_player_speed 1.5
+    scale_player_speed 1.5
 
 time_passes <0|1>
   Controls whether simulation time advances. Mostly developer/editor
