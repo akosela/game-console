@@ -36,8 +36,7 @@ Arguments in this file:
   <slot>  quickslot number
 
 A leading "+" on a bindable command usually means "active while key is held",
-for
-example +fire_weapon in a .bnd file.
+for example +fire_weapon in a .bnd file.
 
 ==============================================================================
 1. NORMAL GAMEPLAY / INPUT COMMANDS
@@ -50,10 +49,7 @@ psi_power <1..5>
   Switches the active Psi tier.
 
 select_psipower
-select_psi_power
-  Opens/selects the Psi power interface. The exact spelling exposed by a build
-  can
-  vary; select_psipower is the classic documented gameplay form.
+  Opens/selects the Psi power interface.
 
 cycle_weapon <1|-1>
   Cycles to the next or previous equippable weapon.
@@ -85,8 +81,7 @@ equip_weapon <object-name>
 
 select_gun <name-or-id>
   Developer-level weapon selection command. Selects/readies a gun by object
-  name
-  or object number where the current build exposes it.
+  name or object number where the current build exposes it.
 
 use_obj <object-name>
   Uses an inventory object by archetype/name.
@@ -207,8 +202,7 @@ add_hp <number>
 
 set_psi_points <number>
   Sets current Psi points. Present in developer/editor command sets;
-  availability in
-  the normal retail executable varies by build.
+  availability in the normal retail executable varies by build.
 
 set_max_psi <number>
   Sets maximum Psi points. Developer/editor oriented and build-dependent.
@@ -283,13 +277,11 @@ Important:
   scripted devices
   can interfere with scripts/quest state. Save first.
   - Some archetypes spawn partially initialized, unresearched, unloaded,
-  inert, or with
-  odd/default properties.
+  inert, or with odd/default properties.
 
 summon_obj_at <name> [...]
   Developer variant that creates an object at an explicitly supplied location
-  or
-  editor/object position. Exact parameter format varies by engine build.
+  or editor/object position. Exact parameter format varies by engine build.
 
 destroy_obj <name-or-id>
   Destroys an object by object ID/name in builds exposing the command.
@@ -532,9 +524,8 @@ Unused/odd key archetypes that may exist:
 
 WARNING:
   Key and plot objects are especially risky to summon because mission logic
-  can depend
-  on unique object IDs, scripts, containment, quest variables, or original
-  placement.
+  can depend on unique object IDs, scripts, containment, quest variables, or
+  original placement.
 
 --- GamePig / cartridges
 --------------------------------------------------------
@@ -623,10 +614,8 @@ talon droid
 
 WARNING:
   Spawning AI can create unexpected AIWatch, spawn, patrol, alarm, script, and
-  quest
-  behavior. Some summoned AI archetypes lack the exact links or initialization
-  normally
-  placed in a mission.
+  quest behavior. Some summoned AI archetypes lack the exact links or
+  initialization normally placed in a mission.
 
 --- Crew archetype patterns
 -----------------------------------------------------
@@ -651,8 +640,7 @@ crewwoman
 crewman
 
 Because crew archetype spelling is inconsistent in historical lists, use
-console
-autocomplete or dump the actual GameSys/archetype name before relying on a
+console autocomplete or dump the actual GameSys/archetype name before relying on a
 pattern.
 
 --- Upgrade / medical / security devices
@@ -882,8 +870,7 @@ linear_map
 surface_cache
   Low-level Dark Engine renderer/portal/lightmap/rasterizer diagnostic
   commands.
-  Most are intended for engine development or ShockEd and should not be
-  treated as
+  Most are intended for engine development or ShockEd and should not be treated as
   normal gameplay cheats. Some may be inert or unavailable in a retail/NewDark
   build.
 
@@ -932,8 +919,7 @@ lg_help
 
 dump_cmds <filename>
   Dumps the current executable's registered commands and short built-in
-  descriptions
-  to a text file.
+  descriptions to a text file.
 
 THIS IS THE MOST IMPORTANT COMMAND FOR BUILD-SPECIFIC COMPLETENESS.
 
@@ -1117,8 +1103,7 @@ For your supplied shock2.gam, strings directly confirm names including:
 ==============================================================================
 
 Because NewDark, editor builds and patched executables register different
-commands,
-the authoritative procedure is:
+commands, the authoritative procedure is:
 
   1. Start your exact ss2.exe.
   2. Open the console.
@@ -1128,12 +1113,10 @@ the authoritative procedure is:
   5. Open ss2_commands.txt from the game directory.
 
 That generated file is more authoritative than any internet list because it is
-created
-from the exact executable you are running.
+created from the exact executable you are running.
 
 If dump_cmds is unavailable, console autocomplete can still expose many
-registered
-commands, but it is less convenient for creating a complete reference.
+registered commands, but it is less convenient for creating a complete reference.
 
 ==============================================================================
 12. SOURCES / VERIFICATION NOTES
@@ -1141,11 +1124,11 @@ commands, but it is less convenient for creating a complete reference.
 
 This reference was compiled from:
   - System Shock community documentation of SS2 console commands and object
-  codes.
+    codes.
   - Systemshock.org ShockEd/community command references.
   - Historical SS2 cheat/bind documentation.
   - Direct string inspection of the supplied shock2.gam for representative
-  archetypes.
+    archetypes.
 
 Useful public references:
   https://shodan.fandom.com/wiki/Commands_(System_Shock_2)
@@ -1159,14 +1142,11 @@ NOTE ON COMPLETENESS
 
   A. Commands useful in the normal game.
   B. Every command registered by the Dark/NewDark engine, including
-  renderer/debug,
-  script, network and editor internals.
+     renderer/debug, script, network and editor internals.
   C. Build-specific console variables and editor/debug commands.
 
 This file includes A comprehensively and includes known B command families,
-but
-the exact executable-generated result from dump_cmds is the final authority
-for B.
-Console variables (CVars) are a separate namespace and are not exhaustively
-enumerated
-here because they are build-specific and are not all executable commands.
+but the exact executable-generated result from dump_cmds is the final authority
+for B. Console variables (CVars) are a separate namespace and are not exhaustively
+enumerated here because they are build-specific and are not all executable 
+commands.

@@ -13,9 +13,10 @@ For an EXACT list from the executable/build you are using, run:
 This writes the registered command list, with Looking Glass descriptions where
 available. DromEd exposes a much larger registry than the normal game.
 
-Some commands listed here are not directly relevant to DarkSim. They are
-included for completeness because they document the broader command set and internal functionality of the Dark Engine/NewDark environment on which
-Thief: The Dark Project is built.
+Some commands listed here are not directly relevant to DarkSim. They are included
+for completeness because they document the broader command set and internal
+functionality of the Dark Engine/NewDark environment on which Thief: The Dark 
+Project is built.
 
 ==============================================================================
 1. CONSOLE BASICS
