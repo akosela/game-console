@@ -42,7 +42,6 @@
     return /[<>=]/.test(s) || /\b(true|false|on|off)\b/i.test(s) ||
       /^[+~-]?[A-Za-z_][\w.+:-]*(\s+.+)?$/.test(s);
   }
-
   function renderBlock(block, forceCode = false) {
     const lines = block.filter((x, i, a) =>
       !(i === 0 && !x) &&
@@ -56,7 +55,6 @@
     const summonObjGroup = lines.every(line =>
       /^summon_obj(?:\s|$)/i.test(line.trim())
     );
-
     if (forceCode || summonObjGroup) {
       const code = lines.map(line => line.trimEnd()).join("\n");
       return `<pre class="code-block"><code>${esc(code)}</code></pre>`;
@@ -64,7 +62,6 @@
 
     const bulletRe = /^\s*[-*]\s+/;
     const firstBullet = lines.findIndex(line => bulletRe.test(line));
-
     /*
      * A block may contain:
      *
@@ -84,7 +81,6 @@
           html += `<p>${linkify(intro)}</p>`;
         }
       }
-
       const items = [];
       let current = [];
       let i = firstBullet;
@@ -107,7 +103,6 @@
           current.push(line.trim());
           continue;
         }
-
         break;
       }
 
@@ -129,10 +124,8 @@
       const code = lines
         .map(line => line.replace(/^\s{2}/, ""))
         .join("\n");
-
       return `<pre class="code-block"><code>${esc(code)}</code></pre>`;
     }
-
     // Several column-0 command names may share one indented description:
     //
     //   trace_add
@@ -151,7 +144,6 @@
       const descriptionGroup = description.every(line =>
         !line || /^\s{2,}/.test(line)
       );
-
       if (commandGroup && descriptionGroup) {
         const code = commands.map(line => line.trim()).join("\n");
         const desc = normalize(description);
@@ -166,7 +158,6 @@
         </div>`;
       }
     }
-
     const first = lines[0];
     const rest = lines.slice(1);
     if (
@@ -175,7 +166,6 @@
       rest.every(line => !line || /^\s{2,}/.test(line))
     ) {
       const desc = normalize(rest);
-
       return `<div class="command-card">
         <div class="command-line">${esc(first.trim())}
           <button class="copy-button"
@@ -189,7 +179,6 @@
     const p = normalize(lines);
 
     if (!p) return "";
-
     return `<p${
       /^(NOTE|IMPORTANT|WARNING):/i.test(p)
         ? ' class="note"'
@@ -204,7 +193,6 @@
       else cur.push(line);
     }
     if(cur.length) blocks.push(cur);
-
     // A subsection title beginning with "--- " marks its first content
     // block as a literal object/archetype list. Keep the TXT entries bare.
     const codeSection = /^---\s+/.test(sectionTitle);
@@ -235,6 +223,15 @@
       if(isSep(lines[i],"=")&&i+2<lines.length&&lines[i+1].trim()&&isSep(lines[i+2],"=")){
         push(); secTitle=lines[i+1].trim(); i+=3; continue;
       }
+
+      // Every "--- <title>" line starts a code subsection immediately.
+      // An underline after it is optional and purely decorative.
+      if(/^---\s+/.test(lines[i].trim())){
+        push(); secTitle=lines[i].trim(); i++;
+        if(i<lines.length && isHeadingSep(lines[i],"-")) i++;
+        continue;
+      }
+
       if(
         lines[i].trim() &&
         i+1<lines.length &&
@@ -317,6 +314,5 @@
       setTimeout(()=>b.textContent="Copy",900);
     }catch{b.textContent="Failed";}
   });
-
   load();
 })();

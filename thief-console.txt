@@ -368,8 +368,7 @@ Important:
   - Unique plot objects may require mission links, scripts, quest variables,
     or original placement and therefore may not function when simply spawned.
 
---- Examples, if summon_obj is registered by your executable:
-
+--- Examples, if summon_obj is registered by your executable
 summon_obj Sword
 summon_obj Blackjack
 summon_obj broadhead
