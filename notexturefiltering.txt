@@ -190,8 +190,7 @@ The original Software Rendering device is another valid option and
 already has the classic point-sampled appearance.
 
 IMPORTANT:
-
-  NoFiltering=True is NOT the preferred method here.
+NoFiltering=True is NOT the preferred method here.
 
 Enhanced UTGLR/OldUnreal renderers do expose NoFiltering=True, and
 it really does disable filtering globally. However, it is a broad
