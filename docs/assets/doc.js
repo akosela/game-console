@@ -35,6 +35,37 @@
     u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`
   );
   const normalize=(lines)=>lines.map(x=>x.trim()).join(" ").replace(/\s+/g," ").trim();
+  function renderCommandDescription(lines){
+    let html="";
+    let prose=[];
+    let code=[];
+
+    const flushProse=()=>{
+      const text=normalize(prose);
+      if(text) html+=`<div class="command-description-text">${linkify(text)}</div>`;
+      prose=[];
+    };
+    const flushCode=()=>{
+      if(!code.length) return;
+      const text=code.map(line=>line.replace(/^\s{4}/,"").trimEnd()).join("\n");
+      html+=`<pre class="code-block command-example"><code>${esc(text)}</code></pre>`;
+      code=[];
+    };
+
+    for(const line of lines){
+      if(/^\s{4,}\S/.test(line)){
+        flushProse();
+        code.push(line);
+        continue;
+      }
+      flushCode();
+      prose.push(line);
+    }
+    flushProse();
+    flushCode();
+
+    return html;
+  }
   function looksCommand(line){
     const s=line.trim();
     if(!s||s.length>100||/^https?:\/\//i.test(s)) return false;
@@ -146,14 +177,14 @@
       );
       if (commandGroup && descriptionGroup) {
         const code = commands.map(line => line.trim()).join("\n");
-        const desc = normalize(description);
+        const descHtml = renderCommandDescription(description);
 
         const codeHtml = esc(code).replace(/\n/g, "<br>");
 
         return `<div class="command-card">
           <div class="command-line">${codeHtml}</div>
-          ${desc
-            ? `<div class="command-description">${linkify(desc)}</div>`
+          ${descHtml
+            ? `<div class="command-description">${descHtml}</div>`
             : ""}
         </div>`;
       }
@@ -165,14 +196,14 @@
       rest.length &&
       rest.every(line => !line || /^\s{2,}/.test(line))
     ) {
-      const desc = normalize(rest);
+      const descHtml = renderCommandDescription(rest);
       return `<div class="command-card">
         <div class="command-line">${esc(first.trim())}
           <button class="copy-button"
                   data-copy="${esc(first.trim())}">Copy</button>
         </div>
-        ${desc
-          ? `<div class="command-description">${linkify(desc)}</div>`
+        ${descHtml
+          ? `<div class="command-description">${descHtml}</div>`
           : ""}
       </div>`;
     }
