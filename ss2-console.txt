@@ -258,7 +258,7 @@ show_sim_time
 summon_obj <archetype-name-or-object-code>
   Creates an instance of an object/archetype near the player.
 
---- Examples:
+--- Examples
 summon_obj pistol
 summon_obj shotgun
 summon_obj assault rifle
@@ -510,7 +510,8 @@ candy_card
 lance_card
 sven_card
 
---- Unused/odd key archetypes that may exist:
+--- Unused/odd key archetypes that may exist
+
 crew 2 card
 cargo bay 1a/1b
 eng override key
