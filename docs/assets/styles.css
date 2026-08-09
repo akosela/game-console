@@ -64,7 +64,7 @@ code {
   background: var(--code-bg);
   color: var(--code-text);
   font-family: var(--mono);
-  font-size: .88em;
+  font-size: 13px;
 }
 button,input { font: inherit; }
 ::selection {
@@ -415,6 +415,7 @@ pre code {
   padding: 0;
   background: transparent;
   color: inherit;
+  font-size: inherit;
 }
 .edit-row {
   display: flex;
