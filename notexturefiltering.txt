@@ -107,14 +107,14 @@ Use GL_NEAREST instead when absolutely no texture filtering is desired.
 
 Additional classic-presentation settings:
 
-  r_particles 2
-    Uses square/chunky particles instead of rounded particles.
+r_particles 2
+  Uses square/chunky particles instead of rounded particles.
 
-  r_wateralpha 0.5
-    Makes water 50% transparent. Transparent water requires compatible map
-    visibility data. Mark V can load external .vis files for the original
-    maps; .lit files provide colored lighting and do not enable water
-    visibility.
+r_wateralpha 0.5
+  Makes water 50% transparent. Transparent water requires compatible map
+  visibility data. Mark V can load external .vis files for the original
+  maps; .lit files provide colored lighting and do not enable water
+  visibility.
 
 Recommended strict no-filtering setup:
 
