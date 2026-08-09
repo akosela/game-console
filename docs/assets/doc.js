@@ -11,7 +11,6 @@
   const toc=document.querySelector("#toc-links");
   const actions=document.querySelector("#doc-actions");
   const bottom=document.querySelector("#doc-bottom");
-
   if(!meta){
     document.title=`Not found · ${cfg.siteTitle}`;
     title.textContent="Document not found";
@@ -19,15 +18,14 @@
     article.innerHTML=`<div class="error-card">The requested file is not in the documentation index.</div>`;
     return;
   }
-
   document.title=`${meta.title} | ${cfg.siteTitle}`;
   title.textContent=meta.title;
   metaLine.innerHTML=`Source: <code>${esc(meta.file)}</code>`;
   actions.innerHTML=`
     <a href="${api.rawUrl(file)}" target="_blank" rel="noopener">Raw TXT ↗</a>
     <a href="${api.githubUrl(file)}" target="_blank" rel="noopener">View source ↗</a>`;
-
   const isSep=(line,ch)=>line.length>=18 && [...line].every(c=>c===ch);
+  const isHeadingSep=(line,ch)=>line.length>=3 && [...line].every(c=>c===ch);
   const slugify=(v)=>{
     const s=v.toLowerCase().replace(/&/g," and ").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
     return s||"section";
@@ -37,7 +35,6 @@
     u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`
   );
   const normalize=(lines)=>lines.map(x=>x.trim()).join(" ").replace(/\s+/g," ").trim();
-
   function looksCommand(line){
     const s=line.trim();
     if(!s||s.length>100||/^https?:\/\//i.test(s)) return false;
@@ -51,7 +48,6 @@
       !(i === 0 && !x) &&
       !(i === a.length - 1 && !x)
     );
-
     if (!lines.length) return "";
 
     const bulletRe = /^\s*[-*]\s+/;
@@ -69,7 +65,6 @@
      */
     if (firstBullet !== -1) {
       let html = "";
-
       if (firstBullet > 0) {
         const intro = normalize(lines.slice(0, firstBullet));
 
@@ -89,7 +84,6 @@
           if (current.length) {
             items.push(current.join(" "));
           }
-
           current = [
             line.replace(bulletRe, "").trim()
           ];
@@ -109,10 +103,17 @@
         items.push(current.join(" "));
       }
 
-      html += `<ul>${items.map(item =>
-        `<li>${linkify(item)}</li>`
-      ).join("")}</ul>`;
+      const renderListItem = item => {
+        const code = item.match(/^`([^`]+)`$/);
 
+        return code
+          ? `<code>${esc(code[1])}</code>`
+          : linkify(item);
+      };
+
+      html += `<ul>${items.map(item =>
+        `<li>${renderListItem(item)}</li>`
+      ).join("")}</ul>`;
       if (i < lines.length) {
         html += renderBlock(lines.slice(i));
       }
@@ -130,7 +131,6 @@
 
     const first = lines[0];
     const rest = lines.slice(1);
-
     if (
       looksCommand(first) &&
       rest.length &&
@@ -148,7 +148,6 @@
           : ""}
       </div>`;
     }
-
     const p = normalize(lines);
 
     if (!p) return "";
@@ -169,7 +168,6 @@
     if(cur.length) blocks.push(cur);
     return blocks.map(renderBlock).join("");
   }
-
   function parse(text){
     const lines=text.replace(/\r\n?/g,"\n").split("\n");
     let first=lines.findIndex(l=>l.trim());
@@ -179,7 +177,6 @@
       start=first+1;
       if(isSep(lines[start]||"","=")) start++;
     }
-
     const sections=[]; let secTitle="Overview", secLines=[], ids={};
     const push=()=>{
       if(!secLines.some(l=>l.trim())) return;
@@ -194,7 +191,12 @@
       if(isSep(lines[i],"=")&&i+2<lines.length&&lines[i+1].trim()&&isSep(lines[i+2],"=")){
         push(); secTitle=lines[i+1].trim(); i+=3; continue;
       }
-      if(lines[i].trim()&&i+1<lines.length&&isSep(lines[i+1],"-")&&lines[i].trim().length<92){
+      if(
+        lines[i].trim() &&
+        i+1<lines.length &&
+        (isHeadingSep(lines[i+1],"=") || isHeadingSep(lines[i+1],"-")) &&
+        lines[i].trim().length<92
+      ){
         push(); secTitle=lines[i].trim(); i+=2; continue;
       }
       if(isSep(lines[i],"=")||isSep(lines[i],"-")){i++;continue;}
@@ -203,7 +205,6 @@
     push();
     return {sourceTitle,sections};
   }
-
   function renderToc(sections){
     toc.innerHTML=sections.filter(s=>s.title!=="Overview").map(
       s=>`<a href="#${s.id}">${esc(s.title)}</a>`
@@ -222,7 +223,6 @@
     },{rootMargin:"-80px 0px -72% 0px",threshold:[0,1]});
     document.querySelectorAll(".article section[id]").forEach(s=>obs.observe(s));
   }
-
   function renderBottom(){
     const i=cfg.documents.findIndex(d=>d.file===file);
     const prev=i>0?cfg.documents[i-1]:null;
@@ -242,7 +242,6 @@
         </a>`:""}
       </nav>`;
   }
-
   async function load(){
     try{
       const r=await fetch(api.rawUrl(file),{cache:"no-cache"});
@@ -265,7 +264,6 @@
       </div>`;
     }
   }
-
   document.addEventListener("click",async e=>{
     const b=e.target.closest("[data-copy]");
     if(!b) return;

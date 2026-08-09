@@ -370,12 +370,12 @@ Important:
 
 Examples, if summon_obj is registered by your executable:
 
-- summon_obj Sword
-- summon_obj Blackjack
-- summon_obj broadhead
-- summon_obj HealingPotion
-- summon_obj Burrick
-- summon_obj Zombie
+- `summon_obj Sword`
+- `summon_obj Blackjack`
+- `summon_obj broadhead`
+- `summon_obj HealingPotion`
+- `summon_obj Burrick`
+- `summon_obj Zombie`
 
 create_obj <archetype>
   Creates an object from an archetype in DromEd/editor command sets. Depending
@@ -421,9 +421,9 @@ that every name is a concrete spawnable archetype in every mission.
 --- Player weapons
 ------------------------------------------------------------
 
-- Sword
-- PlayerSword
-- Blackjack
+- `Sword`
+- `PlayerSword`
+- `Blackjack`
 
 Notes:
   Sword is the general sword archetype name.
@@ -432,25 +432,25 @@ Notes:
 --- Arrows and projectile-related objects
 -------------------------------------
 
-- broadhead
-- water
-- firearr
-- EarthArrow
-- GasArrow
-- RopeArrow
-- noisemaker
-- HolyH2OArrow
+- `broadhead`
+- `water`
+- `firearr`
+- `EarthArrow`
+- `GasArrow`
+- `RopeArrow`
+- `noisemaker`
+- `HolyH2OArrow`
 
 Related confirmed strings include:
 
-- ArrowType Broadhead
-- ArrowType Water
-- ArrowType Fire
-- ArrowType Earth
-- ArrowType Gas
-- ArrowType Rope
-- ArrowType Noisemaker
-- ArrowType HolyWater
+- `ArrowType Broadhead`
+- `ArrowType Water`
+- `ArrowType Fire`
+- `ArrowType Earth`
+- `ArrowType Gas`
+- `ArrowType Rope`
+- `ArrowType Noisemaker`
+- `ArrowType HolyWater`
 
 Notes:
   EarthArrow is present in DARK.GAM even though it is not part of the normal
@@ -460,87 +460,87 @@ Notes:
 --- Potions and utility inventory
 ---------------------------------------------
 
-- HealingPotion
-- BeltHealingPotion
-- AirPotion
-- SpeedPotion
-- HolyH2O
-- Flashbomb
-- GasMine
-- Mine
-- Compass
-- Compass2
-- LockPick
-- LockPickSM
-- LockPickLG
-- BothLockPicks
+- `HealingPotion`
+- `BeltHealingPotion`
+- `AirPotion`
+- `SpeedPotion`
+- `HolyH2O`
+- `Flashbomb`
+- `GasMine`
+- `Mine`
+- `Compass`
+- `Compass2`
+- `LockPick`
+- `LockPickSM`
+- `LockPickLG`
+- `BothLockPicks`
 
 --- Main creature / AI archetype strings
 --------------------------------------
 
-- Burrick
-- Defective Burrick
-- Spider
-- HugeSpider
-- SewerSpider
-- Crayman
-- Zombie
-- HammerZombie
-- Haunt
-- Apparition
-- Frog
-- FrogBeast
-- Elemental
-- Trickster
+- `Burrick`
+- `Defective Burrick`
+- `Spider`
+- `HugeSpider`
+- `SewerSpider`
+- `Crayman`
+- `Zombie`
+- `HammerZombie`
+- `Haunt`
+- `Apparition`
+- `Frog`
+- `FrogBeast`
+- `Elemental`
+- `Trickster`
 
 --- Guard and human AI strings
 -------------------------------------------------
 
-- BaseGuard
-- guard
-- guard1
-- guard2
-- guard3
-- RamirezGuard
-- MageGuard
-- OperaGuard
-- ThiefGuard
-- BaffGuard
-- Con Guard
-- sword guard
-- ham guard
-- hammerite
+- `BaseGuard`
+- `guard`
+- `guard1`
+- `guard2`
+- `guard3`
+- `RamirezGuard`
+- `MageGuard`
+- `OperaGuard`
+- `ThiefGuard`
+- `BaffGuard`
+- `Con Guard`
+- `sword guard`
+- `ham guard`
+- `hammerite`
 
 These include both generic archetypes and mission/specialized variants.
 
 --- Hammerite / weapon / decorative strings
 -----------------------------------
 
-- HolyHammer
-- Warhammer
-- AncientHammer
-- CeremonialHammer
-- StoneHammer
-- GoldHammer
-- HammerStatue
-- HammerCorpse
-- HammerZombie
-- JewelledSword
-- ConstantineSword
-- Detailed Sword
+- `HolyHammer`
+- `Warhammer`
+- `AncientHammer`
+- `CeremonialHammer`
+- `StoneHammer`
+- `GoldHammer`
+- `HammerStatue`
+- `HammerCorpse`
+- `HammerZombie`
+- `JewelledSword`
+- `ConstantineSword`
+- `Detailed Sword`
 
 --- Major plot / talisman strings
 ---------------------------------------------
 
-- TheEye
-- the_eye
-- AllTheTalismans
-- AirTalisman
-- EarthTalisman
-- FireTalisman
-- H2OTalisman
-- FakeTalisman
-- EarthTalismanFake
+- `TheEye`
+- `the_eye`
+- `AllTheTalismans`
+- `AirTalisman`
+- `EarthTalisman`
+- `FireTalisman`
+- `H2OTalisman`
+- `FakeTalisman`
+- `EarthTalismanFake`
 
 WARNING:
   Plot objects should not be casually created or destroyed in a real mission.
@@ -550,39 +550,39 @@ WARNING:
 --- Key-related strings
 --------------------------------------------------------
 
-- StdKey
-- Key1
-- Key2
-- Key3
-- Key4
-- Key5
-- KeeperKey
-- TreasureKey
-- AirKey
-- EarthKey
-- FireKey
-- WaterKey
-- MageKeys
-- KeyMageA
-- KeyMageE
-- KeyMageF
-- KeyMageW
+- `StdKey`
+- `Key1`
+- `Key2`
+- `Key3`
+- `Key4`
+- `Key5`
+- `KeeperKey`
+- `TreasureKey`
+- `AirKey`
+- `EarthKey`
+- `FireKey`
+- `WaterKey`
+- `MageKeys`
+- `KeyMageA`
+- `KeyMageE`
+- `KeyMageF`
+- `KeyMageW`
 
 --- Treasure-related strings
 ---------------------------------------------------
 
-- Treasure
-- GoldCoinStack
-- SilverCoinStack
-- CopperCoinStack
-- GoldNugget
-- GoldGoblet
-- GoldPlate
-- GoldRing
-- GoldSkull
-- GemRing
-- Gemstone
-- LC_Gem
+- `Treasure`
+- `GoldCoinStack`
+- `SilverCoinStack`
+- `CopperCoinStack`
+- `GoldNugget`
+- `GoldGoblet`
+- `GoldPlate`
+- `GoldRing`
+- `GoldSkull`
+- `GemRing`
+- `Gemstone`
+- `LC_Gem`
 
 The exact Treasure type and value are controlled by properties rather than the
 English archetype name alone.
