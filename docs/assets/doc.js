@@ -43,12 +43,27 @@
       /^[+~-]?[A-Za-z_][\w.+:-]*(\s+.+)?$/.test(s);
   }
 
-  function renderBlock(block) {
+  function renderBlock(block, forceCode = false) {
     const lines = block.filter((x, i, a) =>
       !(i === 0 && !x) &&
       !(i === a.length - 1 && !x)
     );
     if (!lines.length) return "";
+
+    /*
+     * Object/archetype groups under a "--- ..." subsection are written as
+     * plain lines in the TXT source and rendered as one code block. Pure
+     * summon_obj example groups use the same presentation. A leading '-'
+     * remains an ordinary prose-list marker everywhere else.
+     */
+    const summonObjGroup = lines.every(line =>
+      /^summon_obj(?:\s|$)/i.test(line.trim())
+    );
+
+    if (forceCode || summonObjGroup) {
+      const code = lines.map(line => line.trimEnd()).join("\n");
+      return `<pre class="code-block"><code>${esc(code)}</code></pre>`;
+    }
 
     const bulletRe = /^\s*[-*]\s+/;
     const firstBullet = lines.findIndex(line => bulletRe.test(line));
@@ -103,16 +118,8 @@
         items.push(current.join(" "));
       }
 
-      const renderListItem = item => {
-        const code = item.match(/^`([^`]+)`$/);
-
-        return code
-          ? `<code>${esc(code[1])}</code>`
-          : linkify(item);
-      };
-
       html += `<ul>${items.map(item =>
-        `<li>${renderListItem(item)}</li>`
+        `<li>${linkify(item)}</li>`
       ).join("")}</ul>`;
       if (i < lines.length) {
         html += renderBlock(lines.slice(i));
@@ -159,14 +166,18 @@
     }>${linkify(p)}</p>`;
   }
 
-  function renderBlocks(lines){
+  function renderBlocks(lines, sectionTitle){
     const blocks=[]; let cur=[];
     for(const line of lines){
       if(!line.trim()){if(cur.length){blocks.push(cur);cur=[];}}
       else cur.push(line);
     }
     if(cur.length) blocks.push(cur);
-    return blocks.map(renderBlock).join("");
+
+    const codeSection = /^---\s+/.test(sectionTitle);
+    return blocks.map((block, index) =>
+      renderBlock(block, codeSection && index === 0)
+    ).join("");
   }
   function parse(text){
     const lines=text.replace(/\r\n?/g,"\n").split("\n");
@@ -251,7 +262,7 @@
       article.innerHTML=parsed.sections.map(s=>`
         <section id="${s.id}">
           ${s.title==="Overview"?"":`<h2>${esc(s.title)}<a class="anchor-link" href="#${s.id}" aria-label="Link to section">#</a></h2>`}
-          ${renderBlocks(s.lines)}
+          ${renderBlocks(s.lines, s.title)}
         </section>`).join("");
       renderToc(parsed.sections);
       renderBottom();

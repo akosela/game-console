@@ -258,14 +258,14 @@ show_sim_time
 summon_obj <archetype-name-or-object-code>
   Creates an instance of an object/archetype near the player.
 
-Examples:
-- `summon_obj pistol`
-- `summon_obj shotgun`
-- `summon_obj assault rifle`
-- `summon_obj psi amp`
-- `summon_obj wrench`
-- `summon_obj big nanite pile`
-- `summon_obj nav marker`
+--- Examples:
+summon_obj pistol
+summon_obj shotgun
+summon_obj assault rifle
+summon_obj psi amp
+summon_obj wrench
+summon_obj big nanite pile
+summon_obj nav marker
 
 Important:
   - Names with spaces are entered as ordinary command arguments; quoting is
@@ -298,24 +298,24 @@ Your shock2.gam may contain additional archetypes.
 --- Currency / resources
 -------------------------------------------------------
 
-- `nanites`
-- `fakenanites`
-- `1 nanite`
-- `5 nanites`
-- `10 nanites`
-- `small nanite pile`
-- `20 nanites`
-- `medium nanite pile`
-- `big nanite pile`
+nanites
+fakenanites
+1 nanite
+5 nanites
+10 nanites
+small nanite pile
+20 nanites
+medium nanite pile
+big nanite pile
 
-- `exp cookies`
-- `fakecookie`
-- `1 exp`
-- `small bp pile`
-- `encrypted exp cookie`
-- `10 exp`
-- `medium bp pile`
-- `big bp pile`
+exp cookies
+fakecookie
+1 exp
+small bp pile
+encrypted exp cookie
+10 exp
+medium bp pile
+big bp pile
 
 Notes:
   EXP Cookies are Cyber Modules.
@@ -324,21 +324,21 @@ Notes:
 --- Weapons
 --------------------------------------------------------------------
 
-- `psi amp`
-- `psisword`
-- `wrench`
-- `pistol`
-- `shotgun`
-- `assault rifle`
-- `laser pistol`
-- `electro shock`
-- `emp rifle`
-- `gren launcher`
-- `stasis field generator`
-- `fusion cannon`
-- `crystal shard`
-- `viral prolif`
-- `worm launcher`
+psi amp
+psisword
+wrench
+pistol
+shotgun
+assault rifle
+laser pistol
+electro shock
+emp rifle
+gren launcher
+stasis field generator
+fusion cannon
+crystal shard
+viral prolif
+worm launcher
 
 Notes:
   electro shock = Laser Rapier archetype.
@@ -348,50 +348,50 @@ Notes:
 --- Ammunition
 -----------------------------------------------------------------
 
-- `small standard clip`
-- `standard clip`
-- `small he clip`
-- `he clip`
-- `small ap clip`
-- `ap clip`
-- `rifled slug box`
-- `pellet shot box`
-- `timed grenade`
-- `prox. grenade`
-- `incend. grenade`
-- `emp grenade`
-- `toxin grenade`
-- `small prism`
-- `large prism`
-- `small worm beaker`
-- `large worm beaker`
+small standard clip
+standard clip
+small he clip
+he clip
+small ap clip
+ap clip
+rifled slug box
+pellet shot box
+timed grenade
+prox. grenade
+incend. grenade
+emp grenade
+toxin grenade
+small prism
+large prism
+small worm beaker
+large worm beaker
 
 --- Armor
 ----------------------------------------------------------------------
 
-- `light armor`
-- `medium armor`
-- `heavy armor`
-- `reflec armor`
-- `vacc suit`
-- `worm skin`
+light armor
+medium armor
+heavy armor
+reflec armor
+vacc suit
+worm skin
 
 --- Medical / boosters
 ---------------------------------------------------------
 
-- `med patch`
-- `psi booster`
-- `speed boost`
-- `strength boost`
-- `rad patch`
-- `detox patch`
-- `int boost`
-- `psi patch`
-- `medical kit`
-- `med bed key`
-- `cheeseborger`
-- `annelid_medpatch`
-- `annelid_psipatch`
+med patch
+psi booster
+speed boost
+strength boost
+rad patch
+detox patch
+int boost
+psi patch
+medical kit
+med bed key
+cheeseborger
+annelid_medpatch
+annelid_psipatch
 
 Notes:
   cheeseborger is the internal name associated with the Diagnostic/Repair
@@ -400,84 +400,84 @@ Notes:
 --- Tools
 ----------------------------------------------------------------------
 
-- `maintenance tool`
-- `portable battery`
-- `french-epstein device`
-- `ice pick`
-- `molec. analyzer`
-- `small beaker`
-- `large beaker`
-- `recycler`
+maintenance tool
+portable battery
+french-epstein device
+ice pick
+molec. analyzer
+small beaker
+large beaker
+recycler
 
 --- Software
 -------------------------------------------------------------------
 
-- `research soft v1`
-- `research soft v2`
-- `research soft v3`
+research soft v1
+research soft v2
+research soft v3
 
-- `hack soft v1`
-- `hack soft v2`
-- `hack soft v3`
+hack soft v1
+hack soft v2
+hack soft v3
 
-- `repair soft v1`
-- `repair soft v2`
-- `repair soft v3`
+repair soft v1
+repair soft v2
+repair soft v3
 
-- `modify soft v1`
-- `modify soft v2`
-- `modify soft v3`
+modify soft v1
+modify soft v2
+modify soft v3
 
 --- Implants
 -------------------------------------------------------------------
 
-- `brawnboost`
-- `swiftboost`
-- `smartboost`
-- `labassistant`
-- `endurboost`
-- `wormmind`
-- `expertech`
-- `wormblood`
-- `wormheart`
-- `runfast`
-- `wormblend`
+brawnboost
+swiftboost
+smartboost
+labassistant
+endurboost
+wormmind
+expertech
+wormblood
+wormheart
+runfast
+wormblend
 
 --- Research organs
 ------------------------------------------------------------
 
-- `og organ`
-- `monkey_brain`
-- `midwife organ`
-- `grub organ`
-- `arach. organ`
-- `swarm organ`
-- `rumbler organ`
-- `mn. over. organ`
-- `gr. over. organ`
+og organ
+monkey_brain
+midwife organ
+grub organ
+arach. organ
+swarm organ
+rumbler organ
+mn. over. organ
+gr. over. organ
 
 --- Chemicals
 ------------------------------------------------------------------
 
-- `chem #1  Fermium`
-- `chem #2  Vanadium`
-- `chem #3  Gallium`
-- `chem #4  Antimony`
-- `chem #5  Yttrium`
-- `chem #6  Copper`
-- `chem #7  Californium`
-- `chem #8  Sodium`
-- `chem #9  Osmium`
-- `chem #10  Iridium`
-- `chem #11  Arsenic`
-- `chem #12  Cesium`
-- `chem #13  Hassium`
-- `chem #14  Tellurium`
-- `chem #15  Molybdenum`
-- `chem #16  Technetium`
-- `chem #17  Radium`
-- `chem #18  Barium`
-- `chem #19  Selenium`
+chem #1  Fermium
+chem #2  Vanadium
+chem #3  Gallium
+chem #4  Antimony
+chem #5  Yttrium
+chem #6  Copper
+chem #7  Californium
+chem #8  Sodium
+chem #9  Osmium
+chem #10  Iridium
+chem #11  Arsenic
+chem #12  Cesium
+chem #13  Hassium
+chem #14  Tellurium
+chem #15  Molybdenum
+chem #16  Technetium
+chem #17  Radium
+chem #18  Barium
+chem #19  Selenium
 
 Example:
   summon_obj chem #6
@@ -485,42 +485,42 @@ Example:
 --- Plot / key objects
 ----------------------------------------------------------
 
-- `dead power cell`
-- `power cell`
-- `circuitboard`
-- `radkey card`
-- `anti-annelid toxin`
-- `chip a`
-- `chip b`
-- `chip c`
-- `big bomb`
+dead power cell
+power cell
+circuitboard
+radkey card
+anti-annelid toxin
+chip a
+chip b
+chip c
+big bomb
 
-- `bridge card`
-- `cargo bay 2a/2b`
-- `cryo card`
-- `crew card`
-- `rec crew key`
-- `rick room key`
-- `hydro card a`
-- `hydro card b`
-- `hydro card d`
-- `ops override key`
-- `r and d card`
-- `science card`
-- `security card`
-- `shuttle access key`
+bridge card
+cargo bay 2a/2b
+cryo card
+crew card
+rec crew key
+rick room key
+hydro card a
+hydro card b
+hydro card d
+ops override key
+r and d card
+science card
+security card
+shuttle access key
 
-- `nikki_card`
-- `candy_card`
-- `lance_card`
-- `sven_card`
+nikki_card
+candy_card
+lance_card
+sven_card
 
 Unused/odd key archetypes that may exist:
-- `crew 2 card`
-- `cargo bay 1a/1b`
-- `eng override key`
-- `med card`
-- `med annex key`
+crew 2 card
+cargo bay 1a/1b
+eng override key
+med card
+med annex key
 
 WARNING:
   Key and plot objects are especially risky to summon because mission logic
@@ -530,87 +530,87 @@ WARNING:
 --- GamePig / cartridges
 --------------------------------------------------------
 
-- `gameboy`
-- `golf cart`
-- `overworld cart`
-- `hogger cart`
-- `swinehunter cart`
-- `swine hunter cart`
-- `swinekeeper`
-- `ttt cart`
-- `burro hog cart`
-- `abyss cart`
-- `kabacon cart`
-- `pig stacker cart`
-- `ping cart`
+gameboy
+golf cart
+overworld cart
+hogger cart
+swinehunter cart
+swine hunter cart
+swinekeeper
+ttt cart
+burro hog cart
+abyss cart
+kabacon cart
+pig stacker cart
+ping cart
 
 --- Magazines / misc
 ------------------------------------------------------------
 
-- `this month in ping pong`
-- `dj news`
-- `kangaroo quarterly`
-- `rolling monthly`
-- `cigar lover`
-- `vita men's monthly`
+this month in ping pong
+dj news
+kangaroo quarterly
+rolling monthly
+cigar lover
+vita men's monthly
 
-- `chips`
-- `soda can`
-- `juice bottle`
-- `champagne bottle`
-- `liquor bottle`
-- `vodka bottle`
+chips
+soda can
+juice bottle
+champagne bottle
+liquor bottle
+vodka bottle
 
-- `mug`
-- `plant #2`
-- `cigarettes`
-- `pool cue`
-- `ring buoy`
-- `basketball`
-- `book_1`
-- `heart pillow`
+mug
+plant #2
+cigarettes
+pool cue
+ring buoy
+basketball
+book_1
+heart pillow
 
 --- Enemies / AI
 ---------------------------------------------------------------
 
-- `og-pipe`
-- `og-shotgun`
-- `og-grenade`
-- `blue monkey`
-- `red monkey`
-- `grub`
-- `swarm`
-- `baby arachnid`
-- `arachnightmare`
-- `invisibile arachnid`
-- `overlord`
-- `greater over.`
-- `overlord brain`
-- `rumbler`
-- `security camera`
-- `slug turret`
-- `laser turret`
-- `blast turret`
-- `rick turret`
-- `protocol droid`
-- `training droid`
-- `maintenance`
-- `security`
-- `assault`
-- `midwife`
-- `assassin`
-- `red assassin`
-- `shodan`
-- `shodan head`
-- `floor pod`
-- `wall pod`
-- `grub floor pod`
-- `grub wall pod`
-- `swarmer floor pod`
-- `swarmer wall pod`
-- `golden egg`
-- `wormgoo`
-- `talon droid`
+og-pipe
+og-shotgun
+og-grenade
+blue monkey
+red monkey
+grub
+swarm
+baby arachnid
+arachnightmare
+invisibile arachnid
+overlord
+greater over.
+overlord brain
+rumbler
+security camera
+slug turret
+laser turret
+blast turret
+rick turret
+protocol droid
+training droid
+maintenance
+security
+assault
+midwife
+assassin
+red assassin
+shodan
+shodan head
+floor pod
+wall pod
+grub floor pod
+grub wall pod
+swarmer floor pod
+swarmer wall pod
+golden egg
+wormgoo
+talon droid
 
 WARNING:
   Spawning AI can create unexpected AIWatch, spawn, patrol, alarm, script, and
@@ -620,24 +620,24 @@ WARNING:
 --- Crew archetype patterns
 -----------------------------------------------------
 
-- `femaleeng`
-- `female medsci / femalemedsci  (build/GameSys spelling may vary)`
-- `femalehydro`
-- `femaleops`
-- `femalerec`
-- `femaleflight`
-- `femalerick`
+femaleeng
+female medsci / femalemedsci  (build/GameSys spelling may vary)
+femalehydro
+femaleops
+femalerec
+femaleflight
+femalerick
 
-- `maleeng`
-- `malemedsci`
-- `malehydro`
-- `maleops`
-- `malerec`
-- `maleflight`
-- `malerick`
+maleeng
+malemedsci
+malehydro
+maleops
+malerec
+maleflight
+malerick
 
-- `crewwoman`
-- `crewman`
+crewwoman
+crewman
 
 Because crew archetype spelling is inconsistent in historical lists, use
 console autocomplete or dump the actual GameSys/archetype name before relying
@@ -646,45 +646,45 @@ on a pattern.
 --- Upgrade / medical / security devices
 ---------------------------------------
 
-- `stats trainer`
-- `tech trainer`
-- `weapon trainer`
-- `psi trainer`
-- `trait machine`
+stats trainer
+tech trainer
+weapon trainer
+psi trainer
+trait machine
 
-- `med bed`
-- `partial med bed`
-- `bloody_medbed`
+med bed
+partial med bed
+bloody_medbed
 
-- `security comp`
-- `usable comp`
-- `keypad`
-- `hackable crate`
-- `supercrate`
+security comp
+usable comp
+keypad
+hackable crate
+supercrate
 
 --- Interactive / scenery
 -------------------------------------------------------
 
-- `cryo barrel`
-- `explode barrel`
-- `rad barrel`
-- `body bag`
-- `recharging station`
-- `repbase`
-- `bench`
-- `computer console`
-- `faucet`
-- `gurney`
-- `wide machinery`
-- `microscope`
+cryo barrel
+explode barrel
+rad barrel
+body bag
+recharging station
+repbase
+bench
+computer console
+faucet
+gurney
+wide machinery
+microscope
 
 --- Projectiles / markers
 -------------------------------------------------------
 
-- `fusion shot`
-- `nav marker`
-- `teleport marker`
-- `turret rocket`
+fusion shot
+nav marker
+teleport marker
+turret rocket
 
 ==============================================================================
 5. DEBUG / SCRIPT COMMANDS
