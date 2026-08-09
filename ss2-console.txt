@@ -415,15 +415,12 @@ recycler
 research soft v1
 research soft v2
 research soft v3
-
 hack soft v1
 hack soft v2
 hack soft v3
-
 repair soft v1
 repair soft v2
 repair soft v3
-
 modify soft v1
 modify soft v2
 modify soft v3
@@ -494,7 +491,6 @@ chip a
 chip b
 chip c
 big bomb
-
 bridge card
 cargo bay 2a/2b
 cryo card
@@ -509,13 +505,12 @@ r and d card
 science card
 security card
 shuttle access key
-
 nikki_card
 candy_card
 lance_card
 sven_card
 
-Unused/odd key archetypes that may exist:
+--- Unused/odd key archetypes that may exist:
 crew 2 card
 cargo bay 1a/1b
 eng override key
@@ -553,14 +548,12 @@ kangaroo quarterly
 rolling monthly
 cigar lover
 vita men's monthly
-
 chips
 soda can
 juice bottle
 champagne bottle
 liquor bottle
 vodka bottle
-
 mug
 plant #2
 cigarettes
@@ -627,7 +620,6 @@ femaleops
 femalerec
 femaleflight
 femalerick
-
 maleeng
 malemedsci
 malehydro
@@ -635,7 +627,6 @@ maleops
 malerec
 maleflight
 malerick
-
 crewwoman
 crewman
 
@@ -651,11 +642,9 @@ tech trainer
 weapon trainer
 psi trainer
 trait machine
-
 med bed
 partial med bed
 bloody_medbed
-
 security comp
 usable comp
 keypad

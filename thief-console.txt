@@ -441,7 +441,7 @@ RopeArrow
 noisemaker
 HolyH2OArrow
 
-Related confirmed strings include:
+--- Related confirmed strings include:
 
 ArrowType Broadhead
 ArrowType Water
