@@ -1,8 +1,7 @@
 GOTHIC II (2002) -- ORIGINAL MARVIN MODE / CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: original Gothic II classic engine behavior. Commands also shared with
 Night of the Raven are included when they already exist in the Gothic II
 engine, but addon-only content/instance codes are not used as the reference.

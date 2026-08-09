@@ -1,8 +1,7 @@
 UNREAL (1998) -- ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: Unreal 1 / Unreal Engine 1-era PC console, using Epic's original
 console documentation as the principal reference. Unreal Tournament-specific
 commands and later Unreal Engine generations are excluded unless shared by the

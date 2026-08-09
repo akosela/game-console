@@ -1,8 +1,7 @@
 DARKSIM - THIEF: THE DARK PROJECT (1998) -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
----------
+IMPORTANT:
 The exact console command registry belongs to the executable being run:
 THIEF.EXE, DROMED.EXE, or a NewDark-patched equivalent.
 

@@ -1,8 +1,7 @@
 QUAKE (1996) -- ORIGINAL ENGINE CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: original id Software Quake/WinQuake/GLQuake-era command language and
 gameplay behavior. QuakeSpasm, vkQuake, DarkPlaces, KEX/remaster, QuakeWorld
 extensions, and other source-port-only commands are intentionally excluded

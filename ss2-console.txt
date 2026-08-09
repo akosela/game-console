@@ -1,8 +1,7 @@
 DARKSIM - SYSTEM SHOCK 2 (1999) -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
----------
+IMPORTANT:
 The exact console command registry belongs to the game executable (ss2.exe /
 NewDark build), not to shock2.gam.
 

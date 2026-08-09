@@ -1,5 +1,6 @@
 WIDESCREEN / FOV CONFIG REFERENCE
 ==============================================================================
+
 SCOPE
 ------------------------------------------------------------------------------
 Scope: the 17 games currently documented by the game-console repository.

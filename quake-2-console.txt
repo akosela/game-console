@@ -1,8 +1,7 @@
 QUAKE II (1997) / YAMAGI QUAKE II CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: classic id Software Quake II through the official 3.20 PC codebase,
 plus Yamagi Quake II as the explicitly selected modern runtime/source port.
 Nightdive/KEX remaster commands and Yamagi Quake II Remaster are excluded.

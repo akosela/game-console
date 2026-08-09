@@ -1,8 +1,7 @@
 HALF-LIFE (1998) -- ORIGINAL GOLDSRC CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: Half-Life 1 / GoldSrc-era PC commands. Source-engine Half-Life 2
 commands, Black Mesa, Sven Co-op additions, and remaster-style ports are
 excluded. Steam-era GoldSrc builds can add or remove some cvars versus the

@@ -1,8 +1,7 @@
 DUKE NUKEM 3D (1996) / EDUKE32 -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: EDuke32 running classic Duke Nukem 3D data. EDuke32 is a source port,
 so this file documents its console as requested, but it does not use the World
 Tour/KEX or any other remaster as a command reference. Commands marked

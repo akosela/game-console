@@ -2,8 +2,7 @@ THE ELDER SCROLLS III: MORROWIND (2002) -- ORIGINAL PC CONSOLE COMMAND
 REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: Bethesda's original Morrowind PC executable and its expansions-era
 console model. OpenMW-only commands and later remaster/reimplementation
 extensions are excluded.

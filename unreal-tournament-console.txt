@@ -1,8 +1,7 @@
 UNREAL TOURNAMENT (1999) -- ORIGINAL UT99 CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: original Unreal Tournament / Unreal Engine 1 PC releases. This file
 does not use Unreal Tournament 2003/2004, later UE versions, or remasters as a
 command reference.

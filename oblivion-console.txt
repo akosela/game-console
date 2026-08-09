@@ -1,8 +1,7 @@
 THE ELDER SCROLLS IV: OBLIVION (2006) -- ORIGINAL PC CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: Bethesda's original 2006 Oblivion PC executable and classic expansion
 era. Oblivion Remastered (2025+) is explicitly excluded.
 

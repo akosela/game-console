@@ -2,8 +2,7 @@ THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT PC CONSOLE COMMAND
 REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: original 2011 Skyrim / classic 32-bit Creation Engine PC release.
 Special Edition, Anniversary Edition, VR, and later remaster-specific commands
 or FormIDs are not used as the reference.

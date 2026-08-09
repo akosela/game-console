@@ -1,8 +1,7 @@
 RED FACTION (2001) -- ORIGINAL PC CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT
-------------------------------------------------------------------------------
+IMPORTANT:
 Scope: Volition's original Red Faction PC game through official client v1.20.
 Dash Faction, Pure Faction, Alpine Faction, console ports, and later Red
 Faction games are not used as the base command reference.
