@@ -50,12 +50,9 @@
     );
     if (!lines.length) return "";
 
-    /*
-     * Object/archetype groups under a "--- ..." subsection are written as
-     * plain lines in the TXT source and rendered as one code block. Pure
-     * summon_obj example groups use the same presentation. A leading '-'
-     * remains an ordinary prose-list marker everywhere else.
-     */
+    // Bare object/archetype groups under "--- ..." subsections render as
+    // one code block. Pure summon_obj example groups use the same treatment.
+    // Ordinary "- item" lines remain normal lists.
     const summonObjGroup = lines.every(line =>
       /^summon_obj(?:\s|$)/i.test(line.trim())
     );
@@ -174,6 +171,8 @@
     }
     if(cur.length) blocks.push(cur);
 
+    // A subsection title beginning with "--- " marks its first content
+    // block as a literal object/archetype list. Keep the TXT entries bare.
     const codeSection = /^---\s+/.test(sectionTitle);
     return blocks.map((block, index) =>
       renderBlock(block, codeSection && index === 0)
