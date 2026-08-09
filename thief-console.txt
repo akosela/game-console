@@ -346,7 +346,7 @@ game_mode_backup <0|1>
   Controls game-mode backup behavior in editor configurations where exposed.
 
 ==============================================================================
-6. OBJECT CREATION, LOOKUP, EDITING, AND DESTRUCTION
+6. OBJECT CREATION / DESTRUCTION
 ==============================================================================
 
 Normal THIEF.EXE game mode
