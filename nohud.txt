@@ -15,7 +15,7 @@ solution: an existing menu setting, developer mode, configuration edit,
 resource override, or source-level change.
 
 ==============================================================================
-1. DUKE NUKEM 3D — EDUKE32
+1. DUKE NUKEM 3D (1996) — EDUKE32
 ==============================================================================
 
 EDuke32 has separate controls for the status HUD and the crosshair. Its

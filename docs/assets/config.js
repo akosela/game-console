@@ -47,8 +47,8 @@ window.GAME_CONSOLE_DOCS = {
       ]
     },
     {
-      "file": "unreal-tournament-1999-console.txt",
-      "title": "Unreal Tournament 1999",
+      "file": "unreal-tournament-console.txt",
+      "title": "Unreal Tournament",
       "group": "Console References",
       "tags": [
         "ut99",
@@ -130,8 +130,8 @@ window.GAME_CONSOLE_DOCS = {
       ]
     },
     {
-      "file": "skyrim-2011-console.txt",
-      "title": "Skyrim 2011",
+      "file": "skyrim-console.txt",
+      "title": "Skyrim",
       "group": "Console References",
       "tags": [
         "skyrim",
@@ -141,8 +141,8 @@ window.GAME_CONSOLE_DOCS = {
       ]
     },
     {
-      "file": "vietcong-2003-console.txt",
-      "title": "Vietcong 2003",
+      "file": "vietcong-console.txt",
+      "title": "Vietcong",
       "group": "Console References",
       "tags": [
         "vietcong",
@@ -151,8 +151,8 @@ window.GAME_CONSOLE_DOCS = {
       ]
     },
     {
-      "file": "red-faction-2001-console.txt",
-      "title": "Red Faction 2001",
+      "file": "red-faction-console.txt",
+      "title": "Red Faction",
       "group": "Console References",
       "tags": [
         "red faction",

@@ -18,7 +18,7 @@ engines use a different unit, a vertical FOV, or automatic Hor+ scaling; those
 cases are called out explicitly.  The values above are the requested project
 baseline even when a game's stock/default FOV is different.
 ==============================================================================
-01. DUKE NUKEM 3D -- EDuke32
+01. DUKE NUKEM 3D (1996) -- EDuke32
 ==============================================================================
 
 EDuke32 supports arbitrary resolutions.  The video mode can be selected from
@@ -58,7 +58,7 @@ angle units, not degrees: 512 is about 90 degrees.  The requested 16:9 value
 cannot be represented exactly by that integer-style scale; about 605 BUILD
 units is the nearest value.  Do not enter 106.270273206 into r_pr_fov.
 ==============================================================================
-02. QUAKE -- Mark V
+02. QUAKE (1996) -- Mark V
 ==============================================================================
 
 Use the Mark V source port.  Mark V v1099 Revision 4 supports modern
@@ -96,7 +96,7 @@ Target convention for comparison:
 Mark V uses its own native Hor+ calculation, so the final numeric horizontal
 angle is engine-derived rather than set by entering 106.270273206 directly.
 ==============================================================================
-03. QUAKE II -- Yamagi Quake II
+03. QUAKE II (1997) -- Yamagi Quake II
 ==============================================================================
 
 Use a custom video mode.  Yamagi normally has its own Hor+ correction, so turn
@@ -229,7 +229,7 @@ System\User.ini, under [Engine.PlayerPawn]:
 The console command "fov <value>" is useful for testing, but User.ini is the
 persistent configuration.
 ==============================================================================
-06. HALF-LIFE -- WON / RETAIL VERSION
+06. HALF-LIFE (1998) -- WON / RETAIL VERSION
 ==============================================================================
 
 This section is deliberately for the original pre-Steam WON release, not the
@@ -279,7 +279,7 @@ Create or edit valve\autoexec.cfg:
 
 You can test the same values from the console with "default_fov <value>".
 ==============================================================================
-07. DEUS EX
+07. DEUS EX (2000)
 ==============================================================================
 
 Deus Ex is Unreal Engine 1.  Resolution is configured in System\DeusEx.ini and
@@ -323,7 +323,7 @@ System\User.ini, under [DeusEx.DeusExPlayer]:
 Deus Ex originally uses a narrower default FOV.  The settings above knowingly
 replace that stock value with this project's requested 90-degree 4:3 baseline.
 ==============================================================================
-08. GOTHIC
+08. GOTHIC (2001)
 ==============================================================================
 
 Use Union/SystemPack for reliable modern widescreen support.  Set resolution
@@ -377,7 +377,7 @@ Target convention for comparison:
   16:9 2560x1440  horizontal target: 106.270273206
   16:9 3840x2160  horizontal target: 106.270273206
 ==============================================================================
-09. GOTHIC II
+09. GOTHIC II (2002)
 ==============================================================================
 
 Use Union/SystemPack.  Set resolution in Gothic II\System\Gothic.ini.
@@ -431,7 +431,7 @@ Target convention for comparison:
   16:9 2560x1440  horizontal target: 106.270273206
   16:9 3840x2160  horizontal target: 106.270273206
 ==============================================================================
-10. GOTHIC 3
+10. GOTHIC 3 (2006)
 ==============================================================================
 
 Edit Gothic 3\Ini\ge3.ini.  The [Window] block controls resolution and
@@ -477,7 +477,7 @@ Keep the existing Left=0 and Top=0 values unless you intentionally want a
 window offset.  Gothic 3's stock Camera.FOV is narrower; the values above use
 the requested project baseline.
 ==============================================================================
-11. THE ELDER SCROLLS III: MORROWIND
+11. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 This refers to the original Morrowind.exe, not OpenMW.  Vanilla Morrowind
@@ -524,7 +524,7 @@ Morrowind FPS Optimizer must remain running for its FOV correction to stay
 active.  This preserves use of the original Morrowind executable rather than
 replacing the engine with OpenMW.
 ==============================================================================
-12. THE ELDER SCROLLS IV: OBLIVION
+12. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Edit Documents\My Games\Oblivion\Oblivion.ini under [Display].
@@ -690,7 +690,7 @@ automatic scaling and an already widened manual value at the same time.
 The first-person weapon FOV is separate (r_fpgunfov); leave it at its default
 unless you specifically want to alter weapon-model framing as well.
 ==============================================================================
-16. THIEF: THE DARK PROJECT / GOLD -- NewDark
+16. THIEF: THE DARK PROJECT (1998) -- NewDark
 ==============================================================================
 
 Use NewDark.  Resolution is stored in cam.cfg and an explicit FOV override is
@@ -728,7 +728,7 @@ NewDark can normally detect an aspect-correct FOV itself.  The explicit fov
 line above is useful when you want the exact project values rather than the
 automatic value.
 ==============================================================================
-17. SYSTEM SHOCK 2 -- NewDark
+17. SYSTEM SHOCK 2 (1999) -- NewDark
 ==============================================================================
 
 Use NewDark/SS2Tool.  Resolution is stored in cam.cfg and an explicit FOV

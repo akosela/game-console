@@ -1,5 +1,5 @@
-DARKSIM - THIEF: THE DARK PROJECT — DOS (DARK OS) CONSOLE COMMAND REFERENCE
-============================================================================
+DARKSIM - THIEF: THE DARK PROJECT (1998) — CONSOLE COMMAND REFERENCE
+==============================================================================
 
 IMPORTANT
 ---------
