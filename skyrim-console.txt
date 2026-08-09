@@ -1,0 +1,274 @@
+THE ELDER SCROLLS V: SKYRIM (2011) — ORIGINAL 32-BIT PC CONSOLE COMMAND
+REFERENCE
+==============================================================================
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: original 2011 Skyrim / classic 32-bit Creation Engine PC release.
+Special Edition, Anniversary Edition, VR, and later remaster-specific commands
+or FormIDs are not used as the reference.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Press ~ to open the console. Click an actor/object to select its reference.
+Skyrim distinguishes Base IDs from Reference IDs; spawning normally uses a
+Base ID, while moveto and targeted operations often need a live Reference ID.
+
+==============================================================================
+2. PLAYER / CHEAT TOGGLES
+==============================================================================
+
+tgm
+  Toggles god mode.
+
+tim
+  Toggles immortal mode: health cannot fall below zero.
+
+tcl
+  Toggles collision for the selected target/player context.
+
+tai
+  Toggles general AI processing.
+
+tcai
+  Toggles combat AI.
+
+tdetect
+  Toggles AI detection.
+
+tm
+  Toggles menus/HUD.
+
+tfc [1]
+  Toggles free camera; optional 1 also freezes time.
+
+tfc 1
+  Free camera with game time frozen.
+
+sucsm <speed>
+  Sets free-camera movement speed.
+
+==============================================================================
+3. INVENTORY / SPELLS / SHOUTS
+==============================================================================
+
+player.additem <BaseID> <count>
+  Adds an item.
+
+player.removeitem <BaseID> <count>
+  Removes an item.
+
+player.equipitem <BaseID>
+  Equips an item.
+
+player.unequipitem <BaseID>
+  Unequips an item.
+
+player.addspell <FormID>
+  Adds a spell or ability.
+
+player.removespell <FormID>
+  Removes a spell or ability.
+
+player.teachword <WordID>
+  Teaches a dragon-shout word.
+
+player.unlockword <WordID>
+  Unlocks a learned shout word.
+
+player.additem 0000000F <count>
+  Adds gold.
+
+player.additem 0000000A <count>
+  Adds lockpicks.
+
+==============================================================================
+4. STATS / SKILLS / LEVEL
+==============================================================================
+
+player.setav <actor-value> <value>
+  Sets a player actor value.
+
+player.modav <actor-value> <delta>
+  Modifies a player actor value.
+
+player.forceav <actor-value> <value>
+  Forces an actor value.
+
+player.getav <actor-value>
+  Displays an actor value.
+
+player.advskill <skill> <amount>
+  Adds skill-use experience.
+
+incpcs <skill>
+  Increments a skill through skill-use progression.
+
+player.setlevel <level>
+  Sets player level.
+
+player.modav carryweight <delta>
+  Modifies carry-weight actor value.
+
+player.setav speedmult <value>
+  Sets movement-speed multiplier.
+
+==============================================================================
+5. QUESTS / FACTIONS / RELATIONSHIPS
+==============================================================================
+
+setstage <QuestID> <stage>
+  Sets a quest stage.
+
+getstage <QuestID>
+  Displays quest stage.
+
+sqs <QuestID>
+  Lists quest stages and completion flags.
+
+sqt
+  Shows current quest targets.
+
+completequest <QuestID>
+  Marks a quest complete; may skip script effects.
+
+resetquest <QuestID>
+  Resets quest state; can be unsafe.
+
+startquest <QuestID>
+  Starts a quest.
+
+stopquest <QuestID>
+  Stops a quest.
+
+addtofaction <FactionID> <rank>
+  Adds selected actor to a faction.
+
+removefromfaction <FactionID>
+  Removes selected actor from a faction.
+
+setrelationshiprank <RefID> <rank>
+  Sets relationship rank with another actor.
+
+==============================================================================
+6. ACTOR / OBJECT MANIPULATION
+==============================================================================
+
+kill
+  Kills the selected actor.
+
+killall
+  Kills actors in the loaded area.
+
+resurrect [1]
+  Resurrects the selected actor.
+
+disable
+  Disables the selected reference.
+
+enable
+  Enables the selected reference.
+
+markfordelete
+  Marks selected reference for deletion; use cautiously.
+
+unlock
+  Unlocks selected door/container.
+
+lock <level>
+  Locks selected door/container.
+
+openactorcontainer 1
+  Opens selected actor inventory for editing.
+
+resetinventory
+  Resets selected actor/container inventory.
+
+recycleactor
+  Resets/recycles the selected actor reference.
+
+moveto <RefID>
+  Moves selected reference to another reference.
+
+player.moveto <RefID>
+  Moves player to a reference.
+
+placeatme <BaseID> [count]
+  Spawns a BaseID at selected reference.
+
+player.placeatme <BaseID> [count]
+  Spawns a BaseID at the player.
+
+==============================================================================
+7. WORLD / TIME / WEATHER
+==============================================================================
+
+coc <CellEditorID>
+  Teleports to an interior cell.
+
+cow <WorldspaceID> <X> <Y>
+  Teleports to a worldspace cell.
+
+set timescale to <value>
+  Sets in-game time multiplier.
+
+set gamehour to <hour>
+  Sets hour of day.
+
+fw <WeatherID>
+  Forces a weather immediately.
+
+sw <WeatherID>
+  Changes to a weather through transition.
+
+sgtm <factor>
+  Sets global simulation-time multiplier.
+
+==============================================================================
+8. SEARCH / INFORMATION / DEBUG
+==============================================================================
+
+help <text> [filter]
+  Searches loaded forms/console help by text.
+
+showracemenu
+  Opens character race/appearance menu.
+
+showinventory
+  Lists inventory of the selected reference.
+
+getpos <axis>
+  Displays selected reference coordinate.
+
+setpos <axis> <value>
+  Sets selected reference coordinate.
+
+getangle <axis>
+  Displays selected reference rotation.
+
+setangle <axis> <value>
+  Sets selected reference rotation.
+
+getlevel
+  Displays selected actor level.
+
+getav <actor-value>
+  Displays selected actor value.
+
+save <name>
+  Creates a named save.
+
+qqq
+  Immediately quits Skyrim.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. Where an
+engine exposes more commands than can be usefully documented here, the
+installed executable or its own listing facility remains the final authority.
+  - UESP: Skyrim Console
+    https://en.uesp.net/wiki/Skyrim:Console
