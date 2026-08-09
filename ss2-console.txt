@@ -259,16 +259,14 @@ show_sim_time
 
 summon_obj <archetype-name-or-object-code>
   Creates an instance of an object/archetype near the player.
-
-Examples:
-
-  summon_obj pistol
-  summon_obj shotgun
-  summon_obj assault rifle
-  summon_obj psi amp
-  summon_obj wrench
-  summon_obj big nanite pile
-  summon_obj nav marker
+  Examples:
+    summon_obj pistol
+    summon_obj shotgun
+    summon_obj assault rifle
+    summon_obj psi amp
+    summon_obj wrench
+    summon_obj big nanite pile
+    summon_obj nav marker
 
 Important:
   - Names with spaces are entered as ordinary command arguments; quoting is
