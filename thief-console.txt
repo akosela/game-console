@@ -326,8 +326,8 @@ scale_sim_time <factor>
 
 Examples:
 
-- scale_sim_time 0.5
-- scale_sim_time 2
+  scale_sim_time 0.5
+  scale_sim_time 2
 
 show_stats
   Displays runtime statistics in the upper-left area while in game mode.
@@ -368,13 +368,14 @@ Important:
   - Unique plot objects may require mission links, scripts, quest variables,
     or original placement and therefore may not function when simply spawned.
 
---- Examples, if summon_obj is registered by your executable
-summon_obj Sword
-summon_obj Blackjack
-summon_obj broadhead
-summon_obj HealingPotion
-summon_obj Burrick
-summon_obj Zombie
+Examples, if summon_obj is registered by your executable:
+
+  summon_obj Sword
+  summon_obj Blackjack
+  summon_obj broadhead
+  summon_obj HealingPotion
+  summon_obj Burrick
+  summon_obj Zombie
 
 create_obj <archetype>
   Creates an object from an archetype in DromEd/editor command sets. Depending
@@ -727,9 +728,9 @@ bind <key> "<command>"
 
 Examples:
 
-- bind p edit_command
-- bind f10 screen_dump
-- bind v dark_version
+  bind p edit_command
+  bind f10 screen_dump
+  bind v dark_version
 
 Because press/release commands can be bound directly, a binding such as:
 

@@ -29,11 +29,11 @@ Classic/NewDark:
 Commands are generally case-insensitive.
 
 Arguments in this file:
-- #  numeric argument
-- <0|1>  off/on switch
-- <name>  object/archetype/resource name
-- <id>  numeric object ID
-- <slot>  quickslot number
+  #  numeric argument
+  <0|1>  off/on switch
+  <name>  object/archetype/resource name
+  <id>  numeric object ID
+  <slot>  quickslot number
 
 A leading "+" on a bindable command usually means "active while key is held",
 for example +fire_weapon in a .bnd file.
@@ -171,11 +171,11 @@ open_mfd <overlay-number>
   Opens an MFD/overlay by internal overlay number.
 
 Useful SS2 upgrade overlays:
-- open_mfd 35  Stats upgrade interface
-- open_mfd 36  Tech upgrade interface
-- open_mfd 37  Weapon upgrade interface
-- open_mfd 38  Psi upgrade interface
-- open_mfd 20  O/S upgrade interface
+  open_mfd 35  Stats upgrade interface
+  open_mfd 36  Tech upgrade interface
+  open_mfd 37  Weapon upgrade interface
+  open_mfd 38  Psi upgrade interface
+  open_mfd 20  O/S upgrade interface
 
 overlay_toggle <overlay-number>
   Toggles an overlay/MFD by its internal number. Developer-oriented.
@@ -258,14 +258,15 @@ show_sim_time
 summon_obj <archetype-name-or-object-code>
   Creates an instance of an object/archetype near the player.
 
---- Examples
-summon_obj pistol
-summon_obj shotgun
-summon_obj assault rifle
-summon_obj psi amp
-summon_obj wrench
-summon_obj big nanite pile
-summon_obj nav marker
+Examples:
+
+  summon_obj pistol
+  summon_obj shotgun
+  summon_obj assault rifle
+  summon_obj psi amp
+  summon_obj wrench
+  summon_obj big nanite pile
+  summon_obj nav marker
 
 Important:
   - Names with spaces are entered as ordinary command arguments; quoting is
@@ -307,6 +308,7 @@ small nanite pile
 20 nanites
 medium nanite pile
 big nanite pile
+
 exp cookies
 fakecookie
 1 exp
