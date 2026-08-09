@@ -241,8 +241,8 @@
       if(isSep(lines[start]||"","=")) start++;
     }
     const sections=[]; let secTitle="Overview", secLines=[], ids={};
-    const push=()=>{
-      if(!secLines.some(l=>l.trim())) return;
+    const push=(allowEmpty=false)=>{
+      if(!allowEmpty && !secLines.some(l=>l.trim())) return;
       let id=slugify(secTitle);
       ids[id]=(ids[id]||0)+1;
       if(ids[id]>1) id+=`-${ids[id]}`;
@@ -269,7 +269,13 @@
         (isHeadingSep(lines[i+1],"=") || isHeadingSep(lines[i+1],"-")) &&
         lines[i].trim().length<92
       ){
-        push(); secTitle=lines[i].trim(); i+=2; continue;
+        // Preserve a major ==== section even when a ---- subsection follows
+        // immediately before any body text. Without this, push() sees an
+        // empty body and the major section title is silently discarded.
+        const majorSectionAwaitingBody =
+          !secLines.some(l=>l.trim()) && /^\d+\.\s+/.test(secTitle);
+        push(majorSectionAwaitingBody);
+        secTitle=lines[i].trim(); i+=2; continue;
       }
       if(isSep(lines[i],"=")||isSep(lines[i],"-")){i++;continue;}
       secLines.push(lines[i]);i++;
