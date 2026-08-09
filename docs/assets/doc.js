@@ -133,6 +133,34 @@
       return `<pre class="code-block"><code>${esc(code)}</code></pre>`;
     }
 
+    // Several column-0 command names may share one indented description:
+    //
+    //   trace_add
+    //   trace_remove
+    //     Adds/removes ...
+    //
+    // Render the command-name run as one code block and keep the indented
+    // text as its explanation. Do not apply this to ordinary prose blocks.
+    let descStart = lines.findIndex(line => /^\s{2,}\S/.test(line));
+    if (descStart > 1) {
+      const commands = lines.slice(0, descStart);
+      const description = lines.slice(descStart);
+      const commandGroup = commands.every(line =>
+        !/^\s/.test(line) && looksCommand(line)
+      );
+      const descriptionGroup = description.every(line =>
+        !line || /^\s{2,}/.test(line)
+      );
+
+      if (commandGroup && descriptionGroup) {
+        const code = commands.map(line => line.trim()).join("\n");
+        const desc = normalize(description);
+
+        return `<pre class="code-block"><code>${esc(code)}</code></pre>` +
+          (desc ? `<div class="command-description">${linkify(desc)}</div>` : "");
+      }
+    }
+
     const first = lines[0];
     const rest = lines.slice(1);
     if (
