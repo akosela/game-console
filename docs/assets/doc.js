@@ -226,11 +226,13 @@
     const p = normalize(lines);
 
     if (!p) return "";
-    return `<p${
-      /^(NOTE|IMPORTANT|WARNING):/i.test(p)
-        ? ' class="note"'
-        : ""
-    }>${renderInline(p)}</p>`;
+    if (/^(NOTE|IMPORTANT|WARNING):/i.test(p)) {
+      const noteHtml = lines
+        .map(line => renderInline(line.trim()))
+        .join("<br>");
+      return `<p class="note">${noteHtml}</p>`;
+    }
+    return `<p>${renderInline(p)}</p>`;
   }
 
   function renderBlocks(lines, sectionTitle){
