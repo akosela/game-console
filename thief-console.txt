@@ -13,10 +13,10 @@ For an EXACT list from the executable/build you are using, run:
 This writes the registered command list, with Looking Glass descriptions where
 available. DromEd exposes a much larger registry than the normal game.
 
-Some commands listed here are not directly relevant to DarkSim. They are included
-for completeness because they document the broader command set and internal
-functionality of the Dark Engine/NewDark environment on which Thief: The Dark 
-Project is built.
+Some commands listed here are not directly relevant to DarkSim. They are
+included for completeness because they document the broader command set and
+internal functionality of the Dark Engine/NewDark environment on which
+Thief: The Dark Project is built.
 
 ==============================================================================
 1. CONSOLE BASICS
@@ -51,19 +51,19 @@ Commands and arguments
 ----------------------
 Arguments used in this reference:
 
-  #            numeric argument
-  <0|1>        off/on switch
-  <name>       object, archetype, resource, or variable name
-  <id>         numeric object ID
-  <file>       filename
-  <factor>     floating-point scale
-  <x,y,z>      world coordinates
+- #  numeric argument
+- <0|1>  off/on switch
+- <name>  object, archetype, resource, or variable name
+- <id>  numeric object ID
+- <file>  filename
+- <factor>  floating-point scale
+- <x,y,z>  world coordinates
 
 A leading "+" or "-" on an input command normally means press/release state.
 For example:
 
-  +crouch
-  -crouch
+- +crouch
+- -crouch
 
 This is mainly relevant to .bnd key bindings.
 
@@ -326,8 +326,8 @@ scale_sim_time <factor>
 
 Examples:
 
-  scale_sim_time 0.5
-  scale_sim_time 2
+- scale_sim_time 0.5
+- scale_sim_time 2
 
 show_stats
   Displays runtime statistics in the upper-left area while in game mode.
@@ -370,12 +370,12 @@ Important:
 
 Examples, if summon_obj is registered by your executable:
 
-  summon_obj Sword
-  summon_obj Blackjack
-  summon_obj broadhead
-  summon_obj HealingPotion
-  summon_obj Burrick
-  summon_obj Zombie
+- summon_obj Sword
+- summon_obj Blackjack
+- summon_obj broadhead
+- summon_obj HealingPotion
+- summon_obj Burrick
+- summon_obj Zombie
 
 create_obj <archetype>
   Creates an object from an archetype in DromEd/editor command sets. Depending
@@ -421,9 +421,9 @@ that every name is a concrete spawnable archetype in every mission.
 --- Player weapons
 ------------------------------------------------------------
 
-Sword
-PlayerSword
-Blackjack
+- Sword
+- PlayerSword
+- Blackjack
 
 Notes:
   Sword is the general sword archetype name.
@@ -432,25 +432,25 @@ Notes:
 --- Arrows and projectile-related objects
 -------------------------------------
 
-broadhead
-water
-firearr
-EarthArrow
-GasArrow
-RopeArrow
-noisemaker
-HolyH2OArrow
+- broadhead
+- water
+- firearr
+- EarthArrow
+- GasArrow
+- RopeArrow
+- noisemaker
+- HolyH2OArrow
 
 Related confirmed strings include:
 
-  ArrowType Broadhead
-  ArrowType Water
-  ArrowType Fire
-  ArrowType Earth
-  ArrowType Gas
-  ArrowType Rope
-  ArrowType Noisemaker
-  ArrowType HolyWater
+- ArrowType Broadhead
+- ArrowType Water
+- ArrowType Fire
+- ArrowType Earth
+- ArrowType Gas
+- ArrowType Rope
+- ArrowType Noisemaker
+- ArrowType HolyWater
 
 Notes:
   EarthArrow is present in DARK.GAM even though it is not part of the normal
@@ -460,87 +460,87 @@ Notes:
 --- Potions and utility inventory
 ---------------------------------------------
 
-HealingPotion
-BeltHealingPotion
-AirPotion
-SpeedPotion
-HolyH2O
-Flashbomb
-GasMine
-Mine
-Compass
-Compass2
-LockPick
-LockPickSM
-LockPickLG
-BothLockPicks
+- HealingPotion
+- BeltHealingPotion
+- AirPotion
+- SpeedPotion
+- HolyH2O
+- Flashbomb
+- GasMine
+- Mine
+- Compass
+- Compass2
+- LockPick
+- LockPickSM
+- LockPickLG
+- BothLockPicks
 
 --- Main creature / AI archetype strings
 --------------------------------------
 
-Burrick
-Defective Burrick
-Spider
-HugeSpider
-SewerSpider
-Crayman
-Zombie
-HammerZombie
-Haunt
-Apparition
-Frog
-FrogBeast
-Elemental
-Trickster
+- Burrick
+- Defective Burrick
+- Spider
+- HugeSpider
+- SewerSpider
+- Crayman
+- Zombie
+- HammerZombie
+- Haunt
+- Apparition
+- Frog
+- FrogBeast
+- Elemental
+- Trickster
 
 --- Guard and human AI strings
 -------------------------------------------------
 
-BaseGuard
-guard
-guard1
-guard2
-guard3
-RamirezGuard
-MageGuard
-OperaGuard
-ThiefGuard
-BaffGuard
-Con Guard
-sword guard
-ham guard
-hammerite
+- BaseGuard
+- guard
+- guard1
+- guard2
+- guard3
+- RamirezGuard
+- MageGuard
+- OperaGuard
+- ThiefGuard
+- BaffGuard
+- Con Guard
+- sword guard
+- ham guard
+- hammerite
 
 These include both generic archetypes and mission/specialized variants.
 
 --- Hammerite / weapon / decorative strings
 -----------------------------------
 
-HolyHammer
-Warhammer
-AncientHammer
-CeremonialHammer
-StoneHammer
-GoldHammer
-HammerStatue
-HammerCorpse
-HammerZombie
-JewelledSword
-ConstantineSword
-Detailed Sword
+- HolyHammer
+- Warhammer
+- AncientHammer
+- CeremonialHammer
+- StoneHammer
+- GoldHammer
+- HammerStatue
+- HammerCorpse
+- HammerZombie
+- JewelledSword
+- ConstantineSword
+- Detailed Sword
 
 --- Major plot / talisman strings
 ---------------------------------------------
 
-TheEye
-the_eye
-AllTheTalismans
-AirTalisman
-EarthTalisman
-FireTalisman
-H2OTalisman
-FakeTalisman
-EarthTalismanFake
+- TheEye
+- the_eye
+- AllTheTalismans
+- AirTalisman
+- EarthTalisman
+- FireTalisman
+- H2OTalisman
+- FakeTalisman
+- EarthTalismanFake
 
 WARNING:
   Plot objects should not be casually created or destroyed in a real mission.
@@ -550,39 +550,39 @@ WARNING:
 --- Key-related strings
 --------------------------------------------------------
 
-StdKey
-Key1
-Key2
-Key3
-Key4
-Key5
-KeeperKey
-TreasureKey
-AirKey
-EarthKey
-FireKey
-WaterKey
-MageKeys
-KeyMageA
-KeyMageE
-KeyMageF
-KeyMageW
+- StdKey
+- Key1
+- Key2
+- Key3
+- Key4
+- Key5
+- KeeperKey
+- TreasureKey
+- AirKey
+- EarthKey
+- FireKey
+- WaterKey
+- MageKeys
+- KeyMageA
+- KeyMageE
+- KeyMageF
+- KeyMageW
 
 --- Treasure-related strings
 ---------------------------------------------------
 
-Treasure
-GoldCoinStack
-SilverCoinStack
-CopperCoinStack
-GoldNugget
-GoldGoblet
-GoldPlate
-GoldRing
-GoldSkull
-GemRing
-Gemstone
-LC_Gem
+- Treasure
+- GoldCoinStack
+- SilverCoinStack
+- CopperCoinStack
+- GoldNugget
+- GoldGoblet
+- GoldPlate
+- GoldRing
+- GoldSkull
+- GemRing
+- Gemstone
+- LC_Gem
 
 The exact Treasure type and value are controlled by properties rather than the
 English archetype name alone.
@@ -728,9 +728,9 @@ bind <key> "<command>"
 
 Examples:
 
-  bind p edit_command
-  bind f10 screen_dump
-  bind v dark_version
+- bind p edit_command
+- bind f10 screen_dump
+- bind v dark_version
 
 Because press/release commands can be bound directly, a binding such as:
 
@@ -1343,17 +1343,17 @@ Open command editor:
 
 Display engine version:
 
-  bind v dark_version
+- bind v dark_version
 
 Cycle inventory:
 
-  bind tab "cycle_item 1"
-  bind shift+tab "cycle_item -1"
+- bind tab "cycle_item 1"
+- bind shift+tab "cycle_item -1"
 
 Cycle weapons:
 
-  bind mouse_wheel_up "cycle_weapon 1"
-  bind mouse_wheel_down "cycle_weapon -1"
+- bind mouse_wheel_up "cycle_weapon 1"
+- bind mouse_wheel_down "cycle_weapon -1"
 
 Clear current item:
 
@@ -1380,27 +1380,29 @@ If:
 
 is not recognized:
 
-1. Run dump_cmds on the executable you are actually using.
-2. Check whether summon_obj appears in that dump.
-3. Remember that DromEd and THIEF.EXE expose different command sets.
-4. Do not infer availability from System Shock 2; it uses the same engine
-   family but has a different game executable and command registry.
-5. If DromEd exposes create_obj instead, use the editor's object-creation
-   path.
-6. Verify the internal archetype name in the Object Hierarchy.
-7. A string found inside DARK.GAM is not automatically a concrete archetype.
-8. An abstract archetype may create an unusable object.
-9. Plot objects may rely on links, scripts, quest variables, and original IDs.
-10. Save the mission before experimenting with destruction or creation.
+- 1. Run dump_cmds on the executable you are actually using.
+- 2. Check whether summon_obj appears in that dump.
+- 3. Remember that DromEd and THIEF.EXE expose different command sets.
+- 4. Do not infer availability from System Shock 2; it uses the same engine
+  family but has a different game executable and command registry.
+- 5. If DromEd exposes create_obj instead, use the editor's object-creation
+  path.
+- 6. Verify the internal archetype name in the Object Hierarchy.
+- 7. A string found inside DARK.GAM is not automatically a concrete archetype.
+- 8. An abstract archetype may create an unusable object.
+- 9. Plot objects may rely on links, scripts, quest variables, and original
+  IDs.
+- 10. Save the mission before experimenting with destruction or creation.
 
 If the command exists but an object name fails:
 
-1. Use the exact Object Hierarchy spelling.
-2. Try the numeric archetype/object ID.
-3. Check whether you selected an abstract category rather than a concrete
-   descendant.
-4. Check the current GameSys; a custom DARK.GAM may rename or remove objects.
-5. Remember that localized display names are separate from internal names.
+- 1. Use the exact Object Hierarchy spelling.
+- 2. Try the numeric archetype/object ID.
+- 3. Check whether you selected an abstract category rather than a concrete
+  descendant.
+- 4. Check the current GameSys; a custom DARK.GAM may rename or remove
+  objects.
+- 5. Remember that localized display names are separate from internal names.
 
 ==============================================================================
 24. EXACT "ALL COMMANDS" WORKFLOW
@@ -1451,10 +1453,10 @@ This reference was compiled from:
 
 Public references:
 
-  https://www.ttlg.com/forums/showthread.php?t=47423
-  https://www.ttlg.com/forums/showthread.php?t=108684
-  https://thief.fandom.com/wiki/DromEd/Commands
-  https://thief.fandom.com/wiki/Dark_Engine
+- https://www.ttlg.com/forums/showthread.php?t=47423
+- https://www.ttlg.com/forums/showthread.php?t=108684
+- https://thief.fandom.com/wiki/DromEd/Commands
+- https://thief.fandom.com/wiki/Dark_Engine
 
 Important distinction:
 
