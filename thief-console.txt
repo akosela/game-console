@@ -351,8 +351,8 @@ game_mode_backup <0|1>
 
 Normal THIEF.EXE game mode
 --------------------------
-Thief does not expose System Shock 2's summon_obj as a normal gameplay console
-command. A known Thief Gold dump_cmds listing does not register summon_obj.
+Thief does not expose System Shock 2's `summon_obj` as a normal gameplay console
+command. A known Thief Gold `dump_cmds` listing does not register `summon_obj`.
 
 Do not infer command availability from System Shock 2 merely because both
 games use the Dark Engine family. THIEF.EXE, DROMED.EXE, and Shock2.exe have
@@ -390,7 +390,7 @@ DromEd
 create_obj <archetype>
   Creates an object from an archetype in DromEd/editor command sets where the
   command is registered. It is not a general THIEF.EXE gameplay console
-  replacement for summon_obj.
+  replacement for `summon_obj`.
 
 destroy_obj <name-or-id>
   Destroys an object by object name or object ID.
@@ -1375,9 +1375,9 @@ existing .bnd file. Preserve working syntax from your installed binding file.
 23. OBJECT-CREATION TROUBLESHOOTING
 ==============================================================================
 
-If summon_obj is not recognized in THIEF.EXE:
+If `summon_obj` is not recognized in THIEF.EXE:
 
-- 1. This is expected; summon_obj is not a normal Thief gameplay console
+- 1. This is expected; `summon_obj` is not a normal Thief gameplay console
   command.
 - 2. Run dump_cmds on the executable you are actually using.
 - 3. Remember that DromEd and THIEF.EXE expose different command sets.

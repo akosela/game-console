@@ -34,6 +34,22 @@
     /(https?:\/\/[^\s<]+)/g,
     u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`
   );
+  // Render Markdown-style inline code in prose. Text enclosed in a matching
+  // pair of backticks is escaped and wrapped in <code>; ordinary text keeps
+  // the existing URL auto-linking behavior. An unmatched backtick remains
+  // literal text instead of consuming the rest of the paragraph.
+  const renderInline=(v)=>{
+    const parts=v.split("`");
+    if(parts.length<3) return linkify(v);
+    let html="";
+    for(let i=0;i<parts.length;i++){
+      const paired=i%2===1 && i+1<parts.length;
+      if(paired) html+=`<code>${esc(parts[i])}</code>`;
+      else if(i===parts.length-1 && i%2===1) html+=linkify("`"+parts[i]);
+      else html+=linkify(parts[i]);
+    }
+    return html;
+  };
   const normalize=(lines)=>lines.map(x=>x.trim()).join(" ").replace(/\s+/g," ").trim();
   function renderCommandDescription(lines){
     let html="";
@@ -42,7 +58,7 @@
 
     const flushProse=()=>{
       const text=normalize(prose);
-      if(text) html+=`<div class="command-description-text">${linkify(text)}</div>`;
+      if(text) html+=`<div class="command-description-text">${renderInline(text)}</div>`;
       prose=[];
     };
     const flushCode=()=>{
@@ -109,7 +125,7 @@
         const intro = normalize(lines.slice(0, firstBullet));
 
         if (intro) {
-          html += `<p>${linkify(intro)}</p>`;
+          html += `<p>${renderInline(intro)}</p>`;
         }
       }
       const items = [];
@@ -142,7 +158,7 @@
       }
 
       html += `<ul>${items.map(item =>
-        `<li>${linkify(item)}</li>`
+        `<li>${renderInline(item)}</li>`
       ).join("")}</ul>`;
       if (i < lines.length) {
         html += renderBlock(lines.slice(i));
@@ -214,7 +230,7 @@
       /^(NOTE|IMPORTANT|WARNING):/i.test(p)
         ? ' class="note"'
         : ""
-    }>${linkify(p)}</p>`;
+    }>${renderInline(p)}</p>`;
   }
 
   function renderBlocks(lines, sectionTitle){
