@@ -349,33 +349,48 @@ game_mode_backup <0|1>
 6. OBJECT CREATION, LOOKUP, EDITING, AND DESTRUCTION
 ==============================================================================
 
-summon_obj <archetype-name-or-id>
-  Creates an instance of an object/archetype in builds that expose this Dark
-  Engine debug command.
+Normal THIEF.EXE game mode
+--------------------------
+Thief does not expose System Shock 2's summon_obj as a normal gameplay console
+command. A known Thief Gold dump_cmds listing does not register summon_obj.
 
-Important:
-  - summon_obj is strongly associated with ShockEd/System Shock 2 and with
-    developer/editor Dark Engine command sets.
-  - Do not assume that stock retail THIEF.EXE exposes it merely because the
-    archetype exists in DARK.GAM.
-  - If it is present in your NewDark/DromEd build, use the internal archetype
-    name from the loaded GameSys.
-  - A display string is not necessarily the archetype name.
-  - Unique plot objects may require mission links, scripts, quest variables,
-    or original placement and therefore may not function when simply spawned.
+Do not infer command availability from System Shock 2 merely because both
+games use the Dark Engine family. THIEF.EXE, DROMED.EXE, and Shock2.exe have
+different command registries.
 
-Examples, if summon_obj is registered by your executable:
+NewDark runtime scripting
+-------------------------
+NewDark Squirrel scripts can create objects while a mission is running.
 
-  summon_obj Sword
-  summon_obj Blackjack
-  summon_obj broadhead
-  summon_obj HealingPotion
-  summon_obj Burrick
-  summon_obj Zombie
+For an object or AI that must be placed in the world, use BeginCreate,
+Teleport, and EndCreate. For example, from an inventory frob script:
 
+    local obj = Object.BeginCreate("Burrick");
+    Object.Teleport(obj, vector(5, 0, 0), vector(0), message().Frobber);
+    Object.EndCreate(obj);
+
+Object.Create can be used when creation does not need the BeginCreate /
+EndCreate sequence:
+
+    local item = Object.Create("HealingPotion");
+
+To put a newly created object into Garrett's inventory, create a Contains link
+from the player to the object. When the script is attached to the player:
+
+    local item = Object.Create("HealingPotion");
+    Link.Create(LinkTools.LinkKindNamed("Contains"), self, item);
+
+Use the internal archetype name from the loaded GameSys. A display string is
+not necessarily the archetype name. Unique plot objects may require mission
+links, scripts, quest variables, or original placement and therefore may not
+function correctly when created at runtime.
+
+DromEd
+------
 create_obj <archetype>
-  Creates an object from an archetype in DromEd/editor command sets. Depending
-  on editor version, this is the more relevant Thief object-creation command.
+  Creates an object from an archetype in DromEd/editor command sets where the
+  command is registered. It is not a general THIEF.EXE gameplay console
+  replacement for summon_obj.
 
 destroy_obj <name-or-id>
   Destroys an object by object name or object ID.
@@ -1357,38 +1372,39 @@ The exact key-name syntax depends on the original/NewDark input system and the
 existing .bnd file. Preserve working syntax from your installed binding file.
 
 ==============================================================================
-23. summon_obj / OBJECT-CREATION TROUBLESHOOTING
+23. OBJECT-CREATION TROUBLESHOOTING
 ==============================================================================
 
-If:
+If summon_obj is not recognized in THIEF.EXE:
 
-  summon_obj <name>
-
-is not recognized:
-
-- 1. Run dump_cmds on the executable you are actually using.
-- 2. Check whether summon_obj appears in that dump.
+- 1. This is expected; summon_obj is not a normal Thief gameplay console
+  command.
+- 2. Run dump_cmds on the executable you are actually using.
 - 3. Remember that DromEd and THIEF.EXE expose different command sets.
 - 4. Do not infer availability from System Shock 2; it uses the same engine
   family but has a different game executable and command registry.
-- 5. If DromEd exposes create_obj instead, use the editor's object-creation
-  path.
-- 6. Verify the internal archetype name in the Object Hierarchy.
-- 7. A string found inside DARK.GAM is not automatically a concrete archetype.
-- 8. An abstract archetype may create an unusable object.
-- 9. Plot objects may rely on links, scripts, quest variables, and original
-  IDs.
-- 10. Save the mission before experimenting with destruction or creation.
+- 5. Use NewDark Squirrel Object.Create / Object.BeginCreate for runtime
+  object creation when building a mod or helper script.
+- 6. Use DromEd's object-creation facilities when working in the editor.
 
-If the command exists but an object name fails:
+If a NewDark runtime-created object fails or behaves incorrectly:
 
 - 1. Use the exact Object Hierarchy spelling.
-- 2. Try the numeric archetype/object ID.
+- 2. Verify the internal archetype in the currently loaded GameSys.
+- 3. A string found inside DARK.GAM is not automatically a concrete archetype.
+- 4. An abstract archetype may create an unusable object.
+- 5. AI and world objects normally need a valid world position.
+- 6. Plot objects may rely on links, scripts, quest variables, and original
+  IDs.
+- 7. Localized display names are separate from internal archetype names.
+
+If a DromEd create/destroy operation fails:
+
+- 1. Check the exact command registry with dump_cmds.
+- 2. Verify the Object Hierarchy name or numeric object/archetype ID.
 - 3. Check whether you selected an abstract category rather than a concrete
   descendant.
-- 4. Check the current GameSys; a custom DARK.GAM may rename or remove
-  objects.
-- 5. Remember that localized display names are separate from internal names.
+- 4. Save the mission before experimenting with destruction or creation.
 
 ==============================================================================
 24. EXACT "ALL COMMANDS" WORKFLOW
@@ -1435,6 +1451,7 @@ This reference was compiled from:
   - Historical TTLG "Thief console commands" documentation.
   - TTLG DROMED Command Prompts / Editors' Guild documentation.
   - Thief Wiki DromEd command documentation.
+  - NewDark Squirrel runtime object-creation examples.
   - General Dark Engine/NewDark command behavior.
 
 Public references:
@@ -1443,6 +1460,8 @@ Public references:
 - https://www.ttlg.com/forums/showthread.php?t=108684
 - https://thief.fandom.com/wiki/DromEd/Commands
 - https://thief.fandom.com/wiki/Dark_Engine
+- https://github.com/saracoth/newdark-mods/blob/main/doc/Mod-MinionSummoner.md
+- https://github.com/saracoth/newdark-mods
 
 Important distinction:
 
