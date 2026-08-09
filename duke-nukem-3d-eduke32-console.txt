@@ -1,4 +1,4 @@
-DUKE NUKEM 3D (1996) / EDUKE32 — CONSOLE COMMAND REFERENCE
+DUKE NUKEM 3D (1996) / EDUKE32 -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
 IMPORTANT

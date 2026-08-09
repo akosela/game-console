@@ -1,4 +1,4 @@
-UNREAL (1998) — ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
+UNREAL (1998) -- ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
 ==============================================================================
 
 IMPORTANT

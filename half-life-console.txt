@@ -1,4 +1,4 @@
-HALF-LIFE (1998) — ORIGINAL GOLDSRC CONSOLE COMMAND REFERENCE
+HALF-LIFE (1998) -- ORIGINAL GOLDSRC CONSOLE COMMAND REFERENCE
 ==============================================================================
 
 IMPORTANT

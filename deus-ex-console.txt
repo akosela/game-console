@@ -1,4 +1,4 @@
-DEUS EX (2000) — ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
+DEUS EX (2000) -- ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
 ==============================================================================
 
 IMPORTANT

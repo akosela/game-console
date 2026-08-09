@@ -1,4 +1,4 @@
-QUAKE (1996) — ORIGINAL ENGINE CONSOLE COMMAND REFERENCE
+QUAKE (1996) -- ORIGINAL ENGINE CONSOLE COMMAND REFERENCE
 ==============================================================================
 
 IMPORTANT

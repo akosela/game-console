@@ -1,4 +1,4 @@
-NOTEXTUREFILTERING — SHARP / PIXELATED TEXTURE REFERENCE
+NOTEXTUREFILTERING -- SHARP / PIXELATED TEXTURE REFERENCE
 ==============================================================================
 
 SCOPE
@@ -57,7 +57,7 @@ textures, and pixelated HUD elements. Those are expected side effects of
 overriding filtering globally.
 
 ==============================================================================
-1. DUKE NUKEM 3D (1996) — EDUKE32
+1. DUKE NUKEM 3D (1996) -- EDUKE32
 ==============================================================================
 
 r_texfilter 0
@@ -78,7 +78,7 @@ Recommended sharpest setup:
   r_anisotropy 0
 
 ==============================================================================
-2. QUAKE (1996) — MARK V
+2. QUAKE (1996) -- MARK V
 ==============================================================================
 
 Mark V v1099 Revision 4 is the selected Quake source port. The normal Windows
@@ -127,7 +127,7 @@ Mark V also includes a WinQuake-style software renderer. That renderer already
 has the classic point-sampled software look and does not need gl_texturemode.
 
 ==============================================================================
-3. QUAKE II (1997) — YAMAGI QUAKE II / ORIGINAL OPENGL
+3. QUAKE II (1997) -- YAMAGI QUAKE II / ORIGINAL OPENGL
 ==============================================================================
 
 Yamagi Quake II retains the classic gl_texturemode control across its OpenGL
@@ -226,7 +226,7 @@ It disables filtering globally, including lightmap/shading paths,
 so it is not equivalent to simply setting bNoSmooth on game
 textures and actors.
 ==============================================================================
-6. HALF-LIFE (1998) — GOLDSRC
+6. HALF-LIFE (1998) -- GOLDSRC
 ==============================================================================
 
 gl_texturemode GL_NEAREST
@@ -352,7 +352,7 @@ masks, and UI elements harsher. If artifacts are objectionable, the original
 engine does not provide a clean per-material nearest switch.
 
 ==============================================================================
-13. THE ELDER SCROLLS V: SKYRIM (2011) — ORIGINAL 32-BIT
+13. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
 ==============================================================================
 
 This section is only for the original 2011 32-bit Direct3D 9 Skyrim, not
@@ -402,7 +402,7 @@ r_trilinearfiltering
 The important command for the pixelated look is r_nearest.
 
 ==============================================================================
-16. THIEF: THE DARK PROJECT (1998) — NEWDARK
+16. THIEF: THE DARK PROJECT (1998) -- NEWDARK
 ==============================================================================
 
 NewDark exposes the texture-filter mode directly in cam_ext.cfg. This is the
@@ -433,7 +433,7 @@ Do not merely disable trilinear filtering while leaving tex_filter_mode at 16.
 That still leaves anisotropic/linear texture filtering active.
 
 ==============================================================================
-17. SYSTEM SHOCK 2 (1999) — NEWDARK
+17. SYSTEM SHOCK 2 (1999) -- NEWDARK
 ==============================================================================
 
 System Shock 2 NewDark uses the same explicit filtering control.

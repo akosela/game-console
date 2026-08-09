@@ -1,4 +1,4 @@
-NOHUD — HUD / CROSSHAIR REMOVAL REFERENCE
+NOHUD -- HUD / CROSSHAIR REMOVAL REFERENCE
 ==============================================================================
 
 SCOPE
@@ -15,7 +15,7 @@ solution: an existing menu setting, developer mode, configuration edit,
 resource override, or source-level change.
 
 ==============================================================================
-1. DUKE NUKEM 3D (1996) — EDUKE32
+1. DUKE NUKEM 3D (1996) -- EDUKE32
 ==============================================================================
 
 EDuke32 has separate controls for the status HUD and the crosshair. Its
@@ -34,7 +34,7 @@ Recommended:
   crosshair 0
 
 ==============================================================================
-2. QUAKE (1996) — MARK V
+2. QUAKE (1996) -- MARK V
 ==============================================================================
 
 Mark V v1099 Revision 4 is the selected Quake source port. It preserves the
@@ -53,7 +53,7 @@ Recommended:
   viewsize 120
   crosshair 0
 ==============================================================================
-3. QUAKE II (1997) — YAMAGI QUAKE II / ORIGINAL v3.20
+3. QUAKE II (1997) -- YAMAGI QUAKE II / ORIGINAL v3.20
 ==============================================================================
 
 Yamagi Quake II is the selected modern runtime for Quake II. It keeps the
@@ -145,7 +145,7 @@ For crosshair-only removal while keeping the HUD, use the classic HUD
 preferences/crosshair selection rather than a later Unreal-engine cvar.
 
 ==============================================================================
-6. HALF-LIFE (1998) — GOLDSRC
+6. HALF-LIFE (1998) -- GOLDSRC
 ==============================================================================
 
 hud_draw 0
@@ -294,7 +294,7 @@ information, but that applies to spectating/replays rather than ordinary
 campaign play.
 
 ==============================================================================
-15. RED FACTION (2001) — ORIGINAL PC v1.20
+15. RED FACTION (2001) -- ORIGINAL PC v1.20
 ==============================================================================
 
 The official v1.20 client exposes a reticle-scale control, but it does not
