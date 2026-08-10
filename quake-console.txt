@@ -7,6 +7,16 @@ gameplay behavior. QuakeSpasm, vkQuake, DarkPlaces, KEX/remaster, QuakeWorld
 extensions, and other source-port-only commands are intentionally excluded
 unless explicitly identified as later additions.
 
+  Dir       Campaign / mod            Developer             Released
+  id1       Quake                     id Software           1996
+  ctf       Capture the Flag          David “Zoid” Kirsch   1996
+  hipnotic  Scourge of Armagon        Hipnotic Interactive  1997
+  rogue     Dissolution of Eternity   Rogue Entertainment   1997
+  ad        Arcane Dimensions         Quake communiny       2015–
+  dopa      Dimension of the Past     MachineGames          2016
+  mg1       Dimension of the Machine  MachineGames          2021
+  mg3       Dawn of the Machine       MachineGames          2026
+
 ==============================================================================
 1. CONSOLE BASICS
 ==============================================================================
