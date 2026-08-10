@@ -8,8 +8,8 @@ commands and later Unreal Engine generations are excluded unless shared by the
 original engine.
 
   Dir     Campaign / mod     Developer             Released
-  Unreal  Unreal             Epic MegaGames        1998
-  NaPali  Return to Na Pali  Legend Entertainment  1999
+  unreal  Unreal             Epic MegaGames        1998
+  napali  Return to Na Pali  Legend Entertainment  1999
 
 ==============================================================================
 1. CONSOLE BASICS
