@@ -8,6 +8,14 @@ Nightdive/KEX remaster commands and Yamagi Quake II Remaster are excluded.
 Quake II has a large command/cvar registry; cmdlist and cvarlist on the actual
 executable remain the best completeness check.
 
+  Dir     Campaign / mod       Developer             Released
+  baseq2  Quake II             id Software           1997
+  xatrix  The Reckoning        Xatrix Entertainment  1998
+  rogue   Ground Zero          Rogue Entertainment   1998
+  zaero   Zaero                Team Evolve           1998
+  ctf     Capture the Flag     David "Zoid" Kirsch   1998
+  baseq2  Call of the Machine  MachineGames          2023
+
 ==============================================================================
 1. DISCOVERY / CONSOLE / SCRIPTING
 ==============================================================================
