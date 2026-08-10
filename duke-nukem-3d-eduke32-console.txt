@@ -8,6 +8,13 @@ Tour/KEX or any other remaster as a command reference. Commands marked
 engine/debug are EDuke32 facilities rather than commands present in the 1996
 DOS executable.
 
+  Dir       Campaign / mod                  Developer              Released
+  duke3d    Duke Nukem 3D                   3D Realms              1996
+  dukedc    Duke It Out in D.C.             Sunstorm Interactive   1997
+  vacation  Duke Caribbean: Life's a Beach  Sunstorm Interactive   1997
+  nwinter   Duke: Nuclear Winter            Simply Silly Software  1997
+  aa        Alien Armageddon                DukeBoss / community   2018
+
 ==============================================================================
 1. CONSOLE BASICS
 ==============================================================================
