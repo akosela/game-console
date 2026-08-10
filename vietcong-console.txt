@@ -5,6 +5,11 @@ IMPORTANT:
 Scope: Pterodon/Gathering's original Vietcong 1 PC game. Fist Alpha-only
 weapon additions and later Vietcong titles are not used for the base list.
 
+  Dir        Campaign / mod  Developer                      Released
+  vietcong   Vietcong        Pterodon / Illusion Softworks  2003
+  fistalpha  Fist Alpha      Pterodon / Illusion Softworks  2004
+  reddawn    Red Dawn        Pterodon                       2005
+
 ==============================================================================
 1. CONSOLE / CHEAT ACTIVATION
 ==============================================================================
