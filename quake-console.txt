@@ -12,7 +12,7 @@ unless explicitly identified as later additions.
   ctf       Capture the Flag          David "Zoid" Kirsch   1996
   hipnotic  Scourge of Armagon        Hipnotic Interactive  1997
   rogue     Dissolution of Eternity   Rogue Entertainment   1997
-  ad        Arcane Dimensions         Quake communiny       2015-
+  ad        Arcane Dimensions         Quake community       2015-
   dopa      Dimension of the Past     MachineGames          2016
   mg1       Dimension of the Machine  MachineGames          2021
   mg3       Dawn of the Machine       MachineGames          2026
