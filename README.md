@@ -1,7 +1,9 @@
 # game-console
 
-Reference documentation for console commands and old-school presentation
-settings in classic PC games.
+Classic PC Game Console and Display Reference
+
+GameConsole.cc is a technical reference for classic PC games and their
+original engines.
 
 The project collects practical command references for game consoles and
 developer modes, together with notes on removing the HUD/crosshair,
