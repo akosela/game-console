@@ -1,15 +1,15 @@
 UNREAL (1998) -- ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir     Campaign / mod     Developer             Released
+  unreal  Unreal             Epic MegaGames        1998
+  napali  Return to Na Pali  Legend Entertainment  1999
+
 IMPORTANT:
 Scope: Unreal 1 / Unreal Engine 1-era PC console, using Epic's original
 console documentation as the principal reference. Unreal Tournament-specific
 commands and later Unreal Engine generations are excluded unless shared by the
 original engine.
-
-  Dir     Campaign / mod     Developer             Released
-  unreal  Unreal             Epic MegaGames        1998
-  napali  Return to Na Pali  Legend Entertainment  1999
 
 ==============================================================================
 1. CONSOLE BASICS

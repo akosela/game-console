@@ -1,6 +1,11 @@
 GOTHIC II (2002) -- ORIGINAL MARVIN MODE / CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir       Campaign / mod             Developer                       Released
+  gothic2   Gothic II                  Piranha Bytes                   2002
+  addon     Night of the Raven         Piranha Bytes                   2003
+  archolos  The Chronicles of Myrtana  The Chronicles of Myrtana Team  2021
+
 IMPORTANT:
 Scope: original Gothic II classic engine behavior. Commands also shared with
 Night of the Raven are included when they already exist in the Gothic II

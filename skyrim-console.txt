@@ -2,6 +2,13 @@ THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT PC CONSOLE COMMAND
 REFERENCE
 ==============================================================================
 
+  Dir         Campaign / mod  Developer              Released
+  skyrim      Skyrim          Bethesda Game Studios  2011
+  dawnguard   Dawnguard       Bethesda Game Studios  2012
+  hearthfire  Hearthfire      Bethesda Game Studios  2012
+  dragonborn  Dragonborn      Bethesda Game Studios  2012
+  enderal     Enderal         SureAI                 2016
+
 IMPORTANT:
 Scope: original 2011 Skyrim / classic 32-bit Creation Engine PC release.
 Special Edition, Anniversary Edition, VR, and later remaster-specific commands

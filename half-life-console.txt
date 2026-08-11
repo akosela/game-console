@@ -1,17 +1,17 @@
 HALF-LIFE (1998) -- ORIGINAL GOLDSRC CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT:
-Scope: Half-Life 1 / GoldSrc-era PC commands. Source-engine Half-Life 2
-commands, Black Mesa, Sven Co-op additions, and remaster-style ports are
-excluded. Steam-era GoldSrc builds can add or remove some cvars versus the
-1998 retail executable.
-
   Dir      Campaign / mod  Developer         Released
   valve    Half-Life       Valve             1998
   gearbox  Opposing Force  Gearbox Software  1999
   bshift   Blue Shift      Gearbox Software  2001
   decay    Decay           Gearbox Software  2001
+
+IMPORTANT:
+Scope: Half-Life 1 / GoldSrc-era PC commands. Source-engine Half-Life 2
+commands, Black Mesa, Sven Co-op additions, and remaster-style ports are
+excluded. Steam-era GoldSrc builds can add or remove some cvars versus the
+1998 retail executable.
 
 ==============================================================================
 1. CONSOLE BASICS / DISCOVERY

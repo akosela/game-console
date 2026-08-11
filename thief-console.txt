@@ -1,13 +1,13 @@
 DARKSIM - THIEF: THE DARK PROJECT (1998) -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT:
-The exact console command registry belongs to the executable being run:
-THIEF.EXE, DROMED.EXE, or a NewDark-patched equivalent.
-
   Dir    Campaign / mod           Developer              Released
   thief  Thief: The Dark Project  Looking Glass Studios  1998
   fms    The Black Parade         Feuillade Industries   2023
+
+IMPORTANT:
+The exact console command registry belongs to the executable being run:
+THIEF.EXE, DROMED.EXE, or a NewDark-patched equivalent.
 
 For an EXACT list from the executable/build you are using, run:
 

@@ -1,13 +1,6 @@
 QUAKE II (1997) / YAMAGI QUAKE II CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT:
-Scope: classic id Software Quake II through the official 3.20 PC codebase,
-plus Yamagi Quake II as the explicitly selected modern runtime/source port.
-Nightdive/KEX remaster commands and Yamagi Quake II Remaster are excluded.
-Quake II has a large command/cvar registry; cmdlist and cvarlist on the actual
-executable remain the best completeness check.
-
   Dir     Campaign / mod       Developer             Released
   baseq2  Quake II             id Software           1997
   xatrix  The Reckoning        Xatrix Entertainment  1998
@@ -15,6 +8,13 @@ executable remain the best completeness check.
   zaero   Zaero                Team Evolve           1998
   ctf     Capture the Flag     David "Zoid" Kirsch   1998
   baseq2  Call of the Machine  MachineGames          2023
+
+IMPORTANT:
+Scope: classic id Software Quake II through the official 3.20 PC codebase,
+plus Yamagi Quake II as the explicitly selected modern runtime/source port.
+Nightdive/KEX remaster commands and Yamagi Quake II Remaster are excluded.
+Quake II has a large command/cvar registry; cmdlist and cvarlist on the actual
+executable remain the best completeness check.
 
 ==============================================================================
 1. DISCOVERY / CONSOLE / SCRIPTING

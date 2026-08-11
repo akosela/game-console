@@ -1,6 +1,12 @@
 THE ELDER SCROLLS IV: OBLIVION (2006) -- ORIGINAL PC CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir        Campaign / mod          Developer              Released
+  oblivion   Oblivion                Bethesda Game Studios  2006
+  knights    Knights of the Nine     Bethesda Game Studios  2006
+  shivering  Shivering Isles         Bethesda Game Studios  2007
+  nehrim     Nehrim: At Fate's Edge  SureAI                 2010
+
 IMPORTANT:
 Scope: Bethesda's original 2006 Oblivion PC executable and classic expansion
 era. Oblivion Remastered (2025+) is explicitly excluded.

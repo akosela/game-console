@@ -1,6 +1,9 @@
 UNREAL TOURNAMENT (1999) -- ORIGINAL UT99 CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir  Campaign / mod     Developer                      Released
+  ut   Unreal Tournament  Epic Games / Digital Extremes  1999
+
 IMPORTANT:
 Scope: original Unreal Tournament / Unreal Engine 1 PC releases. This file
 does not use Unreal Tournament 2003/2004, later UE versions, or remasters as a

@@ -1,12 +1,12 @@
 DARKSIM - SYSTEM SHOCK 2 (1999) -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir     Campaign / mod  Developer                                 Released
+  shock2  System Shock 2  Irrational Games / Looking Glass Studios  1999
+
 IMPORTANT:
 The exact console command registry belongs to the game executable (ss2.exe /
 NewDark build), not to shock2.gam.
-
-  Dir     Campaign / mod  Developer                                 Released
-  shock2  System Shock 2  Irrational Games / Looking Glass Studios  1999
 
 For an EXACT list for your own executable/build, run this in the console if
 supported:

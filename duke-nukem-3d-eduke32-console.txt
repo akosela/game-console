@@ -1,19 +1,19 @@
 DUKE NUKEM 3D (1996) / EDUKE32 -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT:
-Scope: EDuke32 running classic Duke Nukem 3D data. EDuke32 is a source port,
-so this file documents its console as requested, but it does not use the World
-Tour/KEX or any other remaster as a command reference. Commands marked
-engine/debug are EDuke32 facilities rather than commands present in the 1996
-DOS executable.
-
   Dir       Campaign / mod                  Developer              Released
   duke3d    Duke Nukem 3D                   3D Realms              1996
   dukedc    Duke It Out in D.C.             Sunstorm Interactive   1997
   vacation  Duke Caribbean: Life's a Beach  Sunstorm Interactive   1997
   nwinter   Duke: Nuclear Winter            Simply Silly Software  1997
   aa        Alien Armageddon                DukeBoss / community   2018
+
+IMPORTANT:
+Scope: EDuke32 running classic Duke Nukem 3D data. EDuke32 is a source port,
+so this file documents its console as requested, but it does not use the World
+Tour/KEX or any other remaster as a command reference. Commands marked
+engine/debug are EDuke32 facilities rather than commands present in the 1996
+DOS executable.
 
 ==============================================================================
 1. CONSOLE BASICS

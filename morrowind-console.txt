@@ -2,6 +2,12 @@ THE ELDER SCROLLS III: MORROWIND (2002) -- ORIGINAL PC CONSOLE COMMAND
 REFERENCE
 ==============================================================================
 
+  Dir        Campaign / mod   Developer              Released
+  morrowind  Morrowind        Bethesda Game Studios  2002
+  tribunal   Tribunal         Bethesda Game Studios  2002
+  bloodmoon  Bloodmoon        Bethesda Game Studios  2003
+  tr         Tamriel Rebuilt  Tamriel Rebuilt Team   2006-
+
 IMPORTANT:
 Scope: Bethesda's original Morrowind PC executable and its expansions-era
 console model. OpenMW-only commands and later remaster/reimplementation

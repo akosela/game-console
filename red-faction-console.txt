@@ -1,6 +1,10 @@
 RED FACTION (2001) -- ORIGINAL PC CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir         Campaign / mod               Developer  Released
+  redfaction  Red Faction                  Volition   2001
+  kava        Kava: a Red Faction Prequel  Goober     2021
+
 IMPORTANT:
 Scope: Volition's original Red Faction PC game through official client v1.20.
 Dash Faction, Pure Faction, Alpine Faction, console ports, and later Red

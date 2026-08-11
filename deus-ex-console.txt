@@ -1,15 +1,15 @@
 DEUS EX (2000) -- ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-IMPORTANT:
-Scope: original Deus Ex PC / v1.112fm-era command behavior. Revision and other
-mods can change class names, while later Deus Ex games use different engines
-and are not reference material here.
-
   Dir     Campaign / mod    Developer              Released
   deusex  Deus Ex           Ion Storm              2000
   tnm     The Nameless Mod  Off Topic Productions  2009
   2027    2027              Ded                    2011
+
+IMPORTANT:
+Scope: original Deus Ex PC / v1.112fm-era command behavior. Revision and other
+mods can change class names, while later Deus Ex games use different engines
+and are not reference material here.
 
 ==============================================================================
 1. ACCESSING THE CONSOLE / ENABLING CHEATS

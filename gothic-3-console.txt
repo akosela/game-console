@@ -1,6 +1,10 @@
 GOTHIC 3 (2006) -- ORIGINAL MARVIN / TESTMODE CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir           Campaign / mod  Developer      Released
+  gothic3       Gothic 3        Piranha Bytes  2006
+  forsakengods  Forsaken Gods   Trine Games    2008
+
 IMPORTANT:
 Scope: original Gothic 3 PC console/test mode. Forsaken Gods and its Enhanced
 Edition are not used as references. Community Patch builds may change console

@@ -1,6 +1,9 @@
 GOTHIC (2001) -- ORIGINAL MARVIN MODE / CONSOLE COMMAND REFERENCE
 ==============================================================================
 
+  Dir     Campaign / mod  Developer      Released
+  gothic  Gothic          Piranha Bytes  2001
+
 IMPORTANT:
 Scope: original Piranha Bytes Gothic 1 and its ZenGin/Marvin developer mode.
 The 2026 remake is explicitly excluded.
