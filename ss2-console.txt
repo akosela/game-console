@@ -1,8 +1,9 @@
 DARKSIM - SYSTEM SHOCK 2 (1999) -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-  Dir     Campaign / mod  Developer                                 Released
-  shock2  System Shock 2  Irrational Games / Looking Glass Studios  1999
+  Dir      Campaign / mod  Developer                                 Released
+  shock2   System Shock 2  Irrational Games / Looking Glass Studios  1999
+  darksim  DarkSim         Andy Kosela                               2026-
 
 IMPORTANT:
 The exact console command registry belongs to the game executable (ss2.exe /
@@ -1142,8 +1143,6 @@ NOTE ON COMPLETENESS
 
 This file includes A comprehensively and includes known B command families,
 but the exact executable-generated result from dump_cmds is the final
-authority
-for B. Console variables (CVars) are a separate namespace and are not
-exhaustively
-enumerated here because they are build-specific and are not all executable 
-commands.
+authority for B. Console variables (CVars) are a separate namespace and are
+not exhaustively enumerated here because they are build-specific and are not
+all executable commands.

@@ -1,9 +1,10 @@
 DARKSIM - THIEF: THE DARK PROJECT (1998) -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-  Dir    Campaign / mod           Developer              Released
-  thief  Thief: The Dark Project  Looking Glass Studios  1998
-  fms    The Black Parade         Feuillade Industries   2023
+  Dir      Campaign / mod           Developer              Released
+  thief    Thief: The Dark Project  Looking Glass Studios  1998
+  fms      The Black Parade         Feuillade Industries   2023
+  darksim  DarkSim                  Andy Kosela            2026-
 
 IMPORTANT:
 The exact console command registry belongs to the executable being run:
