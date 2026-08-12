@@ -1,4 +1,4 @@
-DARKSIM - SYSTEM SHOCK 2 (1999) -- CONSOLE COMMAND REFERENCE
+SYSTEM SHOCK 2 (1999) / DARKSIM -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
   Dir      Campaign / mod  Developer                                 Released

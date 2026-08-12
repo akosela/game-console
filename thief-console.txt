@@ -1,4 +1,4 @@
-DARKSIM - THIEF: THE DARK PROJECT (1998) -- CONSOLE COMMAND REFERENCE
+THIEF: THE DARK PROJECT (1998) / DARKSIM -- CONSOLE COMMAND REFERENCE
 ==============================================================================
 
   Dir      Campaign / mod           Developer              Released
