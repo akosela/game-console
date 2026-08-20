@@ -60,7 +60,9 @@ overriding filtering globally.
 1. DUKE NUKEM 3D (1996) -- EDUKE32
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Enter r_texfilter and r_anisotropy in the console or use the Video Setup
     menu.
   - EDuke32 stores persistent settings in its selected configuration file,
@@ -87,7 +89,9 @@ Recommended sharpest setup:
 2. QUAKE (1996) -- MARK V
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Preferred manual overrides: id1\autoexec.cfg, or autoexec.cfg in the
     active mod directory. Put gl_texturemode, gl_smoothmodels, r_particles,
     and r_wateralpha there.
@@ -143,7 +147,9 @@ has the classic point-sampled software look and does not need gl_texturemode.
 3. QUAKE II (1997) -- YAMAGI QUAKE II / ORIGINAL OPENGL
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Preferred manual override: baseq2\autoexec.cfg. Put gl_texturemode and
     r_2D_unfiltered there; add r_videos_unfiltered if wanted.
   - baseq2\config.cfg is engine-managed and may be rewritten. Yamagi may
@@ -184,7 +190,9 @@ Recommended Yamagi setup:
 4. UNREAL (1998)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Run the bNoSmooth command from the in-game console after a map loads.
   - For convenience, put a key binding that runs the command in
     System\User.ini; the command may still need to be re-run after level
@@ -229,7 +237,9 @@ base textures and actor skins while retaining smooth lightmaps.
 5. UNREAL TOURNAMENT (1999)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Put the persistent key binding in System\User.ini, for example the P=
     binding shown below.
   - The bNoSmooth command acts on currently loaded objects, so press the
@@ -261,7 +271,9 @@ textures and actors.
 6. HALF-LIFE (1998) -- GOLDSRC
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Preferred persistent override: valve\autoexec.cfg. Put gl_texturemode
     there.
   - valve\config.cfg is engine-generated and may be rewritten, so
@@ -283,7 +295,9 @@ appearance.
 7. DEUS EX (2000)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Run the bNoSmooth command from the in-game console after a map loads.
   - For a reusable key, store a binding in System\User.ini; reapply it when
     newly loaded textures or actors become filtered again.
@@ -314,7 +328,9 @@ broader than bNoSmooth and can make lightmaps/shadows blocky.
 8. GOTHIC (2001)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Native AF setting: Gothic\System\Gothic.ini, using
     zTexAnisotropicFiltering=0.
   - For true point sampling, place the dgVoodoo wrapper files and
@@ -340,7 +356,9 @@ files appropriate to the installation.
 9. GOTHIC II (2002)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Native AF setting: Gothic II\System\Gothic.ini, using
     zTexAnisotropicFiltering=0.
   - For true point sampling, place the dgVoodoo wrapper files and
@@ -365,7 +383,9 @@ normal side effect of forcing point sampling.
 10. GOTHIC 3 (2006)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - There is no native nearest-neighbor INI setting to add.
   - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside Gothic3.exe;
     configure Force point sampled in the dgVoodoo DirectX tab.
@@ -385,7 +405,9 @@ important than distant-texture stability.
 11. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - There is no vanilla Morrowind.ini nearest-neighbor switch.
   - Place the x86 dgVoodoo D3D8.dll and dgVoodoo.conf beside Morrowind.exe,
     then configure Force point sampled in dgVoodoo.
@@ -408,7 +430,9 @@ unfiltered look, but a sampler override is cleaner when it works.
 12. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - There is no native Oblivion.ini nearest-neighbor switch.
   - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside Oblivion.exe,
     then configure Force point sampled in dgVoodoo.
@@ -428,7 +452,9 @@ engine does not provide a clean per-material nearest switch.
 13. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - There is no native Skyrim.ini/SkyrimPrefs.ini nearest-neighbor switch
     for this method.
   - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside TESV.exe, then
@@ -450,7 +476,9 @@ textures even harsher but can produce severe crawling/shimmering.
 14. FALLOUT 3 (2008)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - FalloutPrefs.ini can control anisotropy/mipmap-related values, but it
     has no native nearest-neighbor switch.
   - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside Fallout3.exe,
@@ -477,7 +505,9 @@ Fallout 3 engine does not expose a clean per-material nearest switch.
 15. VIETCONG (2003)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - There is no original-game config value for nearest-neighbor sampling.
   - Place the x86 dgVoodoo D3D8.dll and dgVoodoo.conf beside the Vietcong
     game executable, then configure Force point sampled in dgVoodoo.
@@ -498,7 +528,9 @@ option because that works in the opposite direction.
 16. RED FACTION (2001)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - r_nearest and r_trilinearfiltering are in-game console commands; no
     external wrapper or INI edit is required for the documented method.
 
@@ -520,7 +552,9 @@ The important command for the pixelated look is r_nearest.
 17. THIEF: THE DARK PROJECT (1998) -- NEWDARK
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Persistent setting: cam_ext.cfg in the game directory. Set
     tex_filter_mode 0 there and remove a leading semicolon if the line is
     commented.
@@ -556,7 +590,9 @@ That still leaves anisotropic/linear texture filtering active.
 18. SYSTEM SHOCK 2 (1999) -- NEWDARK
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Persistent setting: cam_ext.cfg in the game directory. Set
     tex_filter_mode 0 there and remove a leading semicolon if the line is
     commented.
@@ -589,7 +625,9 @@ setting is broad.
 19. MECHWARRIOR 3 (1999)
 ==============================================================================
 
-IMPORTANT: Config files
+IMPORTANT:
+
+Config files:
   - Select Software Render from Main Menu -> Options -> Graphics -> Video
     Device.
   - This method uses the game's own saved graphics choice; no manual CFG/INI
