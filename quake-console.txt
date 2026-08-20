@@ -240,8 +240,8 @@ scr_viewsize <value>
 
 con_notifytime <seconds>
   Sets how long console notification text remains visible over gameplay.
-  Set to 0 to suppress console notification text while keeping messages
-  available in the full console.
+  Set to 0 to suppress notifications after the current frame. In Mark V, use
+  -1 to suppress them immediately and avoid a one-frame message flash.
 
 volume <0..1>
   Sets sound-effect volume.
