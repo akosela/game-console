@@ -10,10 +10,10 @@ The goal is to use the requested horizontal FOV mapping at 4:3, 5:4, and
 Reference values used by this document:
 
   4:3  (800x600)    fov: 90
-  5:4  (1280x1024)  fov: 86.304779468
-  16:9 (1920x1080)  fov: 106.270273206
-  16:9 (2560x1440)  fov: 106.270273206
-  16:9 (3840x2160)  fov: 106.270273206
+  5:4  (1280x1024)  fov: 86.3048
+  16:9 (1920x1080)  fov: 106.2602
+  16:9 (2560x1440)  fov: 106.2602
+  16:9 (3840x2160)  fov: 106.2602
 
 Unless stated otherwise, "FOV" below means horizontal FOV in degrees.  Some
 engines use a different unit, a vertical FOV, or automatic Hor+ scaling; those
@@ -35,28 +35,28 @@ Setup / Video Setup or changed from the console.
 
   vidmode 1280 1024 32 1
   leave Aspect Ratio on Auto
-  FOV: 86.304779468
+  FOV: 86.3048
 
 16:9 (1920x1080):
 
   vidmode 1920 1080 32 1
   r_usenewaspect 1
   r_screenaspect 1609
-  FOV: 106.270273206
+  FOV: 106.2602
 
 16:9 (2560x1440):
 
   vidmode 2560 1440 32 1
   r_usenewaspect 1
   r_screenaspect 1609
-  FOV: 106.270273206
+  FOV: 106.2602
 
 16:9 (3840x2160):
 
   vidmode 3840 2160 32 1
   r_usenewaspect 1
   r_screenaspect 1609
-  FOV: 106.270273206
+  FOV: 106.2602
 
 Set FOV in the EDuke32 display options.  Modern EDuke32 exposes the gameplay
 FOV in degree-style units with 90 as the default.
@@ -64,7 +64,7 @@ FOV in degree-style units with 90 as the default.
 Older Polymer-only builds expose r_pr_fov instead.  That command uses BUILD
 angle units, not degrees: 512 is about 90 degrees.  The requested 16:9 value
 cannot be represented exactly by that integer-style scale; about 605 BUILD
-units is the nearest value.  Do not enter 106.270273206 into r_pr_fov.
+units is the nearest value.  Do not enter 106.2602 into r_pr_fov.
 ==============================================================================
 02. QUAKE (1996) -- Mark V
 ==============================================================================
@@ -74,7 +74,7 @@ widescreen resolutions while retaining classic Quake behavior.
 
 Mark V automatically applies Hor+ FOV adaptation.  Its "fov" cvar is the base
 value that the engine adapts to the current render aspect ratio, so do not put
-the already-widened project value 106.270273206 directly into the cvar.
+the already-widened project value 106.2602 directly into the cvar.
 
 4:3:
 
@@ -103,11 +103,11 @@ in the console or placed in autoexec.cfg.
 Target convention for comparison:
 
   4:3  (800x600)    horizontal target: 90
-  5:4  (1280x1024)  horizontal target: 86.304779468
-  16:9              horizontal target: 106.270273206
+  5:4  (1280x1024)  horizontal target: 86.3048
+  16:9              horizontal target: 106.2602
 
 Mark V uses its own native Hor+ calculation, so the final numeric horizontal
-angle is engine-derived rather than set by entering 106.270273206 directly.
+angle is engine-derived rather than set by entering 106.2602 directly.
 ==============================================================================
 03. QUAKE II (1997) -- Yamagi Quake II
 ==============================================================================
@@ -131,7 +131,7 @@ prevents the engine from widening an already widened value.
   set r_customwidth "1280"
   set r_customheight "1024"
   set horplus "0"
-  set fov "86.304779468"
+  set fov "86.3048"
   vid_restart
 
 16:9 (1920x1080):
@@ -140,7 +140,7 @@ prevents the engine from widening an already widened value.
   set r_customwidth "1920"
   set r_customheight "1080"
   set horplus "0"
-  set fov "106.270273206"
+  set fov "106.2602"
   vid_restart
 
 16:9 (2560x1440):
@@ -149,7 +149,7 @@ prevents the engine from widening an already widened value.
   set r_customwidth "2560"
   set r_customheight "1440"
   set horplus "0"
-  set fov "106.270273206"
+  set fov "106.2602"
   vid_restart
 
 16:9 (3840x2160):
@@ -158,7 +158,7 @@ prevents the engine from widening an already widened value.
   set r_customwidth "3840"
   set r_customheight "2160"
   set horplus "0"
-  set fov "106.270273206"
+  set fov "106.2602"
   vid_restart
 
 If using a build that exposes cl_widescreen_fov instead of horplus, disable
@@ -207,13 +207,13 @@ System\User.ini, under [Engine.PlayerPawn]:
 
 5:4 (1280x1024):
 
-  DesiredFOV=86.304779468
-  DefaultFOV=86.304779468
+  DesiredFOV=86.3048
+  DefaultFOV=86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  DesiredFOV=106.270273206
-  DefaultFOV=106.270273206
+  DesiredFOV=106.2602
+  DefaultFOV=106.2602
 
 The console command "fov <value>" can be used for a quick test before making
 the User.ini change permanent.
@@ -260,13 +260,13 @@ System\User.ini, under [Engine.PlayerPawn]:
 
 5:4 (1280x1024):
 
-  DesiredFOV=86.304779468
-  DefaultFOV=86.304779468
+  DesiredFOV=86.3048
+  DefaultFOV=86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  DesiredFOV=106.270273206
-  DefaultFOV=106.270273206
+  DesiredFOV=106.2602
+  DefaultFOV=106.2602
 
 The console command "fov <value>" is useful for testing, but User.ini is the
 persistent configuration.
@@ -322,11 +322,11 @@ Create or edit valve\autoexec.cfg:
 
 5:4 (1280x1024):
 
-  default_fov 86.304779468
+  default_fov 86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  default_fov 106.270273206
+  default_fov 106.2602
 
 You can test the same values from the console with "default_fov <value>".
 ==============================================================================
@@ -373,13 +373,13 @@ System\User.ini, under [DeusEx.DeusExPlayer]:
 
 5:4 (1280x1024):
 
-  DesiredFOV=86.304779468
-  DefaultFOV=86.304779468
+  DesiredFOV=86.3048
+  DefaultFOV=86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  DesiredFOV=106.270273206
-  DefaultFOV=106.270273206
+  DesiredFOV=106.2602
+  DefaultFOV=106.2602
 
 Deus Ex originally uses a narrower default FOV.  The settings above knowingly
 replace that stock value with this project's requested 90-degree 4:3 baseline.
@@ -425,7 +425,7 @@ in Gothic\System\Gothic.ini.
 SystemPack.ini does not expose the same horizontal-degree control used by the
 reference values above.  It exposes VerticalFOV and calculates horizontal FOV
 from the aspect ratio.  Keep Hor+ correction enabled instead of entering
-106.270273206 as VerticalFOV.
+106.2602 as VerticalFOV.
 
 Recommended SystemPack behavior:
 
@@ -435,16 +435,16 @@ Then set VerticalFOV to the vertical view you want and keep the same value at
 all aspect ratios.  SystemPack derives horizontal FOV from the display.
 ZenGin's
 own FOV formula is not identical to the horizontal-degree convention used by
-this document, so an exact 106.270273206 horizontal value is not available as
+this document, so an exact 106.2602 horizontal value is not available as
 a native Gothic.ini/SystemPack.ini setting.
 
 Target convention for comparison:
 
   4:3  800x600     horizontal target: 90
-  5:4  1280x1024   horizontal target: 86.304779468
-  16:9 1920x1080   horizontal target: 106.270273206
-  16:9 2560x1440  horizontal target: 106.270273206
-  16:9 3840x2160  horizontal target: 106.270273206
+  5:4  1280x1024   horizontal target: 86.3048
+  16:9 1920x1080   horizontal target: 106.2602
+  16:9 2560x1440  horizontal target: 106.2602
+  16:9 3840x2160  horizontal target: 106.2602
 ==============================================================================
 09. GOTHIC II (2002)
 ==============================================================================
@@ -489,7 +489,7 @@ If required, enable the extended resolution menu:
 
 As with Gothic, SystemPack controls VerticalFOV and derives horizontal FOV
 from
-the display aspect ratio.  Do not put 106.270273206 into VerticalFOV.
+the display aspect ratio.  Do not put 106.2602 into VerticalFOV.
 
 Recommended SystemPack behavior:
 
@@ -502,10 +502,10 @@ matching this document's degree convention.
 Target convention for comparison:
 
   4:3  800x600     horizontal target: 90
-  5:4  1280x1024   horizontal target: 86.304779468
-  16:9 1920x1080   horizontal target: 106.270273206
-  16:9 2560x1440  horizontal target: 106.270273206
-  16:9 3840x2160  horizontal target: 106.270273206
+  5:4  1280x1024   horizontal target: 86.3048
+  16:9 1920x1080   horizontal target: 106.2602
+  16:9 2560x1440  horizontal target: 106.2602
+  16:9 3840x2160  horizontal target: 106.2602
 ==============================================================================
 10. GOTHIC 3 (2006)
 ==============================================================================
@@ -529,7 +529,7 @@ Camera.FOV is expressed in degrees.
   Bottom=1024
   Fullscreen=true
 
-  Camera.FOV=86.304779468
+  Camera.FOV=86.3048
 
 16:9 (1920x1080):
 
@@ -538,7 +538,7 @@ Camera.FOV is expressed in degrees.
   Bottom=1080
   Fullscreen=true
 
-  Camera.FOV=106.270273206
+  Camera.FOV=106.2602
 
 16:9 (2560x1440):
 
@@ -547,7 +547,7 @@ Camera.FOV is expressed in degrees.
   Bottom=1440
   Fullscreen=true
 
-  Camera.FOV=106.270273206
+  Camera.FOV=106.2602
 
 16:9 (3840x2160):
 
@@ -556,7 +556,7 @@ Camera.FOV is expressed in degrees.
   Bottom=2160
   Fullscreen=true
 
-  Camera.FOV=106.270273206
+  Camera.FOV=106.2602
 
 Keep the existing Left=0 and Top=0 values unless you intentionally want a
 window offset.  Gothic 3's stock Camera.FOV is narrower; the values above use
@@ -608,11 +608,11 @@ Disable novice mode, open the Misc/2 FOV controls, and set:
 
 5:4 (1280x1024):
 
-  FOV = 86.304779468
+  FOV = 86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  FOV = 106.270273206
+  FOV = 106.2602
 
 Morrowind FPS Optimizer must remain running for its FOV correction to stay
 active.  This preserves use of the original Morrowind executable rather than
@@ -633,25 +633,25 @@ Edit Documents\My Games\Oblivion\Oblivion.ini under [Display].
 
   iSize W=1280
   iSize H=1024
-  fDefaultFOV=86.304779468
+  fDefaultFOV=86.3048
 
 16:9 (1920x1080):
 
   iSize W=1920
   iSize H=1080
-  fDefaultFOV=106.270273206
+  fDefaultFOV=106.2602
 
 16:9 (2560x1440):
 
   iSize W=2560
   iSize H=1440
-  fDefaultFOV=106.270273206
+  fDefaultFOV=106.2602
 
 16:9 (3840x2160):
 
   iSize W=3840
   iSize H=2160
-  fDefaultFOV=106.270273206
+  fDefaultFOV=106.2602
 
 Changing FOV can expose vanilla UI/first-person quirks.  Oblivion Display
 Tweaks is useful if you want a cleaner modern implementation, but the INI
@@ -699,13 +699,13 @@ FOV: edit Documents\My Games\Skyrim\Skyrim.ini under [Display].
 
 5:4 (1280x1024):
 
-  fDefault1stPersonFOV=86.304779468
-  fDefaultWorldFOV=86.304779468
+  fDefault1stPersonFOV=86.3048
+  fDefaultWorldFOV=86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  fDefault1stPersonFOV=106.270273206
-  fDefaultWorldFOV=106.270273206
+  fDefault1stPersonFOV=106.2602
+  fDefaultWorldFOV=106.2602
 
 For a temporary test in-game, open the console and enter:
 
@@ -713,11 +713,11 @@ For a temporary test in-game, open the console and enter:
 
 for 4:3, or:
 
-  fov 86.304779468
+  fov 86.3048
 
 for 5:4, or:
 
-  fov 106.270273206
+  fov 106.2602
 
 The console-only change is not permanent; use Skyrim.ini for persistence.
 ==============================================================================
@@ -768,17 +768,17 @@ under [Display].
 
 5:4 (1280x1024):
 
-  fDefaultWorldFOV=86.304779468
+  fDefaultWorldFOV=86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  fDefaultWorldFOV=106.270273206
+  fDefaultWorldFOV=106.2602
 
 Fallout 3 has a separate first-person weapon/arms FOV:
 
   fDefault1stPersonFOV=55.000000
 
-Do not automatically set that value to 106.270273206. It controls the
+Do not automatically set that value to 106.2602. It controls the
 first-person weapon model rather than the world camera, and large values can
 cause visible clipping. Adjust it separately only if different weapon framing
 is wanted.
@@ -822,16 +822,16 @@ In VCStarterConfig.exe select the desired resolution:
 
 VCStarter's Aspect ratio-fix adjusts the widescreen view automatically.  The
 game does not expose a verified independent numeric FOV setting, so there is
-no honest config or console command into which 106.270273206 can be entered.
+no honest config or console command into which 106.2602 can be entered.
 Do not invent one.
 
 Target convention:
 
   4:3  (800x600)    fov: 90
-  5:4  (1280x1024)  fov: 86.304779468
-  16:9 (1920x1080)  fov: 106.270273206
-  16:9 (2560x1440)  fov: 106.270273206
-  16:9 (3840x2160)  fov: 106.270273206
+  5:4  (1280x1024)  fov: 86.3048
+  16:9 (1920x1080)  fov: 106.2602
+  16:9 (2560x1440)  fov: 106.2602
+  16:9 (3840x2160)  fov: 106.2602
 
 For Vietcong the second line is the desired equivalent view; VCStarter
 performs
@@ -873,11 +873,11 @@ Then open the in-game console and set:
 
 5:4 (1280x1024):
 
-  r_fov 86.304779468
+  r_fov 86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  r_fov 106.270273206
+  r_fov 106.2602
 
 Alpine can also perform automatic Hor+ scaling with "r_fov 0".  Do not use
 automatic scaling and an already widened manual value at the same time.
@@ -921,11 +921,11 @@ cam_ext.cfg:
 
 5:4 (1280x1024):
 
-  fov 86.304779468
+  fov 86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  fov 106.270273206
+  fov 106.2602
 
 NewDark can normally detect an aspect-correct FOV itself.  The explicit fov
 line above is useful when you want the exact project values rather than the
@@ -967,11 +967,11 @@ cam_ext.cfg:
 
 5:4 (1280x1024):
 
-  fov 86.304779468
+  fov 86.3048
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
-  fov 106.270273206
+  fov 106.2602
 
 NewDark normally calculates FOV from the aspect ratio automatically.  Keep the
 explicit fov line only when you want the exact project values shown here.
@@ -1001,10 +1001,10 @@ explicit fov line only when you want the exact project values shown here.
 Canonical project mapping:
 
   4:3  (800x600)    fov: 90
-  5:4  (1280x1024)  fov: 86.304779468
-  16:9 (1920x1080)  fov: 106.270273206
-  16:9 (2560x1440)  fov: 106.270273206
-  16:9 (3840x2160)  fov: 106.270273206
+  5:4  (1280x1024)  fov: 86.3048
+  16:9 (1920x1080)  fov: 106.2602
+  16:9 (2560x1440)  fov: 106.2602
+  16:9 (3840x2160)  fov: 106.2602
 ==============================================================================
 20. SOURCE / VERIFICATION NOTES
 ==============================================================================
@@ -1012,8 +1012,8 @@ The methods above were checked against engine/source-port documentation,
 released source code where available, configuration references, and
 established game-specific widescreen documentation.  The references verify
 the resolution controls, FOV controls, aspect-ratio behavior, and stated
-limitations.  The 4:3 / 5:4 / 16:9 targets are 90 / 86.304779468 /
-106.270273206.  The three listed widescreen resolutions all use 16:9 and
+limitations.  The 4:3 / 5:4 / 16:9 targets are 90 / 86.3048 /
+106.2602.  The three listed widescreen resolutions all use 16:9 and
 therefore use the same project FOV value.
 
   - EDukeWiki: r_usenewaspect, r_screenaspect, setaspect, and BUILD FOV
