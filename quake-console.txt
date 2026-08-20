@@ -238,6 +238,11 @@ r_speeds <0|1>
 scr_viewsize <value>
   Controls size of the 3D view area.
 
+con_notifytime <seconds>
+  Sets how long console notification text remains visible over gameplay.
+  Set to 0 to suppress console notification text while keeping messages
+  available in the full console.
+
 volume <0..1>
   Sets sound-effect volume.
 
