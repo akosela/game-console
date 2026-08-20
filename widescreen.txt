@@ -106,8 +106,9 @@ Target convention for comparison:
   5:4  (1280x1024)  horizontal target: 86.3048
   16:9              horizontal target: 106.2602
 
-Mark V uses its own native Hor+ calculation, so the final numeric horizontal
-angle is engine-derived rather than set by entering 106.2602 directly.
+Mark V uses its own native aspect-ratio FOV calculation, so keep fov at 90.
+The resulting horizontal FOV is derived automatically for 5:4, 16:9, and
+other aspect ratios rather than entered directly.
 ==============================================================================
 03. QUAKE II (1997) -- Yamagi Quake II
 ==============================================================================
