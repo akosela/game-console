@@ -226,7 +226,7 @@
     const p = normalize(lines);
 
     if (!p) return "";
-    if (/^(NOTE|IMPORTANT|WARNING):/i.test(p)) {
+    if (/^(NOTE|IMPORTANT|WARNING|CONFIG FILES):/i.test(p)) {
       const noteHtml = lines
         .map(line => renderInline(line.trim()))
         .join("<br>");
