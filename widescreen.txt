@@ -4,15 +4,16 @@ WIDESCREEN / FOV CONFIG REFERENCE
 SCOPE
 ------------------------------------------------------------------------------
 Scope: the 18 games currently documented by the game-console repository.
-The goal is to use the requested horizontal FOV mapping at 4:3 and 16:9.
-1920x1080, 2560x1440, and 3840x2160 are all 16:9 and use the same FOV.
+The goal is to use the requested horizontal FOV mapping at 4:3, 5:4, and
+16:9.  1920x1080, 2560x1440, and 3840x2160 are all 16:9 and use the same FOV.
 
 Reference values used by this document:
 
-  4:3  (800x600)   fov: 90
-  16:9 (1920x1080) fov: 106.270273206
-  16:9 (2560x1440) fov: 106.270273206
-  16:9 (3840x2160) fov: 106.270273206
+  4:3  (800x600)    fov: 90
+  5:4  (1280x1024)  fov: 86.304779468
+  16:9 (1920x1080)  fov: 106.270273206
+  16:9 (2560x1440)  fov: 106.270273206
+  16:9 (3840x2160)  fov: 106.270273206
 
 Unless stated otherwise, "FOV" below means horizontal FOV in degrees.  Some
 engines use a different unit, a vertical FOV, or automatic Hor+ scaling; those
@@ -29,6 +30,12 @@ Setup / Video Setup or changed from the console.
 
   vidmode 800 600 32 1
   FOV: 90
+
+5:4 (1280x1024):
+
+  vidmode 1280 1024 32 1
+  leave Aspect Ratio on Auto
+  FOV: 86.304779468
 
 16:9 (1920x1080):
 
@@ -73,6 +80,10 @@ the already-widened project value 106.270273206 directly into the cvar.
 
   mark_v.exe -width 800 -height 600 +fov 90
 
+5:4 (1280x1024):
+
+  mark_v.exe -width 1280 -height 1024 +fov 90
+
 16:9 (1920x1080):
 
   mark_v.exe -width 1920 -height 1080 +fov 90
@@ -91,8 +102,9 @@ in the console or placed in autoexec.cfg.
 
 Target convention for comparison:
 
-  4:3  (800x600)   horizontal target: 90
-  16:9             horizontal target: 106.270273206
+  4:3  (800x600)    horizontal target: 90
+  5:4  (1280x1024)  horizontal target: 86.304779468
+  16:9              horizontal target: 106.270273206
 
 Mark V uses its own native Hor+ calculation, so the final numeric horizontal
 angle is engine-derived rather than set by entering 106.270273206 directly.
@@ -111,6 +123,15 @@ prevents the engine from widening an already widened value.
   set r_customheight "600"
   set horplus "0"
   set fov "90"
+  vid_restart
+
+5:4 (1280x1024):
+
+  set r_mode "-1"
+  set r_customwidth "1280"
+  set r_customheight "1024"
+  set horplus "0"
+  set fov "86.304779468"
   vid_restart
 
 16:9 (1920x1080):
@@ -157,6 +178,11 @@ System\Unreal.ini, under the active viewport client section:
   FullscreenViewportX=800
   FullscreenViewportY=600
 
+5:4 (1280x1024):
+
+  FullscreenViewportX=1280
+  FullscreenViewportY=1024
+
 16:9 (1920x1080):
 
   FullscreenViewportX=1920
@@ -178,6 +204,11 @@ System\User.ini, under [Engine.PlayerPawn]:
 
   DesiredFOV=90.000000
   DefaultFOV=90.000000
+
+5:4 (1280x1024):
+
+  DesiredFOV=86.304779468
+  DefaultFOV=86.304779468
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
@@ -200,6 +231,11 @@ System\UnrealTournament.ini, under [WinDrv.WindowsClient]:
   FullscreenViewportX=800
   FullscreenViewportY=600
 
+5:4 (1280x1024):
+
+  FullscreenViewportX=1280
+  FullscreenViewportY=1024
+
 16:9 (1920x1080):
 
   FullscreenViewportX=1920
@@ -221,6 +257,11 @@ System\User.ini, under [Engine.PlayerPawn]:
 
   DesiredFOV=90.000000
   DefaultFOV=90.000000
+
+5:4 (1280x1024):
+
+  DesiredFOV=86.304779468
+  DefaultFOV=86.304779468
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
@@ -253,6 +294,11 @@ Launch examples:
   hl.exe -gl -full -w 800 -h 600
   add: -lw 800 -lh 600 -noextracds -32bpp
 
+5:4 (1280x1024):
+
+  hl.exe -gl -full -w 1280 -h 1024
+  add: -lw 1280 -lh 1024 -noextracds -32bpp
+
 16:9 (1920x1080):
 
   hl.exe -gl -full -w 1920 -h 1080
@@ -274,6 +320,10 @@ Create or edit valve\autoexec.cfg:
 
   default_fov 90
 
+5:4 (1280x1024):
+
+  default_fov 86.304779468
+
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
   default_fov 106.270273206
@@ -293,6 +343,11 @@ System\DeusEx.ini, under the active viewport client section:
 
   FullscreenViewportX=800
   FullscreenViewportY=600
+
+5:4 (1280x1024):
+
+  FullscreenViewportX=1280
+  FullscreenViewportY=1024
 
 16:9 (1920x1080):
 
@@ -316,6 +371,11 @@ System\User.ini, under [DeusEx.DeusExPlayer]:
   DesiredFOV=90.000000
   DefaultFOV=90.000000
 
+5:4 (1280x1024):
+
+  DesiredFOV=86.304779468
+  DefaultFOV=86.304779468
+
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
   DesiredFOV=106.270273206
@@ -336,6 +396,12 @@ in Gothic\System\Gothic.ini.
 
   zVidResFullscreenX=800
   zVidResFullscreenY=600
+  zVidResFullscreenBPP=32
+
+5:4 (1280x1024):
+
+  zVidResFullscreenX=1280
+  zVidResFullscreenY=1024
   zVidResFullscreenBPP=32
 
 16:9 (1920x1080):
@@ -366,15 +432,17 @@ Recommended SystemPack behavior:
   NewFOVformula=1
 
 Then set VerticalFOV to the vertical view you want and keep the same value at
-both resolutions.  SystemPack expands the horizontal view for 16:9.  ZenGin's
+all aspect ratios.  SystemPack derives horizontal FOV from the display.
+ZenGin's
 own FOV formula is not identical to the horizontal-degree convention used by
 this document, so an exact 106.270273206 horizontal value is not available as
 a native Gothic.ini/SystemPack.ini setting.
 
 Target convention for comparison:
 
-  4:3  800x600    horizontal target: 90
-  16:9 1920x1080  horizontal target: 106.270273206
+  4:3  800x600     horizontal target: 90
+  5:4  1280x1024   horizontal target: 86.304779468
+  16:9 1920x1080   horizontal target: 106.270273206
   16:9 2560x1440  horizontal target: 106.270273206
   16:9 3840x2160  horizontal target: 106.270273206
 ==============================================================================
@@ -393,6 +461,12 @@ If required, enable the extended resolution menu:
 
   zVidResFullscreenX=800
   zVidResFullscreenY=600
+  zVidResFullscreenBPP=32
+
+5:4 (1280x1024):
+
+  zVidResFullscreenX=1280
+  zVidResFullscreenY=1024
   zVidResFullscreenBPP=32
 
 16:9 (1920x1080):
@@ -421,14 +495,15 @@ Recommended SystemPack behavior:
 
   NewFOVformula=1
 
-Keep the same VerticalFOV at 4:3 and 16:9 so the 16:9 view becomes Hor+.
+Keep the same VerticalFOV at 4:3, 5:4, and 16:9; SystemPack derives Hor+.
 ZenGin's FOV calculation does not provide an exact native horizontal setting
 matching this document's degree convention.
 
 Target convention for comparison:
 
-  4:3  800x600    horizontal target: 90
-  16:9 1920x1080  horizontal target: 106.270273206
+  4:3  800x600     horizontal target: 90
+  5:4  1280x1024   horizontal target: 86.304779468
+  16:9 1920x1080   horizontal target: 106.270273206
   16:9 2560x1440  horizontal target: 106.270273206
   16:9 3840x2160  horizontal target: 106.270273206
 ==============================================================================
@@ -446,6 +521,15 @@ Camera.FOV is expressed in degrees.
   Fullscreen=true
 
   Camera.FOV=90
+
+5:4 (1280x1024):
+
+  [Window]
+  Right=1280
+  Bottom=1024
+  Fullscreen=true
+
+  Camera.FOV=86.304779468
 
 16:9 (1920x1080):
 
@@ -496,6 +580,11 @@ In FPS Optimizer choose "Change Morrowind registry settings here" and set:
   Screen Width  = 800
   Screen Height = 600
 
+5:4 (1280x1024):
+
+  Screen Width  = 1280
+  Screen Height = 1024
+
 16:9 (1920x1080):
 
   Screen Width  = 1920
@@ -517,6 +606,10 @@ Disable novice mode, open the Misc/2 FOV controls, and set:
 
   FOV = 90
 
+5:4 (1280x1024):
+
+  FOV = 86.304779468
+
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
   FOV = 106.270273206
@@ -535,6 +628,12 @@ Edit Documents\My Games\Oblivion\Oblivion.ini under [Display].
   iSize W=800
   iSize H=600
   fDefaultFOV=90.000000
+
+5:4 (1280x1024):
+
+  iSize W=1280
+  iSize H=1024
+  fDefaultFOV=86.304779468
 
 16:9 (1920x1080):
 
@@ -571,6 +670,11 @@ Resolution: edit Documents\My Games\Skyrim\SkyrimPrefs.ini under [Display].
   iSize W=800
   iSize H=600
 
+5:4 (1280x1024):
+
+  iSize W=1280
+  iSize H=1024
+
 16:9 (1920x1080):
 
   iSize W=1920
@@ -593,6 +697,11 @@ FOV: edit Documents\My Games\Skyrim\Skyrim.ini under [Display].
   fDefault1stPersonFOV=90.000000
   fDefaultWorldFOV=90.000000
 
+5:4 (1280x1024):
+
+  fDefault1stPersonFOV=86.304779468
+  fDefaultWorldFOV=86.304779468
+
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
   fDefault1stPersonFOV=106.270273206
@@ -602,7 +711,11 @@ For a temporary test in-game, open the console and enter:
 
   fov 90
 
-or:
+for 4:3, or:
+
+  fov 86.304779468
+
+for 5:4, or:
 
   fov 106.270273206
 
@@ -622,6 +735,11 @@ under [Display].
 
   iSize W=800
   iSize H=600
+
+5:4 (1280x1024):
+
+  iSize W=1280
+  iSize H=1024
 
 16:9 (1920x1080):
 
@@ -647,6 +765,10 @@ under [Display].
 4:3:
 
   fDefaultWorldFOV=90.000000
+
+5:4 (1280x1024):
+
+  fDefaultWorldFOV=86.304779468
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
@@ -678,6 +800,11 @@ In VCStarterConfig.exe select the desired resolution:
 
   800x600
 
+5:4 (1280x1024):
+
+  1280x1024
+  enable Aspect ratio-fix
+
 16:9 (1920x1080):
 
   1920x1080
@@ -700,10 +827,11 @@ Do not invent one.
 
 Target convention:
 
-  4:3  (800x600)   fov: 90
-  16:9 (1920x1080) fov: 106.270273206
-  16:9 (2560x1440) fov: 106.270273206
-  16:9 (3840x2160) fov: 106.270273206
+  4:3  (800x600)    fov: 90
+  5:4  (1280x1024)  fov: 86.304779468
+  16:9 (1920x1080)  fov: 106.270273206
+  16:9 (2560x1440)  fov: 106.270273206
+  16:9 (3840x2160)  fov: 106.270273206
 
 For Vietcong the second line is the desired equivalent view; VCStarter
 performs
@@ -720,6 +848,10 @@ Set resolution in AlpineFactionLauncher.exe:
 4:3:
 
   800x600
+
+5:4 (1280x1024):
+
+  1280x1024
 
 16:9 (1920x1080):
 
@@ -738,6 +870,10 @@ Then open the in-game console and set:
 4:3:
 
   r_fov 90
+
+5:4 (1280x1024):
+
+  r_fov 86.304779468
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
@@ -761,6 +897,10 @@ cam.cfg:
 
   game_screen_size 800 600
 
+5:4 (1280x1024):
+
+  game_screen_size 1280 1024
+
 16:9 (1920x1080):
 
   game_screen_size 1920 1080
@@ -778,6 +918,10 @@ cam_ext.cfg:
 4:3:
 
   fov 90
+
+5:4 (1280x1024):
+
+  fov 86.304779468
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
@@ -799,6 +943,10 @@ cam.cfg:
 
   game_screen_size 800 600
 
+5:4 (1280x1024):
+
+  game_screen_size 1280 1024
+
 16:9 (1920x1080):
 
   game_screen_size 1920 1080
@@ -816,6 +964,10 @@ cam_ext.cfg:
 4:3:
 
   fov 90
+
+5:4 (1280x1024):
+
+  fov 86.304779468
 
 16:9 (1920x1080, 2560x1440 and 3840x2160):
 
@@ -848,10 +1000,11 @@ explicit fov line only when you want the exact project values shown here.
 
 Canonical project mapping:
 
-  4:3  (800x600)   fov: 90
-  16:9 (1920x1080) fov: 106.270273206
-  16:9 (2560x1440) fov: 106.270273206
-  16:9 (3840x2160) fov: 106.270273206
+  4:3  (800x600)    fov: 90
+  5:4  (1280x1024)  fov: 86.304779468
+  16:9 (1920x1080)  fov: 106.270273206
+  16:9 (2560x1440)  fov: 106.270273206
+  16:9 (3840x2160)  fov: 106.270273206
 ==============================================================================
 20. SOURCE / VERIFICATION NOTES
 ==============================================================================
@@ -859,9 +1012,9 @@ The methods above were checked against engine/source-port documentation,
 released source code where available, configuration references, and
 established game-specific widescreen documentation.  The references verify
 the resolution controls, FOV controls, aspect-ratio behavior, and stated
-limitations.  The exact 90 / 106.270273206 mapping is this project's chosen
-baseline; the three listed widescreen resolutions all use 16:9 and therefore
-use the same project FOV value.
+limitations.  The 4:3 / 5:4 / 16:9 targets are 90 / 86.304779468 /
+106.270273206.  The three listed widescreen resolutions all use 16:9 and
+therefore use the same project FOV value.
 
   - EDukeWiki: r_usenewaspect, r_screenaspect, setaspect, and BUILD FOV
     behavior
