@@ -5,10 +5,9 @@ SCOPE
 ------------------------------------------------------------------------------
 Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
 Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
-Morrowind, Oblivion, Fallout 3, Skyrim, Vietcong, and Red Faction. The
-reference
-deliberately avoids remaster-only commands. Community source ports are
-used where they make practical sense, particularly when they preserve the
+Morrowind, Oblivion, Skyrim, Fallout 3, Vietcong, and Red Faction. The
+reference deliberately avoids remaster-only commands. Community source ports
+are used where they make practical sense, particularly when they preserve the
 original gameplay while providing better compatibility, console access, or
 configuration options. Where the original game or selected source port has
 no complete HUD switch, this file says so and documents the closest suitable
@@ -260,7 +259,22 @@ For crosshair-only removal, use the original Gameplay options:
 This refers to the original 2006 PC game, not Oblivion Remastered.
 
 ==============================================================================
-13. FALLOUT 3 (2008)
+13. THE ELDER SCROLLS V: SKYRIM (2011)
+==============================================================================
+
+TM
+  ToggleMenus. Hides the original Skyrim HUD and menu interface.
+
+After TM, the console is also invisible. To restore the HUD, press ~ to open
+the unseen console, type TM, press Enter, then close it.
+For crosshair-only removal, use the original display settings:
+
+  Journal -> System -> Settings -> Display -> Crosshair: Off
+This section refers to the original 2011 32-bit PC release, not Special
+Edition, Anniversary Edition, or VR.
+
+==============================================================================
+14. FALLOUT 3 (2008)
 ==============================================================================
 
 TM
@@ -281,21 +295,6 @@ The same setting is stored in FalloutPrefs.ini under [GamePlay]:
 For a persistent HUD-opacity alternative, the original Display options also
 allow HUD opacity to be reduced to zero. TM is the simpler native command
 when a completely clean screenshot or gameplay view is wanted.
-
-==============================================================================
-14. THE ELDER SCROLLS V: SKYRIM (2011)
-==============================================================================
-
-TM
-  ToggleMenus. Hides the original Skyrim HUD and menu interface.
-
-After TM, the console is also invisible. To restore the HUD, press ~ to open
-the unseen console, type TM, press Enter, then close it.
-For crosshair-only removal, use the original display settings:
-
-  Journal -> System -> Settings -> Display -> Crosshair: Off
-This section refers to the original 2011 32-bit PC release, not Special
-Edition, Anniversary Edition, or VR.
 
 ==============================================================================
 15. VIETCONG (2003)
@@ -435,8 +434,8 @@ For a completely clean view:
   - Gothic 3: Ctrl+F1 with TestMode enabled
   - Morrowind: TM; Crosshairs Off in Preferences
   - Oblivion: TM; Crosshair Off in Gameplay options
-  - Fallout 3: TM; Crosshair Off in Display settings
   - Skyrim: TM; Crosshair Off in Display settings
+  - Fallout 3: TM; Crosshair Off in Display settings
   - Vietcong: Vietnam difficulty removes HUD/crosshair
   - Red Faction: ui_reticlescale 0; VPP override for full HUD removal
   - Thief: The Dark Project: inv_status_height 0; transparent reticle

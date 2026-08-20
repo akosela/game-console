@@ -5,12 +5,11 @@ SCOPE
 ------------------------------------------------------------------------------
 Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
 Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
-Morrowind, Oblivion, Fallout 3, Skyrim, Vietcong, Red Faction, Thief:
-The Dark Project using NewDark, and System Shock 2 using NewDark.  Goal:
-disable
-bilinear/trilinear/anisotropic texture filtering so texels stay visibly sharp
-and pixelated instead of being smoothed together. Remaster-only settings
-are intentionally excluded.
+Morrowind, Oblivion, Skyrim, Fallout 3, Vietcong, Red Faction, Thief:
+The Dark Project using NewDark, and System Shock 2 using NewDark. Goal:
+disable bilinear/trilinear/anisotropic texture filtering so texels stay
+visibly sharp and pixelated instead of being smoothed together.
+Remaster-only settings are intentionally excluded.
 
 ==============================================================================
 0. WHAT 'NO TEXTURE FILTERING' MEANS
@@ -352,7 +351,23 @@ masks, and UI elements harsher. If artifacts are objectionable, the original
 engine does not provide a clean per-material nearest switch.
 
 ==============================================================================
-13. FALLOUT 3 (2008)
+13. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
+==============================================================================
+
+This section is only for the original 2011 32-bit Direct3D 9 Skyrim, not
+Special Edition, Anniversary Edition, or VR.
+Original Skyrim does not expose a verified INI or console command that
+globally changes bilinear sampling to nearest-neighbor.
+Use dgVoodoo2 with the original TESV.exe:
+
+  use the x86 D3D9.dll wrapper
+  DirectX -> Filtering -> Force point sampled
+
+Keep mipmapping App driven initially. Turning mipmapping off as well will make
+textures even harsher but can produce severe crawling/shimmering.
+
+==============================================================================
+14. FALLOUT 3 (2008)
 ==============================================================================
 
 Fallout 3 uses Direct3D 9. Its original INI files expose texture quality,
@@ -371,22 +386,6 @@ replace bilinear sampling with nearest-neighbor filtering.
 The point-sampling override is broad and can make terrain, normal maps,
 effects, and UI textures look harsher. If that is objectionable, the original
 Fallout 3 engine does not expose a clean per-material nearest switch.
-
-==============================================================================
-14. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
-==============================================================================
-
-This section is only for the original 2011 32-bit Direct3D 9 Skyrim, not
-Special Edition, Anniversary Edition, or VR.
-Original Skyrim does not expose a verified INI or console command that
-globally changes bilinear sampling to nearest-neighbor.
-Use dgVoodoo2 with the original TESV.exe:
-
-  use the x86 D3D9.dll wrapper
-  DirectX -> Filtering -> Force point sampled
-
-Keep mipmapping App driven initially. Turning mipmapping off as well will make
-textures even harsher but can produce severe crawling/shimmering.
 
 ==============================================================================
 15. VIETCONG (2003)
@@ -538,8 +537,8 @@ Recommended:
   - Gothic 3: dgVoodoo2 -> Force point sampled
   - Morrowind original: dgVoodoo2 -> Force point sampled
   - Oblivion original: dgVoodoo2 -> Force point sampled
-  - Fallout 3: dgVoodoo2 -> Force point sampled
   - Skyrim 2011 32-bit: dgVoodoo2 -> Force point sampled
+  - Fallout 3: dgVoodoo2 -> Force point sampled
   - Vietcong: dgVoodoo2 -> Force point sampled
   - Red Faction: r_nearest
   - MechWarrior 3: Video Device -> Software Render
