@@ -199,6 +199,7 @@ other rendering paths, which can make lighting look very blocky.
 
 bNoSmooth is the more targeted UE1 mechanism when the goal is sharp
 base textures and actor skins while retaining smooth lightmaps.
+
 ==============================================================================
 5. UNREAL TOURNAMENT (1999)
 ==============================================================================
@@ -224,6 +225,7 @@ NoFiltering=True in enhanced UTGLR/OldUnreal renderers is broader.
 It disables filtering globally, including lightmap/shading paths,
 so it is not equivalent to simply setting bNoSmooth on game
 textures and actors.
+
 ==============================================================================
 6. HALF-LIFE (1998) -- GOLDSRC
 ==============================================================================
@@ -265,6 +267,7 @@ systems.
 Enhanced Unreal Engine 1 renderers may expose NoFiltering=True.
 That option is valid as a global renderer switch, but it is much
 broader than bNoSmooth and can make lightmaps/shadows blocky.
+
 ==============================================================================
 8. GOTHIC (2001)
 ==============================================================================

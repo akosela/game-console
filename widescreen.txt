@@ -19,6 +19,7 @@ Unless stated otherwise, "FOV" below means horizontal FOV in degrees.  Some
 engines use a different unit, a vertical FOV, or automatic Hor+ scaling; those
 cases are called out explicitly.  The values above are the requested project
 baseline even when a game's stock/default FOV is different.
+
 ==============================================================================
 01. DUKE NUKEM 3D (1996) -- EDuke32
 ==============================================================================
@@ -65,6 +66,7 @@ Older Polymer-only builds expose r_pr_fov instead.  That command uses BUILD
 angle units, not degrees: 512 is about 90 degrees.  The requested 16:9 value
 cannot be represented exactly by that integer-style scale; about 605 BUILD
 units is the nearest value.  Do not enter 106.2602 into r_pr_fov.
+
 ==============================================================================
 02. QUAKE (1996) -- Mark V
 ==============================================================================
@@ -109,6 +111,7 @@ Target convention for comparison:
 Mark V uses its own native aspect-ratio FOV calculation, so keep fov at 90.
 The resulting horizontal FOV is derived automatically for 5:4, 16:9, and
 other aspect ratios rather than entered directly.
+
 ==============================================================================
 03. QUAKE II (1997) -- Yamagi Quake II
 ==============================================================================
@@ -164,6 +167,7 @@ prevents the engine from widening an already widened value.
 
 If using a build that exposes cl_widescreen_fov instead of horplus, disable
 that automatic correction for the same reason before setting the final FOV.
+
 ==============================================================================
 04. UNREAL (1998)
 ==============================================================================
@@ -218,6 +222,7 @@ System\User.ini, under [Engine.PlayerPawn]:
 
 The console command "fov <value>" can be used for a quick test before making
 the User.ini change permanent.
+
 ==============================================================================
 05. UNREAL TOURNAMENT (1999)
 ==============================================================================
@@ -271,6 +276,7 @@ System\User.ini, under [Engine.PlayerPawn]:
 
 The console command "fov <value>" is useful for testing, but User.ini is the
 persistent configuration.
+
 ==============================================================================
 06. HALF-LIFE (1998) -- WON / RETAIL VERSION
 ==============================================================================
@@ -330,6 +336,7 @@ Create or edit valve\autoexec.cfg:
   default_fov 106.2602
 
 You can test the same values from the console with "default_fov <value>".
+
 ==============================================================================
 07. DEUS EX (2000)
 ==============================================================================
@@ -384,6 +391,7 @@ System\User.ini, under [DeusEx.DeusExPlayer]:
 
 Deus Ex originally uses a narrower default FOV.  The settings above knowingly
 replace that stock value with this project's requested 90-degree 4:3 baseline.
+
 ==============================================================================
 08. GOTHIC (2001)
 ==============================================================================
@@ -446,6 +454,7 @@ Target convention for comparison:
   16:9 1920x1080   horizontal target: 106.2602
   16:9 2560x1440  horizontal target: 106.2602
   16:9 3840x2160  horizontal target: 106.2602
+
 ==============================================================================
 09. GOTHIC II (2002)
 ==============================================================================
@@ -507,6 +516,7 @@ Target convention for comparison:
   16:9 1920x1080   horizontal target: 106.2602
   16:9 2560x1440  horizontal target: 106.2602
   16:9 3840x2160  horizontal target: 106.2602
+
 ==============================================================================
 10. GOTHIC 3 (2006)
 ==============================================================================
@@ -562,6 +572,7 @@ Camera.FOV is expressed in degrees.
 Keep the existing Left=0 and Top=0 values unless you intentionally want a
 window offset.  Gothic 3's stock Camera.FOV is narrower; the values above use
 the requested project baseline.
+
 ==============================================================================
 11. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
@@ -618,6 +629,7 @@ Disable novice mode, open the Misc/2 FOV controls, and set:
 Morrowind FPS Optimizer must remain running for its FOV correction to stay
 active.  This preserves use of the original Morrowind executable rather than
 replacing the engine with OpenMW.
+
 ==============================================================================
 12. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
@@ -657,6 +669,7 @@ Edit Documents\My Games\Oblivion\Oblivion.ini under [Display].
 Changing FOV can expose vanilla UI/first-person quirks.  Oblivion Display
 Tweaks is useful if you want a cleaner modern implementation, but the INI
 settings above are the native configuration values.
+
 ==============================================================================
 13. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
@@ -721,6 +734,7 @@ for 5:4, or:
   fov 106.2602
 
 The console-only change is not permanent; use Skyrim.ini for persistence.
+
 ==============================================================================
 14. FALLOUT 3 (2008)
 ==============================================================================
@@ -837,6 +851,7 @@ Target convention:
 For Vietcong the second line is the desired equivalent view; VCStarter
 performs
 the aspect correction rather than accepting that exact number directly.
+
 ==============================================================================
 16. RED FACTION (2001)
 ==============================================================================
@@ -885,6 +900,7 @@ automatic scaling and an already widened manual value at the same time.
 
 The first-person weapon FOV is separate (r_fpgunfov); leave it at its default
 unless you specifically want to alter weapon-model framing as well.
+
 ==============================================================================
 17. THIEF: THE DARK PROJECT (1998) -- NewDark
 ==============================================================================
@@ -931,6 +947,7 @@ cam_ext.cfg:
 NewDark can normally detect an aspect-correct FOV itself.  The explicit fov
 line above is useful when you want the exact project values rather than the
 automatic value.
+
 ==============================================================================
 18. SYSTEM SHOCK 2 (1999) -- NewDark
 ==============================================================================
@@ -976,6 +993,7 @@ cam_ext.cfg:
 
 NewDark normally calculates FOV from the aspect ratio automatically.  Keep the
 explicit fov line only when you want the exact project values shown here.
+
 ==============================================================================
 19. QUICK REFERENCE
 ==============================================================================
@@ -1006,6 +1024,7 @@ Canonical project mapping:
   16:9 (1920x1080)  fov: 106.2602
   16:9 (2560x1440)  fov: 106.2602
   16:9 (3840x2160)  fov: 106.2602
+
 ==============================================================================
 20. SOURCE / VERIFICATION NOTES
 ==============================================================================
