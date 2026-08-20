@@ -3,6 +3,7 @@ HALF-LIFE (1998) -- ORIGINAL GOLDSRC CONSOLE COMMAND REFERENCE
 
   Dir      Campaign / mod  Developer         Released
   valve    Half-Life       Valve             1998
+  uplink   Uplink          Valve Software    1999
   gearbox  Opposing Force  Gearbox Software  1999
   bshift   Blue Shift      Gearbox Software  2001
   decay    Decay           Gearbox Software  2001
