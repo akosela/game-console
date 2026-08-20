@@ -60,6 +60,12 @@ overriding filtering globally.
 1. DUKE NUKEM 3D (1996) -- EDUKE32
 ==============================================================================
 
+Where to put the change:
+  - Enter r_texfilter and r_anisotropy in the console or use the Video Setup
+    menu.
+  - EDuke32 stores persistent settings in its selected configuration file,
+    normally eduke32.cfg; avoid editing that file while the game is running.
+
 r_texfilter 0
   Sets EDuke32's texture filter to Nearest, giving point-sampled pixels.
 
@@ -80,6 +86,13 @@ Recommended sharpest setup:
 ==============================================================================
 2. QUAKE (1996) -- MARK V
 ==============================================================================
+
+Where to put the change:
+  - Preferred manual overrides: id1\autoexec.cfg, or autoexec.cfg in the
+    active mod directory. Put gl_texturemode, gl_smoothmodels, r_particles,
+    and r_wateralpha there.
+  - id1\config.cfg is engine-generated and may be rewritten by Mark V; use
+    autoexec.cfg for deliberate manual overrides.
 
 Mark V v1099 Revision 4 is the selected Quake source port. The normal Windows
 Mark V build is a DirectX 9 build using MH's Direct3D wrapper. Despite the
@@ -130,6 +143,12 @@ has the classic point-sampled software look and does not need gl_texturemode.
 3. QUAKE II (1997) -- YAMAGI QUAKE II / ORIGINAL OPENGL
 ==============================================================================
 
+Where to put the change:
+  - Preferred manual override: baseq2\autoexec.cfg. Put gl_texturemode and
+    r_2D_unfiltered there; add r_videos_unfiltered if wanted.
+  - baseq2\config.cfg is engine-managed and may be rewritten. Yamagi may
+    keep its writable baseq2 directory in the user-data location.
+
 Yamagi Quake II retains the classic gl_texturemode control across its OpenGL
 renderers.
 
@@ -164,6 +183,12 @@ Recommended Yamagi setup:
 ==============================================================================
 4. UNREAL (1998)
 ==============================================================================
+
+Where to put the change:
+  - Run the bNoSmooth command from the in-game console after a map loads.
+  - For convenience, put a key binding that runs the command in
+    System\User.ini; the command may still need to be re-run after level
+    transitions.
 
 For the original Unreal Engine 1 texture system, the preferred way to remove
 smoothing without globally destroying lightmap filtering is to set the native
@@ -204,6 +229,12 @@ base textures and actor skins while retaining smooth lightmaps.
 5. UNREAL TOURNAMENT (1999)
 ==============================================================================
 
+Where to put the change:
+  - Put the persistent key binding in System\User.ini, for example the P=
+    binding shown below.
+  - The bNoSmooth command acts on currently loaded objects, so press the
+    bound key again after a map transition if needed.
+
 UT99 uses the same Unreal Engine 1 Texture.bNoSmooth and Actor.bNoSmooth
 properties. For hardware rendering, use the console command rather than
 relying on the renderer-wide NoFiltering option.
@@ -230,6 +261,12 @@ textures and actors.
 6. HALF-LIFE (1998) -- GOLDSRC
 ==============================================================================
 
+Where to put the change:
+  - Preferred persistent override: valve\autoexec.cfg. Put gl_texturemode
+    there.
+  - valve\config.cfg is engine-generated and may be rewritten, so
+    autoexec.cfg is safer for a deliberate manual texture-mode override.
+
 gl_texturemode GL_NEAREST
   Uses nearest-neighbor texture sampling in the GoldSrc OpenGL renderer.
 
@@ -245,6 +282,11 @@ appearance.
 ==============================================================================
 7. DEUS EX (2000)
 ==============================================================================
+
+Where to put the change:
+  - Run the bNoSmooth command from the in-game console after a map loads.
+  - For a reusable key, store a binding in System\User.ini; reapply it when
+    newly loaded textures or actors become filtered again.
 
 Deus Ex is based on Unreal Engine 1 and uses the same native Texture.bNoSmooth
 and Actor.bNoSmooth properties. The targeted console method is therefore
@@ -272,6 +314,13 @@ broader than bNoSmooth and can make lightmaps/shadows blocky.
 8. GOTHIC (2001)
 ==============================================================================
 
+Where to put the change:
+  - Native AF setting: Gothic\System\Gothic.ini, using
+    zTexAnisotropicFiltering=0.
+  - For true point sampling, place the dgVoodoo wrapper files and
+    dgVoodoo.conf beside Gothic.exe in Gothic\System, then set Force point
+    sampled in dgVoodoo.
+
 Gothic.ini contains zTexAnisotropicFiltering, but setting it to 0 only
 disables anisotropic filtering. It does NOT disable the engine's ordinary
 bilinear texture sampling.
@@ -291,6 +340,13 @@ files appropriate to the installation.
 9. GOTHIC II (2002)
 ==============================================================================
 
+Where to put the change:
+  - Native AF setting: Gothic II\System\Gothic.ini, using
+    zTexAnisotropicFiltering=0.
+  - For true point sampling, place the dgVoodoo wrapper files and
+    dgVoodoo.conf beside Gothic2.exe in the System directory, then set Force
+    point sampled.
+
 As in Gothic 1, this original Gothic.ini setting disables only AF:
 
   zTexAnisotropicFiltering=0
@@ -309,6 +365,11 @@ normal side effect of forcing point sampling.
 10. GOTHIC 3 (2006)
 ==============================================================================
 
+Where to put the change:
+  - There is no native nearest-neighbor INI setting to add.
+  - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside Gothic3.exe;
+    configure Force point sampled in the dgVoodoo DirectX tab.
+
 Gothic 3 exposes texture-quality and anisotropic-filtering controls, but no
 verified original console/INI switch was found for global nearest-neighbor
 texture sampling.
@@ -323,6 +384,11 @@ important than distant-texture stability.
 ==============================================================================
 11. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
+
+Where to put the change:
+  - There is no vanilla Morrowind.ini nearest-neighbor switch.
+  - Place the x86 dgVoodoo D3D8.dll and dgVoodoo.conf beside Morrowind.exe,
+    then configure Force point sampled in dgVoodoo.
 
 The original Morrowind engine uses filtered textures and has no verified
 vanilla INI switch equivalent to OpenMW's nearest min/mag filter settings.
@@ -342,6 +408,11 @@ unfiltered look, but a sampler override is cleaner when it works.
 12. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
+Where to put the change:
+  - There is no native Oblivion.ini nearest-neighbor switch.
+  - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside Oblivion.exe,
+    then configure Force point sampled in dgVoodoo.
+
 The original Oblivion INI exposes many rendering settings but no verified
 global nearest-neighbor texture-filter switch.
 Use the original Oblivion.exe through dgVoodoo2's Direct3D 9 wrapper:
@@ -356,6 +427,12 @@ engine does not provide a clean per-material nearest switch.
 ==============================================================================
 13. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
 ==============================================================================
+
+Where to put the change:
+  - There is no native Skyrim.ini/SkyrimPrefs.ini nearest-neighbor switch
+    for this method.
+  - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside TESV.exe, then
+    configure Force point sampled in dgVoodoo.
 
 This section is only for the original 2011 32-bit Direct3D 9 Skyrim, not
 Special Edition, Anniversary Edition, or VR.
@@ -372,6 +449,12 @@ textures even harsher but can produce severe crawling/shimmering.
 ==============================================================================
 14. FALLOUT 3 (2008)
 ==============================================================================
+
+Where to put the change:
+  - FalloutPrefs.ini can control anisotropy/mipmap-related values, but it
+    has no native nearest-neighbor switch.
+  - Place the x86 dgVoodoo D3D9.dll and dgVoodoo.conf beside Fallout3.exe,
+    then configure Force point sampled in dgVoodoo.
 
 Fallout 3 uses Direct3D 9. Its original INI files expose texture quality,
 mipmap, and anisotropic-filtering controls, but no verified switch that
@@ -394,6 +477,11 @@ Fallout 3 engine does not expose a clean per-material nearest switch.
 15. VIETCONG (2003)
 ==============================================================================
 
+Where to put the change:
+  - There is no original-game config value for nearest-neighbor sampling.
+  - Place the x86 dgVoodoo D3D8.dll and dgVoodoo.conf beside the Vietcong
+    game executable, then configure Force point sampled in dgVoodoo.
+
 Vietcong uses Direct3D 8.1. Its normal graphics options can improve texture
 filtering, and tools such as VCStarter can increase filtering quality, but no
 verified original-game nearest-neighbor switch was found.
@@ -409,6 +497,10 @@ option because that works in the opposite direction.
 ==============================================================================
 16. RED FACTION (2001)
 ==============================================================================
+
+Where to put the change:
+  - r_nearest and r_trilinearfiltering are in-game console commands; no
+    external wrapper or INI edit is required for the documented method.
 
 r_nearest
   Toggles nearest-neighbor texture filtering in the original Red Faction
@@ -427,6 +519,11 @@ The important command for the pixelated look is r_nearest.
 ==============================================================================
 17. THIEF: THE DARK PROJECT (1998) -- NEWDARK
 ==============================================================================
+
+Where to put the change:
+  - Persistent setting: cam_ext.cfg in the game directory. Set
+    tex_filter_mode 0 there and remove a leading semicolon if the line is
+    commented.
 
 NewDark exposes the texture-filter mode directly in cam_ext.cfg. This is the
 preferred method for a sharp, pixelated Thief installation.
@@ -459,6 +556,11 @@ That still leaves anisotropic/linear texture filtering active.
 18. SYSTEM SHOCK 2 (1999) -- NEWDARK
 ==============================================================================
 
+Where to put the change:
+  - Persistent setting: cam_ext.cfg in the game directory. Set
+    tex_filter_mode 0 there and remove a leading semicolon if the line is
+    commented.
+
 System Shock 2 NewDark uses the same explicit filtering control.
 
 Open cam_ext.cfg and set:
@@ -486,6 +588,12 @@ setting is broad.
 ==============================================================================
 19. MECHWARRIOR 3 (1999)
 ==============================================================================
+
+Where to put the change:
+  - Select Software Render from Main Menu -> Options -> Graphics -> Video
+    Device.
+  - This method uses the game's own saved graphics choice; no manual CFG/INI
+    edit is required.
 
 MechWarrior 3 has a native Software Render video device. This is the preferred
 original-game route for a sharp, point-sampled appearance because no verified
