@@ -18,7 +18,6 @@ resource override, or source-level change.
 1. DUKE NUKEM 3D (1996) -- EDUKE32
 ==============================================================================
 
-IMPORTANT: 
 Config files:
 Enter screen_size and crosshair in the console, or use the equivalent
 in-game menu options.
@@ -44,7 +43,6 @@ Recommended:
 2. QUAKE (1996) -- MARK V
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Preferred manual overrides: id1\autoexec.cfg, or autoexec.cfg in the
 active mod directory. Put viewsize 120 and crosshair 0 there.
@@ -72,7 +70,6 @@ Recommended:
 3. QUAKE II (1997) -- YAMAGI QUAKE II / ORIGINAL v3.20
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Preferred manual override: baseq2\autoexec.cfg. Put crosshair 0 there when
 you want it applied at every startup.
@@ -122,7 +119,6 @@ entire Quake II status HUD in one step.
 4. UNREAL (1998)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Persistent HUD and crosshair values belong in System\User.ini, especially
 the [Engine.HUD] section shown below.
@@ -159,7 +155,6 @@ Example persistent setup:
 5. UNREAL TOURNAMENT (1999)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Persistent HUD state belongs in System\User.ini under [Botpack.ChallengeHUD].
 Use changehud in the console for immediate testing; the User.ini value is
@@ -185,7 +180,6 @@ preferences/crosshair selection rather than a later Unreal-engine cvar.
 6. HALF-LIFE (1998) -- GOLDSRC
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Preferred manual startup overrides: valve\autoexec.cfg. Put hud_draw 0 and
 crosshair 0 there.
@@ -208,7 +202,6 @@ These can also be placed in a GoldSrc configuration file or bound to keys.
 7. DEUS EX (2000)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 showhud and ToggleCrosshair are in-game console commands and can be used
 directly without editing an INI file.
@@ -235,7 +228,6 @@ Simplest complete no-HUD command:
 8. GOTHIC (2001)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 toggle desktop is a runtime developer-console command. Enable Marvin mode
 in-game, open the F2 console, and enter it there.
@@ -261,7 +253,6 @@ Restore:
 9. GOTHIC II (2002)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 toggle desktop is a runtime developer-console command. Enable Marvin mode
 in-game, open the F2 console, and enter it there.
@@ -281,7 +272,6 @@ command blindly to restore the desktop.
 10. GOTHIC 3 (2006)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Persistent developer-mode switch: Gothic3\Ini\ge3.ini under [Game], using
 TestMode=true.
@@ -304,7 +294,6 @@ when a completely clean gameplay view is wanted.
 11. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 TM / ToggleMenus is an in-game console command and is not a persistent
 Morrowind.ini setting.
@@ -328,7 +317,6 @@ For crosshair-only removal while keeping the HUD, use the original game menu:
 12. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 TM is an in-game console command and is not meant to be added to
 Oblivion.ini.
@@ -348,7 +336,6 @@ This refers to the original 2006 PC game, not Oblivion Remastered.
 13. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 TM is an in-game console command and is not meant to be added to
 Skyrim.ini.
@@ -370,7 +357,6 @@ Edition, Anniversary Edition, or VR.
 14. FALLOUT 3 (2008)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 TM is an in-game console command and only needs to be entered at runtime.
 Persistent crosshair setting: Documents\My Games\Fallout3\FalloutPrefs.ini
@@ -399,7 +385,6 @@ when a completely clean screenshot or gameplay view is wanted.
 15. VIETCONG (2003)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Select Vietnam difficulty in the normal game/profile menus. This HUD-free
 mode is a gameplay difficulty setting, not a console or INI tweak.
@@ -424,7 +409,6 @@ campaign play.
 16. RED FACTION (2001) -- ORIGINAL PC v1.20
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Enter ui_reticlescale 0 in the in-game console for the stock crosshair
 change.
@@ -460,7 +444,6 @@ v1.20 game; that command was added later.
 17. THIEF: THE DARK PROJECT (1998)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 Persistent HUD setting: cam.cfg in the game directory. Put
 inv_status_height 0 there.
@@ -501,7 +484,6 @@ Recommended original-engine HUD setting:
 18. SYSTEM SHOCK 2 (1999)
 ==============================================================================
 
-IMPORTANT:
 Config files:
 toggle_inv and toggle_compass are runtime commands; enter or bind them
 through the game's command/bind system.
