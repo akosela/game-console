@@ -3,7 +3,7 @@ WIDESCREEN / FOV CONFIG REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-Scope: the 17 games currently documented by the game-console repository.
+Scope: the 18 games currently documented by the game-console repository.
 The goal is to use the requested horizontal FOV mapping at 4:3 and 16:9.
 1920x1080, 2560x1440, and 3840x2160 are all 16:9 and use the same FOV.
 
@@ -558,7 +558,65 @@ Changing FOV can expose vanilla UI/first-person quirks.  Oblivion Display
 Tweaks is useful if you want a cleaner modern implementation, but the INI
 settings above are the native configuration values.
 ==============================================================================
-13. THE ELDER SCROLLS V: SKYRIM (2011)
+13. FALLOUT 3 (2008)
+==============================================================================
+
+Fallout 3 supports widescreen resolutions natively. If the desired mode is
+not available in the launcher, edit:
+
+  Documents\My Games\Fallout3\FalloutPrefs.ini
+
+under [Display].
+
+4:3:
+
+  iSize W=800
+  iSize H=600
+
+16:9 (1920x1080):
+
+  iSize W=1920
+  iSize H=1080
+
+16:9 (2560x1440):
+
+  iSize W=2560
+  iSize H=1440
+
+16:9 (3840x2160):
+
+  iSize W=3840
+  iSize H=2160
+
+For the project world-camera FOV, edit:
+
+  Documents\My Games\Fallout3\Fallout.ini
+
+under [Display].
+
+4:3:
+
+  fDefaultWorldFOV=90.000000
+
+16:9 (1920x1080, 2560x1440 and 3840x2160):
+
+  fDefaultWorldFOV=106.270273206
+
+Fallout 3 has a separate first-person weapon/arms FOV:
+
+  fDefault1stPersonFOV=55.000000
+
+Do not automatically set that value to 106.270273206. It controls the
+first-person weapon model rather than the world camera, and large values can
+cause visible clipping. Adjust it separately only if different weapon framing
+is wanted.
+
+The separate fDefaultFOV value affects menus/overlays. Changing it can alter
+or misalign interface presentation, so it is not required for this project's
+world-camera FOV target.
+
+==============================================================================
+14. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
 This section is for the original 2011 32-bit Skyrim release, not Special
@@ -608,7 +666,7 @@ or:
 
 The console-only change is not permanent; use Skyrim.ini for persistence.
 ==============================================================================
-14. VIETCONG (2003)
+15. VIETCONG (2003)
 ==============================================================================
 
 Patch the game to 1.60 and install VCStarter 1.65.1 or newer.  VCStarter is
@@ -651,7 +709,7 @@ For Vietcong the second line is the desired equivalent view; VCStarter
 performs
 the aspect correction rather than accepting that exact number directly.
 ==============================================================================
-15. RED FACTION (2001)
+16. RED FACTION (2001)
 ==============================================================================
 
 Use Alpine Faction.  It supports arbitrary widescreen resolutions and exposes
@@ -691,7 +749,7 @@ automatic scaling and an already widened manual value at the same time.
 The first-person weapon FOV is separate (r_fpgunfov); leave it at its default
 unless you specifically want to alter weapon-model framing as well.
 ==============================================================================
-16. THIEF: THE DARK PROJECT (1998) -- NewDark
+17. THIEF: THE DARK PROJECT (1998) -- NewDark
 ==============================================================================
 
 Use NewDark.  Resolution is stored in cam.cfg and an explicit FOV override is
@@ -729,7 +787,7 @@ NewDark can normally detect an aspect-correct FOV itself.  The explicit fov
 line above is useful when you want the exact project values rather than the
 automatic value.
 ==============================================================================
-17. SYSTEM SHOCK 2 (1999) -- NewDark
+18. SYSTEM SHOCK 2 (1999) -- NewDark
 ==============================================================================
 
 Use NewDark/SS2Tool.  Resolution is stored in cam.cfg and an explicit FOV
@@ -766,7 +824,7 @@ cam_ext.cfg:
 NewDark normally calculates FOV from the aspect ratio automatically.  Keep the
 explicit fov line only when you want the exact project values shown here.
 ==============================================================================
-18. QUICK REFERENCE
+19. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: menu FOV; Polymer legacy uses BUILD units
@@ -781,6 +839,7 @@ explicit fov line only when you want the exact project values shown here.
   - Gothic 3: ge3.ini Camera.FOV
   - Morrowind: registry + Morrowind FPS Optimizer
   - Oblivion: Oblivion.ini
+  - Fallout 3: FalloutPrefs.ini resolution + Fallout.ini world FOV
   - Skyrim 2011: SkyrimPrefs.ini + Skyrim.ini
   - Vietcong 2003: VCStarter Aspect ratio-fix; no numeric FOV
   - Red Faction 2001: Alpine Faction launcher + r_fov
@@ -794,7 +853,7 @@ Canonical project mapping:
   16:9 (2560x1440) fov: 106.270273206
   16:9 (3840x2160) fov: 106.270273206
 ==============================================================================
-19. SOURCE / VERIFICATION NOTES
+20. SOURCE / VERIFICATION NOTES
 ==============================================================================
 The methods above were checked against engine/source-port documentation,
 released source code where available, configuration references, and
@@ -834,6 +893,12 @@ use the same project FOV value.
   - PCGamingWiki classic Oblivion documentation: resolution and
     fDefaultFOV behavior
     PCGamingWiki: The Elder Scrolls IV: Oblivion
+  - Bethesda Support: Fallout 3 custom widescreen resolution through
+    FalloutPrefs.ini iSize W / iSize H
+    https://help.bethesda.net/app/answers/detail/a_id/9997/
+  - PCGamingWiki Fallout 3 documentation: widescreen behavior,
+    Fallout.ini fDefaultWorldFOV, and separate first-person FOV
+    https://www.pcgamingwiki.com/wiki/Fallout_3
   - PCGamingWiki original Skyrim documentation: SkyrimPrefs.ini resolution,
     Skyrim.ini FOV settings, and the fov console command
     PCGamingWiki: The Elder Scrolls V: Skyrim

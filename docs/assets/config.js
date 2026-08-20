@@ -141,6 +141,19 @@ window.GAME_CONSOLE_DOCS = {
       ]
     },
     {
+      "file": "fallout-3-console.txt",
+      "title": "Fallout 3",
+      "group": "Console References",
+      "tags": [
+        "fallout 3",
+        "fallout",
+        "gamebryo",
+        "bethesda",
+        "2008",
+        "console"
+      ]
+    },
+    {
       "file": "vietcong-console.txt",
       "title": "Vietcong",
       "group": "Console References",

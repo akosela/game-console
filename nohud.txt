@@ -5,7 +5,8 @@ SCOPE
 ------------------------------------------------------------------------------
 Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
 Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
-Morrowind, Oblivion, Skyrim, Vietcong, and Red Faction. The reference
+Morrowind, Oblivion, Fallout 3, Skyrim, Vietcong, and Red Faction. The
+reference
 deliberately avoids remaster-only commands. Community source ports are
 used where they make practical sense, particularly when they preserve the
 original gameplay while providing better compatibility, console access, or
@@ -259,7 +260,30 @@ For crosshair-only removal, use the original Gameplay options:
 This refers to the original 2006 PC game, not Oblivion Remastered.
 
 ==============================================================================
-13. THE ELDER SCROLLS V: SKYRIM (2011)
+13. FALLOUT 3 (2008)
+==============================================================================
+
+TM
+  ToggleMenus. Hides the Fallout 3 HUD and menu interface.
+
+The console also becomes invisible while menus are disabled. To restore the
+interface, open the console, type TM blindly, press Enter, then close it.
+
+For crosshair-only removal while keeping the rest of the HUD, use the
+original game setting:
+
+  Escape -> Settings -> Display -> Crosshair: Off
+
+The same setting is stored in FalloutPrefs.ini under [GamePlay]:
+
+  bCrossHair=0
+
+For a persistent HUD-opacity alternative, the original Display options also
+allow HUD opacity to be reduced to zero. TM is the simpler native command
+when a completely clean screenshot or gameplay view is wanted.
+
+==============================================================================
+14. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
 TM
@@ -274,7 +298,7 @@ This section refers to the original 2011 32-bit PC release, not Special
 Edition, Anniversary Edition, or VR.
 
 ==============================================================================
-14. VIETCONG (2003)
+15. VIETCONG (2003)
 ==============================================================================
 
 Vietcong has an unusual stock solution: the highest Vietnam difficulty
@@ -294,7 +318,7 @@ information, but that applies to spectating/replays rather than ordinary
 campaign play.
 
 ==============================================================================
-15. RED FACTION (2001) -- ORIGINAL PC v1.20
+16. RED FACTION (2001) -- ORIGINAL PC v1.20
 ==============================================================================
 
 The official v1.20 client exposes a reticle-scale control, but it does not
@@ -322,7 +346,7 @@ Do not substitute the community-port command hud when documenting the official
 v1.20 game; that command was added later.
 
 ==============================================================================
-16. THIEF: THE DARK PROJECT (1998)
+17. THIEF: THE DARK PROJECT (1998)
 ==============================================================================
 
 The original Dark Engine does not provide a simple stock toggle_hud command.
@@ -356,7 +380,7 @@ Recommended original-engine HUD setting:
   inv_status_height 0
 
 ==============================================================================
-17. SYSTEM SHOCK 2 (1999)
+18. SYSTEM SHOCK 2 (1999)
 ==============================================================================
 
 The original System Shock 2 command set has controls for individual interface
@@ -396,7 +420,7 @@ For a completely clean view:
   use transparent replacements for the crosshair and HUD resources
 
 ==============================================================================
-18. QUICK REFERENCE
+19. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: screen_size 0 + crosshair 0
@@ -411,6 +435,7 @@ For a completely clean view:
   - Gothic 3: Ctrl+F1 with TestMode enabled
   - Morrowind: TM; Crosshairs Off in Preferences
   - Oblivion: TM; Crosshair Off in Gameplay options
+  - Fallout 3: TM; Crosshair Off in Display settings
   - Skyrim: TM; Crosshair Off in Display settings
   - Vietcong: Vietnam difficulty removes HUD/crosshair
   - Red Faction: ui_reticlescale 0; VPP override for full HUD removal
@@ -420,7 +445,7 @@ For a completely clean view:
     resource override for a complete HUD/crosshair-free view
 
 ==============================================================================
-19. SOURCE / VERIFICATION NOTES
+20. SOURCE / VERIFICATION NOTES
 ==============================================================================
 
 The methods above were checked against original-engine documentation, released
@@ -444,6 +469,9 @@ references. Remaster-only commands were intentionally excluded.
   - Bethesda Support: Morrowind crosshair setting
   - UESP classic Morrowind, Oblivion, and Skyrim console references
   - Original Oblivion PC manual: Gameplay Crosshair toggle
+  - Fallout Wiki: Gamebryo console commands; TM / ToggleMenus
+    https://fallout.fandom.com/wiki/Gamebryo_console_commands
+  - Fallout 3 FalloutPrefs.ini: bCrossHair and HUD/interface settings
   - Contemporary Vietcong documentation/reviews for Vietnam difficulty
   - Red Faction Wiki: Base Game console command matrix
   - Classic Red Faction VPP resource-override documentation

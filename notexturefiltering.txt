@@ -5,8 +5,9 @@ SCOPE
 ------------------------------------------------------------------------------
 Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
 Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
-Morrowind, Oblivion, Skyrim, Vietcong, Red Faction, Thief: The Dark
-Project using NewDark, and System Shock 2 using NewDark.  Goal: disable
+Morrowind, Oblivion, Fallout 3, Skyrim, Vietcong, Red Faction, Thief:
+The Dark Project using NewDark, and System Shock 2 using NewDark.  Goal:
+disable
 bilinear/trilinear/anisotropic texture filtering so texels stay visibly sharp
 and pixelated instead of being smoothed together. Remaster-only settings
 are intentionally excluded.
@@ -351,7 +352,28 @@ masks, and UI elements harsher. If artifacts are objectionable, the original
 engine does not provide a clean per-material nearest switch.
 
 ==============================================================================
-13. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
+13. FALLOUT 3 (2008)
+==============================================================================
+
+Fallout 3 uses Direct3D 9. Its original INI files expose texture quality,
+mipmap, and anisotropic-filtering controls, but no verified switch that
+globally changes bilinear texture sampling to nearest-neighbor.
+
+Use the original Fallout3.exe through dgVoodoo2's Direct3D 9 wrapper:
+
+  use the x86 D3D9.dll wrapper
+  DirectX -> Filtering -> Force point sampled
+
+Keep mipmapping App driven initially. FalloutPrefs.ini contains settings such
+as iMaxAnisotropy and iTexMipMapSkip, but changing those does not by itself
+replace bilinear sampling with nearest-neighbor filtering.
+
+The point-sampling override is broad and can make terrain, normal maps,
+effects, and UI textures look harsher. If that is objectionable, the original
+Fallout 3 engine does not expose a clean per-material nearest switch.
+
+==============================================================================
+14. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
 ==============================================================================
 
 This section is only for the original 2011 32-bit Direct3D 9 Skyrim, not
@@ -367,7 +389,7 @@ Keep mipmapping App driven initially. Turning mipmapping off as well will make
 textures even harsher but can produce severe crawling/shimmering.
 
 ==============================================================================
-14. VIETCONG (2003)
+15. VIETCONG (2003)
 ==============================================================================
 
 Vietcong uses Direct3D 8.1. Its normal graphics options can improve texture
@@ -383,7 +405,7 @@ If VCStarter is also being used, avoid enabling its Improve texture filtering
 option because that works in the opposite direction.
 
 ==============================================================================
-15. RED FACTION (2001)
+16. RED FACTION (2001)
 ==============================================================================
 
 r_nearest
@@ -401,7 +423,7 @@ r_trilinearfiltering
 The important command for the pixelated look is r_nearest.
 
 ==============================================================================
-16. THIEF: THE DARK PROJECT (1998) -- NEWDARK
+17. THIEF: THE DARK PROJECT (1998) -- NEWDARK
 ==============================================================================
 
 NewDark exposes the texture-filter mode directly in cam_ext.cfg. This is the
@@ -432,7 +454,7 @@ Do not merely disable trilinear filtering while leaving tex_filter_mode at 16.
 That still leaves anisotropic/linear texture filtering active.
 
 ==============================================================================
-17. SYSTEM SHOCK 2 (1999) -- NEWDARK
+18. SYSTEM SHOCK 2 (1999) -- NEWDARK
 ==============================================================================
 
 System Shock 2 NewDark uses the same explicit filtering control.
@@ -460,7 +482,7 @@ some lightmaps and 2D assets can also look more blocky because the filter
 setting is broad.
 
 ==============================================================================
-18. MECHWARRIOR 3 (1999)
+19. MECHWARRIOR 3 (1999)
 ==============================================================================
 
 MechWarrior 3 has a native Software Render video device. This is the preferred
@@ -500,7 +522,7 @@ Recommended:
   Video Device -> Software Render
 
 ==============================================================================
-19. QUICK REFERENCE
+20. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: r_texfilter 0; r_anisotropy 0
@@ -516,6 +538,7 @@ Recommended:
   - Gothic 3: dgVoodoo2 -> Force point sampled
   - Morrowind original: dgVoodoo2 -> Force point sampled
   - Oblivion original: dgVoodoo2 -> Force point sampled
+  - Fallout 3: dgVoodoo2 -> Force point sampled
   - Skyrim 2011 32-bit: dgVoodoo2 -> Force point sampled
   - Vietcong: dgVoodoo2 -> Force point sampled
   - Red Faction: r_nearest
@@ -524,7 +547,7 @@ Recommended:
   - System Shock 2 / NewDark: tex_filter_mode 0
 
 ==============================================================================
-20. FILTERING VS MIPMAPPING
+21. FILTERING VS MIPMAPPING
 ==============================================================================
 
 If the main goal is sharp pixels up close but stable distant surfaces, keep
@@ -537,7 +560,7 @@ For NewDark, tex_filter_mode 0 is the documented no-filtering mode. There is
 no separate requirement to set an anisotropic value to zero.
 
 ==============================================================================
-21. SOURCE / VERIFICATION NOTES
+22. SOURCE / VERIFICATION NOTES
 ==============================================================================
 
 The native commands and configuration settings in this file were checked
@@ -575,6 +598,9 @@ not confused with commands built into the original executable.
     https://www.pcgamingwiki.com/wiki/Gothic_II
   - dgVoodoo2 documentation — Force point sampled texture filtering
     https://www.pcgamingwiki.com/wiki/DgVoodoo2
+  - Fallout 3 configuration references: Direct3D 9, iMaxAnisotropy,
+    iTexMipMapSkip, and original-engine rendering settings
+    https://www.pcgamingwiki.com/wiki/Fallout_3
   - Morrowind Pixellized — original engine filtering discussion
     https://www.nexusmods.com/morrowind/mods/45924
   - Vietcong PCGamingWiki — Direct3D 8.1 renderer information

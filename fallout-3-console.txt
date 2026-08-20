@@ -1,0 +1,277 @@
+FALLOUT 3 (2008) -- ORIGINAL PC CONSOLE COMMAND REFERENCE
+==============================================================================
+
+  Dir           Campaign / mod        Developer              Released
+  fallout3      Fallout 3             Bethesda Game Studios  2008
+  anchorage     Operation: Anchorage  Bethesda Game Studios  2009
+  thepitt       The Pitt              Bethesda Game Studios  2009
+  brokensteel   Broken Steel          Bethesda Game Studios  2009
+  pointlookout  Point Lookout         Bethesda Game Studios  2009
+  zeta          Mothership Zeta       Bethesda Game Studios  2009
+
+IMPORTANT:
+Scope: Bethesda's original Fallout 3 PC game and the five official DLC packs.
+Fallout: New Vegas, FOSE-only commands, and commands added by later
+plugins are outside the scope of this reference.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Press the console key while in game. On a US keyboard this is normally the
+grave-accent / tilde key (` / ~), below Esc. Other keyboard layouts can use a
+different key in the same physical position.
+
+Click an actor or object while the console is open to select that reference.
+Commands without an explicit player prefix may act on the selected reference.
+
+==============================================================================
+2. PLAYER / CHEAT TOGGLES
+==============================================================================
+
+tgm
+  Toggles god mode.
+
+tcl
+  Toggles collision. With no reference selected, this provides noclip-style
+  movement for the player.
+
+tai
+  Toggles AI processing.
+
+tcai
+  Toggles combat AI.
+
+tdetect
+  Toggles AI detection of the player.
+
+tm
+  Toggles menus and HUD elements.
+
+tfc
+  Toggles free camera.
+
+tfc 1
+  Toggles free camera while also freezing game simulation.
+
+tfow
+  Toggles local-map fog of war.
+
+tmm 1
+  Shows all map markers.
+
+tmm 0
+  Hides map markers.
+
+==============================================================================
+3. INVENTORY / EQUIPMENT / PERKS
+==============================================================================
+
+player.additem <FormID> <count>
+  Adds an item to player inventory.
+
+player.removeitem <FormID> <count>
+  Removes an item from player inventory.
+
+player.equipitem <FormID>
+  Equips an item.
+
+player.unequipitem <FormID>
+  Unequips an item.
+
+player.additem 0000000F <count>
+  Adds bottle caps.
+
+player.additem 0000000A <count>
+  Adds bobby pins.
+
+player.addperk <PerkID>
+  Adds a perk or increments its rank where applicable.
+
+player.removeperk <PerkID>
+  Removes a perk.
+
+==============================================================================
+4. SPECIAL / SKILLS / LEVEL / XP
+==============================================================================
+
+player.getav <actor-value>
+  Displays the current value of a player actor value.
+
+player.getbaseav <actor-value>
+  Displays the base value of a player actor value.
+
+player.setav <actor-value> <value>
+  Sets the base value of a player actor value.
+
+player.modav <actor-value> <delta>
+  Permanently modifies a player actor value by the specified amount.
+
+rewardxp <amount>
+  Awards experience points using the normal Fallout 3 XP system.
+
+player.setlevel <level>
+  Sets the player's level. This does not perform normal level-up bookkeeping;
+  RewardXP is generally safer when normal progression behavior is desired.
+
+Common SPECIAL actor values:
+  strength, perception, endurance, charisma, intelligence, agility, luck
+
+Common skill actor values:
+  barter, bigguns, energyweapons, explosives, lockpick, medicine,
+  meleeweapons, repair, science, smallguns, sneak, speech, unarmed
+
+==============================================================================
+5. QUESTS / FACTIONS
+==============================================================================
+
+setstage <QuestID> <stage>
+  Sets a quest stage and runs the result associated with that stage.
+
+getstage <QuestID>
+  Displays the highest completed stage for a quest.
+
+getstagedone <QuestID> <stage>
+  Returns whether a specified quest stage has been completed.
+
+sqs <QuestID>
+  Shows the quest stages for the specified quest.
+
+sqv <QuestID>
+  Shows variables for the specified quest.
+
+sqt
+  Shows current quest targets.
+
+resetquest <QuestID>
+  Resets the specified quest. Use with care because quest scripts and world
+  state may not return cleanly to their original condition.
+
+completequest <QuestID>
+  Marks the specified quest complete. This can bypass expected script effects.
+
+addtofaction <FactionID> <rank>
+  Adds the selected reference to a faction at the specified rank.
+
+removefromfaction <FactionID>
+  Removes the selected reference from a faction.
+
+==============================================================================
+6. ACTORS / OBJECTS / POSITION
+==============================================================================
+
+disable
+  Disables the selected reference.
+
+enable
+  Enables the selected reference.
+
+kill
+  Kills the selected actor.
+
+resurrect [1]
+  Resurrects the selected actor.
+
+unlock
+  Unlocks the selected door, container, or terminal where applicable.
+
+lock <level>
+  Locks the selected reference using the specified lock level.
+
+setownership
+  Gives the player ownership of the selected reference.
+
+moveto <RefID>
+  Moves the selected reference to another reference.
+
+player.moveto <RefID>
+  Moves the player to the specified reference.
+
+placeatme <BaseID> [count]
+  Places an object or actor at the selected reference.
+
+player.placeatme <BaseID> [count]
+  Places an object or actor at the player.
+
+setpos <axis> <value>
+  Sets the selected reference position on the x, y, or z axis.
+
+getpos <axis>
+  Displays the selected reference position on the specified axis.
+
+setangle <axis> <value>
+  Sets the selected reference rotation.
+
+setscale <value>
+  Sets the selected reference scale.
+
+==============================================================================
+7. WORLD / TIME / CAMERA
+==============================================================================
+
+coc <CellID>
+  Teleports the player to the specified cell.
+
+cow <WorldspaceID> <X> <Y>
+  Teleports the player to exterior grid coordinates in a worldspace.
+
+set timescale to <value>
+  Sets the game-time multiplier.
+
+set gamehour to <hour>
+  Sets the current game hour.
+
+fw <WeatherID>
+  Forces the specified weather.
+
+sw <WeatherID>
+  Changes to the specified weather through the normal transition.
+
+sucsm <speed>
+  Sets free-camera movement speed.
+
+==============================================================================
+8. DEBUG / INFORMATION
+==============================================================================
+
+help
+  Displays the engine's console-command help/listing.
+
+getav <actor-value>
+  Displays an actor value for the selected actor.
+
+getavinfo <actor-value>
+  Displays detailed information about the selected actor value.
+
+getlevel
+  Displays the selected actor's level.
+
+getdistance <RefID>
+  Displays distance from the selected reference to another reference.
+
+showinventory
+  Displays the inventory of the selected reference.
+
+save <name>
+  Creates a save from the console.
+
+qqq
+  Immediately quits the game.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference documents the native Fallout 3 / Gamebryo console. FOSE and
+plugin-added functions are intentionally excluded. The installed executable
+and its own Help output remain the final authority for build-specific command
+availability.
+
+  - GECK Wiki: Complete List of Functions in Fallout 3
+    https://geckwiki.com/index.php/Complete_List_of_Functions_in_Fallout_3
+
+  - GECK Wiki: Designer Debug Tools
+    https://geckwiki.com/index.php?title=Category:Designer_Debug_Tools
+
+  - Fallout Wiki: Gamebryo console commands
+    https://fallout.fandom.com/wiki/Gamebryo_console_commands

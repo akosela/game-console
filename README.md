@@ -22,7 +22,7 @@ facilities, engine-specific behavior, and important version/build caveats.
 - [Quake / Mark V](quake-console.txt)
 - [Quake II / Yamagi Quake II](quake-2-console.txt)
 - [Unreal](unreal-console.txt)
-- [Unreal Tournament 1999](unreal-tournament-1999-console.txt)
+- [Unreal Tournament 1999](unreal-tournament-console.txt)
 - [Half-Life](half-life-console.txt)
 - [Deus Ex](deus-ex-console.txt)
 - [Gothic](gothic-1-console.txt)
@@ -30,9 +30,10 @@ facilities, engine-specific behavior, and important version/build caveats.
 - [Gothic 3](gothic-3-console.txt)
 - [Morrowind](morrowind-console.txt)
 - [Oblivion](oblivion-console.txt)
-- [Skyrim 2011](skyrim-2011-console.txt)
-- [Vietcong 2003](vietcong-2003-console.txt)
-- [Red Faction 2001](red-faction-2001-console.txt)
+- [Skyrim](skyrim-console.txt)
+- [Fallout 3](fallout-3-console.txt)
+- [Vietcong](vietcong-console.txt)
+- [Red Faction](red-faction-console.txt)
 - [Thief: The Dark Project](thief-console.txt)
 - [System Shock 2](ss2-console.txt)
 
@@ -139,7 +140,7 @@ presenting them as native console commands.
 ## Widescreen / FOV
 
 [widescreen.txt](widescreen.txt) documents 4:3 and 16:9 resolution setup and
-field-of-view configuration for the same 17 games as the console reference.
+field-of-view configuration for the games covered by the presentation guide.
 The 16:9 examples cover 1920x1080, 2560x1440, and 3840x2160.
 
 The reference uses this project baseline:
