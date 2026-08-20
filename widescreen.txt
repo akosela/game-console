@@ -24,7 +24,7 @@ baseline even when a game's stock/default FOV is different.
 01. DUKE NUKEM 3D (1996) -- EDuke32
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Use Setup / Video Setup or the in-game console for vidmode and aspect
     settings.
   - EDuke32 stores persistent video settings in its selected configuration
@@ -78,7 +78,7 @@ units is the nearest value.  Do not enter 106.2602 into r_pr_fov.
 02. QUAKE (1996) -- Mark V
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: put -width and -height on the Mark V shortcut/launcher
     command line.
   - FOV: put fov 90 in id1\autoexec.cfg, or autoexec.cfg in the active mod
@@ -131,7 +131,7 @@ other aspect ratios rather than entered directly.
 03. QUAKE II (1997) -- Yamagi Quake II
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Preferred persistent override: baseq2\autoexec.cfg. Put r_mode,
     r_customwidth, r_customheight, horplus, and fov there.
   - baseq2\config.cfg is engine-managed and may be rewritten. vid_restart is
@@ -193,7 +193,7 @@ that automatic correction for the same reason before setting the final FOV.
 04. UNREAL (1998)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: System\Unreal.ini under the active viewport client section.
   - FOV: System\User.ini under [Engine.PlayerPawn]. Use the console only for
     temporary fov testing.
@@ -253,7 +253,7 @@ the User.ini change permanent.
 05. UNREAL TOURNAMENT (1999)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: System\UnrealTournament.ini under [WinDrv.WindowsClient].
   - FOV: System\User.ini under [Engine.PlayerPawn]. Use the console only for
     temporary fov testing.
@@ -312,7 +312,7 @@ persistent configuration.
 06. HALF-LIFE (1998) -- WON / RETAIL VERSION
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: put the -w/-h and related options on the hl.exe shortcut or
     launcher command line.
   - FOV: valve\autoexec.cfg. Put default_fov there for persistence.
@@ -379,7 +379,7 @@ You can test the same values from the console with "default_fov <value>".
 07. DEUS EX (2000)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: System\DeusEx.ini under the active viewport client section.
   - FOV: System\User.ini under [DeusEx.DeusExPlayer].
 
@@ -438,7 +438,7 @@ replace that stock value with this project's requested 90-degree 4:3 baseline.
 08. GOTHIC (2001)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: Gothic\System\Gothic.ini under [VIDEO].
   - FOV behavior: Gothic\System\SystemPack.ini. Keep NewFOVformula enabled
     and use its VerticalFOV control rather than entering the horizontal
@@ -507,7 +507,7 @@ Target convention for comparison:
 09. GOTHIC II (2002)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: Gothic II\System\Gothic.ini under [VIDEO].
   - FOV behavior: Gothic II\System\SystemPack.ini. Keep NewFOVformula
     enabled and use its VerticalFOV control rather than entering the
@@ -575,7 +575,7 @@ Target convention for comparison:
 10. GOTHIC 3 (2006)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Put both the [Window] resolution values and Camera.FOV in Gothic
     3\Ini\ge3.ini as shown below.
 
@@ -635,7 +635,7 @@ the requested project baseline.
 11. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution is stored in the Windows registry, not in Morrowind.ini. Use
     Morrowind FPS Optimizer to edit the registry values.
   - Set the requested FOV through FPS Optimizer's Misc/2 FOV controls; no
@@ -698,7 +698,7 @@ replacing the engine with OpenMW.
 12. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Put the resolution and fDefaultFOV values in Documents\My
     Games\Oblivion\Oblivion.ini under [Display].
 
@@ -742,7 +742,7 @@ settings above are the native configuration values.
 13. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: Documents\My Games\Skyrim\SkyrimPrefs.ini under [Display].
   - Persistent FOV: Documents\My Games\Skyrim\Skyrim.ini under [Display].
     The console fov command is only for temporary testing.
@@ -812,7 +812,7 @@ The console-only change is not permanent; use Skyrim.ini for persistence.
 14. FALLOUT 3 (2008)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: Documents\My Games\Fallout3\FalloutPrefs.ini under
     [Display].
   - World-camera FOV: Documents\My Games\Fallout3\Fallout.ini under
@@ -885,7 +885,7 @@ world-camera FOV target.
 15. VIETCONG (2003)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Set resolution and Aspect ratio-fix in VCStarterConfig.exe.
   - VCStarter performs the aspect correction itself; there is no separate
     numeric FOV value to put in a Vietcong config file for this method.
@@ -940,7 +940,7 @@ the aspect correction rather than accepting that exact number directly.
 16. RED FACTION (2001)
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: set it in AlpineFactionLauncher.exe.
   - FOV: enter r_fov in the Alpine Faction in-game console. The documented
     method does not require editing an original Red Faction config file.
@@ -994,7 +994,7 @@ unless you specifically want to alter weapon-model framing as well.
 17. THIEF: THE DARK PROJECT (1998) -- NewDark
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: cam.cfg in the game directory, using game_screen_size.
   - Exact FOV override: cam_ext.cfg in the game directory, using fov.
 
@@ -1045,7 +1045,7 @@ automatic value.
 18. SYSTEM SHOCK 2 (1999) -- NewDark
 ==============================================================================
 
-Where to put the change:
+IMPORTANT: Config files
   - Resolution: cam.cfg in the game directory, using game_screen_size.
   - Exact FOV override: cam_ext.cfg in the game directory, using fov.
 
