@@ -267,9 +267,14 @@
       sections.push({title:secTitle,id,lines:secLines});
       secLines=[];
     };
+    const startsMajorSection=(index)=>
+      index+2<lines.length &&
+      isSep(lines[index],"=") &&
+      lines[index+1].trim() &&
+      isSep(lines[index+2],"=");
     let i=start;
     while(i<lines.length){
-      if(isSep(lines[i],"=")&&i+2<lines.length&&lines[i+1].trim()&&isSep(lines[i+2],"=")){
+      if(startsMajorSection(i)){
         push(); secTitle=lines[i+1].trim(); i+=3; continue;
       }
 
@@ -284,6 +289,7 @@
       if(
         lines[i].trim() &&
         i+1<lines.length &&
+        !startsMajorSection(i+1) &&
         (isHeadingSep(lines[i+1],"=") || isHeadingSep(lines[i+1],"-")) &&
         lines[i].trim().length<92
       ){
