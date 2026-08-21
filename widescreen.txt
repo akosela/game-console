@@ -321,42 +321,17 @@ relying on manual edits there.
 This section is deliberately for the original pre-Steam WON release, not the
 25th Anniversary Steam build.
 
-Install the Half-Life WON Resolution FOV MP3 Patch for the matching executable
-version.  WON 1.1.1.0 is the usual final retail/WON build.  The patch enables
-modern widescreen modes that the unmodified WON executable does not handle
-properly.
+Install the provided patched Half-Life WON release:
 
-The patch can include hl_fov_fix.asi, which automatically widens FOV according
-to the current aspect ratio.  For the exact manual values in this document,
-do not load hl_fov_fix.asi; otherwise the automatic correction and the manual
-FOV can be applied together.
+[Download hl-dark.exe](/files/hl-dark.exe)
+
+The patch enables modern widescreen modes that the unmodified WON executable
+does not handle properly. Software mode is not supported properly on Windows
+10+. OpenGL is recommended for the best experience.
 
 Launch examples:
 
-4:3:
-
-  hl.exe -gl -full -w 800 -h 600
-  add: -lw 800 -lh 600 -noextracds -32bpp
-
-5:4 (1280x1024):
-
-  hl.exe -gl -full -w 1280 -h 1024
-  add: -lw 1280 -lh 1024 -noextracds -32bpp
-
-16:9 (1920x1080):
-
-  hl.exe -gl -full -w 1920 -h 1080
-  add: -lw 1920 -lh 1080 -noextracds -32bpp
-
-16:9 (2560x1440):
-
-  hl.exe -gl -full -w 2560 -h 1440
-  add: -lw 2560 -lh 1440 -noextracds -32bpp
-
-16:9 (3840x2160):
-
-  hl.exe -gl -full -w 3840 -h 2160
-  add: -lw 3840 -lh 2160 -noextracds -32bpp
+  hl-dark.exe -console -gl -full -w 1920 -h 1080 -noextracds -32bpp
 
 Create or edit valve\autoexec.cfg:
 
