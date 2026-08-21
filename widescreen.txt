@@ -318,18 +318,19 @@ FOV: valve\autoexec.cfg. Put default_fov there for persistence.
 valve\config.cfg is engine-generated and may be rewritten, so avoid
 relying on manual edits there.
 
-This section is deliberately for the original pre-Steam WON release, not the
-25th Anniversary Steam build.
+This section is specifically intended for the original pre-Steam Half-Life
+WON release, not the 25th Anniversary Steam build.
 
-Install the provided patched Half-Life WON release:
+Install the provided patched Half-Life WON executable:
 
 [Download hl-dark.exe](/files/hl-dark.exe)
 
-The patch enables modern widescreen modes that the unmodified WON executable
-does not handle properly. Software mode is not supported properly on Windows
-10+. OpenGL is recommended for the best experience.
+The patch adds proper support for modern widescreen resolutions that are
+not handled correctly by the original WON executable. Software rendering
+is not supported on Windows 10 or later. OpenGL is recommended for the best
+compatibility and overall experience.
 
-Launch config (adjust resolution):
+Launch config (adjust the resolution as needed):
 
   hl-dark.exe -console -gl -full -w 1920 -h 1080 -noextracds -32bpp
 
