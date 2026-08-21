@@ -273,7 +273,21 @@ gl_texturemode GL_NEAREST
 GL_NEAREST is the strongest setting: sharp texels and no mipmaps. For nearest
 texels while retaining mip levels, try:
 
-  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+  gl_texturemode GL_NEAREST_MIPMAP_LINEAR
+
+This keeps nearest-neighbor sampling within each mip level while smoothly
+blending between mip levels, reducing visible mipmap transitions at
+distance. GL_NEAREST_MIPMAP_NEAREST also preserves mipmaps, but switches
+between them abruptly and can produce more noticeable mip bands.
+
+For maximum texture detail, also use:
+
+  gl_round_down 0
+
+gl_round_down controls how GoldSrc scales texture dimensions before uploading
+them to the OpenGL renderer. A value of 0 minimizes texture downscaling
+and preserves more of the original texture detail. It is independent of
+gl_texturemode, which controls texture filtering.
 
 If the installed GoldSrc build resets the value, put the command in
 autoexec.cfg. The classic software renderer also has an inherently pixelated
