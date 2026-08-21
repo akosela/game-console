@@ -30,10 +30,48 @@
     const s=v.toLowerCase().replace(/&/g," and ").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
     return s||"section";
   };
-  const linkify=(v)=>esc(v).replace(
-    /(https?:\/\/[^\s<]+)/g,
-    u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`
-  );
+  // Render Markdown-style links in prose while preserving the existing
+  // automatic linking of bare http(s) URLs.
+  //
+  // Supported examples:
+  //   [Download hl-dark.exe](/files/hl-dark.exe)
+  //   [Project site](https://example.com/)
+  //
+  // Relative/root-relative links stay in the current tab. External http(s)
+  // links open in a new tab, matching the previous bare-URL behavior.
+  const linkify=(v)=>{
+    const markdownLink=/\[([^\]]+)\]\(([^)\s]+)\)/g;
+    let html="";
+    let last=0;
+
+    const autoLinkBareUrls=(text)=>esc(text).replace(
+      /(https?:\/\/[^\s<]+)/g,
+      u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`
+    );
+
+    for(const match of v.matchAll(markdownLink)){
+      html+=autoLinkBareUrls(v.slice(last,match.index));
+
+      const label=esc(match[1]);
+      const rawHref=match[2];
+      const safeHref=/^(?:https?:\/\/|\/(?!\/)|\.{1,2}\/|#)/i.test(rawHref);
+
+      if(safeHref){
+        const href=esc(rawHref);
+        const external=/^https?:\/\//i.test(rawHref);
+        html+=external
+          ? `<a href="${href}" target="_blank" rel="noopener">${label}</a>`
+          : `<a href="${href}">${label}</a>`;
+      }else{
+        html+=esc(match[0]);
+      }
+
+      last=match.index+match[0].length;
+    }
+
+    html+=autoLinkBareUrls(v.slice(last));
+    return html;
+  };
   // Render Markdown-style inline code in prose. Text enclosed in a matching
   // pair of backticks is escaped and wrapped in <code>; ordinary text keeps
   // the existing URL auto-linking behavior. An unmatched backtick remains

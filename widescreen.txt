@@ -329,7 +329,7 @@ The patch enables modern widescreen modes that the unmodified WON executable
 does not handle properly. Software mode is not supported properly on Windows
 10+. OpenGL is recommended for the best experience.
 
-Launch examples:
+Launch config (adjust resolution):
 
   hl-dark.exe -console -gl -full -w 1920 -h 1080 -noextracds -32bpp
 
