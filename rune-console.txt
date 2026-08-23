@@ -1,0 +1,318 @@
+RUNE (2000) — ORIGINAL UNREAL ENGINE 1 CONSOLE COMMAND REFERENCE
+==============================================================================
+
+  Dir   Campaign / mod           Developer           Released
+  rune  Rune                     Human Head Studios  2000
+  rune  Rune: Halls of Valhalla  Human Head Studios  2001
+
+IMPORTANT
+------------------------------------------------------------------------------
+Scope: original Rune PC / Rune Gold-era console behavior, including Halls of
+Valhalla. Rune Classic uses the same Unreal Engine 1 foundation, but some
+version-specific behavior can differ. Remaster-only commands are not used as
+reference material here.
+
+==============================================================================
+1. ACCESSING THE CONSOLE / ENABLING CHEATS
+==============================================================================
+
+Press ~ (tilde) to open the full console. TAB can also open the one-line
+command prompt in classic builds. Most cheat commands first require:
+
+cheatplease
+  Enables Rune cheat mode for the current level/session.
+
+Cheat mode may need to be enabled again after a level transition.
+
+==============================================================================
+2. CORE CHEATS
+==============================================================================
+
+god
+  Toggles god mode / player invulnerability.
+
+invisible
+  Makes the player invisible to enemies.
+
+amphibious
+  Gives effectively unlimited underwater air.
+
+killpawns
+  Kills enemy pawns in the current level.
+
+playersonly
+  Freezes non-player actors while leaving the player active. Enter it again
+  to resume normal simulation.
+
+==============================================================================
+3. MOVEMENT / CAMERA / VIEW
+==============================================================================
+
+fly
+  Enables flying movement.
+
+ghost
+  Enables no-clip movement through world geometry.
+
+walk
+  Returns the player to normal walking physics after fly or ghost.
+
+behindview <0|1>
+  Switches first/third-person camera. 0 gives first-person view and 1 restores
+  the normal third-person view.
+
+camerain
+  Moves Rune's third-person camera inward. Repeated use can pull the camera
+  into a practical first-person view and is convenient when bound to a key.
+
+cameraout
+  Moves the camera outward toward the normal third-person distance.
+
+fov <degrees>
+  Changes the current field of view. Rune's original 4:3 default is 75.
+  Example:
+  fov 91.3
+
+The console FOV can be reset by level changes or scripted camera changes. For
+persistent gameplay FOV, edit DesiredFOV and DefaultFOV in System\User.ini.
+
+Example camera bindings in System\User.ini:
+
+  C=camerain
+  V=cameraout
+
+==============================================================================
+4. HUD / DISPLAY / DEBUG
+==============================================================================
+
+set engine.hud hudmode 0
+  Disables the gameplay HUD through the stock Unreal Engine HUD property.
+
+stat fps
+  Displays the frame-rate/performance counter.
+
+togglefullscreen
+  Toggles fullscreen/windowed mode.
+
+preferences
+  Opens the Unreal Engine advanced-options/preferences window where supported.
+
+demorec <file>
+  Starts recording a client demo.
+
+==============================================================================
+5. SPAWNING / ACTORS / LEVELS
+==============================================================================
+
+summon <classname>
+  Spawns one actor or item by Unreal class name.
+
+Common Rune item classes include:
+
+  vikingshortsword
+  vikingbroadsword
+  vikingshield
+  vikingshieldcross
+  goblinaxe
+  goblinshield
+  dwarfbattlesword
+  dwarfbattleaxe
+  dwarfbattlehammer
+  dwarfworksword
+  dwarfworkhammer
+  dwarfbattleshield
+  runeofpower
+  runeofpowerrefill
+  runeofhealth
+  runeofstrength
+  magicshield
+  darkshield
+  rustymace
+  romansword
+  sigurdaxe
+  handaxe
+  torch
+
+Example:
+  summon vikingbroadsword
+
+open <mapname>
+  Loads the specified map directly.
+
+switchcooplevel <mapname>
+  Changes to the specified map while carrying the player's acquired items into
+  the new level.
+
+Common single-player map names:
+
+  intro
+  ragnarvillage
+  ragnarvillage2
+  sailingship
+  sinkingship
+  sinkingship2
+  deepunder1odin
+  deepunder1odinbv
+  deepunder3
+  deepunder4
+  hel1
+  hel1a
+  hel1a2
+  hel1b
+  hell2end
+  hel3a
+  hel3b
+  hellift
+  goblin1
+  goblin2
+  trialpit
+  beetlefly
+  thorapproach
+  thor1
+  thormap3
+  thormap4a
+  thormap4b
+  thormap5a
+  thormap5b
+  thormap6loki
+  mountain1
+  mountain2
+  dwarftrans
+  dwarf1wwheel
+  dwarfmap2
+  dwarfmap3a
+  dwarfmap3b
+  dwarfmap5a
+  dwarfmap5b
+  dwarfmap6darkdwarf
+  loki1
+  loki1a
+  lokimaze
+  loki2
+  loki3a
+  loki3b
+  villageruin
+  asgard
+
+==============================================================================
+6. HALLS OF VALHALLA (2001)
+==============================================================================
+
+Halls of Valhalla uses the same Rune console and core commands. The expansion
+adds Arena and HeadBall multiplayer modes while retaining RuneMatch and Team
+RuneMatch maps.
+
+open ar-aeternal
+  Loads the Halls of Valhalla Arena map AEternal.
+
+open hb-agora
+  Loads the Halls of Valhalla HeadBall map Agora.
+
+open dm-acidchamber
+  Loads the Halls of Valhalla RuneMatch/Team RuneMatch map Acid Chamber.
+
+Arena maps use the ar- prefix:
+
+  ar-aeternal
+  ar-bladepit
+  ar-cathedral
+  ar-champions
+  ar-smeltingpot
+  ar-teamvent
+  ar-theatre
+  ar-timetovent
+  ar-widowmaker
+
+HeadBall maps use the hb- prefix:
+
+  hb-agora
+  hb-aqueduct
+  hb-decapital
+  hb-dragonkeep
+  hb-helraiser
+  hb-montezuma
+  hb-montezuma2
+  hb-pits
+
+Halls of Valhalla also includes dm- RuneMatch / Team RuneMatch maps such as:
+
+  dm-acidchamber
+  dm-alfheim
+  dm-bothvar
+  dm-chaos
+  dm-coliseum
+  dm-dwarfforge
+  dm-gates
+  dm-geothermal
+  dm-havlamahl
+  dm-hel
+  dm-hel2000
+  dm-helevator
+  dm-hildir
+  dm-hudson
+  dm-icecavern
+  dm-ingles
+  dm-lavapit
+  dm-lostcrypt
+  dm-ruins
+  dm-sanctum
+  dm-seaside
+  dm-skorir
+  dm-team_chasm
+  dm-team_madking
+  dm-team_ships
+  dm-thorstadt
+  dm-zorn
+
+Use the map package name with open; the .run extension is normally omitted.
+
+==============================================================================
+7. CONFIGURATION / BINDING NOTES
+==============================================================================
+
+Rune stores console and input configuration in the System directory. User.ini
+can bind console commands directly to keys.
+
+Example:
+
+  C=camerain
+  V=cameraout
+  F=fov 91.3
+
+Persistent gameplay FOV is stored in System\User.ini under the player-pawn
+settings. The original 4:3 values are:
+
+  DesiredFOV=75.000000
+  DefaultFOV=75.000000
+
+For 16:9, 91.3 preserves approximately the original 4:3 vertical view.
+
+Rune.ini identifies the console class as:
+
+  [Engine.Engine]
+  Console=RMenu.RuneConsole
+
+Rune's game HUD class is RuneI.RuneHUD.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+This reference intentionally excludes remaster-only command sets. The original
+executable and its own console behavior remain the final authority.
+  - GameFAQs Rune PC cheats: cheatplease, god, fly, ghost, walk, amphibious,
+    invisible, killpawns, playersonly, open, summon, switchcooplevel,
+    togglefullscreen and preferences
+    https://gamefaqs.gamespot.com/pc/913855-rune/cheats
+  - CheatBook Rune command reference: original console access and
+    core commands
+    https://www.cheatbook.de/files/rune.htm
+  - PCGamingWiki Rune FOV Fix: in-game fov command can require reapplication
+    after level resets or camera changes
+    https://community.pcgamingwiki.com/files/file/2948-rune-fov-fix/
+  - WSGF Rune: original FOV 75 and persistent DesiredFOV/DefaultFOV settings
+    https://www.wsgf.org/phpBB3/viewtopic.php?p=3121
+  - Human Head Halls of Valhalla Arena mapping notes
+    https://www.moddb.com/games/rune/tutorials/making-new-arena-maps
+  - Human Head Halls of Valhalla HeadBall mapping notes
+    https://www.moddb.com/games/rune/tutorials/making-new-headball-maps

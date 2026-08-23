@@ -3,9 +3,11 @@ WIDESCREEN / FOV CONFIG REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-Scope: the 18 games currently documented by the game-console repository.
-The goal is to use the requested horizontal FOV mapping at 4:3, 5:4, and
-16:9.  1920x1080, 2560x1440, and 3840x2160 are all 16:9 and use the same FOV.
+This reference covers the classic PC games documented in the numbered sections
+below. The section list is authoritative, so adding another game does not
+require updating a separate game count here. The goal is to use the requested
+horizontal FOV mapping at 4:3, 5:4, and 16:9.  1920x1080, 2560x1440, and
+3840x2160 are all 16:9 and use the same FOV.
 
 Reference values used by this document:
 
@@ -351,7 +353,135 @@ Create or edit valve\autoexec.cfg:
 You can test the same values from the console with "default_fov <value>".
 
 ==============================================================================
-07. DEUS EX (2000)
+07. RUNE (2000)
+==============================================================================
+
+Config files:
+Resolution: System\Rune.ini under the active Windows viewport client section,
+using FullscreenViewportX and FullscreenViewportY.
+Persistent FOV: System\User.ini, using DesiredFOV and DefaultFOV.
+For temporary testing, use the in-game console command "fov <degrees>".
+
+Rune is an Unreal Engine 1 game with a stock 4:3 gameplay FOV of 75 degrees.
+Because Rune is normally played in third person, preserve that original
+75-degree baseline for the authentic third-person view. If playing in first
+person with camerain / behindview 0, use the standard 90-degree 4:3 FPS
+baseline instead.
+
+System\Rune.ini:
+
+4:3:
+
+  FullscreenViewportX=800
+  FullscreenViewportY=600
+
+5:4 (1280x1024):
+
+  FullscreenViewportX=1280
+  FullscreenViewportY=1024
+
+16:9 (1920x1080):
+
+  FullscreenViewportX=1920
+  FullscreenViewportY=1080
+
+16:9 (2560x1440):
+
+  FullscreenViewportX=2560
+  FullscreenViewportY=1440
+
+16:9 (3840x2160):
+
+  FullscreenViewportX=3840
+  FullscreenViewportY=2160
+
+OPTION 1 -- ORIGINAL THIRD-PERSON VIEW
+
+Preserve Rune's stock 75-degree horizontal FOV at 4:3 and widen it
+aspect-correctly for other aspect ratios.
+
+System\User.ini:
+
+4:3 (800x600):
+
+  DesiredFOV=75.000000
+  DefaultFOV=75.000000
+
+5:4 (1280x1024):
+
+  DesiredFOV=71.4601
+  DefaultFOV=71.4601
+
+16:9 (1920x1080, 2560x1440 and 3840x2160):
+
+  DesiredFOV=91.3085
+  DefaultFOV=91.3085
+
+Temporary console equivalents:
+
+  4:3   fov 75
+  5:4   fov 71.4601
+  16:9  fov 91.3085
+
+These values preserve approximately the same vertical view as Rune's original
+75-degree 4:3 presentation.
+
+OPTION 2 -- FIRST-PERSON PLAY
+
+For first-person play, use the standard 90-degree 4:3 FPS baseline. This is
+appropriate when using camerain or behindview 0 to bring the camera into
+first person.
+
+System\User.ini:
+
+4:3 (800x600):
+
+  DesiredFOV=90.000000
+  DefaultFOV=90.000000
+
+5:4 (1280x1024):
+
+  DesiredFOV=86.3048
+  DefaultFOV=86.3048
+
+16:9 (1920x1080, 2560x1440 and 3840x2160):
+
+  DesiredFOV=106.2602
+  DefaultFOV=106.2602
+
+Temporary console equivalents:
+
+  4:3   fov 90
+  5:4   fov 86.3048
+  16:9  fov 106.2602
+
+Useful first-person commands:
+
+  camerain
+    Moves the camera inward and can be bound to a key for convenient
+    first-person play.
+
+  cameraout
+    Moves the camera back outward.
+
+  behindview 0
+    Switches to first-person view.
+
+  behindview 1
+    Restores the normal third-person view.
+
+Rune's scripted cutscenes can override the player FOV, so their framing is not
+necessarily corrected by User.ini or the temporary fov command.
+
+Original Rune/Rune Gold can accept widescreen modes through the INI, but the
+classic D3D7 renderer may reject very high modes. If 2560x1440 or 3840x2160 is
+not accepted, keep a supported 16:9 game mode and use a wrapper such as
+dgVoodoo2 to scale or present the game at a higher output resolution. The FOV
+depends on aspect ratio, not pixel count, so all listed 16:9 modes use the same
+FOV within the selected third-person or first-person option.
+
+==============================================================================
+08. DEUS EX (2000)
 ==============================================================================
 
 Config files:
@@ -410,7 +540,7 @@ Deus Ex originally uses a narrower default FOV.  The settings above knowingly
 replace that stock value with this project's requested 90-degree 4:3 baseline.
 
 ==============================================================================
-08. GOTHIC (2001)
+09. GOTHIC (2001)
 ==============================================================================
 
 Config files:
@@ -479,7 +609,7 @@ Target convention for comparison:
   16:9 3840x2160  horizontal target: 106.2602
 
 ==============================================================================
-09. GOTHIC II (2002)
+10. GOTHIC II (2002)
 ==============================================================================
 
 Config files:
@@ -547,7 +677,7 @@ Target convention for comparison:
   16:9 3840x2160  horizontal target: 106.2602
 
 ==============================================================================
-10. GOTHIC 3 (2006)
+11. GOTHIC 3 (2006)
 ==============================================================================
 
 Config files:
@@ -607,7 +737,7 @@ window offset.  Gothic 3's stock Camera.FOV is narrower; the values above use
 the requested project baseline.
 
 ==============================================================================
-11. THE ELDER SCROLLS III: MORROWIND (2002)
+12. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 Config files:
@@ -670,7 +800,7 @@ active.  This preserves use of the original Morrowind executable rather than
 replacing the engine with OpenMW.
 
 ==============================================================================
-12. THE ELDER SCROLLS IV: OBLIVION (2006)
+13. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Config files:
@@ -714,7 +844,7 @@ Tweaks is useful if you want a cleaner modern implementation, but the INI
 settings above are the native configuration values.
 
 ==============================================================================
-13. THE ELDER SCROLLS V: SKYRIM (2011)
+14. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
 Config files:
@@ -784,7 +914,7 @@ for 5:4, or:
 The console-only change is not permanent; use Skyrim.ini for persistence.
 
 ==============================================================================
-14. FALLOUT 3 (2008)
+15. FALLOUT 3 (2008)
 ==============================================================================
 
 Config files:
@@ -856,7 +986,7 @@ or misalign interface presentation, so it is not required for this project's
 world-camera FOV target.
 
 ==============================================================================
-15. VIETCONG (2003)
+16. VIETCONG (2003)
 ==============================================================================
 
 Config files:
@@ -911,7 +1041,7 @@ performs
 the aspect correction rather than accepting that exact number directly.
 
 ==============================================================================
-16. RED FACTION (2001)
+17. RED FACTION (2001)
 ==============================================================================
 
 Config files:
@@ -965,7 +1095,7 @@ The first-person weapon FOV is separate (r_fpgunfov); leave it at its default
 unless you specifically want to alter weapon-model framing as well.
 
 ==============================================================================
-17. THIEF: THE DARK PROJECT (1998) -- NewDark
+18. THIEF: THE DARK PROJECT (1998) -- NewDark
 ==============================================================================
 
 Config files:
@@ -1016,7 +1146,7 @@ line above is useful when you want the exact project values rather than the
 automatic value.
 
 ==============================================================================
-18. SYSTEM SHOCK 2 (1999) -- NewDark
+19. SYSTEM SHOCK 2 (1999) -- NewDark
 ==============================================================================
 
 Config files:
@@ -1066,7 +1196,7 @@ NewDark normally calculates FOV from the aspect ratio automatically.  Keep the
 explicit fov line only when you want the exact project values shown here.
 
 ==============================================================================
-19. QUICK REFERENCE
+20. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: menu FOV; Polymer legacy uses BUILD units
@@ -1075,6 +1205,8 @@ explicit fov line only when you want the exact project values shown here.
   - Unreal: Unreal.ini + User.ini
   - Unreal Tournament 1999: UnrealTournament.ini + User.ini
   - Half-Life WON: WON patch + autoexec.cfg default_fov
+  - Rune: Rune.ini + User.ini; third-person 75 baseline / first-person 90
+    baseline
   - Deus Ex: DeusEx.ini + User.ini
   - Gothic: Gothic.ini + SystemPack Hor+ calculation
   - Gothic II: Gothic.ini + SystemPack Hor+ calculation
@@ -1097,7 +1229,7 @@ Canonical project mapping:
   16:9 (3840x2160)  fov: 106.2602
 
 ==============================================================================
-20. SOURCE / VERIFICATION NOTES
+21. SOURCE / VERIFICATION NOTES
 ==============================================================================
 The methods above were checked against engine/source-port documentation,
 released source code where available, configuration references, and
@@ -1124,6 +1256,10 @@ therefore use the same project FOV value.
   - Half-Life WON Resolution/FOV patch documentation for the original
     retail/WON 1.1.1.0 executable
     ModDB: Resolution patch for WON Half-Life
+  - Rune widescreen/FOV documentation: Rune.ini FullscreenViewportX/Y and
+    User.ini DesiredFOV/DefaultFOV; stock FOV 75 and 16:9 guidance
+    https://www.pcgamingwiki.com/wiki/Rune
+    https://www.wsgf.org/dr/rune
   - PCGamingWiki Deus Ex documentation: widescreen, DesiredFOV,
     DefaultFOV, and the fov console command
     https://www.pcgamingwiki.com/wiki/Deus_Ex

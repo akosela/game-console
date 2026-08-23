@@ -3,13 +3,12 @@ NOTEXTUREFILTERING -- SHARP / PIXELATED TEXTURE REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
-Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
-Morrowind, Oblivion, Skyrim, Fallout 3, Vietcong, Red Faction, Thief:
-The Dark Project using NewDark, and System Shock 2 using NewDark. Goal:
-disable bilinear/trilinear/anisotropic texture filtering so texels stay
-visibly sharp and pixelated instead of being smoothed together.
-Remaster-only settings are intentionally excluded.
+This reference covers the classic PC games documented in the numbered sections
+below. The section list is authoritative, so new games can be added without
+maintaining a separate list in this introduction. The goal is to disable
+bilinear/trilinear/anisotropic texture filtering so texels stay visibly sharp
+and pixelated instead of being smoothed together. Remaster-only settings are
+intentionally excluded.
 
 ==============================================================================
 0. WHAT 'NO TEXTURE FILTERING' MEANS
@@ -294,7 +293,30 @@ autoexec.cfg. The classic software renderer also has an inherently pixelated
 appearance.
 
 ==============================================================================
-7. DEUS EX (2000)
+7. RUNE (2000)
+==============================================================================
+
+Config files:
+Run the bNoSmooth command from the in-game console after a map loads.
+For a reusable key, store a binding in System\User.ini; reapply it when
+newly loaded textures or actors become filtered again.
+
+Rune is based on Unreal Engine 1 and uses the same native Texture.bNoSmooth
+and Actor.bNoSmooth properties. The targeted console method is therefore
+preferable to renderer-wide filtering overrides.
+
+set texture bNoSmooth true | set actor bNoSmooth true
+  Sets the no-smoothing flags on the currently loaded Texture and Actor
+  objects.
+
+Reapply the command after a map transition if new textures or
+actors appear filtered.
+
+On Windows 10 and later, use dgVoodoo2 to restore proper brightness and gamma 
+control.
+
+==============================================================================
+8. DEUS EX (2000)
 ==============================================================================
 
 Config files:
@@ -325,7 +347,7 @@ That option is valid as a global renderer switch, but it is much
 broader than bNoSmooth and can make lightmaps/shadows blocky.
 
 ==============================================================================
-8. GOTHIC (2001)
+9. GOTHIC (2001)
 ==============================================================================
 
 Config files:
@@ -350,7 +372,7 @@ Gothic uses an old Direct3D path, so use the dgVoodoo DirectDraw/D3D wrapper
 files appropriate to the installation.
 
 ==============================================================================
-9. GOTHIC II (2002)
+10. GOTHIC II (2002)
 ==============================================================================
 
 Config files:
@@ -375,7 +397,7 @@ renderer. If the HUD or alpha-tested foliage develops hard borders, that is a
 normal side effect of forcing point sampling.
 
 ==============================================================================
-10. GOTHIC 3 (2006)
+11. GOTHIC 3 (2006)
 ==============================================================================
 
 Config files:
@@ -395,7 +417,7 @@ App driven first; disable mipmapping only if maximum pixel harshness is more
 important than distant-texture stability.
 
 ==============================================================================
-11. THE ELDER SCROLLS III: MORROWIND (2002)
+12. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 Config files:
@@ -418,7 +440,7 @@ A texture-replacement workaround such as Morrowind Pixellized can imitate an
 unfiltered look, but a sampler override is cleaner when it works.
 
 ==============================================================================
-12. THE ELDER SCROLLS IV: OBLIVION (2006)
+13. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Config files:
@@ -438,7 +460,7 @@ masks, and UI elements harsher. If artifacts are objectionable, the original
 engine does not provide a clean per-material nearest switch.
 
 ==============================================================================
-13. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
+14. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
 ==============================================================================
 
 Config files:
@@ -460,7 +482,7 @@ Keep mipmapping App driven initially. Turning mipmapping off as well will make
 textures even harsher but can produce severe crawling/shimmering.
 
 ==============================================================================
-14. FALLOUT 3 (2008)
+15. FALLOUT 3 (2008)
 ==============================================================================
 
 Config files:
@@ -487,7 +509,7 @@ effects, and UI textures look harsher. If that is objectionable, the original
 Fallout 3 engine does not expose a clean per-material nearest switch.
 
 ==============================================================================
-15. VIETCONG (2003)
+16. VIETCONG (2003)
 ==============================================================================
 
 Config files:
@@ -508,7 +530,7 @@ If VCStarter is also being used, avoid enabling its Improve texture filtering
 option because that works in the opposite direction.
 
 ==============================================================================
-16. RED FACTION (2001)
+17. RED FACTION (2001)
 ==============================================================================
 
 Config files:
@@ -530,7 +552,7 @@ r_trilinearfiltering
 The important command for the pixelated look is r_nearest.
 
 ==============================================================================
-17. THIEF: THE DARK PROJECT (1998) -- NEWDARK
+18. THIEF: THE DARK PROJECT (1998) -- NEWDARK
 ==============================================================================
 
 Config files:
@@ -565,7 +587,7 @@ Do not merely disable trilinear filtering while leaving tex_filter_mode at 16.
 That still leaves anisotropic/linear texture filtering active.
 
 ==============================================================================
-18. SYSTEM SHOCK 2 (1999) -- NEWDARK
+19. SYSTEM SHOCK 2 (1999) -- NEWDARK
 ==============================================================================
 
 Config files:
@@ -597,7 +619,7 @@ some lightmaps and 2D assets can also look more blocky because the filter
 setting is broad.
 
 ==============================================================================
-19. MECHWARRIOR 3 (1999)
+20. MECHWARRIOR 3 (1999)
 ==============================================================================
 
 Config files:
@@ -643,7 +665,7 @@ Recommended:
   Video Device -> Software Render
 
 ==============================================================================
-20. QUICK REFERENCE
+21. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: r_texfilter 0; r_anisotropy 0
@@ -668,7 +690,7 @@ Recommended:
   - System Shock 2 / NewDark: tex_filter_mode 0
 
 ==============================================================================
-21. FILTERING VS MIPMAPPING
+22. FILTERING VS MIPMAPPING
 ==============================================================================
 
 If the main goal is sharp pixels up close but stable distant surfaces, keep
@@ -681,7 +703,7 @@ For NewDark, tex_filter_mode 0 is the documented no-filtering mode. There is
 no separate requirement to set an anisotropic value to zero.
 
 ==============================================================================
-22. SOURCE / VERIFICATION NOTES
+23. SOURCE / VERIFICATION NOTES
 ==============================================================================
 
 The native commands and configuration settings in this file were checked
@@ -713,12 +735,16 @@ not confused with commands built into the original executable.
   - OldUnreal / UTGLR — NoFiltering renderer option
     https://www.oldunreal.com/wiki/
     https://unrealarchive.org/unreal-tournament/patches-updates/renderers/
+  - Rune: original renderer selection and config layout
+    https://runegameviking.wordpress.com/tag/rune/
+  - Rune: dgVoodoo2 compatibility/gamma method and original D3D7 context
+    https://www.pcgamingwiki.com/wiki/Rune
+  - dgVoodoo2 documentation — Force point sampled texture filtering
+    https://www.pcgamingwiki.com/wiki/DgVoodoo2
   - Deus Ex Network — renderer setting documentation
     https://www.deusexnetwork.com/knowledge-base/
   - Gothic II Gothic.ini documentation for zTexAnisotropicFiltering
     https://www.pcgamingwiki.com/wiki/Gothic_II
-  - dgVoodoo2 documentation — Force point sampled texture filtering
-    https://www.pcgamingwiki.com/wiki/DgVoodoo2
   - Fallout 3 configuration references: Direct3D 9, iMaxAnisotropy,
     iTexMipMapSkip, and original-engine rendering settings
     https://www.pcgamingwiki.com/wiki/Fallout_3

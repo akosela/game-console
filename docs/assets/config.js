@@ -69,6 +69,16 @@ window.GAME_CONSOLE_DOCS = {
       ]
     },
     {
+      "file": "rune-console.txt",
+      "title": "Rune",
+      "group": "Console References",
+      "tags": [
+        "rune",
+        "ue1",
+        "console"
+      ]
+    },
+    {
       "file": "deus-ex-console.txt",
       "title": "Deus Ex",
       "group": "Console References",

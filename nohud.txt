@@ -3,16 +3,15 @@ NOHUD -- HUD / CROSSHAIR REMOVAL REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-Games covered: Duke Nukem 3D using EDuke32, Quake, Quake II, Unreal,
-Unreal Tournament, Half-Life, Deus Ex, Gothic, Gothic II, Gothic 3,
-Morrowind, Oblivion, Skyrim, Fallout 3, Vietcong, and Red Faction. The
-reference deliberately avoids remaster-only commands. Community source ports
-are used where they make practical sense, particularly when they preserve the
-original gameplay while providing better compatibility, console access, or
-configuration options. Where the original game or selected source port has
-no complete HUD switch, this file says so and documents the closest suitable
-solution: an existing menu setting, developer mode, configuration edit,
-resource override, or source-level change.
+This reference covers the classic PC games documented in the numbered sections
+below. The section list is authoritative, so adding another game does not
+require maintaining a separate game list here. Remaster-only commands are
+deliberately avoided. Community source ports are used where they make practical
+sense, particularly when they preserve the original gameplay while providing
+better compatibility, console access, or configuration options. Where the
+original game or selected source port has no complete HUD switch, this file
+says so and documents the closest suitable solution: an existing menu setting,
+developer mode, configuration edit, resource override, or source-level change.
 
 ==============================================================================
 1. DUKE NUKEM 3D (1996) -- EDUKE32
@@ -199,7 +198,50 @@ Restore:
 These can also be placed in a GoldSrc configuration file or bound to keys.
 
 ==============================================================================
-7. DEUS EX (2000)
+7. RUNE (2000)
+==============================================================================
+
+Config files:
+Rune uses System\User.ini for key bindings and gameplay input settings and
+System\Rune.ini for engine configuration. The active console class is
+RMenu.RuneConsole and the normal HUD class is RuneI.RuneHUD.
+
+Rune has a stock Unreal Engine console-property method for hiding the HUD:
+
+  set engine.hud hudmode 0
+
+This disables HUD drawing and gives a clean gameplay view without replacing
+RuneI.RuneHUD, installing a HUD mod, or using a modern renderer. Enter the
+command in Rune's console after starting a game.
+
+Rune is a third-person melee game and does not normally use a persistent
+centered FPS-style aiming crosshair, so there is no separate crosshair command
+needed for ordinary clean-view play.
+
+First-person play is also easy to use with Rune's normal camera controls. Bind
+CameraIn to a convenient key in System\User.ini and press it until the camera
+is pulled fully inward. CameraOut moves the camera back toward the normal
+third-person distance. For example:
+
+  C=CameraIn
+  V=CameraOut
+
+Useful camera commands for testing:
+
+  behindview 0
+    Switches directly to first-person view.
+
+  behindview 1
+    Restores the normal third-person view.
+
+The CameraIn binding is convenient for normal play because it lets the player
+move into first person without a renderer replacement or dedicated camera mod.
+For a first-person clean-view setup, combine CameraIn or behindview 0 with:
+
+  set engine.hud hudmode 0
+
+==============================================================================
+8. DEUS EX (2000)
 ==============================================================================
 
 Config files:
@@ -225,7 +267,7 @@ Simplest complete no-HUD command:
   showhud false
 
 ==============================================================================
-8. GOTHIC (2001)
+9. GOTHIC (2001)
 ==============================================================================
 
 Config files:
@@ -250,7 +292,7 @@ Restore:
   toggle desktop
 
 ==============================================================================
-9. GOTHIC II (2002)
+10. GOTHIC II (2002)
 ==============================================================================
 
 Config files:
@@ -269,7 +311,7 @@ presentation. If the console becomes invisible, open F2 and type the same
 command blindly to restore the desktop.
 
 ==============================================================================
-10. GOTHIC 3 (2006)
+11. GOTHIC 3 (2006)
 ==============================================================================
 
 Config files:
@@ -291,7 +333,7 @@ No separate original-game crosshair-only command was verified; use Ctrl+F1
 when a completely clean gameplay view is wanted.
 
 ==============================================================================
-11. THE ELDER SCROLLS III: MORROWIND (2002)
+12. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 Config files:
@@ -314,7 +356,7 @@ For crosshair-only removal while keeping the HUD, use the original game menu:
   Escape -> Options -> Preferences -> Crosshairs: Off
 
 ==============================================================================
-12. THE ELDER SCROLLS IV: OBLIVION (2006)
+13. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Config files:
@@ -333,7 +375,7 @@ For crosshair-only removal, use the original Gameplay options:
 This refers to the original 2006 PC game, not Oblivion Remastered.
 
 ==============================================================================
-13. THE ELDER SCROLLS V: SKYRIM (2011)
+14. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
 Config files:
@@ -354,7 +396,7 @@ This section refers to the original 2011 32-bit PC release, not Special
 Edition, Anniversary Edition, or VR.
 
 ==============================================================================
-14. FALLOUT 3 (2008)
+15. FALLOUT 3 (2008)
 ==============================================================================
 
 Config files:
@@ -382,7 +424,7 @@ allow HUD opacity to be reduced to zero. TM is the simpler native command
 when a completely clean screenshot or gameplay view is wanted.
 
 ==============================================================================
-15. VIETCONG (2003)
+16. VIETCONG (2003)
 ==============================================================================
 
 Config files:
@@ -406,7 +448,7 @@ information, but that applies to spectating/replays rather than ordinary
 campaign play.
 
 ==============================================================================
-16. RED FACTION (2001) -- ORIGINAL PC v1.20
+17. RED FACTION (2001) -- ORIGINAL PC v1.20
 ==============================================================================
 
 Config files:
@@ -441,7 +483,7 @@ Do not substitute the community-port command hud when documenting the official
 v1.20 game; that command was added later.
 
 ==============================================================================
-17. THIEF: THE DARK PROJECT (1998)
+18. THIEF: THE DARK PROJECT (1998)
 ==============================================================================
 
 Config files:
@@ -481,7 +523,7 @@ Recommended original-engine HUD setting:
   inv_status_height 0
 
 ==============================================================================
-18. SYSTEM SHOCK 2 (1999)
+19. SYSTEM SHOCK 2 (1999)
 ==============================================================================
 
 Config files:
@@ -527,7 +569,7 @@ For a completely clean view:
   use transparent replacements for the crosshair and HUD resources
 
 ==============================================================================
-19. QUICK REFERENCE
+20. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: screen_size 0 + crosshair 0
@@ -536,6 +578,7 @@ For a completely clean view:
   - Unreal: changehud / HudMode=5; set HUD Crosshair 6
   - Unreal Tournament: changehud / bHideHUD=True
   - Half-Life: hud_draw 0 + crosshair 0
+  - Rune: set engine.hud hudmode 0; CameraIn / behindview 0 for first person
   - Deus Ex: showhud false; ToggleCrosshair
   - Gothic: toggle desktop
   - Gothic II: toggle desktop
@@ -552,7 +595,7 @@ For a completely clean view:
     resource override for a complete HUD/crosshair-free view
 
 ==============================================================================
-20. SOURCE / VERIFICATION NOTES
+21. SOURCE / VERIFICATION NOTES
 ==============================================================================
 
 The methods above were checked against original-engine documentation, released
@@ -570,6 +613,11 @@ references. Remaster-only commands were intentionally excluded.
   - OldUnreal classic Unreal Engine 1 HUD/crosshair documentation
   - Unreal Archive and classic UT99 configuration references
   - GoldSrc/Half-Life command and source-derived documentation
+  - Rune official/public 1.07 source package and Rune community
+    documentation identify RMenu.RuneConsole and RuneI.RuneHUD; the stock
+    Unreal Engine property command set engine.hud hudmode 0 disables the HUD
+    https://www.moddb.com/downloads/rune-v107-public-source
+    https://runegameviking.wordpress.com/tag/rune/
   - Deus Ex Wiki: Deus Ex console commands
   - Gothic classic Marvin documentation for toggle desktop
   - Gothic 3 classic TestMode developer-hotkey documentation
