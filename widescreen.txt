@@ -3,11 +3,10 @@ WIDESCREEN / FOV CONFIG REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-This reference covers the classic PC games documented in the numbered sections
-below. The section list is authoritative, so adding another game does not
-require updating a separate game count here. The goal is to use the requested
-horizontal FOV mapping at 4:3, 5:4, and 16:9.  1920x1080, 2560x1440, and
-3840x2160 are all 16:9 and use the same FOV.
+This reference covers the classic PC games documented in the numbered
+sections below. The goal is to use the requested horizontal FOV mapping at
+4:3, 5:4, and 16:9. 1920x1080, 2560x1440, and 3840x2160 are all 16:9 and
+use the same FOV.
 
 Reference values used by this document:
 

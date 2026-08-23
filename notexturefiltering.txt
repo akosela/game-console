@@ -3,12 +3,10 @@ NOTEXTUREFILTERING -- SHARP / PIXELATED TEXTURE REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-This reference covers the classic PC games documented in the numbered sections
-below. The section list is authoritative, so new games can be added without
-maintaining a separate list in this introduction. The goal is to disable
-bilinear/trilinear/anisotropic texture filtering so texels stay visibly sharp
-and pixelated instead of being smoothed together. Remaster-only settings are
-intentionally excluded.
+This reference covers the classic PC games documented in the numbered
+sections below. The goal is to disable bilinear/trilinear/anisotropic
+texture filtering so texels stay visibly sharp and pixelated instead of
+being smoothed together. Remaster-only settings are intentionally excluded.
 
 ==============================================================================
 0. WHAT 'NO TEXTURE FILTERING' MEANS

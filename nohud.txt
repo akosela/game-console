@@ -3,15 +3,14 @@ NOHUD -- HUD / CROSSHAIR REMOVAL REFERENCE
 
 SCOPE
 ------------------------------------------------------------------------------
-This reference covers the classic PC games documented in the numbered sections
-below. The section list is authoritative, so adding another game does not
-require maintaining a separate game list here. Remaster-only commands are
-deliberately avoided. Community source ports are used where they make practical
-sense, particularly when they preserve the original gameplay while providing
-better compatibility, console access, or configuration options. Where the
-original game or selected source port has no complete HUD switch, this file
-says so and documents the closest suitable solution: an existing menu setting,
-developer mode, configuration edit, resource override, or source-level change.
+This reference covers the classic PC games documented in the numbered
+sections below. Remaster-only commands are deliberately avoided. Community
+source ports are used where they make practical sense, particularly when
+they preserve the original gameplay while providing better compatibility,
+console access, or configuration options. Where the original game or selected
+source port has no complete HUD switch, this file says so and documents
+the closest suitable solution: an existing menu setting, developer mode,
+configuration edit, resource override, or source-level change.
 
 ==============================================================================
 1. DUKE NUKEM 3D (1996) -- EDUKE32
