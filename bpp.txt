@@ -1,0 +1,941 @@
+BPP / COLOR DEPTH -- ORIGINAL / PIXELATED PRESENTATION REFERENCE
+==============================================================================
+
+SCOPE
+------------------------------------------------------------------------------
+This reference documents the original framebuffer/display color depth used by
+the classic PC games in the numbered sections below, together with practical
+settings for keeping that presentation when a newer source port or wrapper is
+used.
+
+The priority used by this document is:
+
+  1. Prefer the original software renderer when the game had one.
+  2. Use the original framebuffer/color depth for that renderer.
+  3. If software rendering is unavailable or impractical, keep the original
+     hardware color depth where possible and disable texture filtering.
+  4. In newer source ports, disable true-color/palette-expansion features when
+     they materially change the original palette behavior.
+
+This is deliberately an old-school presentation guide. Higher color depth is
+not treated as automatically better.
+
+IMPORTANT:
+"BPP" in this file normally means framebuffer/display bits per pixel. Texture
+storage depth is separate. A game can use 8-bit paletted textures while drawing
+to a 16-bit or 32-bit framebuffer.
+
+Texture filtering is also separate from color depth. Nearest/point sampling is
+used here because the project prefers a sharp, visibly pixelated presentation,
+but disabling filtering does not by itself change 32-bit color into 16-bit or
+8-bit color.
+
+On Windows 10/11, an old 8-bit or 16-bit renderer may ultimately be presented
+through a 32-bit desktop surface by Windows, SDL, a source port, or a wrapper.
+That does not necessarily mean the game's internal renderer has stopped using
+its original indexed or low-color rendering path.
+
+==============================================================================
+0. TERMINOLOGY
+==============================================================================
+
+8-BIT INDEXED / PALETTED
+  Each framebuffer pixel is normally one byte selecting one of 256 palette
+  entries. The palette supplies the final RGB color. Classic BUILD, Quake, and
+  Quake II software rendering use this type of approach.
+
+16-BIT COLOR
+  Usually RGB565 or a related 15/16-bit packed RGB format. It provides far
+  more than 256 simultaneous colors but visibly less precision than a 32-bit
+  framebuffer. Color banding and dithering can therefore be part of the
+  original appearance.
+
+32-BIT COLOR
+  Usually an 8-bit-per-channel RGB/RGBA-style framebuffer or equivalent
+  Direct3D backbuffer. Later games in this reference were designed around this
+  and should not be artificially reduced to 16-bit merely because they are old.
+
+TEXTURE BPP
+  The storage format of a texture. This can differ from framebuffer BPP.
+  Examples include 8-bit paletted textures expanded into a 16-bit framebuffer
+  or 16-bit textures drawn into a 32-bit framebuffer.
+
+SOFTWARE RENDERER
+  The CPU rasterizer supplied by the game/engine. For the early games here,
+  this is the preferred reference because it naturally preserves the original
+  point-sampled pixels, palette behavior, dithering, and low-color blending.
+
+==============================================================================
+1. DUKE NUKEM 3D (1996) -- EDUKE32
+==============================================================================
+
+Original baseline:
+  8 bpp indexed / 256-color BUILD palette
+  Classic BUILD software renderer
+
+The original game is fundamentally an 8-bit paletted software-rendered title.
+For the closest presentation in EDuke32, use the classic renderer rather than
+Polymost or Polymer:
+
+  setrendermode 0
+
+EDuke32 identifies renderer 0 as REND_CLASSIC, the classic BUILD software
+renderer. This keeps the original 8-bit art and palette-based rendering path
+and does not require a texture-filter command.
+
+Preferred:
+  setrendermode 0
+
+Hardware fallback:
+  setrendermode 3
+  r_texfilter 0
+  r_anisotropy 0
+
+The hardware fallback keeps the pixels sharp but is not an actual 8-bit
+framebuffer. The OpenGL renderer expands the old palette art into a modern
+hardware rendering path.
+
+==============================================================================
+2. QUAKE (1996) -- MARK V
+==============================================================================
+
+Original baseline:
+  8 bpp indexed / 256-color framebuffer
+  WinQuake software renderer
+
+The original Quake software rasterizer only renders an 8-bit framebuffer.
+The released source explicitly rejects non-8-bpp software video modes.
+
+For Mark V, prefer its WinQuake build:
+
+  mark_v_winquake.exe
+
+This is the closest match to the original renderer and naturally keeps the
+software-rendered, point-sampled appearance.
+
+Preferred:
+  Mark V WinQuake renderer
+  8-bit indexed internal rendering
+
+Mark V hardware-renderer fallback:
+
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+  gl_smoothmodels 0
+
+Use GL_NEAREST instead if mipmaps are not wanted at all.
+
+The OpenGL/Direct3D Mark V builds still use Quake's original 8-bit texture art,
+but the hardware output is expanded to true color. Nearest filtering can copy
+the sharp texture appearance, but it does not recreate the exact 8-bit
+framebuffer, palette quantization, or software-renderer blending.
+
+==============================================================================
+3. QUAKE II (1997) -- YAMAGI QUAKE II
+==============================================================================
+
+Original baseline:
+  8 bpp indexed / paletted software framebuffer
+  Original Quake II software renderer
+
+Yamagi Quake II retains a port of the classic software renderer. Select it with:
+
+  vid_renderer soft
+  vid_restart
+
+For the closest original software look also leave experimental software
+colored lighting disabled:
+
+  sw_colorlight 0
+
+Preferred:
+  vid_renderer soft
+  sw_colorlight 0
+
+The software renderer is naturally point sampled and retains the 8-bit
+paletted rendering character.
+
+Hardware fallback:
+
+  vid_renderer gl1
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+  r_2D_unfiltered 1
+
+The hardware renderer uses true-color output, so this is a sharp-pixel
+approximation rather than the original 8-bit framebuffer.
+
+==============================================================================
+4. UNREAL (1998)
+==============================================================================
+
+Original baseline:
+  16 bpp Windows display mode
+  Original Unreal Engine 1 software renderer is the preferred reference here
+
+The stock WindowsClient configuration uses 16-bit color as the period baseline:
+
+  [WinDrv.WindowsClient]
+  WindowedColorBits=16
+  FullscreenColorBits=16
+
+Select the software renderer:
+
+  [Engine.Engine]
+  GameRenderDevice=SoftDrv.SoftwareRenderDevice
+
+For the deliberately sharp project presentation, disable the software
+renderer smoothing switches:
+
+  [SoftDrv.SoftwareRenderDevice]
+  HighResTextureSmooth=False
+  LowResTextureSmooth=False
+
+Preferred:
+  SoftDrv.SoftwareRenderDevice
+  FullscreenColorBits=16
+  HighResTextureSmooth=False
+  LowResTextureSmooth=False
+
+Unreal packages often contain paletted source textures, but that does not make
+the Windows framebuffer an 8-bit framebuffer. Keep texture palette depth and
+display BPP conceptually separate.
+
+Hardware fallback:
+  FullscreenColorBits=16
+  Use32BitTextures=False
+
+For loaded base textures/actors, the project's existing sharp-texture method
+can also be used:
+
+  set texture bNoSmooth true | set actor bNoSmooth true
+
+==============================================================================
+5. UNREAL TOURNAMENT (1999)
+==============================================================================
+
+Original baseline:
+  16 bpp stock WindowsClient configuration
+  Software rendering available
+
+Original UnrealTournament.ini configurations commonly start with:
+
+  [WinDrv.WindowsClient]
+  WindowedColorBits=16
+  FullscreenColorBits=16
+
+For the low-color/pixelated profile use:
+
+  [Engine.Engine]
+  GameRenderDevice=SoftDrv.SoftwareRenderDevice
+
+  [SoftDrv.SoftwareRenderDevice]
+  HighResTextureSmooth=False
+  LowResTextureSmooth=False
+
+Preferred:
+  Software renderer
+  FullscreenColorBits=16
+  smoothing disabled
+
+UT's software renderer and later patches can also operate in higher color
+modes; 16-bit is used here as the stock/period baseline, not as a claim that
+32-bit software rendering was impossible.
+
+Original hardware fallback:
+
+  [WinDrv.WindowsClient]
+  FullscreenColorBits=16
+
+  [D3DDrv.D3DRenderDevice]
+  Use32BitTextures=False
+
+For sharp loaded textures:
+
+  set texture bNoSmooth true | set actor bNoSmooth true
+
+==============================================================================
+6. HALF-LIFE (1998) -- WON / GOLDSRC
+==============================================================================
+
+Original software baseline:
+  16 bpp framebuffer
+  GoldSrc software renderer
+
+Half-Life differs from Quake here. Although many source textures are still
+8-bit/paletted assets, GoldSrc changed the software rendering path to output
+16-bit color.
+
+For the original WON-era look on an operating system where software rendering
+works correctly:
+
+  hl.exe -soft -16bpp
+
+Preferred authentic renderer:
+  Software
+  16 bpp
+
+Do not use -32bpp when the goal is the original software-renderer color depth.
+
+On Windows 10/11 the original WON software renderer is problematic and may not
+work correctly. If the project's patched WON executable is run in OpenGL
+instead, use nearest texture filtering:
+
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+
+or, for no mipmaps:
+
+  gl_texturemode GL_NEAREST
+
+A modern OpenGL mode will normally be presented in true color. It can preserve
+sharp texels, but it cannot reproduce every 16-bit software-renderer blend,
+dither, and color-quantization artifact.
+
+==============================================================================
+7. RUNE (2000)
+==============================================================================
+
+Original baseline:
+  16 bpp Unreal Engine 1 Windows display mode
+  Software rendering is present in the original engine
+  Direct3D 7 was the normal accelerated path
+
+Rune.ini exposes the standard UE1 render-device choices, including:
+
+  GameRenderDevice=SoftDrv.SoftwareRenderDevice
+
+For the software/pixelated reference profile use:
+
+  [WinDrv.WindowsClient]
+  WindowedColorBits=16
+  FullscreenColorBits=16
+
+If the SoftwareRenderDevice section is present, keep smoothing disabled:
+
+  [SoftDrv.SoftwareRenderDevice]
+  HighResTextureSmooth=False
+  LowResTextureSmooth=False
+
+Preferred:
+  SoftDrv.SoftwareRenderDevice
+  FullscreenColorBits=16
+  software texture smoothing disabled
+
+If software rendering is too slow or incompatible, retain Rune's original
+Direct3D renderer and keep the requested 16-bit game mode where it works.
+On Windows 10/11, dgVoodoo2 is useful for compatibility and gamma/brightness.
+
+For the project's sharp hardware look:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+A wrapper may present the final image through a 32-bit desktop/backbuffer even
+when Rune requests a 16-bit mode. That is a compatibility layer, not evidence
+that Rune's original 16-bit setting was wrong.
+
+==============================================================================
+8. DEUS EX (2000)
+==============================================================================
+
+Original baseline:
+  16 bpp stock WindowsClient configuration
+  Original UE1 software renderer available
+  Original Direct3D configuration keeps 32-bit textures disabled
+
+DeusEx.ini uses:
+
+  [WinDrv.WindowsClient]
+  WindowedColorBits=16
+  FullscreenColorBits=16
+
+For the software/pixelated profile:
+
+  [Engine.Engine]
+  GameRenderDevice=SoftDrv.SoftwareRenderDevice
+
+  [SoftDrv.SoftwareRenderDevice]
+  HighResTextureSmooth=False
+  LowResTextureSmooth=False
+
+Preferred:
+  Software renderer
+  FullscreenColorBits=16
+  smoothing disabled
+
+Original Direct3D fallback:
+
+  [D3DDrv.D3DRenderDevice]
+  Use32BitTextures=False
+
+For sharp base textures and actor skins:
+
+  set texture bNoSmooth true | set actor bNoSmooth true
+
+This keeps the stock 16-bit framebuffer/texture choices closer to the 2000
+release than a modern 32-bit enhanced renderer with filtered textures.
+
+==============================================================================
+9. GOTHIC (2001)
+==============================================================================
+
+Original baseline:
+  16 bpp Direct3D display mode
+
+The original Gothic configuration uses:
+
+  [VIDEO]
+  zVidResFullscreenBPP=16
+
+For an original-color-depth profile keep:
+
+  zVidResFullscreenBPP=16
+
+Gothic does not provide a useful stock software-renderer path for this
+reference and has no verified native switch that globally changes ordinary
+bilinear texture sampling to nearest.
+
+For the sharp project presentation while retaining Gothic.exe:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+Modern systems or SystemPack configurations may work more reliably with:
+
+  zVidResFullscreenBPP=32
+
+That is a compatibility choice. Use 16 when the original renderer and wrapper
+accept it; use 32 only when 16-bit mode fails.
+
+==============================================================================
+10. GOTHIC II (2002)
+==============================================================================
+
+Original baseline:
+  16 bpp Direct3D display mode
+
+The original Gothic.ini uses the same setting:
+
+  [VIDEO]
+  zVidResFullscreenBPP=16
+
+Preferred original-color-depth profile:
+
+  zVidResFullscreenBPP=16
+
+Modern troubleshooting guides often change this to 32 because some current
+drivers cannot create Gothic II's old 16-bit mode. That improves compatibility
+but changes the original framebuffer depth.
+
+For the sharp project presentation with the original executable:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+If the game will not initialize at 16 bpp, use 32 bpp as a compatibility
+fallback rather than treating it as the historical baseline.
+
+==============================================================================
+11. GOTHIC 3 (2006)
+==============================================================================
+
+Original/native baseline:
+  32 bpp Direct3D 9-era framebuffer
+
+Gothic 3 belongs to the later true-color generation. There is no useful
+8-bit/16-bit software-renderer baseline to restore.
+
+Preferred:
+  Keep normal 32-bit color.
+
+For the project's intentionally sharp texture presentation:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+Do not lower the framebuffer to 16-bit merely to make the game look older.
+For Gothic 3, 32-bit color is part of the original rendering generation; the
+pixelated treatment should come from texture sampling, not artificial color
+truncation.
+
+==============================================================================
+12. THE ELDER SCROLLS III: MORROWIND (2002)
+==============================================================================
+
+Original/native baseline:
+  32 bpp Direct3D 8 framebuffer
+
+Morrowind runs in 32-bit color by design. Unlike Gothic or the UE1 titles
+above, there is no useful 16-bit original presentation target to restore.
+
+Preferred:
+  Original Morrowind.exe
+  32-bit color
+
+For sharp point-sampled textures while keeping the original engine:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+Use the x86 D3D8.dll wrapper.
+
+The wrapper changes texture sampling only. Keep the game at its native
+32-bit color depth.
+
+==============================================================================
+13. THE ELDER SCROLLS IV: OBLIVION (2006)
+==============================================================================
+
+Original/native baseline:
+  32 bpp Direct3D 9 framebuffer
+
+Oblivion is a true-color Direct3D 9 game. There is no historically meaningful
+software or 16-bit mode to prefer.
+
+Preferred:
+  32-bit color
+
+For the project's pixelated texture treatment:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+Use the x86 D3D9.dll wrapper.
+
+Do not reduce framebuffer BPP. Nearest sampling is the appropriate way to make
+the textures sharp while leaving the game's native color precision intact.
+
+==============================================================================
+14. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT RELEASE
+==============================================================================
+
+Original/native baseline:
+  32 bpp Direct3D 9 framebuffer
+
+This section refers to the original 2011 32-bit TESV.exe, not Special Edition
+or Anniversary Edition.
+
+Preferred:
+  32-bit color
+
+For the project's no-filtering presentation:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+Use the x86 D3D9.dll wrapper.
+
+Skyrim was not designed around a lower-color software framebuffer. Keep its
+native 32-bit color and change texture sampling only.
+
+==============================================================================
+15. FALLOUT 3 (2008)
+==============================================================================
+
+Original/native baseline:
+  32 bpp Direct3D 9 framebuffer
+
+Fallout 3 belongs to the same true-color Direct3D generation as Oblivion and
+original Skyrim.
+
+Preferred:
+  32-bit color
+
+For the project's sharp texture presentation:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+Use the x86 D3D9.dll wrapper.
+
+Do not confuse iMaxAnisotropy or mipmap controls with color depth. They change
+texture sampling/detail behavior, not framebuffer BPP.
+
+==============================================================================
+16. VIETCONG (2003)
+==============================================================================
+
+Original options:
+  16-bit HiColor
+  32-bit TrueColor
+  Optional "Prefer 16bit textures"
+
+Vietcong shipped while both 16-bit and 32-bit display modes were normal. It
+therefore does not have one mandatory framebuffer depth in the way Quake or
+Half-Life software rendering does.
+
+For this project's deliberately period/low-color profile, use:
+
+  Color depth: 16-bit / HiColor
+  Prefer 16bit textures: enabled
+
+The original manual explains that 32-bit textures are higher quality but that
+the difference is small, and suggests the 16-bit texture option. Period tuning
+guides also paired "Prefer 16bit textures" with 16-bit display color on slower
+hardware.
+
+This is a deliberate low-color original-game profile. 32-bit TrueColor is also
+an authentic option shipped with Vietcong.
+
+For point-sampled textures:
+
+  dgVoodoo2 -> DirectX -> Filtering -> Force point sampled
+
+Use the x86 D3D8.dll wrapper and avoid VCStarter's "Improve texture filtering"
+option when the goal is the pixelated look.
+
+==============================================================================
+17. RED FACTION (2001)
+==============================================================================
+
+Original framebuffer options:
+  16 Bit
+  32 Bit
+
+Both depths are genuine original Red Faction launcher choices. Unlike Quake,
+there is no reason to claim that Red Faction is fundamentally an 8-bit or
+16-bit-only game.
+
+Recommended original-game baseline:
+  Framebuffer: 32 Bit
+
+Reason:
+The stock 16-bit mode is known to produce yellow-line corruption in the Rail
+Driver scope. The original 32-bit mode avoids that bug while remaining a
+completely original renderer option.
+
+If specifically testing the lower-color mode:
+  Framebuffer: 16 Bit
+
+For the project's pixelated texture appearance use the stock command:
+
+  r_nearest
+
+This is an original Red Faction command and is independent of framebuffer BPP.
+Use 32-bit + r_nearest for the most robust original-engine configuration.
+
+==============================================================================
+18. THIEF: THE DARK PROJECT (1998) -- OLDDARK / NEWDARK
+==============================================================================
+
+Original baselines:
+  Software renderer: 8-bit indexed / 256-color presentation
+  Hardware renderer: 16-bit color
+
+Thief is an important special case. The original software renderer has the
+distinctive 8-bit, palette-quantized look, while the original accelerated
+renderer uses 16-bit color.
+
+AUTHENTIC OLDDARK SOFTWARE PROFILE
+
+On a period-compatible installation, select software rendering:
+
+  game_hardware 0
+
+The 8-bit software presentation is the preferred reference for this project.
+It includes palette quantization and coarse light/color transitions that are
+not reproduced merely by changing texture filtering in NewDark.
+
+NEWDARK -- CLOSEST BUILT-IN PIXELATED APPROXIMATION
+
+NewDark does not restore the original 8-bit software framebuffer. It uses a
+modern hardware rendering path. For the closest simple built-in presentation,
+open cam_ext.cfg and use:
+
+  tex_filter_mode 0
+  disable_32bit_fampal
+
+tex_filter_mode 0 disables texture filtering.
+
+disable_32bit_fampal affects NewDark's 32-bit family-palette handling. It is
+useful when deliberately approximating older Thief 1 palette behavior, but it
+does NOT change the framebuffer to 8-bit.
+
+IMPORTANT:
+disable_32bit_fampal is not a universal fan-mission compatibility setting.
+Some FMs and texture sets expect NewDark's newer family-palette behavior. Use
+it for the original-game/authenticity profile and remove/comment it if an FM
+shows incorrect palette colors.
+
+For an approximation of the original 16-bit HARDWARE path instead of the
+8-bit software path, NewDark's legacy display system can expose 16-bit modes
+when the following 32-bit-enforcing options are not active:
+
+  ;use_d3d_display
+  ;force_32bit
+
+Then request:
+
+  game_screen_depth 16
+
+This is closer to OldDark hardware rendering, but it still is not the original
+8-bit software renderer.
+
+For a still closer faux-8-bit NewDark image, community shaders exist that
+quantize the final image. Those are approximations; only OldDark software
+rendering produces the actual original 8-bit rendering path.
+
+==============================================================================
+19. SYSTEM SHOCK 2 (1999) -- NEWDARK
+==============================================================================
+
+Original baseline:
+  16 bpp hardware-accelerated framebuffer
+  No supported original software renderer
+
+System Shock 2 is different from Thief: The Dark Project. Looking Glass staff
+confirmed at release time that Shock 2 was designed for hardware rendering and
+not for software rendering.
+
+The original cam.cfg uses:
+
+  game_hardware 1
+  game_screen_depth 16
+
+Preferred original color-depth target:
+  Hardware rendering
+  16 bpp
+
+NEWDARK 16-BIT / CLASSIC-DISPLAY PROFILE
+
+NewDark's modern Direct3D 9 display path automatically enables 32-bit
+rendering. To make 16-bit display modes available, keep these options
+commented/disabled in cam_ext.cfg:
+
+  ;use_d3d_display
+  ;force_32bit
+
+Then use:
+
+  game_screen_depth 16
+
+If force_32bit_textures is explicitly enabled and the goal is the closest
+original texture path, it can also be commented:
+
+  ;force_32bit_textures
+
+For this project's sharp/pixelated sampler preference:
+
+  tex_filter_mode 0
+
+Recommended classic-profile combination:
+
+  game_screen_depth 16
+  tex_filter_mode 0
+  ;use_d3d_display
+  ;force_32bit
+  ;force_32bit_textures
+
+IMPORTANT:
+Texture filtering was part of normal late-1990s hardware presentation in
+System Shock 2. tex_filter_mode 0 is this project's deliberate pixelated
+preference; the 16-bit framebuffer is the historically important BPP setting.
+
+On current hardware, 16-bit legacy display modes can fail or behave
+differently from a period DirectX 6 graphics card. If that happens, retain
+32-bit NewDark output but keep tex_filter_mode 0; this preserves the project's
+sharp texture style even though the framebuffer depth is no longer exact.
+
+==============================================================================
+20. MECHWARRIOR 3 (1999)
+==============================================================================
+
+Original baseline:
+  16 bpp DirectDraw / Direct3D 6 surfaces
+  Original Software Render device available
+
+MechWarrior 3's original rendering path uses 16-bit RGB surfaces. For the
+project's sharp/pixelated presentation, prefer the game's own software
+renderer:
+
+  Main Menu -> Options -> Graphics
+  Video Device -> Software Render
+
+Restart the game after changing the video device.
+
+Preferred:
+  Software Render
+  original 16-bit presentation
+
+The software renderer avoids the hardware bilinear-filtered look and is the
+closest self-contained original-engine method.
+
+The original hardware renderer also operates through the old 16-bit
+DirectDraw/Direct3D path. dgVoodoo2 can wrap it, but the project's existing
+compatibility testing notes problems around MechWarrior 3's cockpit/HUD path.
+Do not prefer dgVoodoo point-filter forcing over the native Software Render
+device for this game.
+
+==============================================================================
+21. QUICK REFERENCE
+==============================================================================
+
+  - Duke Nukem 3D / EDuke32:
+      8-bit indexed; setrendermode 0
+
+  - Quake / Mark V:
+      8-bit indexed; mark_v_winquake.exe
+
+  - Quake II / Yamagi:
+      8-bit indexed; vid_renderer soft; sw_colorlight 0
+
+  - Unreal:
+      16-bit; SoftDrv.SoftwareRenderDevice; FullscreenColorBits=16;
+      HighResTextureSmooth=False; LowResTextureSmooth=False
+
+  - Unreal Tournament:
+      16-bit stock baseline; software renderer; smoothing disabled
+
+  - Half-Life WON:
+      16-bit software renderer; hl.exe -soft -16bpp
+
+  - Rune:
+      16-bit UE1 baseline; software renderer where practical;
+      otherwise original D3D7 + dgVoodoo point sampling
+
+  - Deus Ex:
+      16-bit stock baseline; software renderer; Use32BitTextures=False
+      for original D3D
+
+  - Gothic:
+      zVidResFullscreenBPP=16; dgVoodoo point sampling if needed
+
+  - Gothic II:
+      zVidResFullscreenBPP=16; 32 only as modern compatibility fallback
+
+  - Gothic 3:
+      32-bit native; do not reduce BPP; point sample textures if desired
+
+  - Morrowind:
+      32-bit native; point sample original D3D8 through dgVoodoo2
+
+  - Oblivion:
+      32-bit native; point sample original D3D9 through dgVoodoo2
+
+  - Skyrim 2011:
+      32-bit native; point sample original D3D9 through dgVoodoo2
+
+  - Fallout 3:
+      32-bit native; point sample original D3D9 through dgVoodoo2
+
+  - Vietcong:
+      original 16/32-bit options; project low-color profile = 16-bit
+      HiColor + Prefer 16bit textures + point sampling
+
+  - Red Faction:
+      original 16/32-bit options; recommend 32-bit + r_nearest
+
+  - Thief: The Dark Project:
+      OldDark software = 8-bit; hardware = 16-bit;
+      NewDark approximation = tex_filter_mode 0 + disable_32bit_fampal
+
+  - System Shock 2:
+      original hardware = 16-bit; no original software renderer;
+      disable NewDark force_32bit/use_d3d_display for 16-bit modes
+
+  - MechWarrior 3:
+      16-bit original path; prefer native Software Render device
+
+==============================================================================
+22. BPP VS THE "ORIGINAL LOOK"
+==============================================================================
+
+Color depth is only one part of the picture.
+
+An 8-bit software renderer can differ from a 32-bit hardware renderer through:
+
+  - palette quantization
+  - dithering
+  - reduced light/color precision
+  - point-sampled textures
+  - software mip selection
+  - different translucent/additive blending
+  - different fog and gamma behavior
+
+Therefore:
+
+  32-bit + nearest filtering != exact 8-bit software rendering
+
+and:
+
+  16-bit + nearest filtering != exact 8-bit software rendering
+
+For games that genuinely had an 8-bit software renderer, use that renderer
+when possible. For games whose original renderer was already 16-bit or
+32-bit hardware, preserve that native BPP and use point sampling only as the
+project's separate pixelated-texture preference.
+
+==============================================================================
+23. SOURCE / VERIFICATION NOTES
+==============================================================================
+
+The distinctions in this file were checked against released engine source,
+original/config-era material, source-port documentation, and established
+community technical references. In particular, the file distinguishes
+framebuffer BPP from texture palette/storage depth.
+
+  - EDukeWiki: classic BUILD software renderer
+    https://wiki.eduke32.com/wiki/Rendmode
+    https://wiki.eduke32.com/wiki/Console_commands
+    https://wiki.eduke32.com/wiki/Video_setup
+
+  - id Software Quake source:
+    WinQuake software video code explicitly accepts only 8-bpp software modes
+    https://github.com/id-Software/Quake
+
+  - Mark V:
+    separate WinQuake/software renderer build
+    https://quakeone.com/markv/
+
+  - Yamagi Quake II:
+    vid_renderer soft, software renderer, gl_texturemode and 2D filtering
+    https://github.com/yquake2/yquake2
+    https://github.com/yquake2/yquake2/blob/master/doc/040_cvarlist.md
+
+  - Unreal / Unreal Tournament classic configuration:
+    WinDrv WindowsClient 16-bit defaults, SoftDrv software renderer and
+    D3D Use32BitTextures behavior
+    https://www.oldunreal.com/
+    https://github.com/zedr/docker-unreal-tournament-99/blob/master/server/UnrealTournament.ini
+
+  - Rune:
+    Rune.ini exposes D3D, Glide and SoftDrv.SoftwareRenderDevice
+    https://runegameviking.wordpress.com/category/modding/
+
+  - GoldSrc / Half-Life:
+    software renderer changed from Quake's 8-bit output to 16-bit color
+    https://wiki.sourceruns.org/GoldSrc.html
+    Valve Half-Life issue tracker also documents the current/legacy 16-bpp
+    software-renderer limitation
+    https://github.com/ValveSoftware/halflife/issues/
+
+  - Deus Ex classic configuration:
+    WinDrv 16-bit color, SoftDrv, and Use32BitTextures=False
+    https://unrealarchive.org/wikis/unreal-wiki/Legacy%3ADeusEx.INI.html
+
+  - Gothic / Gothic II:
+    zVidResFullscreenBPP=16 is the classic configuration value; changing to
+    32 is a common modern compatibility fix
+    https://www.pcgamingwiki.com/wiki/Gothic_II
+
+  - Morrowind period tweak documentation:
+    Morrowind runs at 32-bit color depth
+    https://www.tweaktown.com/guides/316/the_elder_scrolls_iii_morrowind_tweak_guide/index.html
+
+  - Vietcong:
+    original setup supports HiColor/TrueColor and the manual documents
+    "Prefer 16bit textures"
+    https://www.neowin.net/forum/topic/91079-vietcong-graphics-settings/
+
+  - Red Faction Wiki:
+    original launcher Framebuffer 16 Bit / 32 Bit and known 16-bit Rail Driver
+    scope artifact
+    https://www.redfactionwiki.com/w/index.php?title=Red_Faction_FAQ
+
+  - NewDark / Thief:
+    NewDark force_32bit/use_d3d_display behavior, tex_filter_mode, original
+    8-bit-software-look discussion, and disable_32bit_fampal behavior
+    https://www.ttlg.com/forums/showthread.php?t=150661
+    https://www.ttlg.com/forums/showthread.php?t=149669
+
+  - System Shock 2:
+    original cam.cfg uses game_screen_depth 16; NewDark force_32bit filters
+    out 16-bit modes. Contemporary Looking Glass developer response confirms
+    Shock 2 was designed for hardware rendering rather than software.
+    https://www.gog.com/forum/system_shock_series/possible_to_run_system_shock_2_with_original_16bit_color_depth
+    https://groups.google.com/g/alt.games.system-shock2/c/1ytKcwoD4-A
+
+  - MechWarrior 3:
+    original DirectDraw/D3D6 traces show 16-bit RGB565 render surfaces; the
+    original game also includes its Software Render video device
+    https://sourceforge.net/p/dxwnd/discussion/general/thread/71545836/

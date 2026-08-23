@@ -147,12 +147,14 @@
   const consoleDocs=docs.filter(d=>d.group==="Console References");
   const guides=docs.filter(d=>d.group==="Presentation Guides");
   const guideDescriptions={
-    "nohud.txt": "Ways to remove or hide HUD and crosshair elements.",
-    "notexturefiltering.txt":
-      "Nearest-neighbor and point-sampling methods for sharp, pixelated textures.",
-    "widescreen.txt":
-      "Widescreen resolution and FOV configuration for the documented games."
-  };
+  "nohud.txt": "Ways to remove or hide HUD and crosshair elements.",
+  "notexturefiltering.txt":
+    "Nearest-neighbor and point-sampling methods for sharp, pixelated textures.",
+  "widescreen.txt":
+    "Widescreen resolution and FOV configuration for the documented games.",
+  "bpp.txt":
+    "Original color depth and software-renderer settings for authentic presentation."
+};
   document.querySelector("#console-list").innerHTML=consoleDocs.map(
     d=>`<li><a href="${api.docUrl(d.file)}">${api.escapeHtml(d.title)}</a></li>`
   ).join("");

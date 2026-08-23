@@ -250,6 +250,22 @@ window.GAME_CONSOLE_DOCS = {
         "2560x1440",
         "3840x2160"
       ]
+    },
+    {
+      "file": "bpp.txt",
+      "title": "Color Depth / BPP",
+      "group": "Presentation Guides",
+      "tags": [
+        "bpp",
+        "color depth",
+        "8 bit",
+        "16 bit",
+        "32 bit",
+        "palette",
+        "paletted",
+        "software renderer",
+        "pixelated"
+      ]
     }
   ]
 };
