@@ -90,7 +90,6 @@ Preferred:
   setrendermode 0
 
 Hardware fallback:
-
   setrendermode 3
   r_texfilter 0
   r_hightile 0
