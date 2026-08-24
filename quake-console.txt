@@ -1,15 +1,16 @@
 QUAKE (1996) -- ORIGINAL ENGINE CONSOLE COMMAND REFERENCE
 ==============================================================================
 
-  Dir       Campaign / mod            Developer             Released
-  id1       Quake                     id Software           1996
-  ctf       Capture the Flag          David "Zoid" Kirsch   1996
-  hipnotic  Scourge of Armagon        Hipnotic Interactive  1997
-  rogue     Dissolution of Eternity   Rogue Entertainment   1997
-  ad        Arcane Dimensions         Quake community       2015-
-  dopa      Dimension of the Past     MachineGames          2016
-  mg1       Dimension of the Machine  MachineGames          2021
-  mg3       Dawn of the Machine       MachineGames          2026
+  Dir       Campaign / mod            Developer               Released
+  id1       Quake                     id Software             1996
+  ctf       Capture the Flag          David "Zoid" Kirsch     1996
+  hipnotic  Scourge of Armagon        Hipnotic Interactive    1997
+  rogue     Dissolution of Eternity   Rogue Entertainment     1997
+  impel     Abyss of Pandemonium      Impel Development Team  1998
+  ad        Arcane Dimensions         Quake community         2015-
+  dopa      Dimension of the Past     MachineGames            2016
+  mg1       Dimension of the Machine  MachineGames            2021
+  mg3       Dawn of the Machine       MachineGames            2026
 
 IMPORTANT:
 Scope: original id Software Quake/WinQuake/GLQuake-era command language and
