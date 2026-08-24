@@ -102,9 +102,9 @@ eduke32-20220726-10118 is the last EDuke32 build with the older, proper
 gamma adjustment. Later versions changed the gamma/brightness handling and
 produce noticeably different results, particularly when raising brightness.
 
-[Download eduke32_win32](/files/eduke32_win32_20220726-10118.7z)
+[Download eduke32_win32_20220726-10118](/files/eduke32_win32_20220726-10118.7z)
 
-[Download eduke32_win64](/files/eduke32_win64_20220726-10118.7z)
+[Download eduke32_win64_20220726-10118](/files/eduke32_win64_20220726-10118.7z)
 
 ==============================================================================
 2. QUAKE (1996) -- MARK V
