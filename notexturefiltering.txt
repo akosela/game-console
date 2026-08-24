@@ -66,19 +66,27 @@ normally eduke32.cfg; avoid editing that file while the game is running.
 r_texfilter 0
   Sets EDuke32's texture filter to Nearest, giving point-sampled pixels.
 
-r_anisotropy 0
-  Disables anisotropic filtering. This is not strictly required for the
-  nearest look, but keeps the filtering configuration unambiguous.
-
-The menu equivalent is Video Setup -> OpenGL -> Texture Filter -> Nearest.
+The menu equivalent is Display Setup -> Renderer Setup -> Textures -> Nearest.
 EDuke32 exposes six filter modes. Nearest is the basic unfiltered mode.
-Nearest-MM-Nearest and Nearest-MM-Linear keep nearest texel sampling but still
-use mipmapping.
+r_texfilter 2 and r_texfilter 4 keep nearest-neighbor texel sampling but
+add mipmapping, which reduces distant texture shimmer. However, in current
+EDuke32 these modes can distort the intro/ANM movies, so r_texfilter 0 is
+the safer choice for a clean classic presentation.
+
+  0  GL_NEAREST
+  1  GL_LINEAR
+  2  GL_NEAREST_MIPMAP_NEAREST
+  3  GL_LINEAR_MIPMAP_NEAREST
+  4  GL_NEAREST_MIPMAP_LINEAR
+  5  GL_LINEAR_MIPMAP_LINEAR
 
 Recommended sharpest setup:
 
   r_texfilter 0
-  r_anisotropy 0
+
+If you use r_texfilter 2 or 4:
+
+  r_anisotropy 16
 
 ==============================================================================
 2. QUAKE (1996) -- MARK V
