@@ -139,6 +139,9 @@ vidmode [width height] [bpp] [fullscreen]
 restartvid
   Reinitializes the current video mode.
 
+r_showfps <0..2>
+  Displays the built-in frame-rate counter. 0 disables it; use 1 to show FPS.
+
 vid_gamma <value>
   Adjusts display gamma.
 
