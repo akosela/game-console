@@ -205,6 +205,27 @@
       return html;
     }
 
+    // A short prose label followed directly by indented commands should keep
+    // the commands as a multi-line code block instead of collapsing the whole
+    // block into one paragraph:
+    //
+    //   Hardware fallback:
+    //     setrendermode 3
+    //     r_texfilter 0
+    //     r_hightile 0
+    if (
+      lines.length > 1 &&
+      !/^\s/.test(lines[0]) &&
+      /:\s*$/.test(lines[0]) &&
+      lines.slice(1).every(line => /^\s{2,}\S/.test(line))
+    ) {
+      const label = renderInline(lines[0].trim());
+      const code = lines.slice(1)
+        .map(line => line.replace(/^\s{2}/, "").trimEnd())
+        .join("\n");
+      return `<p>${label}</p><pre class="code-block"><code>${esc(code)}</code></pre>`;
+    }
+
     if (lines.every(line => /^\s{2,}\S/.test(line))) {
       const code = lines
         .map(line => line.replace(/^\s{2}/, ""))
