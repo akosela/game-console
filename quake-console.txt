@@ -235,6 +235,11 @@ r_norefresh <0|1>
 r_speeds <0|1>
   Displays renderer performance statistics.
 
+show_fps <0|1>
+  Mark V/later source-port command that displays an FPS counter. Use 1 to
+  enable it and 0 to disable it. This command is not part of the original
+  id Software Quake executable.
+
 scr_viewsize <value>
   Controls size of the 3D view area.
 
