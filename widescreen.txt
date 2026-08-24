@@ -31,48 +31,13 @@ settings.
 EDuke32 stores persistent video settings in its selected configuration
 file, normally eduke32.cfg. The -cfg option can select an alternate file.
 
-EDuke32 supports arbitrary resolutions.  The video mode can be selected from
+EDuke32 supports arbitrary resolutions. The video mode can be selected from
 Setup / Video Setup or changed from the console.
 
-4:3:
-
-  vidmode 800 600 32 1
-  FOV: 90
-
-5:4 (1280x1024):
-
-  vidmode 1280 1024 32 1
-  leave Aspect Ratio on Auto
-  FOV: 86.3048
-
-16:9 (1920x1080):
-
-  vidmode 1920 1080 32 1
-  r_usenewaspect 1
-  r_screenaspect 1609
-  FOV: 106.2602
-
-16:9 (2560x1440):
-
-  vidmode 2560 1440 32 1
-  r_usenewaspect 1
-  r_screenaspect 1609
-  FOV: 106.2602
-
-16:9 (3840x2160):
-
-  vidmode 3840 2160 32 1
-  r_usenewaspect 1
-  r_screenaspect 1609
-  FOV: 106.2602
-
-Set FOV in the EDuke32 display options.  Modern EDuke32 exposes the gameplay
-FOV in degree-style units with 90 as the default.
-
-Older Polymer-only builds expose r_pr_fov instead.  That command uses BUILD
-angle units, not degrees: 512 is about 90 degrees.  The requested 16:9 value
-cannot be represented exactly by that integer-style scale; about 605 BUILD
-units is the nearest value.  Do not enter 106.2602 into r_pr_fov.
+EDuke32 handles widescreen aspect ratios automatically, so the gameplay FOV
+should normally remain at its default value of 90. Do not manually convert
+90 degrees from 4:3 into 86.3 for 5:4 or 106.26 for 16:9; EDuke32 performs
+the aspect-ratio adjustment itself.
 
 ==============================================================================
 02. QUAKE (1996) -- Mark V
