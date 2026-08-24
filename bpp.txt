@@ -131,9 +131,10 @@ Preferred:
 Mark V hardware-renderer fallback:
 
   gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+  gl_texture_anisotropy 16
   gl_smoothmodels 0
-
-Use GL_NEAREST instead if mipmaps are not wanted at all.
+  r_particles 2
+  r_wateralpha 0.5
 
 The OpenGL/Direct3D Mark V builds still use Quake's original 8-bit texture art,
 but the hardware output is expanded to true color. Nearest filtering can copy
