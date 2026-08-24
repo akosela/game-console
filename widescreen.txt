@@ -28,8 +28,7 @@ baseline even when a game's stock/default FOV is different.
 Config files:
 Use Setup / Video Setup or the in-game console for vidmode and aspect
 settings.
-EDuke32 stores persistent video settings in its selected configuration
-file, normally eduke32.cfg. The -cfg option can select an alternate file.
+Preferred manual overrides: autoexec.cfg
 
 EDuke32 supports arbitrary resolutions. The video mode can be selected from
 Setup / Video Setup or changed from the console.

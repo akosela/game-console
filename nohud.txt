@@ -19,8 +19,7 @@ configuration edit, resource override, or source-level change.
 Config files:
 Enter screen_size and crosshair in the console, or use the equivalent
 in-game menu options.
-EDuke32 saves persistent settings in its selected configuration file,
-normally eduke32.cfg. The -cfg option can select a different file.
+Preferred manual overrides: autoexec.cfg
 
 EDuke32 has separate controls for the status HUD and the crosshair. Its
 screen_size variable controls HUD/view size, not display resolution.

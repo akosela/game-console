@@ -60,8 +60,7 @@ overriding filtering globally.
 Config files:
 Enter r_texfilter and r_anisotropy in the console or use the Video Setup
 menu.
-EDuke32 stores persistent settings in its selected configuration file,
-normally eduke32.cfg; avoid editing that file while the game is running.
+Preferred manual overrides: autoexec.cfg
 
 r_texfilter 0
   Sets EDuke32's texture filter to Nearest, giving point-sampled pixels.
