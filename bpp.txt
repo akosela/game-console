@@ -10,12 +10,15 @@ used.
 
 The priority used by this document is:
 
-  1. Prefer the original software renderer when the game had one.
-  2. Use the original framebuffer/color depth for that renderer.
-  3. If software rendering is unavailable or impractical, keep the original
-     hardware color depth where possible and disable texture filtering.
-  4. In newer source ports, disable true-color/palette-expansion features when
-     they materially change the original palette behavior.
+  1. Prefer hardware rendering with GL_NEAREST_MIPMAP_NEAREST and maximum
+     anisotropic filtering where available. This is the preferred target for
+     sharp texture sampling with reduced distant aliasing.
+  2. Otherwise, prefer the original software renderer when the game had one.
+  3. Preserve the original framebuffer and color depth whenever possible.
+  4. If the preferred hardware mode is unavailable, disable texture filtering as
+     far as the engine allows while retaining the original hardware color depth.
+  5. In newer source ports, disable true-color, palette-expansion, and similar
+     enhancements when they materially alter the original palette behavior.
 
 This is deliberately an old-school presentation guide. Higher color depth is
 not treated as automatically better.
