@@ -104,7 +104,8 @@ gl_texturemode are retained and work in the DirectX build.
 
 For the sharpest point-sampled map textures:
 
-  gl_texturemode GL_NEAREST
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+  gl_texture_anisotropy 16
   gl_smoothmodels 0
 
 Mark V describes GL_NEAREST as the "crunchy pixels" texture mode for map
@@ -119,7 +120,6 @@ transitions between mip levels, use:
 GL_NEAREST_MIPMAP_LINEAR disables bilinear filtering inside each mip level,
 but linearly blends between adjacent mip levels. It therefore keeps sharp
 texels while reducing visible mip-band transitions and distant shimmering.
-Use GL_NEAREST instead when absolutely no texture filtering is desired.
 
 Additional classic-presentation settings:
 
@@ -134,7 +134,8 @@ r_wateralpha 0.5
 
 Recommended strict no-filtering setup:
 
-  gl_texturemode GL_NEAREST_MIPMAP_LINEAR
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+  gl_texture_anisotropy 16
   gl_smoothmodels 0
   r_particles 2
   r_wateralpha 0.5
