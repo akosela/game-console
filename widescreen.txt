@@ -290,6 +290,7 @@ WON release, not the 25th Anniversary Steam build.
 Install the provided patched Half-Life WON executable:
 
 [Download hl-dark.exe](/files/hl-dark.exe)
+
 [Download sw.dll](/files/sw.dll)
 
 The patch adds proper support for modern widescreen resolutions that are
