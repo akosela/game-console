@@ -58,8 +58,7 @@ overriding filtering globally.
 ==============================================================================
 
 Config files:
-Enter r_texfilter and r_anisotropy in the console or use the Video Setup
-menu.
+Enter r_texfilter and r_anisotropy in the console or use the Video Setup menu.
 Preferred manual overrides: autoexec.cfg
 
 r_texfilter 0

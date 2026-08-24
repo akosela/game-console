@@ -26,8 +26,7 @@ baseline even when a game's stock/default FOV is different.
 ==============================================================================
 
 Config files:
-Use Setup / Video Setup or the in-game console for vidmode and aspect
-settings.
+Use Setup / Video Setup or the in-game console for vidmode and aspect settings.
 Preferred manual overrides: autoexec.cfg
 
 EDuke32 supports arbitrary resolutions. The video mode can be selected from
