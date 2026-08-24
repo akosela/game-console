@@ -89,10 +89,10 @@ and does not require a texture-filter command.
 Preferred:
   setrendermode 0
 
-  Hardware fallback:
-    setrendermode 3
-    r_texfilter 0
-    r_hightile 0
+Hardware fallback:
+setrendermode 3
+r_texfilter 0
+r_hightile 0
 
 The hardware fallback keeps the pixels sharp but is not an actual 8-bit
 framebuffer. The OpenGL renderer expands the old palette art into a modern
