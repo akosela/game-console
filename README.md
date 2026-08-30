@@ -24,7 +24,10 @@ facilities, engine-specific behavior, and important version/build caveats.
 - [Unreal](unreal-console.txt)
 - [Unreal Tournament 1999](unreal-tournament-console.txt)
 - [Half-Life](half-life-console.txt)
+- [Soldier of Fortune](soldier-of-fortune-console.txt)
+- [Rune](rune-console.txt)
 - [Deus Ex](deus-ex-console.txt)
+- [Return to Castle Wolfenstein](return-to-castle-wolfenstein-console.txt)
 - [Gothic](gothic-1-console.txt)
 - [Gothic II](gothic-2-console.txt)
 - [Gothic 3](gothic-3-console.txt)
@@ -50,26 +53,6 @@ should be treated as the final authority.
 
 [nohud.txt](nohud.txt) documents ways to remove or hide the HUD and crosshair.
 
-It covers:
-
-- Duke Nukem 3D / EDuke32
-- Quake / Mark V
-- Quake II / Yamagi Quake II
-- Unreal
-- Unreal Tournament
-- Half-Life
-- Deus Ex
-- Gothic
-- Gothic II
-- Gothic 3
-- Morrowind
-- Oblivion
-- Skyrim
-- Vietcong
-- Red Faction
-- Thief: The Dark Project
-- System Shock 2
-
 The file distinguishes between proper console/configuration switches and
 games where complete HUD removal instead requires a resource replacement or
 another original-engine workaround.
@@ -78,27 +61,6 @@ another original-engine workaround.
 
 [notexturefiltering.txt](notexturefiltering.txt) documents how to disable
 texture smoothing and obtain sharp, visibly pixelated textures.
-
-It covers:
-
-- Duke Nukem 3D / EDuke32
-- Quake / Mark V
-- Quake II / Yamagi Quake II
-- Unreal
-- Unreal Tournament
-- Half-Life
-- Deus Ex
-- Gothic
-- Gothic II
-- Gothic 3
-- Morrowind
-- Oblivion
-- Skyrim
-- Vietcong
-- Red Faction
-- MechWarrior 3
-- Thief: The Dark Project / NewDark
-- System Shock 2 / NewDark
 
 The guide distinguishes nearest-neighbor or point sampling from merely
 disabling anisotropic filtering. Disabling anisotropic filtering alone does
@@ -151,26 +113,6 @@ The reference uses this project baseline:
 16:9 (2560x1440) fov: 106.270273206
 16:9 (3840x2160) fov: 106.270273206
 ```
-
-It covers:
-
-- Duke Nukem 3D / EDuke32
-- Quake / Mark V
-- Quake II / Yamagi Quake II
-- Unreal
-- Unreal Tournament 1999
-- Half-Life / WON retail version
-- Deus Ex
-- Gothic
-- Gothic II
-- Gothic 3
-- Morrowind
-- Oblivion
-- Skyrim 2011
-- Vietcong 2003
-- Red Faction 2001
-- Thief: The Dark Project / NewDark
-- System Shock 2 / NewDark
 
 For Quake, the widescreen guide uses the Mark V source port and its native
 automatic Hor+ FOV adaptation.
