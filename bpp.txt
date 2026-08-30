@@ -302,7 +302,41 @@ sharp texels, but it cannot reproduce every 16-bit software-renderer blend,
 dither, and color-quantization artifact.
 
 ==============================================================================
-7. RUNE (2000)
+7. SOLDIER OF FORTUNE (2000)
+==============================================================================
+
+Original renderer options:
+  OpenGL hardware renderer
+  16 bpp or 32 bpp color through gl_bitdepth
+
+Soldier of Fortune is based on a heavily modified Quake II renderer, but it
+was enhanced for true-color output. The original game exposes both 16-bit and
+32-bit color modes:
+
+  gl_bitdepth 16
+  gl_bitdepth 32
+
+A value of 0 lets the renderer choose automatically.
+
+For this project's normal original-game profile, prefer:
+
+  gl_bitdepth 32
+
+32-bit color is an authentic release-era option and contemporary coverage of
+the game specifically highlighted the engine's richer 32-bit color path.
+Unlike Half-Life software rendering, Soldier of Fortune is not fundamentally
+a 16-bpp-only title.
+
+For a deliberately lower-color period profile, 16 bpp is also authentic:
+
+  gl_bitdepth 16
+
+Keep framebuffer depth separate from texture filtering. For the project's
+sharp hardware presentation, the renderer also exposes gl_texturemode; use a
+nearest mode independently of gl_bitdepth.
+
+==============================================================================
+8. RUNE (2000)
 ==============================================================================
 
 Original baseline:
@@ -344,7 +378,7 @@ when Rune requests a 16-bit mode. That is a compatibility layer, not evidence
 that Rune's original 16-bit setting was wrong.
 
 ==============================================================================
-8. DEUS EX (2000)
+9. DEUS EX (2000)
 ==============================================================================
 
 Original baseline:
@@ -385,7 +419,39 @@ This keeps the stock 16-bit framebuffer/texture choices closer to the 2000
 release than a modern 32-bit enhanced renderer with filtered textures.
 
 ==============================================================================
-9. GOTHIC (2001)
+10. RETURN TO CASTLE WOLFENSTEIN (2001)
+==============================================================================
+
+Original renderer options:
+  OpenGL / id Tech 3-derived renderer
+  16 bpp and 32 bpp color modes
+
+Return to Castle Wolfenstein exposes framebuffer color depth with r_colorbits
+and texture storage depth separately with r_texturebits:
+
+  seta r_colorbits "16"
+  seta r_texturebits "16"
+
+or:
+
+  seta r_colorbits "32"
+  seta r_texturebits "32"
+
+Classic configurations commonly used 16-bit color as the period/default
+baseline, while 32-bit color was also a normal original-game option. For this
+project's deliberately old-school low-color profile, use:
+
+  seta r_colorbits "16"
+
+r_texturebits is separate from framebuffer BPP. Set it to 16 as well only if
+you intentionally want the lower-precision texture profile; leaving textures
+at 32 while rendering a 16-bit framebuffer is also valid.
+
+For the project's sharp hardware presentation, texture sampling can be
+controlled independently with r_textureMode.
+
+==============================================================================
+11. GOTHIC (2001)
 ==============================================================================
 
 Original baseline:
@@ -416,7 +482,7 @@ That is a compatibility choice. Use 16 when the original renderer and wrapper
 accept it; use 32 only when 16-bit mode fails.
 
 ==============================================================================
-10. GOTHIC II (2002)
+12. GOTHIC II (2002)
 ==============================================================================
 
 Original baseline:
@@ -443,7 +509,7 @@ If the game will not initialize at 16 bpp, use 32 bpp as a compatibility
 fallback rather than treating it as the historical baseline.
 
 ==============================================================================
-11. GOTHIC 3 (2006)
+13. GOTHIC 3 (2006)
 ==============================================================================
 
 Original/native baseline:
@@ -465,7 +531,7 @@ pixelated treatment should come from texture sampling, not artificial color
 truncation.
 
 ==============================================================================
-12. THE ELDER SCROLLS III: MORROWIND (2002)
+14. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 Original/native baseline:
@@ -488,7 +554,7 @@ The wrapper changes texture sampling only. Keep the game at its native
 32-bit color depth.
 
 ==============================================================================
-13. THE ELDER SCROLLS IV: OBLIVION (2006)
+15. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Original/native baseline:
@@ -510,7 +576,7 @@ Do not reduce framebuffer BPP. Nearest sampling is the appropriate way to make
 the textures sharp while leaving the game's native color precision intact.
 
 ==============================================================================
-14. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT RELEASE
+16. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT RELEASE
 ==============================================================================
 
 Original/native baseline:
@@ -532,7 +598,7 @@ Skyrim was not designed around a lower-color software framebuffer. Keep its
 native 32-bit color and change texture sampling only.
 
 ==============================================================================
-15. FALLOUT 3 (2008)
+17. FALLOUT 3 (2008)
 ==============================================================================
 
 Original/native baseline:
@@ -554,7 +620,7 @@ Do not confuse iMaxAnisotropy or mipmap controls with color depth. They change
 texture sampling/detail behavior, not framebuffer BPP.
 
 ==============================================================================
-16. VIETCONG (2003)
+18. VIETCONG (2003)
 ==============================================================================
 
 Original options:
@@ -587,7 +653,7 @@ Use the x86 D3D8.dll wrapper and avoid VCStarter's "Improve texture filtering"
 option when the goal is the pixelated look.
 
 ==============================================================================
-17. RED FACTION (2001)
+19. RED FACTION (2001)
 ==============================================================================
 
 Original framebuffer options:
@@ -617,7 +683,7 @@ This is an original Red Faction command and is independent of framebuffer BPP.
 Use 32-bit + r_nearest for the most robust original-engine configuration.
 
 ==============================================================================
-18. THIEF: THE DARK PROJECT (1998) -- OLDDARK / NEWDARK
+20. THIEF: THE DARK PROJECT (1998) -- OLDDARK / NEWDARK
 ==============================================================================
 
 Original baselines:
@@ -678,7 +744,7 @@ quantize the final image. Those are approximations; only OldDark software
 rendering produces the actual original 8-bit rendering path.
 
 ==============================================================================
-19. SYSTEM SHOCK 2 (1999) -- NEWDARK
+21. SYSTEM SHOCK 2 (1999) -- NEWDARK
 ==============================================================================
 
 Original baseline:
@@ -739,7 +805,7 @@ differently from a period DirectX 6 graphics card. If that happens, retain
 sharp texture style even though the framebuffer depth is no longer exact.
 
 ==============================================================================
-20. MECHWARRIOR 3 (1999)
+22. MECHWARRIOR 3 (1999)
 ==============================================================================
 
 Original baseline:
@@ -769,7 +835,7 @@ Do not prefer dgVoodoo point-filter forcing over the native Software Render
 device for this game.
 
 ==============================================================================
-21. QUICK REFERENCE
+23. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32:
@@ -790,6 +856,9 @@ device for this game.
 
   - Half-Life WON:
       16-bit software renderer; hl.exe -soft -16bpp
+  - Soldier of Fortune:
+      original 16/32-bit OpenGL modes; project baseline = gl_bitdepth 32
+
 
   - Rune:
       16-bit UE1 baseline; software renderer where practical;
@@ -798,6 +867,9 @@ device for this game.
   - Deus Ex:
       16-bit stock baseline; software renderer; Use32BitTextures=False
       for original D3D
+  - Return to Castle Wolfenstein:
+      original 16/32-bit OpenGL modes; project low-color profile = r_colorbits 16
+
 
   - Gothic:
       zVidResFullscreenBPP=16; dgVoodoo point sampling if needed
@@ -839,7 +911,7 @@ device for this game.
       16-bit original path; prefer native Software Render device
 
 ==============================================================================
-22. BPP VS THE "ORIGINAL LOOK"
+24. BPP VS THE "ORIGINAL LOOK"
 ==============================================================================
 
 Color depth is only one part of the picture.
@@ -868,7 +940,7 @@ when possible. For games whose original renderer was already 16-bit or
 project's separate pixelated-texture preference.
 
 ==============================================================================
-23. SOURCE / VERIFICATION NOTES
+25. SOURCE / VERIFICATION NOTES
 ==============================================================================
 
 The distinctions in this file were checked against released engine source,
@@ -911,9 +983,20 @@ framebuffer BPP from texture palette/storage depth.
     software-renderer limitation
     https://github.com/ValveSoftware/halflife/issues/
 
+  - Soldier of Fortune:
+    original gl_bitdepth 16/32 and renderer CVAR documentation
+    https://sof1.org/viewtopic.php?t=230
+    contemporary 32-bit renderer coverage
+    https://www.gamespot.com/articles/soldier-of-fortune-shots/1100-2447358/
+
   - Deus Ex classic configuration:
     WinDrv 16-bit color, SoftDrv, and Use32BitTextures=False
     https://unrealarchive.org/wikis/unreal-wiki/Legacy%3ADeusEx.INI.html
+
+  - Return to Castle Wolfenstein:
+    original r_colorbits/r_texturebits configuration controls
+    https://www.pcgamingwiki.com/wiki/Return_to_Castle_Wolfenstein
+    https://steamcommunity.com/sharedfiles/filedetails/?id=683649862
 
   - Gothic / Gothic II:
     zVidResFullscreenBPP=16 is the classic configuration value; changing to

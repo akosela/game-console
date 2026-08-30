@@ -1,0 +1,205 @@
+RETURN TO CASTLE WOLFENSTEIN (2001) -- CONSOLE COMMAND REFERENCE
+==============================================================================
+
+  Dir        Campaign / mod                 Developer            Released
+  main       Return to Castle Wolfenstein   Gray Matter Studios  2001
+  Timegate   Time Gate                      Privateer / BBald    2002
+  Trondheim  Op. Trondheim: Special Forces  Vovstein / Sheppard  2002
+  RedAlert   Op. Trondheim: Red Alert       Vovstein / Sheppard  2002
+  IronCross  Op. Trondheim: Iron Cross      Vovstein / Sheppard  2002
+  Pharaoh    Pharaoh's Curse                Vicpas               2005
+  TDA        The Dark Army: Uprising        WolfETPlayer         2016
+
+IMPORTANT:
+Scope: original PC Return to Castle Wolfenstein console, principally the
+single-player WolfSP.exe client. iortcw and later community ports add or alter
+some cvars; source-port-only commands are not used as the baseline below.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Open the console with the grave/tilde key (~). Commands are normally entered
+with or without a leading slash.
+
+cmdlist
+  Lists registered console commands.
+
+cvarlist
+  Lists registered console variables.
+
+bind <key> <command>
+  Binds a command to a key.
+
+exec <file>
+  Executes a config script, such as autoexec.cfg.
+
+set <cvar> <value>
+  Changes a console variable for the running session.
+
+seta <cvar> <value>
+  Changes and archives a cvar so it is written to configuration state.
+
+toggle <cvar>
+  Toggles a boolean cvar.
+
+vstr <cvar>
+  Executes the string stored in a cvar.
+
+clear
+  Clears console text.
+
+==============================================================================
+2. GAMEPLAY / CHEAT COMMANDS
+==============================================================================
+
+Many gameplay cheats require cheats to be enabled. For the original SP client,
+one launch form is:
+
+  WolfSP.exe +set sv_cheats 1
+
+god
+  Toggles god mode.
+
+notarget
+  Prevents enemies from targeting the player normally.
+
+noclip
+  Toggles no-clipping movement.
+
+give all
+  Gives the normal weapon/ammunition set.
+
+give ammo
+  Gives ammunition for the current weapons.
+
+give health [amount]
+  Restores/gives health.
+
+give armor [amount]
+  Gives armor.
+
+give stamina
+  Restores stamina.
+
+nofatigue
+  Disables fatigue/stamina depletion.
+
+spdevmap <mapname>
+  Loads a single-player map with developer/cheat context.
+
+devmap <mapname>
+  Loads the named map in developer mode.
+
+kill
+  Kills the player.
+
+==============================================================================
+3. PLAYER / GAME CVARS
+==============================================================================
+
+cg_fov <degrees>
+  Sets the gameplay field of view. Stock single player may overwrite a custom
+  value when a new level starts.
+
+cg_draw2D <0|1>
+  Shows or hides the normal 2D HUD.
+
+cg_drawgun <0|1>
+  Shows or hides the first-person weapon model.
+
+cg_thirdperson <0|1>
+  Toggles third-person view where cheats/developer state permits it.
+
+cg_drawcompass <0|1>
+  Controls the compass display.
+
+cg_uselessnostalgia <0|1>
+  Toggles the alternate/old Wolfenstein-style HUD.
+
+==============================================================================
+4. VIDEO / CONSOLE
+==============================================================================
+
+r_mode <value>
+  Selects a predefined video mode. -1 enables the original custom-resolution
+  path when r_customwidth/r_customheight are supplied.
+
+r_customwidth <pixels>
+r_customheight <pixels>
+  Set custom mode dimensions.
+
+r_customaspect <value>
+  Supplies the custom-mode aspect setting; 1 is commonly used with r_mode -1.
+
+r_fullscreen <0|1>
+  Selects fullscreen or windowed output.
+
+r_colorbits <0|16|32>
+  Selects renderer color depth.
+
+r_texturebits <0|16|32>
+  Selects texture storage depth separately from framebuffer color depth.
+
+r_textureMode <mode>
+  Selects OpenGL texture filtering, for example GL_LINEAR_MIPMAP_LINEAR or a
+  nearest-neighbor mode.
+
+r_picmip <value>
+  Controls base texture detail reduction.
+
+r_gamma <value>
+  Adjusts renderer gamma.
+
+vid_restart
+  Reinitializes video after renderer/resolution changes.
+
+cg_drawfps <0|1>
+  Toggles the frame-rate display. The console form `toggle cg_drawfps` is also
+  convenient.
+
+==============================================================================
+5. FILESYSTEM / DEBUG / MAP INFORMATION
+==============================================================================
+
+dir maps
+  Lists available maps.
+
+mapname
+  Displays the current map name.
+
+screenshot
+  Captures a screenshot.
+
+serverinfo
+  Displays current server/game server settings.
+
+==============================================================================
+6. MULTIPLAYER
+==============================================================================
+
+connect <address>
+  Connects to a server.
+
+disconnect
+  Disconnects from the current server.
+
+reconnect
+  Reconnects to the last server.
+
+serverinfo
+  Displays server settings.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+The exact original executable remains the final authority; use cmdlist and
+cvarlist to inspect its complete registry.
+
+  - StrategyWiki: Return to Castle Wolfenstein / Console
+    https://strategywiki.org/wiki/Return_to_Castle_Wolfenstein/Console
+  - PCGamingWiki: Return to Castle Wolfenstein, custom resolution and FOV
+    https://www.pcgamingwiki.com/wiki/Return_to_Castle_Wolfenstein
+  - GameFAQs: Return to Castle Wolfenstein PC console commands
+    https://gamefaqs.gamespot.com/pc/913853-return-to-castle-wolfenstein/cheats

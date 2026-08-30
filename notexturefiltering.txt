@@ -298,7 +298,32 @@ autoexec.cfg. The classic software renderer also has an inherently pixelated
 appearance.
 
 ==============================================================================
-7. RUNE (2000)
+7. SOLDIER OF FORTUNE (2000)
+==============================================================================
+
+Config files:
+The original renderer exposes gl_texturemode. Test it in the console; for a
+persistent setup keep the chosen cvar in user\config.cfg or an executed config
+file.
+
+For strict nearest-neighbor sampling with no mipmaps:
+
+  gl_texturemode GL_NEAREST
+
+This gives the strongest pixelated presentation. Soldier of Fortune's original
+video options also expose texture filtering controls, and its Quake II-derived
+OpenGL renderer retains the gl_texturemode interface.
+
+If you prefer to retain mipmapping while keeping nearest texel sampling, use
+the nearest-mipmap-nearest mode where accepted by the installed build:
+
+  gl_texturemode GL_NEAREST_MIPMAP_NEAREST
+
+Do not confuse gl_bitdepth with texture filtering. gl_bitdepth selects color
+depth; gl_texturemode controls how texels are sampled.
+
+==============================================================================
+8. RUNE (2000)
 ==============================================================================
 
 Config files:
@@ -321,7 +346,7 @@ On Windows 10 and later, use dgVoodoo2 to restore proper brightness and gamma
 control.
 
 ==============================================================================
-8. DEUS EX (2000)
+9. DEUS EX (2000)
 ==============================================================================
 
 Config files:
@@ -352,7 +377,32 @@ That option is valid as a global renderer switch, but it is much
 broader than bNoSmooth and can make lightmaps/shadows blocky.
 
 ==============================================================================
-9. GOTHIC (2001)
+10. RETURN TO CASTLE WOLFENSTEIN (2001)
+==============================================================================
+
+Config files:
+Put persistent renderer overrides in Main\autoexec.cfg. wolfconfig.cfg is
+engine-generated and may be rewritten.
+
+For point-sampled texels while retaining nearest-selected mip levels:
+
+  seta r_textureMode "GL_NEAREST_MIPMAP_NEAREST"
+
+Disable anisotropic filtering as well when the goal is the strict unfiltered
+profile:
+
+  seta r_ext_texture_filter_anisotropic "0"
+
+This keeps bilinear and trilinear interpolation out of the normal world-texture
+sampling path while retaining mipmaps. If a particular original build rejects
+the anisotropy cvar, omit that line; the important native texture-mode setting
+is r_textureMode.
+
+For the harshest no-mipmap look, GL_NEAREST can be tested, but the mipmapped
+nearest mode is normally preferable because distant surfaces shimmer less.
+
+==============================================================================
+11. GOTHIC (2001)
 ==============================================================================
 
 Config files:
@@ -377,7 +427,7 @@ Gothic uses an old Direct3D path, so use the dgVoodoo DirectDraw/D3D wrapper
 files appropriate to the installation.
 
 ==============================================================================
-10. GOTHIC II (2002)
+12. GOTHIC II (2002)
 ==============================================================================
 
 Config files:
@@ -402,7 +452,7 @@ renderer. If the HUD or alpha-tested foliage develops hard borders, that is a
 normal side effect of forcing point sampling.
 
 ==============================================================================
-11. GOTHIC 3 (2006)
+13. GOTHIC 3 (2006)
 ==============================================================================
 
 Config files:
@@ -422,7 +472,7 @@ App driven first; disable mipmapping only if maximum pixel harshness is more
 important than distant-texture stability.
 
 ==============================================================================
-12. THE ELDER SCROLLS III: MORROWIND (2002)
+14. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 Config files:
@@ -445,7 +495,7 @@ A texture-replacement workaround such as Morrowind Pixellized can imitate an
 unfiltered look, but a sampler override is cleaner when it works.
 
 ==============================================================================
-13. THE ELDER SCROLLS IV: OBLIVION (2006)
+15. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Config files:
@@ -465,7 +515,7 @@ masks, and UI elements harsher. If artifacts are objectionable, the original
 engine does not provide a clean per-material nearest switch.
 
 ==============================================================================
-14. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
+16. THE ELDER SCROLLS V: SKYRIM (2011) -- ORIGINAL 32-BIT
 ==============================================================================
 
 Config files:
@@ -487,7 +537,7 @@ Keep mipmapping App driven initially. Turning mipmapping off as well will make
 textures even harsher but can produce severe crawling/shimmering.
 
 ==============================================================================
-15. FALLOUT 3 (2008)
+17. FALLOUT 3 (2008)
 ==============================================================================
 
 Config files:
@@ -514,7 +564,7 @@ effects, and UI textures look harsher. If that is objectionable, the original
 Fallout 3 engine does not expose a clean per-material nearest switch.
 
 ==============================================================================
-16. VIETCONG (2003)
+18. VIETCONG (2003)
 ==============================================================================
 
 Config files:
@@ -535,7 +585,7 @@ If VCStarter is also being used, avoid enabling its Improve texture filtering
 option because that works in the opposite direction.
 
 ==============================================================================
-17. RED FACTION (2001)
+19. RED FACTION (2001)
 ==============================================================================
 
 Config files:
@@ -557,7 +607,7 @@ r_trilinearfiltering
 The important command for the pixelated look is r_nearest.
 
 ==============================================================================
-18. THIEF: THE DARK PROJECT (1998) -- NEWDARK
+20. THIEF: THE DARK PROJECT (1998) -- NEWDARK
 ==============================================================================
 
 Config files:
@@ -592,7 +642,7 @@ Do not merely disable trilinear filtering while leaving tex_filter_mode at 16.
 That still leaves anisotropic/linear texture filtering active.
 
 ==============================================================================
-19. SYSTEM SHOCK 2 (1999) -- NEWDARK
+21. SYSTEM SHOCK 2 (1999) -- NEWDARK
 ==============================================================================
 
 Config files:
@@ -624,7 +674,7 @@ some lightmaps and 2D assets can also look more blocky because the filter
 setting is broad.
 
 ==============================================================================
-20. MECHWARRIOR 3 (1999)
+22. MECHWARRIOR 3 (1999)
 ==============================================================================
 
 Config files:
@@ -670,7 +720,7 @@ Recommended:
   Video Device -> Software Render
 
 ==============================================================================
-21. QUICK REFERENCE
+23. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: r_texfilter 0; r_anisotropy 0
@@ -680,8 +730,12 @@ Recommended:
   - Unreal: set texture bNoSmooth true | set actor bNoSmooth true
   - Unreal Tournament: set texture bNoSmooth true | set actor bNoSmooth true
   - Half-Life: gl_texturemode GL_NEAREST
+  - Soldier of Fortune: gl_texturemode GL_NEAREST; nearest-mipmap-nearest optional
   - Deus Ex: set texture bNoSmooth true | set actor bNoSmooth true
+  - Return to Castle Wolfenstein: r_textureMode GL_NEAREST_MIPMAP_NEAREST
   - Gothic: dgVoodoo2 -> Force point sampled
+  - Return to Castle Wolfenstein renderer configuration: r_textureMode and AF
+    https://www.pcgamingwiki.com/wiki/Return_to_Castle_Wolfenstein
   - Gothic II: dgVoodoo2 -> Force point sampled
   - Gothic 3: dgVoodoo2 -> Force point sampled
   - Morrowind original: dgVoodoo2 -> Force point sampled
@@ -695,7 +749,7 @@ Recommended:
   - System Shock 2 / NewDark: tex_filter_mode 0
 
 ==============================================================================
-22. FILTERING VS MIPMAPPING
+24. FILTERING VS MIPMAPPING
 ==============================================================================
 
 If the main goal is sharp pixels up close but stable distant surfaces, keep
@@ -708,7 +762,7 @@ For NewDark, tex_filter_mode 0 is the documented no-filtering mode. There is
 no separate requirement to set an anisotropic value to zero.
 
 ==============================================================================
-23. SOURCE / VERIFICATION NOTES
+25. SOURCE / VERIFICATION NOTES
 ==============================================================================
 
 The native commands and configuration settings in this file were checked
@@ -740,6 +794,8 @@ not confused with commands built into the original executable.
   - OldUnreal / UTGLR — NoFiltering renderer option
     https://www.oldunreal.com/wiki/
     https://unrealarchive.org/unreal-tournament/patches-updates/renderers/
+  - Soldier of Fortune CVAR documentation: gl_texturemode
+    https://sof1.org/viewtopic.php?t=230
   - Rune: original renderer selection and config layout
     https://runegameviking.wordpress.com/tag/rune/
   - Rune: dgVoodoo2 compatibility/gamma method and original D3D7 context

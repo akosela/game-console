@@ -196,7 +196,35 @@ Restore:
 These can also be placed in a GoldSrc configuration file or bound to keys.
 
 ==============================================================================
-7. RUNE (2000)
+7. SOLDIER OF FORTUNE (2000)
+==============================================================================
+
+Config files:
+Persistent cvars are stored in the game's user\config.cfg. For quick testing,
+enter the commands in the in-game console after enabling it with +set console
+1 on the SoF.exe command line.
+
+scr_interface 0
+  Hides the Soldier of Fortune HUD/interface.
+
+crosshair 0
+  Disables the aiming crosshair. Values 1 through 4 select visible crosshair
+  styles; 0 selects none.
+
+Recommended clean-view setup:
+
+  scr_interface 0
+  crosshair 0
+
+Restore:
+
+  scr_interface 1
+
+The two settings are separate, so crosshair 0 is still useful if the HUD is
+later restored but a reticle-free view is wanted.
+
+==============================================================================
+8. RUNE (2000)
 ==============================================================================
 
 Config files:
@@ -239,7 +267,7 @@ For a first-person clean-view setup, combine CameraIn or behindview 0 with:
   set engine.hud hudmode 0
 
 ==============================================================================
-8. DEUS EX (2000)
+9. DEUS EX (2000)
 ==============================================================================
 
 Config files:
@@ -265,7 +293,31 @@ Simplest complete no-HUD command:
   showhud false
 
 ==============================================================================
-9. GOTHIC (2001)
+10. RETURN TO CASTLE WOLFENSTEIN (2001)
+==============================================================================
+
+Config files:
+cg_draw2D can be entered directly in the original game's console or stored in
+Main\autoexec.cfg. wolfconfig.cfg is engine-generated and may be rewritten.
+
+cg_draw2D 0
+  Disables the normal 2D gameplay HUD. The equivalent console toggle is:
+
+  toggle cg_draw2D
+
+Restore:
+
+  cg_draw2D 1
+
+For screenshot-style views where the first-person weapon should disappear as
+well, the original client also exposes:
+
+  cg_drawgun 0
+
+cg_drawgun is optional and is not required merely to remove the HUD.
+
+==============================================================================
+11. GOTHIC (2001)
 ==============================================================================
 
 Config files:
@@ -290,7 +342,7 @@ Restore:
   toggle desktop
 
 ==============================================================================
-10. GOTHIC II (2002)
+12. GOTHIC II (2002)
 ==============================================================================
 
 Config files:
@@ -309,7 +361,7 @@ presentation. If the console becomes invisible, open F2 and type the same
 command blindly to restore the desktop.
 
 ==============================================================================
-11. GOTHIC 3 (2006)
+13. GOTHIC 3 (2006)
 ==============================================================================
 
 Config files:
@@ -331,7 +383,7 @@ No separate original-game crosshair-only command was verified; use Ctrl+F1
 when a completely clean gameplay view is wanted.
 
 ==============================================================================
-12. THE ELDER SCROLLS III: MORROWIND (2002)
+14. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 Config files:
@@ -354,7 +406,7 @@ For crosshair-only removal while keeping the HUD, use the original game menu:
   Escape -> Options -> Preferences -> Crosshairs: Off
 
 ==============================================================================
-13. THE ELDER SCROLLS IV: OBLIVION (2006)
+15. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Config files:
@@ -373,7 +425,7 @@ For crosshair-only removal, use the original Gameplay options:
 This refers to the original 2006 PC game, not Oblivion Remastered.
 
 ==============================================================================
-14. THE ELDER SCROLLS V: SKYRIM (2011)
+16. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
 Config files:
@@ -394,7 +446,7 @@ This section refers to the original 2011 32-bit PC release, not Special
 Edition, Anniversary Edition, or VR.
 
 ==============================================================================
-15. FALLOUT 3 (2008)
+17. FALLOUT 3 (2008)
 ==============================================================================
 
 Config files:
@@ -422,7 +474,7 @@ allow HUD opacity to be reduced to zero. TM is the simpler native command
 when a completely clean screenshot or gameplay view is wanted.
 
 ==============================================================================
-16. VIETCONG (2003)
+18. VIETCONG (2003)
 ==============================================================================
 
 Config files:
@@ -446,7 +498,7 @@ information, but that applies to spectating/replays rather than ordinary
 campaign play.
 
 ==============================================================================
-17. RED FACTION (2001) -- ORIGINAL PC v1.20
+19. RED FACTION (2001) -- ORIGINAL PC v1.20
 ==============================================================================
 
 Config files:
@@ -481,7 +533,7 @@ Do not substitute the community-port command hud when documenting the official
 v1.20 game; that command was added later.
 
 ==============================================================================
-18. THIEF: THE DARK PROJECT (1998)
+20. THIEF: THE DARK PROJECT (1998)
 ==============================================================================
 
 Config files:
@@ -521,7 +573,7 @@ Recommended original-engine HUD setting:
   inv_status_height 0
 
 ==============================================================================
-19. SYSTEM SHOCK 2 (1999)
+21. SYSTEM SHOCK 2 (1999)
 ==============================================================================
 
 Config files:
@@ -567,7 +619,7 @@ For a completely clean view:
   use transparent replacements for the crosshair and HUD resources
 
 ==============================================================================
-20. QUICK REFERENCE
+22. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: screen_size 0 + crosshair 0
@@ -576,8 +628,10 @@ For a completely clean view:
   - Unreal: changehud / HudMode=5; set HUD Crosshair 6
   - Unreal Tournament: changehud / bHideHUD=True
   - Half-Life: hud_draw 0 + crosshair 0
+  - Soldier of Fortune: scr_interface 0 + crosshair 0
   - Rune: set engine.hud hudmode 0; CameraIn / behindview 0 for first person
   - Deus Ex: showhud false; ToggleCrosshair
+  - Return to Castle Wolfenstein: cg_draw2D 0
   - Gothic: toggle desktop
   - Gothic II: toggle desktop
   - Gothic 3: Ctrl+F1 with TestMode enabled
@@ -593,7 +647,7 @@ For a completely clean view:
     resource override for a complete HUD/crosshair-free view
 
 ==============================================================================
-21. SOURCE / VERIFICATION NOTES
+23. SOURCE / VERIFICATION NOTES
 ==============================================================================
 
 The methods above were checked against original-engine documentation, released
@@ -616,6 +670,10 @@ references. Remaster-only commands were intentionally excluded.
     Unreal Engine property command set engine.hud hudmode 0 disables the HUD
     https://www.moddb.com/downloads/rune-v107-public-source
     https://runegameviking.wordpress.com/tag/rune/
+  - Soldier of Fortune CVAR list: scr_interface and crosshair
+    https://sof1.org/viewtopic.php?t=230
+  - Return to Castle Wolfenstein console: cg_draw2D / cg_drawgun
+    https://strategywiki.org/wiki/Return_to_Castle_Wolfenstein/Console
   - Deus Ex Wiki: Deus Ex console commands
   - Gothic classic Marvin documentation for toggle desktop
   - Gothic 3 classic TestMode developer-hotkey documentation

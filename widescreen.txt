@@ -317,7 +317,76 @@ Create or edit valve\autoexec.cfg:
 You can test the same values from the console with "default_fov <value>".
 
 ==============================================================================
-07. RUNE (2000)
+07. SOLDIER OF FORTUNE (2000) -- SoFplus
+==============================================================================
+
+Config files:
+The stock Soldier of Fortune client has fixed gl_mode resolutions and its fov
+cvar is not a normal user-adjustable gameplay FOV. For practical widescreen,
+use SoFplus and keep its _sp_cl_vid_* settings in the normal user config or an
+executed config file.
+
+IMPORTANT:
+Stock SoF uses a hard-coded horizontal FOV of about 95 degrees and is Vert-
+at widescreen aspect ratios. A raw executable resolution hex patch changes the
+resolution but does not solve that FOV behavior. SoFplus is used here because
+it adds custom resolutions and explicit FOV handling without replacing the
+base game data.
+
+SoFplus can redefine a gl_mode slot. Example using slot 2:
+
+4:3 (800x600):
+
+  set _sp_cl_vid_mode_2 800x600
+  set gl_mode 2
+  vid_restart
+
+5:4 (1280x1024):
+
+  set _sp_cl_vid_mode_2 1280x1024
+  set gl_mode 2
+  vid_restart
+
+16:9 (1920x1080):
+
+  set _sp_cl_vid_mode_2 1920x1080
+  set gl_mode 2
+  vid_restart
+
+16:9 (2560x1440):
+
+  set _sp_cl_vid_mode_2 2560x1440
+  set gl_mode 2
+  vid_restart
+
+16:9 (3840x2160):
+
+  set _sp_cl_vid_mode_2 3840x2160
+  set gl_mode 2
+  vid_restart
+
+FOV handling:
+SoFplus adds _sp_cl_vid_fov. Value 0 preserves SoF's original fixed horizontal
+95-degree behavior. Value 1 preserves the original vertical view and derives a
+Hor+ horizontal FOV. Explicit horizontal values are documented in the 90..111
+range.
+
+For this project's 90-degree 4:3 FPS baseline:
+
+  4:3   set _sp_cl_vid_fov 90
+  16:9  set _sp_cl_vid_fov 106.2602
+
+If the installed SoFplus build accepts only whole-number explicit values, use
+106 for 16:9.
+
+The exact project 5:4 target of 86.3048 is below SoFplus's documented explicit
+90..111 range, so it cannot be represented by that cvar. For 5:4, either keep
+SoF's original aspect behavior or accept 90 as the closest explicit value.
+An exact 86.3048 target would require a source/client modification rather than
+a verified stock or SoFplus setting.
+
+==============================================================================
+08. RUNE (2000)
 ==============================================================================
 
 Config files:
@@ -445,7 +514,7 @@ depends on aspect ratio, not pixel count, so all listed 16:9 modes use the same
 FOV within the selected third-person or first-person option.
 
 ==============================================================================
-08. DEUS EX (2000)
+09. DEUS EX (2000)
 ==============================================================================
 
 Config files:
@@ -504,7 +573,67 @@ Deus Ex originally uses a narrower default FOV.  The settings above knowingly
 replace that stock value with this project's requested 90-degree 4:3 baseline.
 
 ==============================================================================
-09. GOTHIC (2001)
+10. RETURN TO CASTLE WOLFENSTEIN (2001) -- ORIGINAL PC
+==============================================================================
+
+Config files:
+Resolution and FOV can be kept in Main\autoexec.cfg. The engine-generated
+Main\wolfconfig.cfg contains the same cvars but may be rewritten.
+
+The original client accepts a custom mode with r_mode -1. Set the requested
+resolution and explicit horizontal FOV together:
+
+4:3 (800x600):
+
+  seta r_mode "-1"
+  seta r_customaspect "1"
+  seta r_customwidth "800"
+  seta r_customheight "600"
+  seta cg_fov "90"
+
+5:4 (1280x1024):
+
+  seta r_mode "-1"
+  seta r_customaspect "1"
+  seta r_customwidth "1280"
+  seta r_customheight "1024"
+  seta cg_fov "86.3048"
+
+16:9 (1920x1080):
+
+  seta r_mode "-1"
+  seta r_customaspect "1"
+  seta r_customwidth "1920"
+  seta r_customheight "1080"
+  seta cg_fov "106.2602"
+
+16:9 (2560x1440):
+
+  seta r_mode "-1"
+  seta r_customaspect "1"
+  seta r_customwidth "2560"
+  seta r_customheight "1440"
+  seta cg_fov "106.2602"
+
+16:9 (3840x2160):
+
+  seta r_mode "-1"
+  seta r_customaspect "1"
+  seta r_customwidth "3840"
+  seta r_customheight "2160"
+  seta cg_fov "106.2602"
+
+Run vid_restart after changing renderer mode values during a running session.
+
+Stock single-player RTCW can overwrite cg_fov when a new level starts. Reapply
+the value after a level load if necessary. +set sv_cheats 1 is a known stock
+workaround for retaining a custom FOV, but starting a New Game can reset the
+state; using an autoexec/bind and reapplying cg_fov is the less intrusive
+approach. iortcw provides cleaner modern widescreen handling, but is not
+required for the original-client method documented above.
+
+==============================================================================
+11. GOTHIC (2001)
 ==============================================================================
 
 Config files:
@@ -573,7 +702,7 @@ Target convention for comparison:
   16:9 3840x2160  horizontal target: 106.2602
 
 ==============================================================================
-10. GOTHIC II (2002)
+12. GOTHIC II (2002)
 ==============================================================================
 
 Config files:
@@ -641,7 +770,7 @@ Target convention for comparison:
   16:9 3840x2160  horizontal target: 106.2602
 
 ==============================================================================
-11. GOTHIC 3 (2006)
+13. GOTHIC 3 (2006)
 ==============================================================================
 
 Config files:
@@ -701,7 +830,7 @@ window offset.  Gothic 3's stock Camera.FOV is narrower; the values above use
 the requested project baseline.
 
 ==============================================================================
-12. THE ELDER SCROLLS III: MORROWIND (2002)
+14. THE ELDER SCROLLS III: MORROWIND (2002)
 ==============================================================================
 
 Config files:
@@ -764,7 +893,7 @@ active.  This preserves use of the original Morrowind executable rather than
 replacing the engine with OpenMW.
 
 ==============================================================================
-13. THE ELDER SCROLLS IV: OBLIVION (2006)
+15. THE ELDER SCROLLS IV: OBLIVION (2006)
 ==============================================================================
 
 Config files:
@@ -808,7 +937,7 @@ Tweaks is useful if you want a cleaner modern implementation, but the INI
 settings above are the native configuration values.
 
 ==============================================================================
-14. THE ELDER SCROLLS V: SKYRIM (2011)
+16. THE ELDER SCROLLS V: SKYRIM (2011)
 ==============================================================================
 
 Config files:
@@ -878,7 +1007,7 @@ for 5:4, or:
 The console-only change is not permanent; use Skyrim.ini for persistence.
 
 ==============================================================================
-15. FALLOUT 3 (2008)
+17. FALLOUT 3 (2008)
 ==============================================================================
 
 Config files:
@@ -950,7 +1079,7 @@ or misalign interface presentation, so it is not required for this project's
 world-camera FOV target.
 
 ==============================================================================
-16. VIETCONG (2003)
+18. VIETCONG (2003)
 ==============================================================================
 
 Config files:
@@ -1005,7 +1134,7 @@ performs
 the aspect correction rather than accepting that exact number directly.
 
 ==============================================================================
-17. RED FACTION (2001)
+19. RED FACTION (2001)
 ==============================================================================
 
 Config files:
@@ -1059,7 +1188,7 @@ The first-person weapon FOV is separate (r_fpgunfov); leave it at its default
 unless you specifically want to alter weapon-model framing as well.
 
 ==============================================================================
-18. THIEF: THE DARK PROJECT (1998) -- NewDark
+20. THIEF: THE DARK PROJECT (1998) -- NewDark
 ==============================================================================
 
 Config files:
@@ -1110,7 +1239,7 @@ line above is useful when you want the exact project values rather than the
 automatic value.
 
 ==============================================================================
-19. SYSTEM SHOCK 2 (1999) -- NewDark
+21. SYSTEM SHOCK 2 (1999) -- NewDark
 ==============================================================================
 
 Config files:
@@ -1160,7 +1289,7 @@ NewDark normally calculates FOV from the aspect ratio automatically.  Keep the
 explicit fov line only when you want the exact project values shown here.
 
 ==============================================================================
-20. QUICK REFERENCE
+22. QUICK REFERENCE
 ==============================================================================
 
   - Duke Nukem 3D / EDuke32: menu FOV; Polymer legacy uses BUILD units
@@ -1169,9 +1298,12 @@ explicit fov line only when you want the exact project values shown here.
   - Unreal: Unreal.ini + User.ini
   - Unreal Tournament 1999: UnrealTournament.ini + User.ini
   - Half-Life WON: WON patch + autoexec.cfg default_fov
+  - Soldier of Fortune: SoFplus custom mode; stock FOV is fixed; exact 5:4
+    project FOV is not available through documented SoFplus range
   - Rune: Rune.ini + User.ini; third-person 75 baseline / first-person 90
     baseline
   - Deus Ex: DeusEx.ini + User.ini
+  - Return to Castle Wolfenstein: r_mode -1 + custom size + cg_fov
   - Gothic: Gothic.ini + SystemPack Hor+ calculation
   - Gothic II: Gothic.ini + SystemPack Hor+ calculation
   - Gothic 3: ge3.ini Camera.FOV
@@ -1193,7 +1325,7 @@ Canonical project mapping:
   16:9 (3840x2160)  fov: 106.2602
 
 ==============================================================================
-21. SOURCE / VERIFICATION NOTES
+23. SOURCE / VERIFICATION NOTES
 ==============================================================================
 The methods above were checked against engine/source-port documentation,
 released source code where available, configuration references, and
@@ -1220,6 +1352,10 @@ therefore use the same project FOV value.
   - Half-Life WON Resolution/FOV patch documentation for the original
     retail/WON 1.1.1.0 executable
     ModDB: Resolution patch for WON Half-Life
+  - Soldier of Fortune / SoFplus: custom modes and FOV handling
+    https://sof1.megalag.org/sofplus/
+    WSGF stock SoF fixed-FOV behavior
+    https://www.wsgf.org/dr/soldier-fortune/en
   - Rune widescreen/FOV documentation: Rune.ini FullscreenViewportX/Y and
     User.ini DesiredFOV/DefaultFOV; stock FOV 75 and 16:9 guidance
     https://www.pcgamingwiki.com/wiki/Rune
@@ -1227,6 +1363,9 @@ therefore use the same project FOV value.
   - PCGamingWiki Deus Ex documentation: widescreen, DesiredFOV,
     DefaultFOV, and the fov console command
     https://www.pcgamingwiki.com/wiki/Deus_Ex
+  - PCGamingWiki Return to Castle Wolfenstein: r_mode -1 custom resolution
+    and cg_fov behavior
+    https://www.pcgamingwiki.com/wiki/Return_to_Castle_Wolfenstein
   - Gothic SystemPack configuration: VerticalFOV and NewFOVformula
     GitHub: dosinabox/g1_steam_fix, SystemPack_int.ini
   - Gothic 3 community configuration references: ge3.ini [Window] settings

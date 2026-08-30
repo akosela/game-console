@@ -69,6 +69,17 @@ window.GAME_CONSOLE_DOCS = {
       ]
     },
     {
+      "file": "soldier-of-fortune-console.txt",
+      "title": "Soldier of Fortune",
+      "group": "Console References",
+      "tags": [
+        "soldier-of-fortune",
+        "sof",
+        "raven",
+        "console"
+      ]
+    },
+    {
       "file": "rune-console.txt",
       "title": "Rune",
       "group": "Console References",
@@ -85,6 +96,17 @@ window.GAME_CONSOLE_DOCS = {
       "tags": [
         "deus ex",
         "ue1",
+        "console"
+      ]
+    },
+    {
+      "file": "return-to-castle-wolfenstein-console.txt",
+      "title": "Return to Castle Wolfenstein",
+      "group": "Console References",
+      "tags": [
+        "return-to-castle-wolfenstein",
+        "rtcw",
+        "id-tech-3",
         "console"
       ]
     },

@@ -1,0 +1,213 @@
+SOLDIER OF FORTUNE (2000) -- CONSOLE COMMAND REFERENCE
+==============================================================================
+
+  Dir     Campaign / mod      Developer           Released
+  base    Soldier of Fortune  Raven Software      2000
+  silver  Silver Forces       Silver Forces Team  2001
+
+IMPORTANT:
+Scope: original Soldier of Fortune / official-era Raven client. SoFplus adds
+extra cvars for modern widescreen and compatibility, but those extension-only
+commands are not treated as original console commands below.
+
+==============================================================================
+1. CONSOLE BASICS
+==============================================================================
+
+Enable the console by adding this to the SoF.exe shortcut/command line:
+
+  +set console 1
+
+Then press the grave/tilde key (~) in game.
+
+cheats 1
+  Enables the single-player cheat command set where required.
+
+cmdlist
+  Lists registered console commands.
+
+cvarlist
+  Lists registered console variables.
+
+bind <key> <command>
+  Binds a command to a key.
+
+exec <file>
+  Executes a console/config script.
+
+set <cvar> <value>
+  Changes a console variable.
+
+condump <file>
+  Writes console text to a file.
+
+clear
+  Clears visible console text.
+
+==============================================================================
+2. GAMEPLAY / CHEAT COMMANDS
+==============================================================================
+
+heretic
+  God mode / invincibility.
+
+phantom
+  No-clipping mode; move through walls and geometry.
+
+ninja
+  No-target mode; enemies do not see/target the player normally.
+
+elbow
+  Gives the first weapon group.
+
+bigelbow
+  Gives the later/heavier weapon group.
+
+defaultweapons
+  Restores/gives the default weapon set.
+
+updateinvfinal
+  Adds ammunition/inventory supplies.
+
+killallmonsters
+  Kills the current level's enemies.
+
+matrix <value>
+  Changes timescale; commonly documented with values 1 through 10.
+
+gimme <item>
+  Spawns/gives the named item or entity.
+
+map <mapname>
+  Loads the named map.
+
+kill
+  Kills the player.
+
+==============================================================================
+3. PLAYER / GAME CVARS
+==============================================================================
+
+scr_interface <0|1>
+  Shows or hides the normal HUD/interface.
+
+crosshair <0..4>
+  Selects a crosshair; 0 disables it.
+
+cl_gun <0|1>
+  Controls display of the first-person weapon model.
+
+cl_showfps <0|1>
+  Toggles the frame-rate display in the original client.
+
+viewsize <value>
+  Controls the rendered view size.
+
+freelook <0|1>
+  Enables normal mouse freelook behavior.
+
+fov
+  Exists as a userinfo cvar for remote-camera use, but the original game's
+  normal gameplay FOV is not user-adjustable through this cvar. Do not treat
+  it like Quake/GoldSrc's ordinary gameplay FOV command.
+
+==============================================================================
+4. VIDEO / CONSOLE
+==============================================================================
+
+gl_mode <3..8>
+  Selects one of the original fixed screen-resolution modes.
+
+gl_bitdepth <0|16|32>
+  Selects automatic, 16-bit, or 32-bit color depth.
+
+gl_texturemode <mode>
+  Selects the OpenGL texture filtering mode.
+
+  Examples used by the Quake-derived renderer family include:
+    GL_NEAREST
+    GL_NEAREST_MIPMAP_NEAREST
+    GL_LINEAR_MIPMAP_NEAREST
+    GL_LINEAR_MIPMAP_LINEAR
+
+gl_picmip <value>
+  Reduces texture detail as the value increases.
+
+gl_detailtexturing <value>
+  Controls Soldier of Fortune detail texturing.
+
+vid_fullscreen <0|1>
+  Selects windowed or fullscreen output.
+
+vid_gamma <value>
+  Adjusts gamma.
+
+vid_brightness <value>
+  Adjusts brightness.
+
+vid_contrast <value>
+  Adjusts contrast.
+
+vid_restart
+  Restarts the video subsystem after renderer changes.
+
+==============================================================================
+5. GAME / DEBUG / INFORMATION
+==============================================================================
+
+developer <0|1|4|5>
+  Controls developer diagnostics; higher documented values expose additional
+  internal information.
+
+mapname
+  Displays the currently loaded map name/state cvar.
+
+version
+  Prints client/version information where supported by the installed build.
+
+logfile <value>
+  Controls console logging.
+
+showpackets <0|1>
+  Toggles network packet diagnostics.
+
+showdrop <0|1>
+  Toggles dropped-packet diagnostics.
+
+==============================================================================
+6. MULTIPLAYER
+==============================================================================
+
+connect <address>
+  Connects to a multiplayer server.
+
+disconnect
+  Disconnects from the current server.
+
+reconnect
+  Reconnects to the last server.
+
+rate <value>
+  Sets the client network rate.
+
+name <string>
+  Sets the multiplayer player name.
+
+teamname <string>
+  Selects/sets the team name where applicable.
+
+==============================================================================
+SOURCES. VERIFICATION NOTES
+==============================================================================
+
+The exact installed build remains the final authority; use cmdlist and cvarlist
+for its complete registry.
+
+  - Soldier of Fortune 1 Forums: Complete CVAR list with descriptions
+    https://sof1.org/viewtopic.php?t=230
+  - GameFAQs: Soldier of Fortune PC cheats / console activation
+    https://gamefaqs.gamespot.com/pc/198689-soldier-of-fortune/cheats
+  - SoFplus documentation: original FOV behavior and added widescreen cvars
+    https://sof1.megalag.org/sofplus/
+  - Widescreen Gaming Forum: stock SoF fixed FOV / resolution patch behavior
+    https://www.wsgf.org/dr/soldier-fortune/en
